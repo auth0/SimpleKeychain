@@ -42,7 +42,7 @@
     if (self) {
         _service = service;
         _accessGroup = accessGroup;
-        _defaultAccesiblity = kSecAttrAccessibleAfterFirstUnlock;
+        _defaultAccesiblity = A0KeychainItemAccessibleAfterFirstUnlock;
     }
     return self;
 }
@@ -144,6 +144,38 @@
     return [[A0Keychain alloc] initWithService:service accessGroup:accessGroup];
 }
 
+#pragma mark - Utility methods
+
+- (CFTypeRef)accessibility {
+    CFTypeRef accessibility;
+    switch (self.defaultAccesiblity) {
+        case A0KeychainItemAccessibleAfterFirstUnlock:
+            accessibility = kSecAttrAccessibleAfterFirstUnlock;
+            break;
+        case A0KeychainItemAccessibleAlways:
+            accessibility = kSecAttrAccessibleAlways;
+            break;
+        case A0KeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
+            accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
+            break;
+        case A0KeychainItemAccessibleAlwaysThisDeviceOnly:
+            accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
+            break;
+        case A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
+            accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
+            break;
+        case A0KeychainItemAccessibleWhenUnlocked:
+            accessibility = kSecAttrAccessibleWhenUnlocked;
+            break;
+        case A0KeychainItemAccessibleWhenUnlockedThisDeviceOnly:
+            accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
+            break;
+        default:
+            accessibility = kSecAttrAccessibleAfterFirstUnlock;
+    }
+    return accessibility;
+}
+
 #pragma mark - Query Dictionary Builder methods
 
 - (NSMutableDictionary *)baseQuery {
@@ -185,7 +217,7 @@
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
     query[(__bridge id)kSecValueData] = value;
-    query[(__bridge id)kSecAttrAccessible] = (__bridge id)self.defaultAccesiblity;
+    query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
     return query;
 }
 

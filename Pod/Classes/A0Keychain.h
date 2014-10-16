@@ -22,11 +22,42 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, A0KeychainItemAccessible) {
+    /**
+     *  @see kSecAttrAccessibleWhenUnlocked
+     */
+    A0KeychainItemAccessibleWhenUnlocked = 0,
+    /**
+     *  @see kSecAttrAccessibleAfterFirstUnlock
+     */
+    A0KeychainItemAccessibleAfterFirstUnlock,
+    /**
+     *  @see kSecAttrAccessibleAlways
+     */
+    A0KeychainItemAccessibleAlways,
+    /**
+     *  @see kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
+     */
+    A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly,
+    /**
+     *  @see kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+     */
+    A0KeychainItemAccessibleWhenUnlockedThisDeviceOnly,
+    /**
+     *  kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+     */
+    A0KeychainItemAccessibleAfterFirstUnlockThisDeviceOnly,
+    /**
+     *  @see kSecAttrAccessibleAlwaysThisDeviceOnly
+     */
+    A0KeychainItemAccessibleAlwaysThisDeviceOnly
+};
+
 @interface A0Keychain : NSObject
 
 @property (readonly, nonatomic) NSString *service;
 @property (readonly, nonatomic) NSString *accessGroup;
-@property (assign, nonatomic) CFTypeRef defaultAccesiblity;
+@property (assign, nonatomic) A0KeychainItemAccessible defaultAccesiblity;
 
 - (instancetype)init;
 - (instancetype)initWithService:(NSString *)service;
