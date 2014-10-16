@@ -24,15 +24,22 @@
 #import <A0Keychain/A0Keychain.h>
 
 @interface A0ViewController ()
-
+@property (strong, nonatomic) A0Keychain *keychain;
 @end
 
 @implementation A0ViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.keychain = [A0Keychain keychain];
+    self.keychain.useAccessControl = YES;
+    self.keychain.defaultAccesiblity = A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+}
+
 - (void)save:(id)sender {
     NSString *value = self.valueField.text;
     if (value) {
-        [[A0Keychain keychain] setString:value forKey:@"auth0-keychain-sample"];
+        [self.keychain setString:value forKey:@"auth0-keychain-sample"];
         self.messageLabel.text = [NSString stringWithFormat:@"Saved value '%@' in the Keychain", value];
     } else {
         self.messageLabel.text = @"Please enter a value to save in the Keychain";
@@ -40,7 +47,7 @@
 }
 
 - (void)load:(id)sender {
-    NSString *value = [[A0Keychain keychain] stringForKey:@"auth0-keychain-sample"];
+    NSString *value = [self.keychain stringForKey:@"auth0-keychain-sample"];
     if (value) {
         self.messageLabel.text = [NSString stringWithFormat:@"Obtained value '%@' from the Keychain", value];
     } else {
@@ -50,7 +57,7 @@
 }
 
 - (void)remove:(id)sender {
-    [[A0Keychain keychain] deleteEntryForKey:@"auth0-keychain-sample"];
+    [self.keychain deleteEntryForKey:@"auth0-keychain-sample"];
     self.valueField.text = nil;
     self.messageLabel.text = @"Entry deleted from Keychain";
 }

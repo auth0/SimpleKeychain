@@ -58,6 +58,8 @@ typedef NS_ENUM(NSInteger, A0KeychainItemAccessible) {
 @property (readonly, nonatomic) NSString *service;
 @property (readonly, nonatomic) NSString *accessGroup;
 @property (assign, nonatomic) A0KeychainItemAccessible defaultAccesiblity;
+@property (assign, nonatomic) BOOL useAccessControl;
+
 
 - (instancetype)init;
 - (instancetype)initWithService:(NSString *)service;

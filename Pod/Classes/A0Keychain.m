@@ -43,6 +43,7 @@
         _service = service;
         _accessGroup = accessGroup;
         _defaultAccesiblity = A0KeychainItemAccessibleAfterFirstUnlock;
+        _useAccessControl = NO;
     }
     return self;
 }
@@ -221,7 +222,16 @@
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
     query[(__bridge id)kSecValueData] = value;
-    query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
+    if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+        CFErrorRef error = NULL;
+        SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
+        if (error == NULL || accessControl == NULL) {
+            query[(__bridge id)kSecAttrAccessControl] = (__bridge id)accessControl;
+            query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
+        }
+    } else {
+        query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
+    }
     return query;
 }
 
