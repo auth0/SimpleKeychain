@@ -26,18 +26,16 @@
 
 @property (readonly, nonatomic) NSString *service;
 @property (readonly, nonatomic) NSString *accessGroup;
-@property (assign, nonatomic) CFTypeRef accesiblity;
+@property (assign, nonatomic) CFTypeRef defaultAccesiblity;
 
 - (instancetype)init;
 - (instancetype)initWithService:(NSString *)service;
 - (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
-- (void)setString:(NSString *)string forKey:(NSString *)key;
-- (void)setData:(NSData *)data forKey:(NSString *)key;
-- (void)setString:(NSString *)string forKey:(NSString *)key useACL:(BOOL)useACL;
-- (void)setData:(NSData *)data forKey:(NSString *)key;
-- (void)setData:(NSData *)data forKey:(NSString *)key useACL:(BOOL)useACL;
-- (void)deleteEntryForKey:(NSString *)key;
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key;
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key;
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key;
+- (BOOL)deleteEntryForKey:(NSString *)key;
 - (void)clearAll;
 
 - (NSString *)stringForKey:(NSString *)key;

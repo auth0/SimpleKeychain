@@ -42,39 +42,94 @@
     if (self) {
         _service = service;
         _accessGroup = accessGroup;
-        _accesiblity = kSecAttrAccessibleAfterFirstUnlock;
+        _defaultAccesiblity = kSecAttrAccessibleAfterFirstUnlock;
     }
     return self;
 }
 
 - (NSString *)stringForKey:(NSString *)key {
-    return nil;
+    NSData *data = [self dataForKey:key];
+    NSString *string;
+    if (data) {
+        string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    return string;
 }
 
 - (NSData *)dataForKey:(NSString *)key {
-    return nil;
+    if (!key) {
+        return nil;
+    }
+
+    NSDictionary *query = [self queryFetchOneByKey:key];
+    CFTypeRef data = nil;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
+    if (status != errSecSuccess) {
+        return nil;
+    }
+
+    NSData *dataFound = [NSData dataWithData:(__bridge NSData *)data];
+    if (data) {
+        CFRelease(data);
+    }
+
+    return dataFound;
 }
 
-- (void)setString:(NSString *)string forKey:(NSString *)key {
-    return [self setString:string forKey:key useACL:NO];
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key {
+    NSData *data = key ? [string dataUsingEncoding:NSUTF8StringEncoding] : nil;
+    return [self setData:data forKey:key];
 }
 
-- (void)setString:(NSString *)string forKey:(NSString *)key useACL:(BOOL)useACL {
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
-    [self setData:data forKey:key useACL:useACL];
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key {
+    if (!key) {
+        return NO;
+    }
+
+    NSDictionary *query = [self queryFindByKey:key];
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
+    if (status == errSecSuccess) {
+        if (data) {
+            NSDictionary *updateQuery = [self queryUpdateValue:data];
+            status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)updateQuery);
+            return status == errSecSuccess;
+        } else {
+            OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
+            return status == errSecSuccess;
+        }
+    } else {
+        NSDictionary *newQuery = [self queryNewKey:key value:data];
+        OSStatus status = SecItemAdd((__bridge CFDictionaryRef)newQuery, NULL);
+        return status == errSecSuccess;
+    }
 }
 
-- (void)setData:(NSData *)data forKey:(NSString *)key {
-    [self setData:data forKey:key useACL:NO];
-}
-
-- (void)setData:(NSData *)data forKey:(NSString *)key useACL:(BOOL)useACL {
-}
-
-- (void)deleteEntryForKey:(NSString *)key {
+- (BOOL)deleteEntryForKey:(NSString *)key {
+    if (!key) {
+        return NO;
+    }
+    NSDictionary *deleteQuery = [self queryFindByKey:key];
+    OSStatus status = SecItemDelete((__bridge CFDictionaryRef)deleteQuery);
+    return status == errSecSuccess;
 }
 
 - (void)clearAll {
+    NSDictionary *query = [self queryFindAll];
+    CFArrayRef result = nil;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+    if (status == errSecSuccess || status == errSecItemNotFound) {
+        NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
+        CFBridgingRelease(result);
+        for (NSDictionary *item in items) {
+            NSMutableDictionary *queryDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
+            queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
+
+            OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
+            if (status != errSecSuccess) {
+                break;
+            }
+        }
+    }
 }
 
 + (A0Keychain *)keychain {
@@ -89,4 +144,59 @@
     return [[A0Keychain alloc] initWithService:service accessGroup:accessGroup];
 }
 
+#pragma mark - Query Dictionary Builder methods
+
+- (NSMutableDictionary *)baseQuery {
+    NSMutableDictionary *attributes = [@{
+                                         (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
+                                         (__bridge id)kSecAttrService: self.service,
+                                         } mutableCopy];
+#if !TARGET_IPHONE_SIMULATOR
+    if (self.accessGroup) {
+        attributes[(__bridge id)kSecAttrAccessGroup] = self.accessGroup;
+    }
+#endif
+
+    return attributes;
+}
+
+- (NSDictionary *)queryFindAll {
+    NSMutableDictionary *query = [self baseQuery];
+    [query addEntriesFromDictionary:@{
+                                     (__bridge id)kSecReturnAttributes: @YES,
+                                     (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitAll,
+                                     }];
+    return query;
+}
+
+- (NSDictionary *)queryFindByKey:(NSString *)key {
+    NSMutableDictionary *query = [self baseQuery];
+    query[(__bridge id)kSecAttrAccount] = key;
+    return query;
+}
+
+- (NSDictionary *)queryUpdateValue:(NSData *)data {
+    return @{
+             (__bridge id)kSecValueData: data,
+             };
+}
+
+- (NSDictionary *)queryNewKey:(NSString *)key value:(NSData *)value {
+    NSMutableDictionary *query = [self baseQuery];
+    query[(__bridge id)kSecAttrAccount] = key;
+    query[(__bridge id)kSecValueData] = value;
+    query[(__bridge id)kSecAttrAccessible] = (__bridge id)self.defaultAccesiblity;
+    return query;
+}
+
+- (NSDictionary *)queryFetchOneByKey:(NSString *)key {
+    NSMutableDictionary *query = [self baseQuery];
+    [query addEntriesFromDictionary:@{
+                                      (__bridge id)kSecReturnData: @YES,
+                                      (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne,
+                                      (__bridge id)kSecAttrAccount: key,
+                                      }];
+
+    return query;
+}
 @end
