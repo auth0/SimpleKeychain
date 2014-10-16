@@ -29,10 +29,6 @@
 
 @implementation A0ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (void)save:(id)sender {
     NSString *value = self.valueField.text;
     if (value) {

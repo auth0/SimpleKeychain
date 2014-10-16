@@ -162,7 +162,11 @@
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
             break;
         case A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
-            accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
+            if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) { //iOS 8
+                accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
+            } else { //iOS <= 7.1
+                accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
+            }
             break;
         case A0KeychainItemAccessibleWhenUnlocked:
             accessibility = kSecAttrAccessibleWhenUnlocked;
