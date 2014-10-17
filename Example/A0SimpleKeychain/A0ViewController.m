@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 #import "A0ViewController.h"
-#import <A0SimpleKeychain/A0SimpleKeychain.h>
+#import <SimpleKeychain/A0SimpleKeychain.h>
 
 @interface A0ViewController ()
 @property (strong, nonatomic) A0SimpleKeychain *keychain;
