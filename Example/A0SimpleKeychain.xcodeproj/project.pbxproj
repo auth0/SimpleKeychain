@@ -66,7 +66,7 @@
 		6665BE88E127EF915E4260EB /* Pods-A0SimpleKeychain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A0SimpleKeychain.release.xcconfig"; path = "Pods/Target Support Files/Pods-A0SimpleKeychain/Pods-A0SimpleKeychain.release.xcconfig"; sourceTree = "<group>"; };
 		AA55D42E784D4AEF25AA1188 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B3AF928BB87225366D02BB72 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		CB67AE5BD3AF875F83C46647 /* A0SimpleKeychain.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = A0SimpleKeychain.podspec; path = ../A0SimpleKeychain.podspec; sourceTree = "<group>"; };
+		CB67AE5BD3AF875F83C46647 /* SimpleKeychain.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SimpleKeychain.podspec; path = ../SimpleKeychain.podspec; sourceTree = "<group>"; };
 		DA168A7FA9C01812F18D9125 /* Pods-A0SimpleKeychain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A0SimpleKeychain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A0SimpleKeychain/Pods-A0SimpleKeychain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,7 +190,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				CB67AE5BD3AF875F83C46647 /* A0SimpleKeychain.podspec */,
+				CB67AE5BD3AF875F83C46647 /* SimpleKeychain.podspec */,
 				B3AF928BB87225366D02BB72 /* README.md */,
 				347B8648A01B1152216FFCFF /* LICENSE */,
 			);
