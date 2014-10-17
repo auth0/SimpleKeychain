@@ -22,6 +22,13 @@
 
 #import <Foundation/Foundation.h>
 
+///---------------------------------------------------
+/// @name Keychain Items Accessibility Values
+///---------------------------------------------------
+
+/**
+ *  Enum with Kechain items accessibility types. It's a mirror of `kSecAttrAccessible` values.
+ */
 typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     /**
      *  @see kSecAttrAccessibleWhenUnlocked
@@ -53,35 +60,191 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly
 };
 
+/**
+ *  A simple helper class to deal with storing and retrieving values from iOS Keychain.
+ *  It has support for sharing keychain items using Access Group and also for iOS 8 fine grained accesibility over a specific Kyechain Item (Using Access Control).
+ *  The support is only available for iOS 8+, otherwise it will default using the coarse grained accesibility field.
+ *  When a `NSString` or `NSData` is stored using Access Control and the accesibility flag `A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly`, iOS will prompt the user for it's passcode or pass a TouchID challenge (if available).
+ */
 @interface A0SimpleKeychain : NSObject
 
+/**
+ *  Service name under all items are saved. Default value is Bundle Identifier.
+ */
 @property (readonly, nonatomic) NSString *service;
+/**
+ *  Access Group for Keychain item sharing. If it's nil no keychain sharing is possible. Default value is nil.
+ */
 @property (readonly, nonatomic) NSString *accessGroup;
+/**
+ *  What type of accessibility the items stored will have. All values are translated to `kSecAttrAccessible` constants.
+ *  Default value is A0SimpleKeychainItemAccessibleAfterFirstUnlock.
+ *  @see kSecAttrAccessible
+ */
 @property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccesiblity;
+/**
+ *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
+ *  Default value is NO.
+ */
 @property (assign, nonatomic) BOOL useAccessControl;
 
 
+///---------------------------------------------------
+/// @name Initialization
+///---------------------------------------------------
+
+/**
+ *  Initialise a `A0SimpleKeychain` with default values.
+ *
+ *  @return an initialised instance
+ */
 - (instancetype)init;
+/**
+ *  Initialise a `A0SimpleKeychain` with a given service.
+ *
+ *  @param service name of the service to use to save items.
+ *
+ *  @return an initialised instance.
+ */
 - (instancetype)initWithService:(NSString *)service;
+/**
+ *  Initialise a `A0SimpleKeychain` with a given service and access group.
+ *
+ *  @param service name of the service to use to save items.
+ *  @param accessGroup name of the access group to share items.
+ *
+ *  @return an initialised instance.
+ */
 - (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
+///---------------------------------------------------
+/// @name Store values
+///---------------------------------------------------
+
+/**
+ *  Saves the NSString with the type `kSecClassGenericPassword` in the keychain.
+ *
+ *  @param string value to save in the keychain
+ *  @param key    key for the keychain entry.
+ *
+ *  @return if the value was saved it will return YES. Otherwise it'll return NO.
+ */
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key;
+/**
+ *  Saves the NSData with the type `kSecClassGenericPassword` in the keychain.
+ *
+ *  @param data value to save in the keychain
+ *  @param key    key for the keychain entry.
+ *
+ *  @return if the value was saved it will return YES. Otherwise it'll return NO.
+ */
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key;
 
+/**
+ *  Saves the NSString with the type `kSecClassGenericPassword` in the keychain.
+ *
+ *  @param string   value to save in the keychain
+ *  @param key      key for the keychain entry.
+ *  @param message  prompt message to display for TouchID/passcode prompt if neccesary
+ *
+ *  @return if the value was saved it will return YES. Otherwise it'll return NO.
+ */
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(NSString *)message;
+/**
+ *  Saves the NSData with the type `kSecClassGenericPassword` in the keychain.
+ *
+ *  @param string   value to save in the keychain
+ *  @param key      key for the keychain entry.
+ *  @param message  prompt message to display for TouchID/passcode prompt if neccesary
+ *
+ *  @return if the value was saved it will return YES. Otherwise it'll return NO.
+ */
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message;
 
+///---------------------------------------------------
+/// @name Remove values
+///---------------------------------------------------
+
+/**
+ *  Removes an entry from the Keychain using its key
+ *
+ *  @param key the key of the entry to delete.
+ *
+ *  @return If the entry was removed it will return YES. Otherwise it will return NO.
+ */
 - (BOOL)deleteEntryForKey:(NSString *)key;
+/**
+ *  Remove all entries from the kechain with the service and access group values.
+ */
 - (void)clearAll;
 
+///---------------------------------------------------
+/// @name Obtain values
+///---------------------------------------------------
+
+/**
+ *  Fetches a NSString from the keychain
+ *
+ *  @param key the key of the value to fetch
+ *
+ *  @return the value or nil if an error occurs.
+ */
 - (NSString *)stringForKey:(NSString *)key;
+
+/**
+ *  Fetches a NSData from the keychain
+ *
+ *  @param key the key of the value to fetch
+ *
+ *  @return the value or nil if an error occurs.
+ */
 - (NSData *)dataForKey:(NSString *)key;
 
+/**
+ *  Fetches a NSString from the keychain
+ *
+ *  @param key     the key of the value to fetch
+ *  @param message prompt message to display for TouchID/passcode prompt if neccesary
+ *
+ *  @return the value or nil if an error occurs.
+ */
 - (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message;
+/**
+ *  Fetches a NSData from the keychain
+ *
+ *  @param key     the key of the value to fetch
+ *  @param message prompt message to display for TouchID/passcode prompt if neccesary
+ *
+ *  @return the value or nil if an error occurs.
+ */
 - (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message;
 
+///---------------------------------------------------
+/// @name Create helper methods
+///---------------------------------------------------
+
+/**
+ *  Creates a new instance of `A0SimpleKeychain`
+ *
+ *  @return a new instance
+ */
 + (A0SimpleKeychain *)keychain;
+/**
+ *  Creates a new instance of `A0SimpleKeychain` with a service name.
+ *
+ *  @param service name of the service under all items will be stored.
+ *
+ *  @return a new instance
+ */
 + (A0SimpleKeychain *)keychainWithService:(NSString *)service;
+/**
+ *  Creates a new instance of `A0SimpleKeychain` with a service name and access group
+ *
+ *  @param service     name of the service under all items will be stored.
+ *  @param accessGroup name of the access group to share keychain items.
+ *
+ *  @return a new instance
+ */
 + (A0SimpleKeychain *)keychainWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
 @end
