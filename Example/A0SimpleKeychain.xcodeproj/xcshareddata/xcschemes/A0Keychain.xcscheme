@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "A0Keychain.app"
-               BlueprintName = "A0Keychain"
-               ReferencedContainer = "container:A0Keychain.xcodeproj">
+               BuildableName = "A0SimpleKeychain.app"
+               BlueprintName = "A0SimpleKeychain"
+               ReferencedContainer = "container:A0SimpleKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
                BuildableName = "Tests.xctest"
                BlueprintName = "Tests"
-               ReferencedContainer = "container:A0Keychain.xcodeproj">
+               ReferencedContainer = "container:A0SimpleKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "A0Keychain.app"
-            BlueprintName = "A0Keychain"
-            ReferencedContainer = "container:A0Keychain.xcodeproj">
+            BuildableName = "A0SimpleKeychain.app"
+            BlueprintName = "A0SimpleKeychain"
+            ReferencedContainer = "container:A0SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "A0Keychain.app"
-            BlueprintName = "A0Keychain"
-            ReferencedContainer = "container:A0Keychain.xcodeproj">
+            BuildableName = "A0SimpleKeychain.app"
+            BlueprintName = "A0SimpleKeychain"
+            ReferencedContainer = "container:A0SimpleKeychain.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "A0Keychain.app"
-            BlueprintName = "A0Keychain"
-            ReferencedContainer = "container:A0Keychain.xcodeproj">
+            BuildableName = "A0SimpleKeychain.app"
+            BlueprintName = "A0SimpleKeychain"
+            ReferencedContainer = "container:A0SimpleKeychain.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5FFC0EED19EEFFB0001D4CE7 /* A0KeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC0EEC19EEFFB0001D4CE7 /* A0KeychainSpec.m */; };
+		5FFC0EED19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC0EEC19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m */; };
 		5FFC0EF019EF5C14001D4CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFC0EF219EF5C14001D4CE7 /* Main.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -21,7 +21,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		7B15CEF1EDD87BC497A633DA /* libPods-A0Keychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB50F3BBED5B2EF9E507CFA6 /* libPods-A0Keychain.a */; };
+		73DA12371A662D292F05DAE5 /* libPods-A0SimpleKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C4330BEC1F30E98B12C337 /* libPods-A0SimpleKeychain.a */; };
 		B77E07F97C5EA44744E5403D /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 422B961556875ABC5B25B244 /* libPods-Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -37,19 +37,19 @@
 
 /* Begin PBXFileReference section */
 		153B5B2A16467EA8586CF73E /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		21C4330BEC1F30E98B12C337 /* libPods-A0SimpleKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-A0SimpleKeychain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347B8648A01B1152216FFCFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		422B961556875ABC5B25B244 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4373B8371BCA0F701EF27033 /* Pods-A0Keychain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A0Keychain.release.xcconfig"; path = "Pods/Target Support Files/Pods-A0Keychain/Pods-A0Keychain.release.xcconfig"; sourceTree = "<group>"; };
-		5FFC0EEC19EEFFB0001D4CE7 /* A0KeychainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0KeychainSpec.m; sourceTree = "<group>"; };
+		5FFC0EEC19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychainSpec.m; sourceTree = "<group>"; };
 		5FFC0EF119EF5C14001D4CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* A0Keychain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A0Keychain.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* A0SimpleKeychain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A0SimpleKeychain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F595195388D20070C39A /* A0Keychain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "A0Keychain-Info.plist"; sourceTree = "<group>"; };
+		6003F595195388D20070C39A /* A0SimpleKeychain-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "A0SimpleKeychain-Info.plist"; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* A0Keychain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "A0Keychain-Prefix.pch"; sourceTree = "<group>"; };
+		6003F59B195388D20070C39A /* A0SimpleKeychain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "A0SimpleKeychain-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* A0AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A0AppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* A0AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = A0AppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* A0ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A0ViewController.h; sourceTree = "<group>"; };
@@ -60,11 +60,11 @@
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		72E3376E70A8C59BA2B6AFC4 /* Pods-A0Keychain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A0Keychain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A0Keychain/Pods-A0Keychain.debug.xcconfig"; sourceTree = "<group>"; };
+		6665BE88E127EF915E4260EB /* Pods-A0SimpleKeychain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A0SimpleKeychain.release.xcconfig"; path = "Pods/Target Support Files/Pods-A0SimpleKeychain/Pods-A0SimpleKeychain.release.xcconfig"; sourceTree = "<group>"; };
 		AA55D42E784D4AEF25AA1188 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B3AF928BB87225366D02BB72 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		BB50F3BBED5B2EF9E507CFA6 /* libPods-A0Keychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-A0Keychain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB67AE5BD3AF875F83C46647 /* A0Keychain.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = A0Keychain.podspec; path = ../A0Keychain.podspec; sourceTree = "<group>"; };
+		CB67AE5BD3AF875F83C46647 /* A0SimpleKeychain.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = A0SimpleKeychain.podspec; path = ../A0SimpleKeychain.podspec; sourceTree = "<group>"; };
+		DA168A7FA9C01812F18D9125 /* Pods-A0SimpleKeychain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A0SimpleKeychain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A0SimpleKeychain/Pods-A0SimpleKeychain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				7B15CEF1EDD87BC497A633DA /* libPods-A0Keychain.a in Frameworks */,
+				73DA12371A662D292F05DAE5 /* libPods-A0SimpleKeychain.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,10 +96,10 @@
 		430F70A6B1CBD8158B13012D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				72E3376E70A8C59BA2B6AFC4 /* Pods-A0Keychain.debug.xcconfig */,
-				4373B8371BCA0F701EF27033 /* Pods-A0Keychain.release.xcconfig */,
 				153B5B2A16467EA8586CF73E /* Pods-Tests.debug.xcconfig */,
 				AA55D42E784D4AEF25AA1188 /* Pods-Tests.release.xcconfig */,
+				DA168A7FA9C01812F18D9125 /* Pods-A0SimpleKeychain.debug.xcconfig */,
+				6665BE88E127EF915E4260EB /* Pods-A0SimpleKeychain.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* A0Keychain */,
+				6003F593195388D20070C39A /* A0SimpleKeychain */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -119,7 +119,7 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* A0Keychain.app */,
+				6003F58A195388D20070C39A /* A0SimpleKeychain.app */,
 				6003F5AE195388D20070C39A /* Tests.xctest */,
 			);
 			name = Products;
@@ -132,13 +132,13 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				BB50F3BBED5B2EF9E507CFA6 /* libPods-A0Keychain.a */,
 				422B961556875ABC5B25B244 /* libPods-Tests.a */,
+				21C4330BEC1F30E98B12C337 /* libPods-A0SimpleKeychain.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* A0Keychain */ = {
+		6003F593195388D20070C39A /* A0SimpleKeychain */ = {
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* A0AppDelegate.h */,
@@ -149,16 +149,16 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				5FFC0EF219EF5C14001D4CE7 /* Main.storyboard */,
 			);
-			path = A0Keychain;
+			path = A0SimpleKeychain;
 			sourceTree = "<group>";
 		};
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F595195388D20070C39A /* A0Keychain-Info.plist */,
+				6003F595195388D20070C39A /* A0SimpleKeychain-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* A0Keychain-Prefix.pch */,
+				6003F59B195388D20070C39A /* A0SimpleKeychain-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F5B6195388D20070C39A /* Supporting Files */,
-				5FFC0EEC19EEFFB0001D4CE7 /* A0KeychainSpec.m */,
+				5FFC0EEC19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				CB67AE5BD3AF875F83C46647 /* A0Keychain.podspec */,
+				CB67AE5BD3AF875F83C46647 /* A0SimpleKeychain.podspec */,
 				B3AF928BB87225366D02BB72 /* README.md */,
 				347B8648A01B1152216FFCFF /* LICENSE */,
 			);
@@ -195,9 +195,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* A0Keychain */ = {
+		6003F589195388D20070C39A /* A0SimpleKeychain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "A0Keychain" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "A0SimpleKeychain" */;
 			buildPhases = (
 				0F1D066002D15E7CDB56880C /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -209,9 +209,9 @@
 			);
 			dependencies = (
 			);
-			name = A0Keychain;
+			name = A0SimpleKeychain;
 			productName = A0Keychain;
-			productReference = 6003F58A195388D20070C39A /* A0Keychain.app */;
+			productReference = 6003F58A195388D20070C39A /* A0SimpleKeychain.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* Tests */ = {
@@ -249,7 +249,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "A0Keychain" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "A0SimpleKeychain" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -262,7 +262,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* A0Keychain */,
+				6003F589195388D20070C39A /* A0SimpleKeychain */,
 				6003F5AD195388D20070C39A /* Tests */,
 			);
 		};
@@ -332,7 +332,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A0Keychain/Pods-A0Keychain-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A0SimpleKeychain/Pods-A0SimpleKeychain-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED022EAECD0859FC5049ED9A /* Copy Pods Resources */ = {
@@ -367,7 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FFC0EED19EEFFB0001D4CE7 /* A0KeychainSpec.m in Sources */,
+				5FFC0EED19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +376,7 @@
 /* Begin PBXTargetDependency section */
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* A0Keychain */;
+			target = 6003F589195388D20070C39A /* A0SimpleKeychain */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -483,14 +483,14 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72E3376E70A8C59BA2B6AFC4 /* Pods-A0Keychain.debug.xcconfig */;
+			baseConfigurationReference = DA168A7FA9C01812F18D9125 /* Pods-A0SimpleKeychain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "A0Keychain/A0Keychain-Prefix.pch";
-				INFOPLIST_FILE = "A0Keychain/A0Keychain-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "A0SimpleKeychain/A0SimpleKeychain-Prefix.pch";
+				INFOPLIST_FILE = "A0SimpleKeychain/A0SimpleKeychain-Info.plist";
+				PRODUCT_NAME = A0SimpleKeychain;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -498,14 +498,14 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4373B8371BCA0F701EF27033 /* Pods-A0Keychain.release.xcconfig */;
+			baseConfigurationReference = 6665BE88E127EF915E4260EB /* Pods-A0SimpleKeychain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "A0Keychain/A0Keychain-Prefix.pch";
-				INFOPLIST_FILE = "A0Keychain/A0Keychain-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "A0SimpleKeychain/A0SimpleKeychain-Prefix.pch";
+				INFOPLIST_FILE = "A0SimpleKeychain/A0SimpleKeychain-Info.plist";
+				PRODUCT_NAME = A0SimpleKeychain;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -515,7 +515,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 153B5B2A16467EA8586CF73E /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/A0Keychain.app/A0Keychain";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/A0SimpleKeychain.app/A0SimpleKeychain";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -538,7 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA55D42E784D4AEF25AA1188 /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/A0Keychain.app/A0Keychain";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/A0SimpleKeychain.app/A0SimpleKeychain";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -556,7 +556,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "A0Keychain" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "A0SimpleKeychain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
@@ -565,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "A0Keychain" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "A0SimpleKeychain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,

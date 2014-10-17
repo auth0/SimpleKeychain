@@ -21,19 +21,19 @@
 // THE SOFTWARE.
 
 #import "A0ViewController.h"
-#import <A0Keychain/A0Keychain.h>
+#import <A0SimpleKeychain/A0SimpleKeychain.h>
 
 @interface A0ViewController ()
-@property (strong, nonatomic) A0Keychain *keychain;
+@property (strong, nonatomic) A0SimpleKeychain *keychain;
 @end
 
 @implementation A0ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.keychain = [A0Keychain keychain];
+    self.keychain = [A0SimpleKeychain keychain];
     self.keychain.useAccessControl = YES;
-    self.keychain.defaultAccesiblity = A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+    self.keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
 }
 
 - (void)save:(id)sender {

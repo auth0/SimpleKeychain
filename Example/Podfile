@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'A0Keychain', :exclusive => true do
-  pod "A0Keychain", :path => "../"
+target 'A0SimpleKeychain', :exclusive => true do
+  pod "A0SimpleKeychain", :path => "../"
 end
 
 target 'Tests', :exclusive => true do
-  pod "A0Keychain", :path => "../"
+  pod "A0SimpleKeychain", :path => "../"
 
   pod 'Specta', '~> 0.2.1', :inhibit_warnings => true
   pod 'Expecta'

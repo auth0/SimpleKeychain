@@ -1,4 +1,4 @@
-//  A0KeychainSpec.m
+//  A0SimpleKeychainSpec.m
 //
 // Copyright (c) 2014 Auth0 (http://auth0.com)
 //
@@ -21,38 +21,38 @@
 // THE SOFTWARE.
 
 #import "Specta.h"
-#import "A0Keychain.h"
+#import "A0SimpleKeychain.h"
 
 
-SpecBegin(A0Keychain)
+SpecBegin(A0SimpleKeychain)
 
-describe(@"A0Keychain", ^{
+describe(@"A0SimpleKeychain", ^{
 
-    __block A0Keychain *keychain;
+    __block A0SimpleKeychain *keychain;
 
     describe(@"initialization", ^{
 
         it(@"should init with default values", ^{
-            keychain = [[A0Keychain alloc] init];
+            keychain = [[A0SimpleKeychain alloc] init];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal([[NSBundle mainBundle] bundleIdentifier]);
-            expect(keychain.defaultAccesiblity).to.equal(A0KeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
         it(@"should init with service only", ^{
-            keychain = [[A0Keychain alloc] initWithService:@"Auth0"];
+            keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0KeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
         it(@"should init with service and access group", ^{
-            keychain = [[A0Keychain alloc] initWithService:@"Auth0" accessGroup:@"Group"];
+            keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0" accessGroup:@"Group"];
             expect(keychain.accessGroup).to.equal(@"Group");
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0KeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
@@ -61,26 +61,26 @@ describe(@"A0Keychain", ^{
     describe(@"factory methods", ^{
 
         it(@"should create with default values", ^{
-            keychain = [A0Keychain keychain];
+            keychain = [A0SimpleKeychain keychain];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal([[NSBundle mainBundle] bundleIdentifier]);
-            expect(keychain.defaultAccesiblity).to.equal(A0KeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
         it(@"should create with service only", ^{
-            keychain = [A0Keychain keychainWithService:@"Auth0"];
+            keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0KeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
         it(@"should create with service and access group", ^{
-            keychain = [A0Keychain keychainWithService:@"Auth0" accessGroup:@"Group"];
+            keychain = [A0SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"Group"];
             expect(keychain.accessGroup).to.equal(@"Group");
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0KeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
         
@@ -91,7 +91,7 @@ describe(@"A0Keychain", ^{
         __block NSString *key;
 
         beforeEach(^{
-            keychain = [A0Keychain keychain];
+            keychain = [A0SimpleKeychain keychain];
             key = [[NSUUID UUID] UUIDString];
         });
 
@@ -128,7 +128,7 @@ describe(@"A0Keychain", ^{
         __block NSString *key;
 
         beforeEach(^{
-            keychain = [A0Keychain keychain];
+            keychain = [A0SimpleKeychain keychain];
             key = [[NSUUID UUID] UUIDString];
             [keychain setString:@"value1" forKey:key];
         });
@@ -165,7 +165,7 @@ describe(@"A0Keychain", ^{
         __block NSString *key;
 
         beforeEach(^{
-            keychain = [A0Keychain keychain];
+            keychain = [A0SimpleKeychain keychain];
             key = [[NSUUID UUID] UUIDString];
             [keychain setString:@"value1" forKey:key];
         });

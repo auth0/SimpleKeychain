@@ -1,4 +1,4 @@
-//  A0Keychain.m
+//  A0SimpleKeychain.h
 //
 // Copyright (c) 2014 Auth0 (http://auth0.com)
 //
@@ -20,13 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "A0Keychain.h"
+#import "A0SimpleKeychain.h"
 
-@interface A0Keychain ()
+@interface A0SimpleKeychain ()
 
 @end
 
-@implementation A0Keychain
+@implementation A0SimpleKeychain
 
 - (instancetype)init {
     NSString *service = [[NSBundle mainBundle] bundleIdentifier];
@@ -42,7 +42,7 @@
     if (self) {
         _service = service;
         _accessGroup = accessGroup;
-        _defaultAccesiblity = A0KeychainItemAccessibleAfterFirstUnlock;
+        _defaultAccesiblity = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
         _useAccessControl = NO;
     }
     return self;
@@ -133,16 +133,16 @@
     }
 }
 
-+ (A0Keychain *)keychain {
-    return [[A0Keychain alloc] init];
++ (A0SimpleKeychain *)keychain {
+    return [[A0SimpleKeychain alloc] init];
 }
 
-+ (A0Keychain *)keychainWithService:(NSString *)service {
-    return [[A0Keychain alloc] initWithService:service];
++ (A0SimpleKeychain *)keychainWithService:(NSString *)service {
+    return [[A0SimpleKeychain alloc] initWithService:service];
 }
 
-+ (A0Keychain *)keychainWithService:(NSString *)service accessGroup:(NSString *)accessGroup {
-    return [[A0Keychain alloc] initWithService:service accessGroup:accessGroup];
++ (A0SimpleKeychain *)keychainWithService:(NSString *)service accessGroup:(NSString *)accessGroup {
+    return [[A0SimpleKeychain alloc] initWithService:service accessGroup:accessGroup];
 }
 
 #pragma mark - Utility methods
@@ -150,29 +150,29 @@
 - (CFTypeRef)accessibility {
     CFTypeRef accessibility;
     switch (self.defaultAccesiblity) {
-        case A0KeychainItemAccessibleAfterFirstUnlock:
+        case A0SimpleKeychainItemAccessibleAfterFirstUnlock:
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
             break;
-        case A0KeychainItemAccessibleAlways:
+        case A0SimpleKeychainItemAccessibleAlways:
             accessibility = kSecAttrAccessibleAlways;
             break;
-        case A0KeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
+        case A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
             accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
             break;
-        case A0KeychainItemAccessibleAlwaysThisDeviceOnly:
+        case A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly:
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
             break;
-        case A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
+        case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
             if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) { //iOS 8
                 accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
             } else { //iOS <= 7.1
                 accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
             }
             break;
-        case A0KeychainItemAccessibleWhenUnlocked:
+        case A0SimpleKeychainItemAccessibleWhenUnlocked:
             accessibility = kSecAttrAccessibleWhenUnlocked;
             break;
-        case A0KeychainItemAccessibleWhenUnlockedThisDeviceOnly:
+        case A0SimpleKeychainItemAccessibleWhenUnlockedThisDeviceOnly:
             accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
             break;
         default:

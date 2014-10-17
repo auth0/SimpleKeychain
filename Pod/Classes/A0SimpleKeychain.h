@@ -1,4 +1,4 @@
-//  A0Keychain.h
+//  A0SimpleKeychain.h
 //
 // Copyright (c) 2014 Auth0 (http://auth0.com)
 //
@@ -22,42 +22,42 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, A0KeychainItemAccessible) {
+typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     /**
      *  @see kSecAttrAccessibleWhenUnlocked
      */
-    A0KeychainItemAccessibleWhenUnlocked = 0,
+    A0SimpleKeychainItemAccessibleWhenUnlocked = 0,
     /**
      *  @see kSecAttrAccessibleAfterFirstUnlock
      */
-    A0KeychainItemAccessibleAfterFirstUnlock,
+    A0SimpleKeychainItemAccessibleAfterFirstUnlock,
     /**
      *  @see kSecAttrAccessibleAlways
      */
-    A0KeychainItemAccessibleAlways,
+    A0SimpleKeychainItemAccessibleAlways,
     /**
      *  @see kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
      */
-    A0KeychainItemAccessibleWhenPasscodeSetThisDeviceOnly,
+    A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly,
     /**
      *  @see kSecAttrAccessibleWhenUnlockedThisDeviceOnly
      */
-    A0KeychainItemAccessibleWhenUnlockedThisDeviceOnly,
+    A0SimpleKeychainItemAccessibleWhenUnlockedThisDeviceOnly,
     /**
      *  kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
      */
-    A0KeychainItemAccessibleAfterFirstUnlockThisDeviceOnly,
+    A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly,
     /**
      *  @see kSecAttrAccessibleAlwaysThisDeviceOnly
      */
-    A0KeychainItemAccessibleAlwaysThisDeviceOnly
+    A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly
 };
 
-@interface A0Keychain : NSObject
+@interface A0SimpleKeychain : NSObject
 
 @property (readonly, nonatomic) NSString *service;
 @property (readonly, nonatomic) NSString *accessGroup;
-@property (assign, nonatomic) A0KeychainItemAccessible defaultAccesiblity;
+@property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccesiblity;
 @property (assign, nonatomic) BOOL useAccessControl;
 
 
@@ -74,8 +74,8 @@ typedef NS_ENUM(NSInteger, A0KeychainItemAccessible) {
 - (NSString *)stringForKey:(NSString *)key;
 - (NSData *)dataForKey:(NSString *)key;
 
-+ (A0Keychain *)keychain;
-+ (A0Keychain *)keychainWithService:(NSString *)service;
-+ (A0Keychain *)keychainWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
++ (A0SimpleKeychain *)keychain;
++ (A0SimpleKeychain *)keychainWithService:(NSString *)service;
++ (A0SimpleKeychain *)keychainWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
 @end
