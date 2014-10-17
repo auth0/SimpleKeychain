@@ -49,7 +49,15 @@
 }
 
 - (NSString *)stringForKey:(NSString *)key {
-    NSData *data = [self dataForKey:key];
+    return [self stringForKey:key promptMessage:nil];
+}
+
+- (NSData *)dataForKey:(NSString *)key {
+    return [self dataForKey:key promptMessage:nil];
+}
+
+- (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message {
+    NSData *data = [self dataForKey:key promptMessage:message];
     NSString *string;
     if (data) {
         string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -57,12 +65,12 @@
     return string;
 }
 
-- (NSData *)dataForKey:(NSString *)key {
+- (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message {
     if (!key) {
         return nil;
     }
 
-    NSDictionary *query = [self queryFetchOneByKey:key];
+    NSDictionary *query = [self queryFetchOneByKey:key message:message];
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
     if (status != errSecSuccess) {
@@ -78,20 +86,29 @@
 }
 
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key {
-    NSData *data = key ? [string dataUsingEncoding:NSUTF8StringEncoding] : nil;
-    return [self setData:data forKey:key];
+    return [self setString:string forKey:key promptMessage:nil];
 }
 
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key {
+    return [self setData:data forKey:key promptMessage:nil];
+}
+
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(NSString *)message {
+    NSData *data = key ? [string dataUsingEncoding:NSUTF8StringEncoding] : nil;
+    return [self setData:data forKey:key promptMessage:message];
+}
+
+
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message {
     if (!key) {
         return NO;
     }
 
-    NSDictionary *query = [self queryFindByKey:key];
+    NSDictionary *query = [self queryFindByKey:key message:message];
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status == errSecSuccess) {
         if (data) {
-            NSDictionary *updateQuery = [self queryUpdateValue:data];
+            NSDictionary *updateQuery = [self queryUpdateValue:data message:message];
             status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)updateQuery);
             return status == errSecSuccess;
         } else {
@@ -109,7 +126,7 @@
     if (!key) {
         return NO;
     }
-    NSDictionary *deleteQuery = [self queryFindByKey:key];
+    NSDictionary *deleteQuery = [self queryFindByKey:key message:nil];
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)deleteQuery);
     return status == errSecSuccess;
 }
@@ -206,16 +223,26 @@
     return query;
 }
 
-- (NSDictionary *)queryFindByKey:(NSString *)key {
+- (NSDictionary *)queryFindByKey:(NSString *)key message:(NSString *)message {
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
+    if (message) {
+        query[(__bridge id)kSecUseOperationPrompt] = message;
+    }
     return query;
 }
 
-- (NSDictionary *)queryUpdateValue:(NSData *)data {
-    return @{
-             (__bridge id)kSecValueData: data,
-             };
+- (NSDictionary *)queryUpdateValue:(NSData *)data message:(NSString *)message {
+    if (message) {
+        return @{
+                 (__bridge id)kSecUseOperationPrompt: message,
+                 (__bridge id)kSecValueData: data,
+                 };
+    } else {
+        return @{
+                 (__bridge id)kSecValueData: data,
+                 };
+    }
 }
 
 - (NSDictionary *)queryNewKey:(NSString *)key value:(NSData *)value {
@@ -235,13 +262,16 @@
     return query;
 }
 
-- (NSDictionary *)queryFetchOneByKey:(NSString *)key {
+- (NSDictionary *)queryFetchOneByKey:(NSString *)key message:(NSString *)message {
     NSMutableDictionary *query = [self baseQuery];
     [query addEntriesFromDictionary:@{
                                       (__bridge id)kSecReturnData: @YES,
                                       (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne,
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
+    if (message) {
+        query[(__bridge id)kSecUseOperationPrompt] = message;
+    }
 
     return query;
 }

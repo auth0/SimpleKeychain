@@ -25,6 +25,7 @@
 
 @interface A0ViewController ()
 @property (strong, nonatomic) A0SimpleKeychain *keychain;
+@property (strong, nonatomic) NSString *key;
 @end
 
 @implementation A0ViewController
@@ -32,14 +33,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.keychain = [A0SimpleKeychain keychain];
-    self.keychain.useAccessControl = YES;
-    self.keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+    if (self.useTouchID) {
+        self.keychain.useAccessControl = YES;
+        self.keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+        self.key = @"auth0-keychain-sample-touchid";
+    } else {
+        self.key = @"auth0-keychain-sample";
+    }
 }
 
 - (void)save:(id)sender {
     NSString *value = self.valueField.text;
     if (value) {
-        [self.keychain setString:value forKey:@"auth0-keychain-sample"];
+        if (self.useTouchID) {
+            [self.keychain setString:value forKey:self.key promptMessage:@"Wan't to save the key using touch id?"];
+        } else {
+            [self.keychain setString:value forKey:self.key];
+        }
         self.messageLabel.text = [NSString stringWithFormat:@"Saved value '%@' in the Keychain", value];
     } else {
         self.messageLabel.text = @"Please enter a value to save in the Keychain";
@@ -47,7 +57,12 @@
 }
 
 - (void)load:(id)sender {
-    NSString *value = [self.keychain stringForKey:@"auth0-keychain-sample"];
+    NSString *value;
+    if (self.useTouchID) {
+        value = [self.keychain stringForKey:self.key promptMessage:@"Do you want to access the key?"];
+    } else {
+        value = [self.keychain stringForKey:self.key];
+    }
     if (value) {
         self.messageLabel.text = [NSString stringWithFormat:@"Obtained value '%@' from the Keychain", value];
     } else {
@@ -57,7 +72,7 @@
 }
 
 - (void)remove:(id)sender {
-    [self.keychain deleteEntryForKey:@"auth0-keychain-sample"];
+    [self.keychain deleteEntryForKey:self.key];
     self.valueField.text = nil;
     self.messageLabel.text = @"Entry deleted from Keychain";
 }

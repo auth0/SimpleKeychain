@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F3DBE5919F178C6000D4317 /* A0SelectExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3DBE5819F178C6000D4317 /* A0SelectExampleViewController.m */; };
 		5FFC0EED19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC0EEC19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m */; };
 		5FFC0EF019EF5C14001D4CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFC0EF219EF5C14001D4CE7 /* Main.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -40,6 +41,8 @@
 		21C4330BEC1F30E98B12C337 /* libPods-A0SimpleKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-A0SimpleKeychain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		347B8648A01B1152216FFCFF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		422B961556875ABC5B25B244 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F3DBE5719F178C6000D4317 /* A0SelectExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0SelectExampleViewController.h; sourceTree = "<group>"; };
+		5F3DBE5819F178C6000D4317 /* A0SelectExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SelectExampleViewController.m; sourceTree = "<group>"; };
 		5FFC0EEC19EEFFB0001D4CE7 /* A0SimpleKeychainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychainSpec.m; sourceTree = "<group>"; };
 		5FFC0EF119EF5C14001D4CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* A0SimpleKeychain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = A0SimpleKeychain.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +151,8 @@
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				5FFC0EF219EF5C14001D4CE7 /* Main.storyboard */,
+				5F3DBE5719F178C6000D4317 /* A0SelectExampleViewController.h */,
+				5F3DBE5819F178C6000D4317 /* A0SelectExampleViewController.m */,
 			);
 			path = A0SimpleKeychain;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 			files = (
 				6003F59E195388D20070C39A /* A0AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* A0ViewController.m in Sources */,
+				5F3DBE5919F178C6000D4317 /* A0SelectExampleViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

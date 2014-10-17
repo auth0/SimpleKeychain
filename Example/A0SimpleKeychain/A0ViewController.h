@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
+@property (assign, nonatomic) BOOL useTouchID;
+
 - (IBAction)save:(id)sender;
 - (IBAction)load:(id)sender;
 - (IBAction)remove:(id)sender;

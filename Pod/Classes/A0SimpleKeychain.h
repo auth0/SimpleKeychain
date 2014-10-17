@@ -67,12 +67,18 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
 
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key;
 - (BOOL)setData:(NSData *)data forKey:(NSString *)key;
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key;
+
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(NSString *)message;
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message;
+
 - (BOOL)deleteEntryForKey:(NSString *)key;
 - (void)clearAll;
 
 - (NSString *)stringForKey:(NSString *)key;
 - (NSData *)dataForKey:(NSString *)key;
+
+- (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message;
+- (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message;
 
 + (A0SimpleKeychain *)keychain;
 + (A0SimpleKeychain *)keychainWithService:(NSString *)service;
