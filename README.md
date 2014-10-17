@@ -11,18 +11,110 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcessControl` you need to have iOS 8 in your device.
+
 ## Installation
 
-A0Keychain is available through [CocoaPods](http://cocoapods.org). To install
+SimpleKeychain is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
     pod "SimpleKeychain"
 
+Or you can add `A0SimpleKeychain.h` and `A0SimpleKeychain.m` to your project.
+
+###Swift
+
+In order to use `A0SimpleKeychain` class in Swift, you'll need to import it's header file in Xcode's Bridging Header. For example if using CocoaPods just add this line in your bridging header:
+
+```objc
+#import <SimpleKeychain/A0SimpleKeychain.h>
+```
+
+##A0SimpleKeychain
+
+###Save a JWT token or password
+
+```objc
+NSString *jwt = //user's JWT token obtained after login
+[[A0SimpleKeychain keychain] setString:jwt forKey:@"auth0-user-jwt"];
+```
+
+```swift
+let jwt = //user's JWT token obtained after login
+A0SimpleKeychain.keychain().setString(jwt, forKey:"auth0-user-jwt")
+```
+
+###Obtain a JWT token or password
+
+```objc
+NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
+```
+
+```swift
+let jwt = A0SimpleKeychain.keychain().stringForKey("auth0-user-jwt")
+```
+
+###Store and retrieve JWT token using TouchID and Keychain AcessControl attribute (iOS 8 Only).
+
+Let's save the JWT first:
+```objc
+NSString *jwt = //user's JWT token obtained after login
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychain];
+keychain.useAcessControl = YES;
+keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+[keychain setString:jwt forKey:@"auth0-user-jwt"];
+```
+```swift
+let jwt = //user's JWT token obtained after login
+let keychain = A0SimpleKeychain.keychain()
+keychain.useAcessControl = true
+keychain.defaultAccesiblity = .WhenPasscodeSetThisDeviceOnly
+keychain.setString(jwt, forKey:"auth0-user-jwt")
+```
+
+>If there is an existent value under the key `auth0-user-jwt` saved with AccessControl and `A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly`, iOS will prompt the user to enter their passcode or fingerprint before updating the value.
+
+Then let's obtain the value
+```objc
+NSString *message = NSLocalizedString(@"Please enter your passcode/fingerprint to login with awesome App!.", @"Prompt TouchID message");
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychain];
+NSString *jwt = [keychain stringForKey:@"auth0-user-jwt" promptMessage:message];
+```
+```swift
+let message = NSLocalizedString("Please enter your passcode/fingerprint to login with awesome App!.", comment: "Prompt TouchID message")
+let keychain = A0SimpleKeychain.keychain()
+let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
+```
+
+###Remove a JWT token or password
+```objc
+[[A0SimpleKeychain keychain] deleteEntryForKey:@"auth0-user-jwt"];
+```
+
+```swift
+A0SimpleKeychain.keychain().deleteEntryForKey("auth0-user-jwt")
+```
+
 ## Author
 
-Auth0
+[Auth0](auth0.com)
+
+## What is Auth0?
+
+Auth0 helps you to:
+
+* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
+* Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
+* Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
+* Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
+* Analytics of how, when and where users are logging in.
+* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+
+## Create a free account in Auth0
+
+1. Go to [Auth0](https://auth0.com) and click Sign Up.
+2. Use Google, GitHub or Microsoft Account to login.
 
 ## License
 
-SimpleKeychain is available under the MIT license. See the LICENSE file for more info.
-
+SimpleKeychain is available under the MIT license. See the [LICENSE file]([LICENSE file](https://github.com/auth0/SimpleKeychain/blob/master/LICENSE)) for more info.
