@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
-  SimpleKeychain: cdb6298ee226ad943bfecfd1daeddf2c71fb6c2f
+  SimpleKeychain: 00f3651e2b79fd858fae3449c5a674cb1534bdc9
   Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
 
 COCOAPODS: 0.34.1
