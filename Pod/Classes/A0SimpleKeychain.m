@@ -180,11 +180,15 @@
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
             break;
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
+#ifdef __IPHONE_8_0
             if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) { //iOS 8
                 accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
             } else { //iOS <= 7.1
                 accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
             }
+#else
+            accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
+#endif
             break;
         case A0SimpleKeychainItemAccessibleWhenUnlocked:
             accessibility = kSecAttrAccessibleWhenUnlocked;
@@ -249,6 +253,7 @@
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
     query[(__bridge id)kSecValueData] = value;
+#ifdef __IPHONE_8_0
     if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
         CFErrorRef error = NULL;
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
@@ -259,6 +264,9 @@
     } else {
         query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
     }
+#else
+    query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
+#endif
     return query;
 }
 
