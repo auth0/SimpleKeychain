@@ -5,13 +5,27 @@
 [![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat)](http://cocoadocs.org/docsets/SimpleKeychain)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat)](http://cocoadocs.org/docsets/SimpleKeychain)
 
+A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
+
+##Key Features
+
+- Simple interface to store user's credentials (e.g. JWT) in the Keychain.
+- Store credentials under an Access Group to enable Keychain Sharing.
+- Support for iOS 8 Access Control for fine grained access control. _(Only for iOS 8+)_
+- TouchID and Keychain integration with iOS 8 new accesibility field `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`. _(Only for iOS 8+)_
+
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```objc
+NSString *message = NSLocalizedString(@"Please enter your passcode/fingerprint to login with awesome App!.", @"Prompt TouchID message");
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychain];
+NSString *jwt = [keychain stringForKey:@"auth0-user-jwt" promptMessage:message];
+```
 
+For more examples click [here](#A0SimpleKeychain)
 ## Requirements
 
-At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcessControl` you need to have iOS 8 in your device.
+At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcessControl` you need to have iOS 8+.
 
 ## Installation
 
@@ -95,6 +109,14 @@ let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
 A0SimpleKeychain.keychain().deleteEntryForKey("auth0-user-jwt")
 ```
 
+##Contributing
+
+Just clone the repo, and run pod install from the Example directory and you're ready to contribute!.
+
+## License
+
+SimpleKeychain is available under the MIT license. See the [LICENSE file]([LICENSE file](https://github.com/auth0/SimpleKeychain/blob/master/LICENSE)) for more info.
+
 ## Author
 
 [Auth0](auth0.com)
@@ -114,7 +136,3 @@ Auth0 helps you to:
 
 1. Go to [Auth0](https://auth0.com) and click Sign Up.
 2. Use Google, GitHub or Microsoft Account to login.
-
-## License
-
-SimpleKeychain is available under the MIT license. See the [LICENSE file]([LICENSE file](https://github.com/auth0/SimpleKeychain/blob/master/LICENSE)) for more info.
