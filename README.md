@@ -68,6 +68,20 @@ NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
 let jwt = A0SimpleKeychain.keychain().stringForKey("auth0-user-jwt")
 ```
 
+###Share JWT Token with other apps using iOS Access Group
+
+```objc
+NSString *jwt = //user's JWT token obtained after login
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"ABCDEFGH.com.mydomain.myaccessgroup"];
+[keychain setString:jwt forKey:@"auth0-user-jwt"];
+```
+
+```swift
+let jwt = //user's JWT token obtained after login
+let keychain = A0SimpleKeychain.keychainWithService("Auth0", accessGroup: "ABCDEFGH.com.mydomain.myaccessgroup")
+keychain.setString(jwt, forKey:"auth0-user-jwt")
+```
+
 ###Store and retrieve JWT token using TouchID and Keychain AcessControl attribute (iOS 8 Only).
 
 Let's save the JWT first:

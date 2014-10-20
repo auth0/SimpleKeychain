@@ -36,7 +36,7 @@ describe(@"A0SimpleKeychain", ^{
             keychain = [[A0SimpleKeychain alloc] init];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal([[NSBundle mainBundle] bundleIdentifier]);
-            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccessiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
@@ -44,7 +44,7 @@ describe(@"A0SimpleKeychain", ^{
             keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccessiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
@@ -52,7 +52,7 @@ describe(@"A0SimpleKeychain", ^{
             keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0" accessGroup:@"Group"];
             expect(keychain.accessGroup).to.equal(@"Group");
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccessiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
@@ -64,7 +64,7 @@ describe(@"A0SimpleKeychain", ^{
             keychain = [A0SimpleKeychain keychain];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal([[NSBundle mainBundle] bundleIdentifier]);
-            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccessiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
@@ -72,7 +72,7 @@ describe(@"A0SimpleKeychain", ^{
             keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
             expect(keychain.accessGroup).to.beNil();
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccessiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
 
@@ -80,7 +80,7 @@ describe(@"A0SimpleKeychain", ^{
             keychain = [A0SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"Group"];
             expect(keychain.accessGroup).to.equal(@"Group");
             expect(keychain.service).to.equal(@"Auth0");
-            expect(keychain.defaultAccesiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
+            expect(keychain.defaultAccessiblity).to.equal(A0SimpleKeychainItemAccessibleAfterFirstUnlock);
             expect(keychain.useAccessControl).to.beFalsy();
         });
         

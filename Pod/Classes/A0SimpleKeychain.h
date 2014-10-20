@@ -81,7 +81,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
  *  Default value is A0SimpleKeychainItemAccessibleAfterFirstUnlock.
  *  @see kSecAttrAccessible
  */
-@property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccesiblity;
+@property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccessiblity;
 /**
  *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
  *  Default value is NO.

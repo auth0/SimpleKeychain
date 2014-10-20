@@ -35,7 +35,7 @@
     self.keychain = [A0SimpleKeychain keychain];
     if (self.useTouchID) {
         self.keychain.useAccessControl = YES;
-        self.keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+        self.keychain.defaultAccessiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
         self.key = @"auth0-keychain-sample-touchid";
     } else {
         self.key = @"auth0-keychain-sample";

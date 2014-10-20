@@ -42,7 +42,7 @@
     if (self) {
         _service = service;
         _accessGroup = accessGroup;
-        _defaultAccesiblity = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
+        _defaultAccessiblity = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
         _useAccessControl = NO;
     }
     return self;
@@ -166,7 +166,7 @@
 
 - (CFTypeRef)accessibility {
     CFTypeRef accessibility;
-    switch (self.defaultAccesiblity) {
+    switch (self.defaultAccessiblity) {
         case A0SimpleKeychainItemAccessibleAfterFirstUnlock:
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
             break;
