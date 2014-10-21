@@ -85,6 +85,15 @@
     return dataFound;
 }
 
+- (BOOL)hasValueForKey:(NSString *)key {
+    if (key) {
+        return NO;
+    }
+    NSDictionary *query = [self queryFindByKey:key message:nil];
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
+    return status == errSecSuccess;
+}
+
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key {
     return [self setString:string forKey:key promptMessage:nil];
 }

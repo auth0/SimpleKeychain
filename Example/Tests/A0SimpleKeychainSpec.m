@@ -170,6 +170,18 @@ describe(@"A0SimpleKeychain", ^{
             [keychain setString:@"value1" forKey:key];
         });
 
+        it(@"should return that a nonexisting key doesnt exist", ^{
+            expect([keychain stringForKey:@"SHOULDNOTEXIST"]).to.beFalsy();
+        });
+
+        it(@"should return that a nil key doesnt exist", ^{
+            expect([keychain stringForKey:nil]).to.beFalsy();
+        });
+
+        it(@"should return that a key exists", ^{
+            expect([keychain stringForKey:key]).to.beTruthy();
+        });
+
         it(@"should return nil string with nil key", ^{
             expect([keychain stringForKey:nil]).to.beNil();
         });

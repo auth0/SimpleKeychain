@@ -219,6 +219,15 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
  */
 - (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message;
 
+/**
+ *  Checks if a key has a value in the Keychain
+ *
+ *  @param key the key to check if it has a value
+ *
+ *  @return if the key has an associated value in the Keychain or not.
+ */
+- (BOOL)hasValueForKey:(NSString *)key;
+
 ///---------------------------------------------------
 /// @name Create helper methods
 ///---------------------------------------------------
