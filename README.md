@@ -9,10 +9,10 @@ A wrapper to make it really easy to deal with iOS Keychain and store your user's
 
 ##Key Features
 
-- Simple interface to store user's credentials (e.g. JWT) in the Keychain.
-- Store credentials under an Access Group to enable Keychain Sharing.
-- Support for iOS 8 Access Control for fine grained access control. _(Only for iOS 8+)_
-- TouchID and Keychain integration with iOS 8 new accesibility field `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`. _(Only for iOS 8+)_
+- **Simple interface** to store user's credentials (e.g. JWT) in the Keychain.
+- Store credentials under an **Access Group to enable Keychain Sharing**.
+- Support for **iOS 8 Access Control** for fine grained access control. _(Only for iOS 8+)_
+- **TouchID and Keychain integration** with iOS 8 new accesibility field `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`. _(Only for iOS 8+)_
 
 ## Usage
 
