@@ -25,7 +25,7 @@ NSString *jwt = [keychain stringForKey:@"auth0-user-jwt" promptMessage:message];
 For more examples click [here](#a0simplekeychain)
 ## Requirements
 
-At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcessControl` you need to have iOS 8+.
+At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAccessControl` you need to have iOS 8+.
 
 ## Installation
 
