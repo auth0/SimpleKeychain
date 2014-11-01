@@ -48,13 +48,13 @@ typedef NS_ENUM(NSUInteger, A0SimpleKeychainRSAKeySize) {
                        privateKeyTag:(NSString *)privateKeyTag;
 
 /**
- *  Returns the public key as NSData.
+ *  Returns a RSA key as NSData.
  *
- *  @param keyTag tag of the public key
+ *  @param keyTag tag of the key
  *
- *  @return the public key as NSData or nil if not found
+ *  @return the key as NSData or nil if not found
  */
-- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag;
+- (NSData *)dataForRSAKeyWithTag:(NSString *)keyTag;
 
 /**
  *  Removes a key using its tag.
@@ -64,5 +64,20 @@ typedef NS_ENUM(NSUInteger, A0SimpleKeychainRSAKeySize) {
  *  @return if the key was removed successfuly.
  */
 - (BOOL)deleteRSAKeyWithTag:(NSString *)keyTag;
+
+@end
+
+@interface A0SimpleKeychain (Deprecated)
+
+/**
+ *  Returns the public key as NSData.
+ *
+ *  @param keyTag tag of the public key
+ *
+ *  @return the public key as NSData or nil if not found
+ *  
+ *  @deprecated 0.2.0
+ */
+- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag;
 
 @end

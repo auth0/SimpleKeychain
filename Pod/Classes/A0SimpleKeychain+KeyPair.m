@@ -55,7 +55,7 @@
     return status == errSecSuccess;
 }
 
-- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag {
+- (NSData *)dataForRSAKeyWithTag:(NSString *)keyTag {
     NSAssert(keyTag.length > 0, @"key tag should be non-empty!");
 
     NSDictionary *publicKeyQuery = @{
@@ -89,6 +89,14 @@
 
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)deleteKeyQuery);
     return status == errSecSuccess;
+}
+
+@end
+
+@implementation A0SimpleKeychain (Deprecated)
+
+- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag {
+    return [self dataForRSAKeyWithTag:keyTag];
 }
 
 @end
