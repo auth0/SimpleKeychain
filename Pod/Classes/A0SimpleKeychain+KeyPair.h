@@ -65,6 +65,24 @@ typedef NS_ENUM(NSUInteger, A0SimpleKeychainRSAKeySize) {
  */
 - (BOOL)deleteRSAKeyWithTag:(NSString *)keyTag;
 
+/**
+ *  Returns a RSA key as `SecKeyRef`. You must release it when you're done with it
+ *
+ *  @param keyTag tag of the RSA Key
+ *
+ *  @return SecKeyRef of RSA Key
+ */
+- (SecKeyRef)keyRefOfRSAKeyWithTag:(NSString *)keyTag;
+
+/**
+ *  Checks if a RSA key exists with a given tag.
+ *
+ *  @param keyTag tag of RSA Key
+ *
+ *  @return if the key exists or not.
+ */
+- (BOOL)hasRSAKeyWithTag:(NSString *)keyTag;
+
 @end
 
 @interface A0SimpleKeychain (Deprecated)

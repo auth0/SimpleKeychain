@@ -79,6 +79,21 @@
     return data;
 }
 
+- (BOOL)hasRSAKeyWithTag:(NSString *)keyTag {
+    NSAssert(keyTag.length > 0, @"key tag should be non-empty!");
+
+    NSDictionary *publicKeyQuery = @{
+                                     (__bridge id)kSecClass: (__bridge id)kSecClassKey,
+                                     (__bridge id)kSecAttrApplicationTag: [keyTag dataUsingEncoding:NSUTF8StringEncoding],
+                                     (__bridge id)kSecAttrType: (__bridge id)kSecAttrKeyTypeRSA,
+                                     (__bridge id)kSecReturnData: @NO,
+                                     };
+
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)publicKeyQuery, NULL);
+    return status == errSecSuccess;
+}
+
+
 - (BOOL)deleteRSAKeyWithTag:(NSString *)keyTag {
     NSAssert(keyTag.length > 0, @"key tag should be non-empty!");
     NSDictionary *deleteKeyQuery = @{
@@ -89,6 +104,22 @@
 
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)deleteKeyQuery);
     return status == errSecSuccess;
+}
+
+- (SecKeyRef)keyRefOfRSAKeyWithTag:(NSString *)keyTag {
+    NSAssert(keyTag.length > 0, @"key tag should be non-empty!");
+    NSDictionary *query = @{
+                            (__bridge id)kSecClass: (__bridge id)kSecClassKey,
+                            (__bridge id)kSecAttrKeyType: (__bridge id)kSecAttrKeyTypeRSA,
+                            (__bridge id)kSecReturnRef: @YES,
+                            (__bridge id)kSecAttrApplicationTag: keyTag,
+                            };
+    SecKeyRef privateKeyRef = NULL;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&privateKeyRef);
+    if (status != errSecSuccess) {
+        return NULL;
+    }
+    return privateKeyRef;
 }
 
 @end

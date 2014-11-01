@@ -22,7 +22,10 @@
 
 #import "Specta.h"
 #import "A0SimpleKeychain.h"
+#import "A0SimpleKeychain+KeyPair.h"
 
+#define kPublicKeyTag @"public"
+#define kPrivateKeyTag @"private"
 
 SpecBegin(A0SimpleKeychain)
 
@@ -206,6 +209,94 @@ describe(@"A0SimpleKeychain", ^{
             expect([keychain dataForKey:key]).notTo.beNil();
         });
     });
+
+    describe(@"generate key pair", ^{
+
+        beforeEach(^{
+            keychain = [A0SimpleKeychain keychain];
+        });
+
+        afterEach(^{
+            [keychain deleteRSAKeyWithTag:kPublicKeyTag];
+            [keychain deleteRSAKeyWithTag:kPrivateKeyTag];
+        });
+
+        it(@"should generate a key pair", ^{
+            [keychain generateRSAKeyPairWithLength:A0SimpleKeychainRSAKeySize1024Bits
+                                      publicKeyTag:kPublicKeyTag
+                                     privateKeyTag:kPrivateKeyTag];
+            expect([keychain dataForRSAKeyWithTag:kPublicKeyTag]).notTo.beNil();
+            expect([keychain dataForRSAKeyWithTag:kPrivateKeyTag]).notTo.beNil();
+        });
+
+        sharedExamplesFor(@"failed RSA key generation", ^(NSDictionary *data) {
+
+            it(@"should fail with NSAssert", ^{
+                expect(^{
+                    [keychain generateRSAKeyPairWithLength:A0SimpleKeychainRSAKeySize1024Bits
+                                              publicKeyTag:data[@"publicTag"]
+                                             privateKeyTag:data[@"privateTag"]];
+                }).to.raise(NSInternalInconsistencyException);
+            });
+
+        });
+
+        itShouldBehaveLike(@"failed RSA key generation", @{
+                                                           @"publicTag": kPublicKeyTag,
+                                                           });
+
+        itShouldBehaveLike(@"failed RSA key generation", @{
+                                                           @"privateTag": kPrivateKeyTag,
+                                                           });
+
+        itShouldBehaveLike(@"failed RSA key generation", @{});
+    });
+
+    describe(@"obtain RSA key as NSData", ^{
+
+        beforeEach(^{
+            keychain = [A0SimpleKeychain keychain];
+            [keychain generateRSAKeyPairWithLength:A0SimpleKeychainRSAKeySize1024Bits
+                                      publicKeyTag:kPublicKeyTag
+                                     privateKeyTag:kPrivateKeyTag];
+        });
+
+        afterEach(^{
+            [keychain deleteRSAKeyWithTag:kPublicKeyTag];
+            [keychain deleteRSAKeyWithTag:kPrivateKeyTag];
+        });
+
+        it(@"should obtain keys", ^{
+            expect([keychain dataForRSAKeyWithTag:kPublicKeyTag]).notTo.beNil();
+            expect([keychain dataForRSAKeyWithTag:kPrivateKeyTag]).notTo.beNil();
+        });
+    });
+
+    describe(@"check if RSA key exists", ^{
+
+        beforeEach(^{
+            keychain = [A0SimpleKeychain keychain];
+            [keychain generateRSAKeyPairWithLength:A0SimpleKeychainRSAKeySize1024Bits
+                                      publicKeyTag:kPublicKeyTag
+                                     privateKeyTag:kPrivateKeyTag];
+        });
+
+        afterEach(^{
+            [keychain deleteRSAKeyWithTag:kPublicKeyTag];
+            [keychain deleteRSAKeyWithTag:kPrivateKeyTag];
+        });
+
+        it(@"should check if the key exists", ^{
+            expect([keychain hasRSAKeyWithTag:kPublicKeyTag]).to.beTruthy();
+            expect([keychain hasRSAKeyWithTag:kPrivateKeyTag]).to.beTruthy();
+        });
+
+        it(@"should return NO for nonexisting key", ^{
+            expect([keychain hasRSAKeyWithTag:@"NONEXISTENT"]).to.beFalsy();
+        });
+    });
+
+    
 });
 
 SpecEnd
