@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SimpleKeychain"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely."
   s.description      = <<-DESC
                        A simple way to store items in iOS Keychain, without the hassle of dealing with iOS Keychain API directly.
@@ -16,7 +16,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
-  s.resource_bundles = {
-    'A0Keychain' => ['Pod/Assets/*.png']
-  }
 end
