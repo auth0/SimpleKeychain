@@ -127,6 +127,10 @@ A0SimpleKeychain.keychain().deleteEntryForKey("auth0-user-jwt")
 
 Just clone the repo, and run pod install from the Example directory and you're ready to contribute!.
 
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
 ## License
 
 SimpleKeychain is available under the MIT license. See the [LICENSE file]([LICENSE file](https://github.com/auth0/SimpleKeychain/blob/master/LICENSE)) for more info.
