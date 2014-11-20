@@ -55,7 +55,7 @@ NSString *jwt = //user's JWT token obtained after login
 
 ```swift
 let jwt = //user's JWT token obtained after login
-A0SimpleKeychain.keychain().setString(jwt, forKey:"auth0-user-jwt")
+A0SimpleKeychain().setString(jwt, forKey:"auth0-user-jwt")
 ```
 
 ###Obtain a JWT token or password
@@ -65,7 +65,7 @@ NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
 ```
 
 ```swift
-let jwt = A0SimpleKeychain.keychain().stringForKey("auth0-user-jwt")
+let jwt = A0SimpleKeychain().stringForKey("auth0-user-jwt")
 ```
 
 ###Share JWT Token with other apps using iOS Access Group
@@ -78,7 +78,7 @@ A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" acce
 
 ```swift
 let jwt = //user's JWT token obtained after login
-let keychain = A0SimpleKeychain.keychainWithService("Auth0", accessGroup: "ABCDEFGH.com.mydomain.myaccessgroup")
+let keychain = A0SimpleKeychain(service: "Auth0", accessGroup: "ABCDEFGH.com.mydomain.myaccessgroup")
 keychain.setString(jwt, forKey:"auth0-user-jwt")
 ```
 
@@ -94,7 +94,7 @@ keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisD
 ```
 ```swift
 let jwt = //user's JWT token obtained after login
-let keychain = A0SimpleKeychain.keychain()
+let keychain = A0SimpleKeychain()
 keychain.useAcessControl = true
 keychain.defaultAccesiblity = .WhenPasscodeSetThisDeviceOnly
 keychain.setString(jwt, forKey:"auth0-user-jwt")
@@ -110,7 +110,7 @@ NSString *jwt = [keychain stringForKey:@"auth0-user-jwt" promptMessage:message];
 ```
 ```swift
 let message = NSLocalizedString("Please enter your passcode/fingerprint to login with awesome App!.", comment: "Prompt TouchID message")
-let keychain = A0SimpleKeychain.keychain()
+let keychain = A0SimpleKeychain()
 let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
 ```
 
@@ -120,7 +120,7 @@ let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
 ```
 
 ```swift
-A0SimpleKeychain.keychain().deleteEntryForKey("auth0-user-jwt")
+A0SimpleKeychain().deleteEntryForKey("auth0-user-jwt")
 ```
 
 ##Contributing
