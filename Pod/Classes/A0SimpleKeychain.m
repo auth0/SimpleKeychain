@@ -112,8 +112,23 @@
     if (!key) {
         return NO;
     }
-
+    
     NSDictionary *query = [self queryFindByKey:key message:message];
+    
+    // Touch ID case
+    if (self.useAccessControl && self.defaultAccessiblity == A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly) {
+        // TouchId case. Doesn't support updating keychain items
+        // see Known Issues: https://developer.apple.com/library/ios/releasenotes/General/RN-iOSSDK-8.0/
+        // We need to delete old and add a new item. This can fail
+        OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
+        if (status == errSecSuccess || status == errSecItemNotFound) {
+            NSDictionary *newQuery = [self queryNewKey:key value:data];
+            OSStatus status = SecItemAdd((__bridge CFDictionaryRef)newQuery, NULL);
+            return status == errSecSuccess;
+        }
+    }
+    
+    // Normal case
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status == errSecSuccess) {
         if (data) {
