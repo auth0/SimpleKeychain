@@ -86,7 +86,7 @@
 }
 
 - (BOOL)hasValueForKey:(NSString *)key {
-    if (key) {
+    if (!key) {
         return NO;
     }
     NSDictionary *query = [self queryFindByKey:key message:nil];
