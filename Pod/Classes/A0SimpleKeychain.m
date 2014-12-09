@@ -253,7 +253,7 @@
 
 - (NSDictionary *)queryFindByKey:(NSString *)key message:(NSString *)message {
     NSMutableDictionary *query = [self baseQuery];
-    query[(__bridge id)kSecAttrAccount] = key;
+    query[(__bridge id)kSecAttrAccount] = key ? key : [NSNull null];
     if (message) {
         query[(__bridge id)kSecUseOperationPrompt] = message;
     }
@@ -282,7 +282,7 @@
         CFErrorRef error = NULL;
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
         if (error == NULL || accessControl == NULL) {
-            query[(__bridge id)kSecAttrAccessControl] = (__bridge id)accessControl;
+            query[(__bridge id)kSecAttrAccessControl] = accessControl ? (__bridge id)accessControl : [NSNull null];
             query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
         }
     } else {
