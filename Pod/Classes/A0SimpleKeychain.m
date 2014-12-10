@@ -252,8 +252,9 @@
 }
 
 - (NSDictionary *)queryFindByKey:(NSString *)key message:(NSString *)message {
+    NSAssert(key != nil, @"Must have a valid non-nil key");
     NSMutableDictionary *query = [self baseQuery];
-    query[(__bridge id)kSecAttrAccount] = key ? key : [NSNull null];
+    query[(__bridge id)kSecAttrAccount] = key;
     if (message) {
         query[(__bridge id)kSecUseOperationPrompt] = message;
     }
@@ -281,8 +282,8 @@
     if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
         CFErrorRef error = NULL;
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
-        if (error == NULL || accessControl == NULL) {
-            query[(__bridge id)kSecAttrAccessControl] = accessControl ? (__bridge id)accessControl : [NSNull null];
+        if (error == NULL || accessControl != NULL) {
+            query[(__bridge id)kSecAttrAccessControl] = (__bridge id)accessControl;
             query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
         }
     } else {
