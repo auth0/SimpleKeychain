@@ -66,22 +66,29 @@
 }
 
 - (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message {
+    return [self dataForKey:key promptMessage:message error:nil];
+}
+
+- (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message error:(NSError**)err {
     if (!key) {
         return nil;
     }
-
+    
     NSDictionary *query = [self queryFetchOneByKey:key message:message];
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
     if (status != errSecSuccess) {
+        if(err != nil) {
+            *err = [NSError errorWithDomain:A0ErrorDomain code:status userInfo:@{NSLocalizedDescriptionKey : [self stringForSecStatus:status]}];
+        }
         return nil;
     }
-
+    
     NSData *dataFound = [NSData dataWithData:(__bridge NSData *)data];
     if (data) {
         CFRelease(data);
     }
-
+    
     return dataFound;
 }
 
@@ -224,6 +231,33 @@
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
     }
     return accessibility;
+}
+
+- (NSString*)stringForSecStatus:(OSStatus)status {
+    switch(status) {
+        case errSecSuccess:
+            return @"errSecSuccess: No error";
+        case errSecUnimplemented:
+            return @"errSecUnimplemented: Function or operation not implemented";
+        case errSecParam:
+            return @"errSecParam: One or more parameters passed to the function were not valid";
+        case errSecAllocate:
+            return @"errSecAllocate: Failed to allocate memory";
+        case errSecNotAvailable:
+            return @"errSecNotAvailable: No trust results are available";
+        case errSecAuthFailed:
+            return @"errSecAuthFailed: Authorization/Authentication failed";
+        case errSecDuplicateItem:
+            return @"errSecDuplicateItem: The item already exists";
+        case errSecItemNotFound:
+            return @"errSecItemNotFound: The item cannot be found";
+        case errSecInteractionNotAllowed:
+            return @"errSecInteractionNotAllowed: Interaction with the Security Server is not allowed";
+        case errSecDecode:
+            return @"errSecDecode: Unable to decode the provided data";
+        default:
+            return [NSString stringWithFormat:@"Unknown error code %d", status];
+    }
 }
 
 #pragma mark - Query Dictionary Builder methods
