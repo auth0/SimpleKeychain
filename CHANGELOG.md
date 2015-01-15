@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 ## master 
+###Added 
+- Methods with error parameter to check why the operation failed. (@Yspadadden)
 
 ## 0.2.2 - 2014-12-10
 ### Changed
