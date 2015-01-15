@@ -1,7 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## master 
+##master
+
+## 0.3.0 - 2015-01-15
 ###Added 
 - Methods with error parameter to check why the operation failed. (@Yspadadden)
 
