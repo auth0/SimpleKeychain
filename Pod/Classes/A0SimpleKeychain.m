@@ -234,29 +234,30 @@
 }
 
 - (NSString*)stringForSecStatus:(OSStatus)status {
+    
     switch(status) {
         case errSecSuccess:
-            return @"errSecSuccess: No error";
+            return NSLocalizedStringFromTable(@"errSecSuccess: No error", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecUnimplemented:
-            return @"errSecUnimplemented: Function or operation not implemented";
+            return NSLocalizedStringFromTable(@"errSecUnimplemented: Function or operation not implemented", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecParam:
-            return @"errSecParam: One or more parameters passed to the function were not valid";
+            return NSLocalizedStringFromTable(@"errSecParam: One or more parameters passed to the function were not valid", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecAllocate:
-            return @"errSecAllocate: Failed to allocate memory";
+            return NSLocalizedStringFromTable(@"errSecAllocate: Failed to allocate memory", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecNotAvailable:
-            return @"errSecNotAvailable: No trust results are available";
+            return NSLocalizedStringFromTable(@"errSecNotAvailable: No trust results are available", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecAuthFailed:
-            return @"errSecAuthFailed: Authorization/Authentication failed";
+            return NSLocalizedStringFromTable(@"errSecAuthFailed: Authorization/Authentication failed", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecDuplicateItem:
-            return @"errSecDuplicateItem: The item already exists";
+            return NSLocalizedStringFromTable(@"errSecDuplicateItem: The item already exists", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecItemNotFound:
-            return @"errSecItemNotFound: The item cannot be found";
+            return NSLocalizedStringFromTable(@"errSecItemNotFound: The item cannot be found", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecInteractionNotAllowed:
-            return @"errSecInteractionNotAllowed: Interaction with the Security Server is not allowed";
+            return NSLocalizedStringFromTable(@"errSecInteractionNotAllowed: Interaction with the Security Server is not allowed", @"SimpleKeychain", @"Possible error from keychain. ");
         case errSecDecode:
-            return @"errSecDecode: Unable to decode the provided data";
+            return NSLocalizedStringFromTable(@"errSecDecode: Unable to decode the provided data", @"SimpleKeychain", @"Possible error from keychain. ");
         default:
-            return [NSString stringWithFormat:@"Unknown error code %d", status];
+            return [NSString stringWithFormat:NSLocalizedStringFromTable(@"Unknown error code %d", @"SimpleKeychain", @"Possible error from keychain. "), status];
     }
 }
 

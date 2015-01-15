@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly
 };
 
-#define A0ErrorDomain @"A0ErrorDomain"
+#define A0ErrorDomain @"com.auth0.simplekeychain"
 
 /**
  * Enum with keychain error codes. It's a mirror of the keychain error codes. 
