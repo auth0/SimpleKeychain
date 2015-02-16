@@ -88,15 +88,15 @@ Let's save the JWT first:
 ```objc
 NSString *jwt = //user's JWT token obtained after login
 A0SimpleKeychain *keychain = [A0SimpleKeychain keychain];
-keychain.useAcessControl = YES;
-keychain.defaultAccesiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
+keychain.useAccessControl = YES;
+keychain.defaultAccessiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
 [keychain setString:jwt forKey:@"auth0-user-jwt"];
 ```
 ```swift
 let jwt = //user's JWT token obtained after login
 let keychain = A0SimpleKeychain()
-keychain.useAcessControl = true
-keychain.defaultAccesiblity = .WhenPasscodeSetThisDeviceOnly
+keychain.useAccessControl = true
+keychain.defaultAccessiblity = .WhenPasscodeSetThisDeviceOnly
 keychain.setString(jwt, forKey:"auth0-user-jwt")
 ```
 
