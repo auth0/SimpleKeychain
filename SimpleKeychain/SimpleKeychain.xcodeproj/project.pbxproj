@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F4E31321AB74F25001822ED /* A0SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E31311AB74F25001822ED /* A0SimpleKeychainSpec.swift */; };
+		5F4E31341AB7539C001822ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4E31331AB7539C001822ED /* UIKit.framework */; };
 		5F6B587D1AB4E06000A56B57 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6B587C1AB4E06000A56B57 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F6B58831AB4E06000A56B57 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6B58771AB4E06000A56B57 /* SimpleKeychain.framework */; };
-		5F6B588A1AB4E06000A56B57 /* SimpleKeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B58891AB4E06000A56B57 /* SimpleKeychainTests.swift */; };
 		5F6B58941AB4E0FA00A56B57 /* A0SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B58931AB4E0FA00A56B57 /* A0SimpleKeychain.swift */; };
+		C3C1C0F51012677642F0D136 /* Pods_SimpleKeychainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC04A43B83962125764FB9C5 /* Pods_SimpleKeychainTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,13 +26,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06B563483193B337E34EE081 /* Pods-SimpleKeychainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleKeychainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleKeychainTests/Pods-SimpleKeychainTests.release.xcconfig"; sourceTree = "<group>"; };
+		56DA20A7E454BEA7688ECCDD /* Pods-SimpleKeychainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleKeychainTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleKeychainTests/Pods-SimpleKeychainTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F4E31301AB74F25001822ED /* SimpleKeychainTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleKeychainTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F4E31311AB74F25001822ED /* A0SimpleKeychainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0SimpleKeychainSpec.swift; sourceTree = "<group>"; };
+		5F4E31331AB7539C001822ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F6B58771AB4E06000A56B57 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6B587B1AB4E06000A56B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F6B587C1AB4E06000A56B57 /* SimpleKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleKeychain.h; sourceTree = "<group>"; };
 		5F6B58821AB4E06000A56B57 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6B58881AB4E06000A56B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F6B58891AB4E06000A56B57 /* SimpleKeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychainTests.swift; sourceTree = "<group>"; };
 		5F6B58931AB4E0FA00A56B57 /* A0SimpleKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0SimpleKeychain.swift; sourceTree = "<group>"; };
+		BC04A43B83962125764FB9C5 /* Pods_SimpleKeychainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleKeychainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F4E31341AB7539C001822ED /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6B58831AB4E06000A56B57 /* SimpleKeychain.framework in Frameworks */,
+				C3C1C0F51012677642F0D136 /* Pods_SimpleKeychainTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +67,8 @@
 				5F6B58791AB4E06000A56B57 /* SimpleKeychain */,
 				5F6B58861AB4E06000A56B57 /* SimpleKeychainTests */,
 				5F6B58781AB4E06000A56B57 /* Products */,
+				911594D8D387E9CA0EC1782D /* Pods */,
+				B23F386B47B28DCCE5BDB9C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,8 +102,9 @@
 		5F6B58861AB4E06000A56B57 /* SimpleKeychainTests */ = {
 			isa = PBXGroup;
 			children = (
-				5F6B58891AB4E06000A56B57 /* SimpleKeychainTests.swift */,
 				5F6B58871AB4E06000A56B57 /* Supporting Files */,
+				5F4E31311AB74F25001822ED /* A0SimpleKeychainSpec.swift */,
+				5F4E31301AB74F25001822ED /* SimpleKeychainTests-Bridging-Header.h */,
 			);
 			path = SimpleKeychainTests;
 			sourceTree = "<group>";
@@ -103,6 +115,24 @@
 				5F6B58881AB4E06000A56B57 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		911594D8D387E9CA0EC1782D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56DA20A7E454BEA7688ECCDD /* Pods-SimpleKeychainTests.debug.xcconfig */,
+				06B563483193B337E34EE081 /* Pods-SimpleKeychainTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B23F386B47B28DCCE5BDB9C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F4E31331AB7539C001822ED /* UIKit.framework */,
+				BC04A43B83962125764FB9C5 /* Pods_SimpleKeychainTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F6B58901AB4E06000A56B57 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests" */;
 			buildPhases = (
+				84CD6EAFA7D5E495F556DD9E /* Check Pods Manifest.lock */,
 				5F6B587E1AB4E06000A56B57 /* Sources */,
 				5F6B587F1AB4E06000A56B57 /* Frameworks */,
 				5F6B58801AB4E06000A56B57 /* Resources */,
+				A8F38AAFB70642D486881CEF /* Embed Pods Frameworks */,
+				C59598CC11816AEBDF3CEDAB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,6 +194,7 @@
 		5F6B586E1AB4E06000A56B57 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = A0;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Auth0;
 				TargetAttributes = {
@@ -207,6 +241,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84CD6EAFA7D5E495F556DD9E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A8F38AAFB70642D486881CEF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleKeychainTests/Pods-SimpleKeychainTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C59598CC11816AEBDF3CEDAB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimpleKeychainTests/Pods-SimpleKeychainTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5F6B58721AB4E06000A56B57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6B588A1AB4E06000A56B57 /* SimpleKeychainTests.swift in Sources */,
+				5F4E31321AB74F25001822ED /* A0SimpleKeychainSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +437,9 @@
 		};
 		5F6B58911AB4E06000A56B57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56DA20A7E454BEA7688ECCDD /* Pods-SimpleKeychainTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -367,12 +451,16 @@
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleKeychainTests/SimpleKeychainTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		5F6B58921AB4E06000A56B57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06B563483193B337E34EE081 /* Pods-SimpleKeychainTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -380,6 +468,7 @@
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SimpleKeychainTests/SimpleKeychainTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

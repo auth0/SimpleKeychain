@@ -1,0 +1,19 @@
+PODS:
+  - Expecta (0.3.2)
+  - Nimble (0.3.0)
+  - Quick (0.2.2)
+  - Specta (0.4.0)
+
+DEPENDENCIES:
+  - Expecta (~> 0.3.2)
+  - Nimble (~> 0.3.0)
+  - Quick (~> 0.2.2)
+  - Specta (~> 0.4)
+
+SPEC CHECKSUMS:
+  Expecta: ee641011fe10aa1855d487b40e4976dac50ec342
+  Nimble: a4d9d978129e83d73e33b7d8bce57443bd556068
+  Quick: 7b89ff625e72ef931c2a9ef2f25ac3a9d2457763
+  Specta: 1df326d6ec48603c77f507a0ab1f89ad2df1c582
+
+COCOAPODS: 0.36.0

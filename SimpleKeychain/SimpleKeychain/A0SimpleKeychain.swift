@@ -25,7 +25,7 @@ import Foundation
 /**
 *  Enum with Kechain items accessibility types. It's a mirror of `kSecAttrAccessible` values.
 */
-enum A0SimpleKeychainItemAccessible {
+public enum A0SimpleKeychainItemAccessible {
     /**
     *  @see kSecAttrAccessibleWhenUnlocked
     */
@@ -59,7 +59,7 @@ enum A0SimpleKeychainItemAccessible {
 /**
 * Enum with keychain error codes. It's a mirror of the keychain error codes.
 */
-enum A0SimpleKeychainErrorCode: Int {
+public enum A0SimpleKeychainErrorCode: Int {
     /**
     * @see errSecSuccess
     */
@@ -108,7 +108,7 @@ enum A0SimpleKeychainErrorCode: Int {
 *  The support is only available for iOS 8+, otherwise it will default using the coarse grained accesibility field.
 *  When a `NSString` or `NSData` is stored using Access Control and the accesibility flag `A0SimpleKeychainItemAccessible.WhenPasscodeSetThisDeviceOnly`, iOS will prompt the user for it's passcode or pass a TouchID challenge (if available).
 */
-class A0SimpleKeychain: NSObject {
+public class A0SimpleKeychain: NSObject {
 
     private let errorDomain = "com.auth0.simplekeychain"
     private let localizedTableName = "SimpleKeychain"
@@ -116,24 +116,24 @@ class A0SimpleKeychain: NSObject {
     /**
     *  Service name under all items are saved. Default value is Bundle Identifier.
     */
-    private(set) var service: String
+    public private(set) var service: String
 
     /**
     *  Access Group for Keychain item sharing. If it's nil no keychain sharing is possible. Default value is nil.
     */
-    private(set) var accessGroup: String?
+    public private(set) var accessGroup: String?
 
     /**
     *  What type of accessibility the items stored will have. All values are translated to `kSecAttrAccessible` constants.
     *  Default value is A0SimpleKeychainItemAccessibleAfterFirstUnlock.
     *  @see kSecAttrAccessible
     */
-    var defaultAccessibility: A0SimpleKeychainItemAccessible
+    public var defaultAccessibility: A0SimpleKeychainItemAccessible
     /**
     *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
     *  Default value is NO.
     */
-    var useAccessControl: Bool
+    public var useAccessControl: Bool
 
     ///---------------------------------------------------
     /// @name Initialization
@@ -149,7 +149,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: a new instance
     */
-    init(service: String? = NSBundle.mainBundle().bundleIdentifier, accessGroup: String? = nil, defaultAccessibility: A0SimpleKeychainItemAccessible = .AfterFirstUnlock, useAccessControl: Bool = false) {
+    public init(service: String? = NSBundle.mainBundle().bundleIdentifier, accessGroup: String? = nil, defaultAccessibility: A0SimpleKeychainItemAccessible = .AfterFirstUnlock, useAccessControl: Bool = false) {
         self.service = service!
         self.accessGroup = accessGroup
         self.defaultAccessibility = defaultAccessibility
@@ -169,7 +169,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: if the value was stored successfully
     */
-    func setString(string: String, forKey key: String, promptMessage message: String? = nil) -> Bool {
+    public func setString(string: String, forKey key: String, promptMessage message: String? = nil) -> Bool {
         if let data = string.dataUsingEncoding(NSUTF8StringEncoding) {
             return setData(data, forKey: key, promptMessage: message)
         }
@@ -185,7 +185,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: if the value was stored successfully
     */
-    func setData(data: NSData, forKey key: String, promptMessage message: String? = nil) -> Bool {
+    public func setData(data: NSData, forKey key: String, promptMessage message: String? = nil) -> Bool {
         let query = queryFindByKey(key, message: message)
         // Touch ID case
         if (self.useAccessControl && self.defaultAccessibility == .WhenPasscodeSetThisDeviceOnly) {
@@ -199,9 +199,11 @@ class A0SimpleKeychain: NSObject {
         }
         let findStatus = SecItemCopyMatching(query, nil)
         if (findStatus == errSecSuccess) {
-            return SecItemUpdate(query, queryUpdateValue(data, message: message)) == errSecSuccess
+            let updateStatus = SecItemUpdate(query, queryUpdateValue(data, message: message) as NSDictionary)
+            return updateStatus == errSecSuccess
         } else {
-            return SecItemAdd(queryNewItemWithKey(key, value: data), nil) == errSecSuccess
+            let insertStatus = SecItemAdd(queryNewItemWithKey(key, value: data), nil)
+            return insertStatus == errSecSuccess
         }
     }
 
@@ -218,7 +220,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: stored string value or nil
     */
-    func stringForKey(key: String, promptMessage message: String? = nil, error: NSErrorPointer) -> String? {
+    public func stringForKey(key: String, promptMessage message: String? = nil, error: NSErrorPointer) -> String? {
         let result = stringForKey(key, promptMessage: message)
         switch(result) {
         case (let string, nil) where string != nil:
@@ -239,13 +241,13 @@ class A0SimpleKeychain: NSObject {
 
     :returns: a tuple with the string value if successful otherwise with the error
     */
-    func stringForKey(key: String, promptMessage message: String? = nil) -> (string: String?, error: NSError?) {
+    public func stringForKey(key: String, promptMessage message: String? = nil) -> (value: String?, error: NSError?) {
         let result = dataForKey(key, promptMessage: message)
         switch(result) {
         case (let data, nil) where data != nil:
-            return (string: NSString(data: data!, encoding: NSUTF8StringEncoding), error: nil)
+            return (value: NSString(data: data!, encoding: NSUTF8StringEncoding), error: nil)
         case (_, let error):
-            return (string: nil, error: error)
+            return (value: nil, error: error)
         }
     }
 
@@ -258,7 +260,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: stored NSData value or nil
     */
-    func dataForKey(key: String, promptMessage message: String? = nil, error: NSErrorPointer) -> NSData? {
+    public func dataForKey(key: String, promptMessage message: String? = nil, error: NSErrorPointer) -> NSData? {
         let result = dataForKey(key, promptMessage: message)
         switch (result) {
         case (let data, nil) where data != nil:
@@ -279,16 +281,16 @@ class A0SimpleKeychain: NSObject {
 
     :returns: a tuple with the NSData value if successful otherwise with the error
     */
-    func dataForKey(key: String, promptMessage message: String? = nil) -> (data: NSData?, error: NSError?) {
+    public func dataForKey(key: String, promptMessage message: String? = nil) -> (value: NSData?, error: NSError?) {
         let query = querySingleItemByKey(key, message: message)
         var data : Unmanaged<AnyObject>?
         let status = SecItemCopyMatching(query, &data)
         if (status != errSecSuccess) {
             let code = Int(status)
-            return (data: nil, error: NSError(domain: errorDomain, code: code, userInfo: [NSLocalizedDescriptionKey: localizedErrorFromStatus(status)]))
+            return (value: nil, error: NSError(domain: errorDomain, code: code, userInfo: [NSLocalizedDescriptionKey: localizedErrorFromStatus(status)]))
         }
 
-        return (data: data?.takeUnretainedValue() as? NSData, nil)
+        return (value: data?.takeUnretainedValue() as? NSData, nil)
     }
 
     /**
@@ -298,7 +300,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: if the entry exists or not
     */
-    func hasValueForKey(key: String) -> Bool {
+    public func hasValueForKey(key: String) -> Bool {
         let query = queryFindByKey(key, message: nil)
         return SecItemCopyMatching(query, nil) == errSecSuccess
     }
@@ -315,7 +317,7 @@ class A0SimpleKeychain: NSObject {
 
     :returns: if the entry was removed
     */
-    func removeValueForKey(key: String, promptMessage message: String? = nil) -> Bool {
+    public func removeValueForKey(key: String, promptMessage message: String? = nil) -> Bool {
         let query = queryFindByKey(key, message: message)
         return SecItemDelete(query) == errSecSuccess
     }
@@ -323,7 +325,7 @@ class A0SimpleKeychain: NSObject {
     /**
     Remove all entries from the kechain with the service and access group values.
     */
-    func removeAllValues() {
+    public func removeAllValues() {
         let query = queryFindAll()
         var result: Unmanaged<AnyObject>?
         let status = SecItemCopyMatching(query, &result)
@@ -387,12 +389,12 @@ class A0SimpleKeychain: NSObject {
         return query
     }
 
-    private func queryUpdateValue(value: NSData, message: String?) -> [NSString : AnyObject] {
+    private func queryUpdateValue(value: NSData, message: String?) -> NSDictionary {
         var query : [NSString : AnyObject] = [
             NSString(format: kSecValueData): value
         ]
         if let promptMessage = message {
-            query[NSString(format:kSecUseOperationPrompt)] = promptMessage
+            query[NSString(format:kSecUseOperationPrompt)] = NSString(string: promptMessage)
         }
         return query
     }

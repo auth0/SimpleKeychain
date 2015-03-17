@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+
+use_frameworks!
+
+target 'SimpleKeychainTests' do
+	pod 'Quick', '~> 0.2.2'
+	pod 'Nimble', '~> 0.3.0'
+	pod 'Specta', '~> 0.4', :inhibit_warnings => true
+	pod 'Expecta', '~> 0.3.2'
+end

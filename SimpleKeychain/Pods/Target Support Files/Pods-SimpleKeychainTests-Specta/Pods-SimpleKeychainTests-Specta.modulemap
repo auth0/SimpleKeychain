@@ -1,0 +1,6 @@
+framework module Specta {
+  umbrella header "Pods-SimpleKeychainTests-Specta-umbrella.h"
+
+  export *
+  module * { export * }
+}
