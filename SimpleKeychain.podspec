@@ -12,7 +12,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/auth0/SimpleKeychain.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/authzero'
 
-  s.platform     = :ios, '7.0'
+  s.ios.platform     = :ios, '7.0'
+  s.osx.platform = :osx, '10.10'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
