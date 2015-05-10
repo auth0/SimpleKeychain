@@ -163,21 +163,32 @@
 }
 
 - (void)clearAll {
-    NSDictionary *query = [self queryFindAll];
-    CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-    if (status == errSecSuccess || status == errSecItemNotFound) {
-        NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
-        CFBridgingRelease(result);
-        for (NSDictionary *item in items) {
-            NSMutableDictionary *queryDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
-            queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
-            OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
-            if (status != errSecSuccess) {
-                break;
-            }
-        }
+#if TARGET_OS_IPHONE
+  NSDictionary *query = [self queryFindAll];
+  CFArrayRef result = nil;
+  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+  if (status == errSecSuccess || status == errSecItemNotFound) {
+    NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
+    CFBridgingRelease(result);
+    for (NSDictionary *item in items) {
+      NSMutableDictionary *queryDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
+      queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
+
+      OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
+      if (status != errSecSuccess) {
+        break;
+      }
     }
+  }
+#else
+  NSMutableDictionary *queryDelete = [self baseQuery];
+  queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
+  queryDelete[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
+  OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
+  if (status != errSecSuccess) {
+    return;
+  }
+#endif
 }
 
 + (A0SimpleKeychain *)keychain {
