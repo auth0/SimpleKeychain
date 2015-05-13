@@ -13,7 +13,7 @@ before_install:
 
 script:
   - xctool -workspace Examples/iOS/A0SimpleKeychain.xcworkspace -scheme A0SimpleKeychain -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean test
-  - xctool -workspace Examples/OSX/A0SimpleKeychainOSX.xcworkspace -scheme A0SimpleKeychainOSX  ONLY_ACTIVE_ARCH=NO clean test
+
 notifications:
   slack:
     secure: AXLozZlImcdopg/+srq4wcC4SVGMmoDJDXR1PKrH+Dc7DtnYXLCOKKk8hAXySIiHGR4820CX1SZ25By1Q6l8GIomHMfbYwdPILG61KHbIMydBIeoLUNRlM+VK6ao5uFt0Fj6ByNYMQweUuXDAHli88mHwE1aJmL7K3unn11L0lU=
