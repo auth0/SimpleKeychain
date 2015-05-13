@@ -4,7 +4,7 @@ reference: http://www.objc.io/issue-6/travis-ci.html
 
 language: objective-c
 
-podfile: Example/Podfile
+podfile: Examples/iOS/Podfile
 
 before_install:
   - brew update
