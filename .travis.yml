@@ -4,7 +4,7 @@ reference: http://www.objc.io/issue-6/travis-ci.html
 
 language: objective-c
 
-podfile: Example/Podfile
+podfile: Examples/iOS/Podfile
 
 before_install:
   - brew update
@@ -12,7 +12,7 @@ before_install:
   - gem install cocoapods --no-ri --no-rdoc
 
 script:
-  - xctool -workspace Example/A0SimpleKeychain.xcworkspace -scheme A0SimpleKeychain -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean test
+  - xctool -workspace Examples/iOS/A0SimpleKeychain.xcworkspace -scheme A0SimpleKeychain -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean test
 
 notifications:
   slack:

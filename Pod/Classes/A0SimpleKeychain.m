@@ -163,22 +163,32 @@
 }
 
 - (void)clearAll {
-    NSDictionary *query = [self queryFindAll];
-    CFArrayRef result = nil;
-    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-    if (status == errSecSuccess || status == errSecItemNotFound) {
-        NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
-        CFBridgingRelease(result);
-        for (NSDictionary *item in items) {
-            NSMutableDictionary *queryDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
-            queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
+#if TARGET_OS_IPHONE
+  NSDictionary *query = [self queryFindAll];
+  CFArrayRef result = nil;
+  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+  if (status == errSecSuccess || status == errSecItemNotFound) {
+    NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
+    CFBridgingRelease(result);
+    for (NSDictionary *item in items) {
+      NSMutableDictionary *queryDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
+      queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
 
-            OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
-            if (status != errSecSuccess) {
-                break;
-            }
-        }
+      OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
+      if (status != errSecSuccess) {
+        break;
+      }
     }
+  }
+#else
+  NSMutableDictionary *queryDelete = [self baseQuery];
+  queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
+  queryDelete[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
+  OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
+  if (status != errSecSuccess) {
+    return;
+  }
+#endif
 }
 
 + (A0SimpleKeychain *)keychain {
@@ -210,6 +220,7 @@
         case A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly:
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
             break;
+#if TARGET_OS_IPHONE
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
 #ifdef __IPHONE_8_0
             if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) { //iOS 8
@@ -219,6 +230,7 @@
             }
 #else
             accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
+#endif
 #endif
             break;
         case A0SimpleKeychainItemAccessibleWhenUnlocked:
@@ -290,16 +302,20 @@
     NSAssert(key != nil, @"Must have a valid non-nil key");
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
+#if TARGET_OS_IPHONE
     if (message) {
         query[(__bridge id)kSecUseOperationPrompt] = message;
     }
+#endif
     return query;
 }
 
 - (NSDictionary *)queryUpdateValue:(NSData *)data message:(NSString *)message {
     if (message) {
         return @{
+#if TARGET_OS_IPHONE
                  (__bridge id)kSecUseOperationPrompt: message,
+#endif
                  (__bridge id)kSecValueData: data,
                  };
     } else {
@@ -313,6 +329,7 @@
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
     query[(__bridge id)kSecValueData] = value;
+#if TARGET_OS_IPHONE
 #ifdef __IPHONE_8_0
     if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
         CFErrorRef error = NULL;
@@ -327,6 +344,7 @@
 #else
     query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
 #endif
+#endif
     return query;
 }
 
@@ -337,9 +355,11 @@
                                       (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne,
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
+#if TARGET_OS_IPHONE
     if (message) {
         query[(__bridge id)kSecUseOperationPrompt] = message;
     }
+#endif
 
     return query;
 }
