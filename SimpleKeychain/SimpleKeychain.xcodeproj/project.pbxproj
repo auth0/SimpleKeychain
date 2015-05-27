@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F4E31321AB74F25001822ED /* A0SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E31311AB74F25001822ED /* A0SimpleKeychainSpec.swift */; };
+		5F4E31321AB74F25001822ED /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E31311AB74F25001822ED /* SimpleKeychainSpec.swift */; };
 		5F4E31341AB7539C001822ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4E31331AB7539C001822ED /* UIKit.framework */; };
 		5F6B587D1AB4E06000A56B57 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6B587C1AB4E06000A56B57 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F6B58831AB4E06000A56B57 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6B58771AB4E06000A56B57 /* SimpleKeychain.framework */; };
-		5F6B58941AB4E0FA00A56B57 /* A0SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B58931AB4E0FA00A56B57 /* A0SimpleKeychain.swift */; };
+		5F6B58941AB4E0FA00A56B57 /* SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B58931AB4E0FA00A56B57 /* SimpleKeychain.swift */; };
 		C3C1C0F51012677642F0D136 /* Pods_SimpleKeychainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC04A43B83962125764FB9C5 /* Pods_SimpleKeychainTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -29,14 +29,14 @@
 		06B563483193B337E34EE081 /* Pods-SimpleKeychainTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleKeychainTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleKeychainTests/Pods-SimpleKeychainTests.release.xcconfig"; sourceTree = "<group>"; };
 		56DA20A7E454BEA7688ECCDD /* Pods-SimpleKeychainTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleKeychainTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleKeychainTests/Pods-SimpleKeychainTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F4E31301AB74F25001822ED /* SimpleKeychainTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleKeychainTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		5F4E31311AB74F25001822ED /* A0SimpleKeychainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0SimpleKeychainSpec.swift; sourceTree = "<group>"; };
+		5F4E31311AB74F25001822ED /* SimpleKeychainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleKeychainSpec.swift; sourceTree = "<group>"; };
 		5F4E31331AB7539C001822ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F6B58771AB4E06000A56B57 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6B587B1AB4E06000A56B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F6B587C1AB4E06000A56B57 /* SimpleKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleKeychain.h; sourceTree = "<group>"; };
 		5F6B58821AB4E06000A56B57 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6B58881AB4E06000A56B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F6B58931AB4E0FA00A56B57 /* A0SimpleKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = A0SimpleKeychain.swift; sourceTree = "<group>"; };
+		5F6B58931AB4E0FA00A56B57 /* SimpleKeychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleKeychain.swift; sourceTree = "<group>"; };
 		BC04A43B83962125764FB9C5 /* Pods_SimpleKeychainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleKeychainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 			children = (
 				5F6B587C1AB4E06000A56B57 /* SimpleKeychain.h */,
 				5F6B587A1AB4E06000A56B57 /* Supporting Files */,
-				5F6B58931AB4E0FA00A56B57 /* A0SimpleKeychain.swift */,
+				5F6B58931AB4E0FA00A56B57 /* SimpleKeychain.swift */,
 			);
 			path = SimpleKeychain;
 			sourceTree = "<group>";
@@ -103,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				5F6B58871AB4E06000A56B57 /* Supporting Files */,
-				5F4E31311AB74F25001822ED /* A0SimpleKeychainSpec.swift */,
+				5F4E31311AB74F25001822ED /* SimpleKeychainSpec.swift */,
 				5F4E31301AB74F25001822ED /* SimpleKeychainTests-Bridging-Header.h */,
 			);
 			path = SimpleKeychainTests;
@@ -294,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6B58941AB4E0FA00A56B57 /* A0SimpleKeychain.swift in Sources */,
+				5F6B58941AB4E0FA00A56B57 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4E31321AB74F25001822ED /* A0SimpleKeychainSpec.swift in Sources */,
+				5F4E31321AB74F25001822ED /* SimpleKeychainSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-// A0SimpleKeychain.swift
+// SimpleKeychain.swift
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -25,7 +25,7 @@ import Foundation
 /**
 *  Enum with Kechain items accessibility types. It's a mirror of `kSecAttrAccessible` values.
 */
-public enum A0SimpleKeychainItemAccessible {
+public enum SimpleKeychainItemAccessible {
     /**
     *  @see kSecAttrAccessibleWhenUnlocked
     */
@@ -59,7 +59,7 @@ public enum A0SimpleKeychainItemAccessible {
 /**
 * Enum with keychain error codes. It's a mirror of the keychain error codes.
 */
-public enum A0SimpleKeychainErrorCode: Int {
+public enum SimpleKeychainErrorCode: Int {
     /**
     * @see errSecSuccess
     */
@@ -106,9 +106,9 @@ public enum A0SimpleKeychainErrorCode: Int {
 *  A simple helper class to deal with storing and retrieving values from iOS Keychain.
 *  It has support for sharing keychain items using Access Group and also for iOS 8 fine grained accesibility over a specific Kyechain Item (Using Access Control).
 *  The support is only available for iOS 8+, otherwise it will default using the coarse grained accesibility field.
-*  When a `NSString` or `NSData` is stored using Access Control and the accesibility flag `A0SimpleKeychainItemAccessible.WhenPasscodeSetThisDeviceOnly`, iOS will prompt the user for it's passcode or pass a TouchID challenge (if available).
+*  When a `NSString` or `NSData` is stored using Access Control and the accesibility flag `SimpleKeychainItemAccessible.WhenPasscodeSetThisDeviceOnly`, iOS will prompt the user for it's passcode or pass a TouchID challenge (if available).
 */
-public class A0SimpleKeychain: NSObject {
+public class SimpleKeychain: NSObject {
 
     private let errorDomain = "com.auth0.simplekeychain"
     private let localizedTableName = "SimpleKeychain"
@@ -125,12 +125,12 @@ public class A0SimpleKeychain: NSObject {
 
     /**
     *  What type of accessibility the items stored will have. All values are translated to `kSecAttrAccessible` constants.
-    *  Default value is A0SimpleKeychainItemAccessibleAfterFirstUnlock.
+    *  Default value is SimpleKeychainItemAccessibleAfterFirstUnlock.
     *  @see kSecAttrAccessible
     */
-    public var defaultAccessibility: A0SimpleKeychainItemAccessible
+    public var defaultAccessibility: SimpleKeychainItemAccessible
     /**
-    *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
+    *  Tells SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
     *  Default value is NO.
     */
     public var useAccessControl: Bool
@@ -140,7 +140,7 @@ public class A0SimpleKeychain: NSObject {
     ///---------------------------------------------------
 
     /**
-    Creates an instance of A0SimpleKeychain
+    Creates an instance of SimpleKeychain
 
     :param: service              name of the service.
     :param: accessGroup          name of the access group used for keychain sharing. By default is nil.
@@ -149,7 +149,7 @@ public class A0SimpleKeychain: NSObject {
 
     :returns: a new instance
     */
-    public init(service: String? = NSBundle.mainBundle().bundleIdentifier, accessGroup: String? = nil, defaultAccessibility: A0SimpleKeychainItemAccessible = .AfterFirstUnlock, useAccessControl: Bool = false) {
+    public init(service: String? = NSBundle.mainBundle().bundleIdentifier, accessGroup: String? = nil, defaultAccessibility: SimpleKeychainItemAccessible = .AfterFirstUnlock, useAccessControl: Bool = false) {
         self.service = service!
         self.accessGroup = accessGroup
         self.defaultAccessibility = defaultAccessibility

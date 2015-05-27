@@ -5,34 +5,34 @@ import SimpleKeychain
 
 let ServiceName = "com.auth0.simplekeychain"
 
-class A0SimpleKeychainSpec: QuickSpec {
+class SimpleKeychainSpec: QuickSpec {
     override func spec() {
 
         describe("initialisation") {
             it("should init with default values") {
-                let keychain = A0SimpleKeychain(service: ServiceName)
+                let keychain = SimpleKeychain(service: ServiceName)
                 expect(keychain.service).to(equal(ServiceName))
                 expect(keychain.accessGroup).to(beNil())
-                expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                expect(keychain.defaultAccessibility).to(equal(SimpleKeychainItemAccessible.AfterFirstUnlock))
                 expect(keychain.useAccessControl).to(beFalse())
             }
 
             it("should init with custom values") {
-                let keychain = A0SimpleKeychain(service: ServiceName, accessGroup: "com.auth0.shared", defaultAccessibility: .WhenPasscodeSetThisDeviceOnly, useAccessControl: true)
+                let keychain = SimpleKeychain(service: ServiceName, accessGroup: "com.auth0.shared", defaultAccessibility: .WhenPasscodeSetThisDeviceOnly, useAccessControl: true)
                 expect(keychain.service).to(equal(ServiceName))
                 expect(keychain.accessGroup).to(equal("com.auth0.shared"))
-                expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.WhenPasscodeSetThisDeviceOnly))
+                expect(keychain.defaultAccessibility).to(equal(SimpleKeychainItemAccessible.WhenPasscodeSetThisDeviceOnly))
                 expect(keychain.useAccessControl).to(beTrue())
             }
         }
 
         describe("Store values") {
 
-            var keychain: A0SimpleKeychain!
+            var keychain: SimpleKeychain!
             var key: String!
 
             beforeEach {
-                keychain = A0SimpleKeychain(service: ServiceName)
+                keychain = SimpleKeychain(service: ServiceName)
                 key = NSUUID().UUIDString
             }
 
