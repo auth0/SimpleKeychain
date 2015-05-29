@@ -46,7 +46,7 @@
     NSString *value = self.valueField.text;
     if (value) {
         if (self.useTouchID) {
-            [self.keychain setString:value forKey:self.key promptMessage:@"Wan't to save the key using touch id?"];
+            [self.keychain setString:value forKey:self.key promptMessage:@"Want to save the key using touch id?"];
         } else {
             [self.keychain setString:value forKey:self.key];
         }
