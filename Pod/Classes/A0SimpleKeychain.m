@@ -58,7 +58,7 @@
 
 - (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message {
     NSData *data = [self dataForKey:key promptMessage:message];
-    NSString *string;
+    NSString *string = nil;
     if (data) {
         string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
