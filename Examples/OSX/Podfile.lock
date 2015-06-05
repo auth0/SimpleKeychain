@@ -1,6 +1,6 @@
 PODS:
   - Expecta (1.0.0)
-  - SimpleKeychain (0.3.0)
+  - SimpleKeychain (0.4.0)
   - Specta (0.2.1)
 
 DEPENDENCIES:
@@ -10,11 +10,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   SimpleKeychain:
-    :path: ../../
+    :path: "../../"
 
 SPEC CHECKSUMS:
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  SimpleKeychain: f93473207e3588d634a297790ee2aeeca7c7c321
+  SimpleKeychain: 8677ba554d30a166f64da26b7b039db1c87144f4
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
