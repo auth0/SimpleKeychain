@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for SimpleKeychain.
 FOUNDATION_EXPORT double SimpleKeychainVersionNumber;
@@ -31,4 +31,5 @@ FOUNDATION_EXPORT const unsigned char SimpleKeychainVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <SimpleKeychain/PublicHeader.h>
 
 #import <SimpleKeychain/A0SimpleKeychain.h>
+#import <SimpleKeychain/A0SimpleKeychain+KeyPair.h>
 

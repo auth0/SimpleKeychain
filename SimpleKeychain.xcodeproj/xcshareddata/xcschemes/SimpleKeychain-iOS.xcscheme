@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
-               BuildableName = "SimpleKeychain-OSX.framework"
-               BlueprintName = "SimpleKeychain-OSX"
+               BlueprintIdentifier = "5FEEB99B1B7BD70A00501415"
+               BuildableName = "SimpleKeychain.framework"
+               BlueprintName = "SimpleKeychain-iOS"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FEEB9C61B7BD82800501415"
-               BuildableName = "SimpleKeychain-OSXTests.xctest"
-               BlueprintName = "SimpleKeychain-OSXTests"
+               BlueprintIdentifier = "5FEEB9A61B7BD70B00501415"
+               BuildableName = "SimpleKeychainTests.xctest"
+               BlueprintName = "SimpleKeychainTests-iOS"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FEEB9C61B7BD82800501415"
-               BuildableName = "SimpleKeychain-OSXTests.xctest"
-               BlueprintName = "SimpleKeychain-OSXTests"
+               BlueprintIdentifier = "5FEEB9A61B7BD70B00501415"
+               BuildableName = "SimpleKeychainTests.xctest"
+               BlueprintName = "SimpleKeychainTests-iOS"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
-            BuildableName = "SimpleKeychain-OSX.framework"
-            BlueprintName = "SimpleKeychain-OSX"
+            BlueprintIdentifier = "5FEEB99B1B7BD70A00501415"
+            BuildableName = "SimpleKeychain.framework"
+            BlueprintName = "SimpleKeychain-iOS"
             ReferencedContainer = "container:SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
-            BuildableName = "SimpleKeychain-OSX.framework"
-            BlueprintName = "SimpleKeychain-OSX"
+            BlueprintIdentifier = "5FEEB99B1B7BD70A00501415"
+            BuildableName = "SimpleKeychain.framework"
+            BlueprintName = "SimpleKeychain-iOS"
             ReferencedContainer = "container:SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
-            BuildableName = "SimpleKeychain-OSX.framework"
-            BlueprintName = "SimpleKeychain-OSX"
+            BlueprintIdentifier = "5FEEB99B1B7BD70A00501415"
+            BuildableName = "SimpleKeychain.framework"
+            BlueprintName = "SimpleKeychain-iOS"
             ReferencedContainer = "container:SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
