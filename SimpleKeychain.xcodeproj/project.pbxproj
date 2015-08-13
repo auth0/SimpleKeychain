@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F85C4DC1B7C3D5A001BBA50 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FEEB9AD1B7BD70B00501415 /* Info.plist */; };
-		5F85C4F61B7C4235001BBA50 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C4F41B7C4235001BBA50 /* Expecta.framework */; };
-		5F85C4F71B7C4235001BBA50 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C4F51B7C4235001BBA50 /* Specta.framework */; };
-		5F85C4FA1B7C4253001BBA50 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C4F81B7C4253001BBA50 /* Expecta.framework */; };
-		5F85C4FB1B7C4253001BBA50 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C4F91B7C4253001BBA50 /* Specta.framework */; };
-		5FCEBF7D1B7C3BCF00596419 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */; };
-		5FCEBF7E1B7C3BD000596419 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */; };
+		5F85C5591B7C4657001BBA50 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C5571B7C4657001BBA50 /* Expecta.framework */; };
+		5F85C55A1B7C4657001BBA50 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C5581B7C4657001BBA50 /* Specta.framework */; };
+		5F85C55B1B7C47EA001BBA50 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C5571B7C4657001BBA50 /* Expecta.framework */; };
+		5F85C55C1B7C47EB001BBA50 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F85C5581B7C4657001BBA50 /* Specta.framework */; };
 		5FEEB9A21B7BD70A00501415 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FEEB9A81B7BD70B00501415 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */; };
 		5FEEB9C81B7BD82800501415 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */; };
@@ -46,10 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F85C4F41B7C4235001BBA50 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = "../Carthage/Checkouts/expecta/build/Debug-iphoneos/Expecta.framework"; sourceTree = "<group>"; };
-		5F85C4F51B7C4235001BBA50 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = "../Carthage/Checkouts/specta/Specta/build/Debug-iphoneos/Specta.framework"; sourceTree = "<group>"; };
-		5F85C4F81B7C4253001BBA50 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = ../Carthage/Checkouts/expecta/build/Debug/Expecta.framework; sourceTree = "<group>"; };
-		5F85C4F91B7C4253001BBA50 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = ../Carthage/Checkouts/specta/Specta/build/Debug/Specta.framework; sourceTree = "<group>"; };
+		5F85C5571B7C4657001BBA50 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = ../Carthage/Checkouts/expecta/build/Debug/Expecta.framework; sourceTree = "<group>"; };
+		5F85C5581B7C4657001BBA50 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = ../Carthage/Checkouts/specta/Specta/build/Debug/Specta.framework; sourceTree = "<group>"; };
 		5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychainSpec.m; sourceTree = "<group>"; };
 		5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FEEB9A01B7BD70A00501415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F85C4F61B7C4235001BBA50 /* Expecta.framework in Frameworks */,
-				5F85C4F71B7C4235001BBA50 /* Specta.framework in Frameworks */,
+				5F85C5591B7C4657001BBA50 /* Expecta.framework in Frameworks */,
+				5F85C55A1B7C4657001BBA50 /* Specta.framework in Frameworks */,
 				5FEEB9A81B7BD70B00501415 /* SimpleKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,26 +88,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F85C4FA1B7C4253001BBA50 /* Expecta.framework in Frameworks */,
-				5F85C4FB1B7C4253001BBA50 /* Specta.framework in Frameworks */,
 				5FEEB9C81B7BD82800501415 /* SimpleKeychain.framework in Frameworks */,
+				5F85C55C1B7C47EB001BBA50 /* Specta.framework in Frameworks */,
+				5F85C55B1B7C47EA001BBA50 /* Expecta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F85C4FC1B7C425E001BBA50 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5F85C4F81B7C4253001BBA50 /* Expecta.framework */,
-				5F85C4F91B7C4253001BBA50 /* Specta.framework */,
-				5F85C4F41B7C4235001BBA50 /* Expecta.framework */,
-				5F85C4F51B7C4235001BBA50 /* Specta.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5FEEB9921B7BD70A00501415 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +150,8 @@
 		5FEEB9AC1B7BD70B00501415 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5F85C4FC1B7C425E001BBA50 /* Frameworks */,
+				5F85C5571B7C4657001BBA50 /* Expecta.framework */,
+				5F85C5581B7C4657001BBA50 /* Specta.framework */,
 				5FEEB9AD1B7BD70B00501415 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -325,7 +310,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F85C4DC1B7C3D5A001BBA50 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FCEBF7D1B7C3BCF00596419 /* A0SimpleKeychainSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +359,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FCEBF7E1B7C3BD000596419 /* A0SimpleKeychainSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,8 +502,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -539,8 +521,8 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug",
 				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
