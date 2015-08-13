@@ -1,9 +1,10 @@
 # SimpleKeychain
 
-[![CI Status](http://img.shields.io/travis/auth0/SimpleKeychain.svg?style=flat)](https://travis-ci.org/auth0/SimpleKeychain)
-[![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)](http://cocoadocs.org/docsets/SimpleKeychain)
-[![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat)](http://cocoadocs.org/docsets/SimpleKeychain)
-[![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat)](http://cocoadocs.org/docsets/SimpleKeychain)
+[![CI Status](http://img.shields.io/travis/auth0/SimpleKeychain.svg?style=flat-square)](https://travis-ci.org/auth0/SimpleKeychain)
+[![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat-square)](http://cocoadocs.org/docsets/SimpleKeychain)
+[![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](http://cocoadocs.org/docsets/SimpleKeychain)
+[![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](http://cocoadocs.org/docsets/SimpleKeychain)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
 
@@ -29,19 +30,23 @@ At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcc
 
 ## Installation
 
+###CocoaPods
+
 SimpleKeychain is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-    pod "SimpleKeychain"
+```ruby
+pod "SimpleKeychain"
+```
 
 Or you can add `A0SimpleKeychain.h` and `A0SimpleKeychain.m` to your project.
 
-###Swift
+###Carthage
 
-In order to use `A0SimpleKeychain` class in Swift, you'll need to import it's header file in Xcode's Bridging Header. For example if using CocoaPods just add this line in your bridging header:
+In your Cartfile add this line
 
-```objc
-#import <SimpleKeychain/A0SimpleKeychain.h>
+```
+github "auth0/SimpleKeychain"
 ```
 
 ##A0SimpleKeychain
