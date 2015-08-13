@@ -1,5 +1,19 @@
 # Change Log
 
+## [0.5.0](https://github.com/auth0/SimpleKeychain/tree/0.5.0) (2015-08-13)
+
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.4.0...0.5.0)
+
+**Fixed bugs:**
+
+- -\[A0SimpleKeychain queryNewKey:value:\] leaks accessControl [\#18](https://github.com/auth0/SimpleKeychain/issues/18)
+
+**Merged pull requests:**
+
+- Avoid memory leak for access control [\#20](https://github.com/auth0/SimpleKeychain/pull/20) ([hzalaz](https://github.com/hzalaz))
+
+- Carthage support [\#19](https://github.com/auth0/SimpleKeychain/pull/19) ([hzalaz](https://github.com/hzalaz))
+
 ## [0.4.0](https://github.com/auth0/SimpleKeychain/tree/0.4.0) (2015-06-05)
 
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.3.0...0.4.0)
