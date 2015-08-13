@@ -335,7 +335,7 @@
         CFErrorRef error = NULL;
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
         if (error == NULL || accessControl != NULL) {
-            query[(__bridge id)kSecAttrAccessControl] = (__bridge id)accessControl;
+            query[(__bridge id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
             query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
         }
     } else {
