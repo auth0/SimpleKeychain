@@ -1,0 +1,814 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F7B45A71B7D0CAD00D5AC89 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */; };
+		5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */; };
+		5F7B45B81B7D0CE700D5AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */; };
+		5F7B45BB1B7D0CE700D5AC89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B91B7D0CE700D5AC89 /* LaunchScreen.xib */; };
+		5F7B45D01B7D0E2000D5AC89 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */; };
+		5F7B45D31B7D106F00D5AC89 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D11B7D106F00D5AC89 /* Expecta.framework */; };
+		5F7B45D41B7D106F00D5AC89 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D11B7D106F00D5AC89 /* Expecta.framework */; };
+		5F7B45D51B7D106F00D5AC89 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D21B7D106F00D5AC89 /* Specta.framework */; };
+		5F7B45D61B7D106F00D5AC89 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D21B7D106F00D5AC89 /* Specta.framework */; };
+		5FEEB9A21B7BD70A00501415 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEEB9A81B7BD70B00501415 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */; };
+		5FEEB9C81B7BD82800501415 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */; };
+		5FEEB9D61B7BD8E800501415 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEEB9D91B7BF71800501415 /* A0SimpleKeychain+KeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9D71B7BF71800501415 /* A0SimpleKeychain+KeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEEB9DA1B7BF71800501415 /* A0SimpleKeychain+KeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9D71B7BF71800501415 /* A0SimpleKeychain+KeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEEB9DB1B7BF71800501415 /* A0SimpleKeychain+KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9D81B7BF71800501415 /* A0SimpleKeychain+KeyPair.m */; };
+		5FEEB9DC1B7BF71800501415 /* A0SimpleKeychain+KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9D81B7BF71800501415 /* A0SimpleKeychain+KeyPair.m */; };
+		5FEEB9DF1B7BF72C00501415 /* A0SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9DD1B7BF72C00501415 /* A0SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEEB9E01B7BF72C00501415 /* A0SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9DD1B7BF72C00501415 /* A0SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEEB9E11B7BF72C00501415 /* A0SimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9DE1B7BF72C00501415 /* A0SimpleKeychain.m */; };
+		5FEEB9E21B7BF72C00501415 /* A0SimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9DE1B7BF72C00501415 /* A0SimpleKeychain.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F7B45CE1B7D0CF700D5AC89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F7B45AB1B7D0CE700D5AC89;
+			remoteInfo = SimpleKeychainApp;
+		};
+		5FEEB9A91B7BD70B00501415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FEEB99B1B7BD70A00501415;
+			remoteInfo = SimpleKeychain;
+		};
+		5FEEB9C91B7BD82800501415 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FEEB9BC1B7BD82800501415;
+			remoteInfo = "SimpleKeychain-OSX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5F7B45AC1B7D0CE700D5AC89 /* SimpleKeychainApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleKeychainApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7B45AF1B7D0CE700D5AC89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5F7B45BA1B7D0CE700D5AC89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5F7B45D11B7D106F00D5AC89 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Expecta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7B45D21B7D106F00D5AC89 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Specta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychainSpec.m; sourceTree = "<group>"; };
+		5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEEB9A01B7BD70A00501415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleKeychain.h; sourceTree = "<group>"; };
+		5FEEB9A71B7BD70B00501415 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEEB9AD1B7BD70B00501415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEEB9C71B7BD82800501415 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEEB9D71B7BF71800501415 /* A0SimpleKeychain+KeyPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A0SimpleKeychain+KeyPair.h"; sourceTree = "<group>"; };
+		5FEEB9D81B7BF71800501415 /* A0SimpleKeychain+KeyPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "A0SimpleKeychain+KeyPair.m"; sourceTree = "<group>"; };
+		5FEEB9DD1B7BF72C00501415 /* A0SimpleKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0SimpleKeychain.h; sourceTree = "<group>"; };
+		5FEEB9DE1B7BF72C00501415 /* A0SimpleKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychain.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F7B45A91B7D0CE700D5AC89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9981B7BD70A00501415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9A41B7BD70B00501415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEEB9A81B7BD70B00501415 /* SimpleKeychain.framework in Frameworks */,
+				5F7B45D51B7D106F00D5AC89 /* Specta.framework in Frameworks */,
+				5F7B45D31B7D106F00D5AC89 /* Expecta.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9B91B7BD82800501415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9C41B7BD82800501415 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEEB9C81B7BD82800501415 /* SimpleKeychain.framework in Frameworks */,
+				5F7B45D61B7D106F00D5AC89 /* Specta.framework in Frameworks */,
+				5F7B45D41B7D106F00D5AC89 /* Expecta.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F7B45AD1B7D0CE700D5AC89 /* SimpleKeychainApp */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */,
+				5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */,
+				5F7B45B91B7D0CE700D5AC89 /* LaunchScreen.xib */,
+				5F7B45AE1B7D0CE700D5AC89 /* Supporting Files */,
+			);
+			path = SimpleKeychainApp;
+			sourceTree = "<group>";
+		};
+		5F7B45AE1B7D0CE700D5AC89 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B45AF1B7D0CE700D5AC89 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FEEB9921B7BD70A00501415 = {
+			isa = PBXGroup;
+			children = (
+				5FEEB99E1B7BD70A00501415 /* SimpleKeychain */,
+				5FEEB9AB1B7BD70B00501415 /* SimpleKeychainTests */,
+				5F7B45AD1B7D0CE700D5AC89 /* SimpleKeychainApp */,
+				5FEEB99D1B7BD70A00501415 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FEEB99D1B7BD70A00501415 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */,
+				5FEEB9A71B7BD70B00501415 /* SimpleKeychainTests.xctest */,
+				5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */,
+				5FEEB9C71B7BD82800501415 /* SimpleKeychainTests.xctest */,
+				5F7B45AC1B7D0CE700D5AC89 /* SimpleKeychainApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FEEB99E1B7BD70A00501415 /* SimpleKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				5FEEB9DD1B7BF72C00501415 /* A0SimpleKeychain.h */,
+				5FEEB9DE1B7BF72C00501415 /* A0SimpleKeychain.m */,
+				5FEEB9D71B7BF71800501415 /* A0SimpleKeychain+KeyPair.h */,
+				5FEEB9D81B7BF71800501415 /* A0SimpleKeychain+KeyPair.m */,
+				5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */,
+				5FEEB99F1B7BD70A00501415 /* Supporting Files */,
+			);
+			path = SimpleKeychain;
+			sourceTree = "<group>";
+		};
+		5FEEB99F1B7BD70A00501415 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FEEB9A01B7BD70A00501415 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FEEB9AB1B7BD70B00501415 /* SimpleKeychainTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */,
+				5FEEB9AC1B7BD70B00501415 /* Supporting Files */,
+			);
+			path = SimpleKeychainTests;
+			sourceTree = "<group>";
+		};
+		5FEEB9AC1B7BD70B00501415 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F7B45D11B7D106F00D5AC89 /* Expecta.framework */,
+				5F7B45D21B7D106F00D5AC89 /* Specta.framework */,
+				5FEEB9AD1B7BD70B00501415 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5FEEB9991B7BD70A00501415 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEEB9DF1B7BF72C00501415 /* A0SimpleKeychain.h in Headers */,
+				5FEEB9A21B7BD70A00501415 /* SimpleKeychain.h in Headers */,
+				5FEEB9D91B7BF71800501415 /* A0SimpleKeychain+KeyPair.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9BA1B7BD82800501415 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEEB9E01B7BF72C00501415 /* A0SimpleKeychain.h in Headers */,
+				5FEEB9D61B7BD8E800501415 /* SimpleKeychain.h in Headers */,
+				5FEEB9DA1B7BF71800501415 /* A0SimpleKeychain+KeyPair.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5F7B45AB1B7D0CE700D5AC89 /* SimpleKeychainApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F7B45C81B7D0CE700D5AC89 /* Build configuration list for PBXNativeTarget "SimpleKeychainApp" */;
+			buildPhases = (
+				5F7B45A81B7D0CE700D5AC89 /* Sources */,
+				5F7B45A91B7D0CE700D5AC89 /* Frameworks */,
+				5F7B45AA1B7D0CE700D5AC89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleKeychainApp;
+			productName = SimpleKeychainApp;
+			productReference = 5F7B45AC1B7D0CE700D5AC89 /* SimpleKeychainApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5FEEB99B1B7BD70A00501415 /* SimpleKeychain-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FEEB9B21B7BD70B00501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-iOS" */;
+			buildPhases = (
+				5FEEB9971B7BD70A00501415 /* Sources */,
+				5FEEB9981B7BD70A00501415 /* Frameworks */,
+				5FEEB9991B7BD70A00501415 /* Headers */,
+				5FEEB99A1B7BD70A00501415 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SimpleKeychain-iOS";
+			productName = SimpleKeychain;
+			productReference = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5FEEB9A61B7BD70B00501415 /* SimpleKeychainTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FEEB9B51B7BD70B00501415 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-iOS" */;
+			buildPhases = (
+				5FEEB9A31B7BD70B00501415 /* Sources */,
+				5FEEB9A41B7BD70B00501415 /* Frameworks */,
+				5FEEB9A51B7BD70B00501415 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FEEB9AA1B7BD70B00501415 /* PBXTargetDependency */,
+				5F7B45CF1B7D0CF700D5AC89 /* PBXTargetDependency */,
+			);
+			name = "SimpleKeychainTests-iOS";
+			productName = SimpleKeychainTests;
+			productReference = 5FEEB9A71B7BD70B00501415 /* SimpleKeychainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5FEEB9BC1B7BD82800501415 /* SimpleKeychain-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FEEB9D01B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-OSX" */;
+			buildPhases = (
+				5FEEB9B81B7BD82800501415 /* Sources */,
+				5FEEB9B91B7BD82800501415 /* Frameworks */,
+				5FEEB9BA1B7BD82800501415 /* Headers */,
+				5FEEB9BB1B7BD82800501415 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SimpleKeychain-OSX";
+			productName = "SimpleKeychain-OSX";
+			productReference = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5FEEB9C61B7BD82800501415 /* SimpleKeychain-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FEEB9D31B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-OSXTests" */;
+			buildPhases = (
+				5FEEB9C31B7BD82800501415 /* Sources */,
+				5FEEB9C41B7BD82800501415 /* Frameworks */,
+				5FEEB9C51B7BD82800501415 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FEEB9CA1B7BD82800501415 /* PBXTargetDependency */,
+			);
+			name = "SimpleKeychain-OSXTests";
+			productName = "SimpleKeychain-OSXTests";
+			productReference = 5FEEB9C71B7BD82800501415 /* SimpleKeychainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5FEEB9931B7BD70A00501415 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Auth0;
+				TargetAttributes = {
+					5F7B45AB1B7D0CE700D5AC89 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					5FEEB99B1B7BD70A00501415 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					5FEEB9A61B7BD70B00501415 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 5F7B45AB1B7D0CE700D5AC89;
+					};
+					5FEEB9BC1B7BD82800501415 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					5FEEB9C61B7BD82800501415 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 5FEEB9961B7BD70A00501415 /* Build configuration list for PBXProject "SimpleKeychain" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5FEEB9921B7BD70A00501415;
+			productRefGroup = 5FEEB99D1B7BD70A00501415 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FEEB99B1B7BD70A00501415 /* SimpleKeychain-iOS */,
+				5FEEB9A61B7BD70B00501415 /* SimpleKeychainTests-iOS */,
+				5FEEB9BC1B7BD82800501415 /* SimpleKeychain-OSX */,
+				5FEEB9C61B7BD82800501415 /* SimpleKeychain-OSXTests */,
+				5F7B45AB1B7D0CE700D5AC89 /* SimpleKeychainApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F7B45AA1B7D0CE700D5AC89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7B45BB1B7D0CE700D5AC89 /* LaunchScreen.xib in Resources */,
+				5F7B45B81B7D0CE700D5AC89 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB99A1B7BD70A00501415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9A51B7BD70B00501415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9BB1B7BD82800501415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9C51B7BD82800501415 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F7B45A81B7D0CE700D5AC89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9971B7BD70A00501415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEEB9E11B7BF72C00501415 /* A0SimpleKeychain.m in Sources */,
+				5FEEB9DB1B7BF71800501415 /* A0SimpleKeychain+KeyPair.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9A31B7BD70B00501415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7B45D01B7D0E2000D5AC89 /* A0SimpleKeychainSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9B81B7BD82800501415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEEB9E21B7BF72C00501415 /* A0SimpleKeychain.m in Sources */,
+				5FEEB9DC1B7BF71800501415 /* A0SimpleKeychain+KeyPair.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FEEB9C31B7BD82800501415 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7B45A71B7D0CAD00D5AC89 /* A0SimpleKeychainSpec.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F7B45CF1B7D0CF700D5AC89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F7B45AB1B7D0CE700D5AC89 /* SimpleKeychainApp */;
+			targetProxy = 5F7B45CE1B7D0CF700D5AC89 /* PBXContainerItemProxy */;
+		};
+		5FEEB9AA1B7BD70B00501415 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FEEB99B1B7BD70A00501415 /* SimpleKeychain-iOS */;
+			targetProxy = 5FEEB9A91B7BD70B00501415 /* PBXContainerItemProxy */;
+		};
+		5FEEB9CA1B7BD82800501415 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FEEB9BC1B7BD82800501415 /* SimpleKeychain-OSX */;
+			targetProxy = 5FEEB9C91B7BD82800501415 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5F7B45B91B7D0CE700D5AC89 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F7B45BA1B7D0CE700D5AC89 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5F7B45C91B7D0CE700D5AC89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5F7B45CA1B7D0CE700D5AC89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5FEEB9B01B7BD70B00501415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5FEEB9B11B7BD70B00501415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5FEEB9B31B7BD70B00501415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SimpleKeychain/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SimpleKeychain;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5FEEB9B41B7BD70B00501415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SimpleKeychain/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SimpleKeychain;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5FEEB9B61B7BD70B00501415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleKeychain-hejgvvwbnquibphkkoeozinarzhi/Build/Products/Debug",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SimpleKeychainTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleKeychainApp.app/SimpleKeychainApp";
+			};
+			name = Debug;
+		};
+		5FEEB9B71B7BD70B00501415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleKeychain-hejgvvwbnquibphkkoeozinarzhi/Build/Products/Debug",
+				);
+				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = SimpleKeychainTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleKeychainApp.app/SimpleKeychainApp";
+			};
+			name = Release;
+		};
+		5FEEB9D11B7BD82800501415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleKeychain/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5FEEB9D21B7BD82800501415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SimpleKeychain/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5FEEB9D41B7BD82800501415 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleKeychain-hejgvvwbnquibphkkoeozinarzhi/Build/Products/Debug",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = SimpleKeychainTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5FEEB9D51B7BD82800501415 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/specta/Specta/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/expecta/build/Debug",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleKeychain-hejgvvwbnquibphkkoeozinarzhi/Build/Products/Debug",
+				);
+				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = SimpleKeychainTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F7B45C81B7D0CE700D5AC89 /* Build configuration list for PBXNativeTarget "SimpleKeychainApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F7B45C91B7D0CE700D5AC89 /* Debug */,
+				5F7B45CA1B7D0CE700D5AC89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FEEB9961B7BD70A00501415 /* Build configuration list for PBXProject "SimpleKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FEEB9B01B7BD70B00501415 /* Debug */,
+				5FEEB9B11B7BD70B00501415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FEEB9B21B7BD70B00501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FEEB9B31B7BD70B00501415 /* Debug */,
+				5FEEB9B41B7BD70B00501415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FEEB9B51B7BD70B00501415 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FEEB9B61B7BD70B00501415 /* Debug */,
+				5FEEB9B71B7BD70B00501415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FEEB9D01B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FEEB9D11B7BD82800501415 /* Debug */,
+				5FEEB9D21B7BD82800501415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FEEB9D31B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-OSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FEEB9D41B7BD82800501415 /* Debug */,
+				5FEEB9D51B7BD82800501415 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5FEEB9931B7BD70A00501415 /* Project object */;
+}

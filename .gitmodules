@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/expecta"]
+	path = Carthage/Checkouts/expecta
+	url = https://github.com/specta/expecta.git
+[submodule "Carthage/Checkouts/specta"]
+	path = Carthage/Checkouts/specta
+	url = https://github.com/specta/specta.git

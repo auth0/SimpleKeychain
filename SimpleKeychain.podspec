@@ -1,6 +1,7 @@
+version = `agvtool mvers -terse1`.strip
 Pod::Spec.new do |s|
   s.name             = "SimpleKeychain"
-  s.version          = "0.4.0"
+  s.version          = version
   s.summary          = "A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely."
   s.description      = <<-DESC
                        A simple way to store items in iOS Keychain, without the hassle of dealing with iOS Keychain API directly.
@@ -12,9 +13,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/auth0/SimpleKeychain.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/auth0'
 
-  s.ios.platform     = :ios, '7.0'
-  s.osx.platform = :osx, '10.10'
+  s.ios.deployment_target = '7.0'
+  s.osx.deployment_target = '10.10'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes'
+  s.source_files = 'SimpleKeychain/*.{h,m}'
 end
