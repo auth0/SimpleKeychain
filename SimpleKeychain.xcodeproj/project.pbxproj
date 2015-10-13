@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F51D7231BCDC89900613162 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F51D71F1BCDC88900613162 /* Specta.framework */; settings = {ASSET_TAGS = (); }; };
+		5F51D7241BCDC89900613162 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F51D7201BCDC88900613162 /* Expecta.framework */; settings = {ASSET_TAGS = (); }; };
+		5F51D7281BCDC8B900613162 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F51D7261BCDC8B900613162 /* Specta.framework */; settings = {ASSET_TAGS = (); }; };
+		5F51D7291BCDC8B900613162 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F51D7271BCDC8B900613162 /* Expecta.framework */; settings = {ASSET_TAGS = (); }; };
 		5F7B45A71B7D0CAD00D5AC89 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */; };
 		5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */; };
 		5F7B45B81B7D0CE700D5AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */; };
 		5F7B45BB1B7D0CE700D5AC89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B91B7D0CE700D5AC89 /* LaunchScreen.xib */; };
 		5F7B45D01B7D0E2000D5AC89 /* A0SimpleKeychainSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCEBF7A1B7C3BA900596419 /* A0SimpleKeychainSpec.m */; };
-		5F7B45D31B7D106F00D5AC89 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D11B7D106F00D5AC89 /* Expecta.framework */; };
-		5F7B45D41B7D106F00D5AC89 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D11B7D106F00D5AC89 /* Expecta.framework */; };
-		5F7B45D51B7D106F00D5AC89 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D21B7D106F00D5AC89 /* Specta.framework */; };
-		5F7B45D61B7D106F00D5AC89 /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7B45D21B7D106F00D5AC89 /* Specta.framework */; };
 		5FEEB9A21B7BD70A00501415 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FEEB9A81B7BD70B00501415 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */; };
 		5FEEB9C81B7BD82800501415 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */; };
@@ -55,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F51D71F1BCDC88900613162 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = Carthage/Build/iOS/Specta.framework; sourceTree = SOURCE_ROOT; };
+		5F51D7201BCDC88900613162 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = Carthage/Build/iOS/Expecta.framework; sourceTree = SOURCE_ROOT; };
+		5F51D7261BCDC8B900613162 /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = Carthage/Build/Mac/Specta.framework; sourceTree = SOURCE_ROOT; };
+		5F51D7271BCDC8B900613162 /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = Carthage/Build/Mac/Expecta.framework; sourceTree = SOURCE_ROOT; };
 		5F7B45AC1B7D0CE700D5AC89 /* SimpleKeychainApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleKeychainApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7B45AF1B7D0CE700D5AC89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,9 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F51D7241BCDC89900613162 /* Expecta.framework in Frameworks */,
+				5F51D7231BCDC89900613162 /* Specta.framework in Frameworks */,
 				5FEEB9A81B7BD70B00501415 /* SimpleKeychain.framework in Frameworks */,
-				5F7B45D51B7D106F00D5AC89 /* Specta.framework in Frameworks */,
-				5F7B45D31B7D106F00D5AC89 /* Expecta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,15 +116,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F51D7281BCDC8B900613162 /* Specta.framework in Frameworks */,
+				5F51D7291BCDC8B900613162 /* Expecta.framework in Frameworks */,
 				5FEEB9C81B7BD82800501415 /* SimpleKeychain.framework in Frameworks */,
-				5F7B45D61B7D106F00D5AC89 /* Specta.framework in Frameworks */,
-				5F7B45D41B7D106F00D5AC89 /* Expecta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F51D71D1BCDC4D400613162 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F51D7251BCDC8A200613162 /* OSX */,
+				5F51D71E1BCDC4DA00613162 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F51D71E1BCDC4DA00613162 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5F51D71F1BCDC88900613162 /* Specta.framework */,
+				5F51D7201BCDC88900613162 /* Expecta.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5F51D7251BCDC8A200613162 /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				5F51D7261BCDC8B900613162 /* Specta.framework */,
+				5F51D7271BCDC8B900613162 /* Expecta.framework */,
+			);
+			name = OSX;
+			sourceTree = "<group>";
+		};
 		5F7B45AD1B7D0CE700D5AC89 /* SimpleKeychainApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +209,7 @@
 		5FEEB99F1B7BD70A00501415 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F51D71D1BCDC4D400613162 /* Frameworks */,
 				5FEEB9A01B7BD70A00501415 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -270,6 +302,7 @@
 				5FEEB9A31B7BD70B00501415 /* Sources */,
 				5FEEB9A41B7BD70B00501415 /* Frameworks */,
 				5FEEB9A51B7BD70B00501415 /* Resources */,
+				5F51D72A1BCDC99800613162 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -307,6 +340,7 @@
 				5FEEB9C31B7BD82800501415 /* Sources */,
 				5FEEB9C41B7BD82800501415 /* Frameworks */,
 				5FEEB9C51B7BD82800501415 /* Resources */,
+				5F51D72B1BCDCE4500613162 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -324,7 +358,8 @@
 		5FEEB9931B7BD70A00501415 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Auth0;
 				TargetAttributes = {
 					5F7B45AB1B7D0CE700D5AC89 = {
@@ -406,6 +441,41 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F51D72A1BCDC99800613162 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Expecta.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Specta.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		5F51D72B1BCDCE4500613162 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Expecta.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Specta.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F7B45A81B7D0CE700D5AC89 /* Sources */ = {
@@ -492,6 +562,7 @@
 				);
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -503,6 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -529,6 +601,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -602,9 +675,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SKIP_INSTALL = YES;
 			};
@@ -617,9 +695,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SKIP_INSTALL = YES;
 			};
@@ -630,8 +713,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -639,6 +722,7 @@
 				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychainTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleKeychainApp.app/SimpleKeychainApp";
 			};
@@ -649,11 +733,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychainTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleKeychainApp.app/SimpleKeychainApp";
 			};
@@ -677,6 +762,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -696,6 +782,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -710,6 +797,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -718,6 +806,7 @@
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychainTests;
 				SDKROOT = macosx;
 			};
@@ -730,10 +819,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychainTests;
 				SDKROOT = macosx;
 			};
