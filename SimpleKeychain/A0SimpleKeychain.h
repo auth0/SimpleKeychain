@@ -108,6 +108,8 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
     A0SimpleKeychainErrorDecode = -26275
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  A simple helper class to deal with storing and retrieving values from iOS Keychain.
  *  It has support for sharing keychain items using Access Group and also for iOS 8 fine grained accesibility over a specific Kyechain Item (Using Access Control).
@@ -124,7 +126,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
 /**
  *  Access Group for Keychain item sharing. If it's nil no keychain sharing is possible. Default value is nil.
  */
-@property (readonly, nonatomic) NSString *accessGroup;
+@property (readonly, nullable, nonatomic) NSString *accessGroup;
 
 /**
  *  What type of accessibility the items stored will have. All values are translated to `kSecAttrAccessible` constants.
@@ -167,7 +169,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return an initialised instance.
  */
-- (instancetype)initWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
+- (instancetype)initWithService:(NSString *)service accessGroup:(nullable NSString *)accessGroup;
 
 ///---------------------------------------------------
 /// @name Store values
@@ -202,7 +204,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(NSString *)message;
+- (BOOL)setString:(NSString *)string forKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
 /**
  *  Saves the NSData with the type `kSecClassGenericPassword` in the keychain.
@@ -213,7 +215,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message;
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
 ///---------------------------------------------------
 /// @name Remove values
@@ -244,7 +246,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return the value or nil if an error occurs.
  */
-- (NSString *)stringForKey:(NSString *)key;
+- (nullable NSString *)stringForKey:(NSString *)key;
 
 /**
  *  Fetches a NSData from the keychain
@@ -253,7 +255,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return the value or nil if an error occurs.
  */
-- (NSData *)dataForKey:(NSString *)key;
+- (nullable NSData *)dataForKey:(NSString *)key;
 
 /**
  *  Fetches a NSString from the keychain
@@ -263,7 +265,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return the value or nil if an error occurs.
  */
-- (NSString *)stringForKey:(NSString *)key promptMessage:(NSString *)message;
+- (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
 /**
  *  Fetches a NSData from the keychain
@@ -273,7 +275,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return the value or nil if an error occurs.
  */
-- (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message;
+- (nullable NSData *)dataForKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
 /**
  *  Fetches a NSData from the keychain
@@ -285,7 +287,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *
  *  @return the value or nil if an error occurs.
  */
-- (NSData *)dataForKey:(NSString *)key promptMessage:(NSString *)message error:(NSError**)err;
+- (nullable NSData *)dataForKey:(NSString *)key promptMessage:(nullable NSString *)message error:(NSError **)err;
 
 /**
  *  Checks if a key has a value in the Keychain
@@ -327,3 +329,5 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
 + (A0SimpleKeychain *)keychainWithService:(NSString *)service accessGroup:(NSString *)accessGroup;
 
 @end
+
+NS_ASSUME_NONNULL_END

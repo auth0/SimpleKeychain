@@ -28,6 +28,8 @@ typedef NS_ENUM(NSUInteger, A0SimpleKeychainRSAKeySize) {
     A0SimpleKeychainRSAKeySize2048Bits = 2048
 };
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  Category of `A0SimpleKeychain` to handle RSA pairs keys in the Keychain
  */
@@ -54,7 +56,7 @@ typedef NS_ENUM(NSUInteger, A0SimpleKeychainRSAKeySize) {
  *
  *  @return the key as NSData or nil if not found
  */
-- (NSData *)dataForRSAKeyWithTag:(NSString *)keyTag;
+- (nullable NSData *)dataForRSAKeyWithTag:(NSString *)keyTag;
 
 /**
  *  Removes a key using its tag.
@@ -99,3 +101,5 @@ typedef NS_ENUM(NSUInteger, A0SimpleKeychainRSAKeySize) {
 - (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag;
 
 @end
+
+NS_ASSUME_NONNULL_END
