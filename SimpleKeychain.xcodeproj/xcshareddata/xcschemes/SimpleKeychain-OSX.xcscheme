@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FEEB9C61B7BD82800501415"
-               BuildableName = "SimpleKeychainTests.xctest"
-               BlueprintName = "SimpleKeychain-OSXTests"
+               BlueprintIdentifier = "5F4D278E1BCEA69E003C27B3"
+               BuildableName = "SimpleKeychainTests-OSX.xctest"
+               BlueprintName = "SimpleKeychainTests-OSX"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5FEEB9C61B7BD82800501415"
-               BuildableName = "SimpleKeychainTests.xctest"
-               BlueprintName = "SimpleKeychain-OSXTests"
+               BlueprintIdentifier = "5F4D278E1BCEA69E003C27B3"
+               BuildableName = "SimpleKeychainTests-OSX.xctest"
+               BlueprintName = "SimpleKeychainTests-OSX"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>

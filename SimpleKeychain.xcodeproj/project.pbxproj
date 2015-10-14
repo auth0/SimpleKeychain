@@ -15,8 +15,8 @@
 		5F4D27941BCEA69E003C27B3 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */; settings = {ASSET_TAGS = (); }; };
 		5F4D279A1BCEA6A4003C27B3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D273A1BCE9216003C27B3 /* Nimble.framework */; };
 		5F4D279B1BCEA6A4003C27B3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D273B1BCE9216003C27B3 /* Quick.framework */; };
-		5F4D279D1BCEA6AD003C27B3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273A1BCE9216003C27B3 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F4D279E1BCEA6AD003C27B3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273B1BCE9216003C27B3 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5F4D279D1BCEA6AD003C27B3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273A1BCE9216003C27B3 /* Nimble.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5F4D279E1BCEA6AD003C27B3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273B1BCE9216003C27B3 /* Quick.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5F4D279F1BCEA6CE003C27B3 /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */; };
 		5F7B45B81B7D0CE700D5AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */; };
@@ -769,7 +769,7 @@
 		5FEEB9D11B7BD82800501415 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -795,7 +795,7 @@
 		5FEEB9D21B7BD82800501415 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
