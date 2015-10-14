@@ -20,8 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Specta/Specta.h>
-#import <Expecta/Expecta.h>
+@import Specta;
+@import Expecta;
 #import <SimpleKeychain/SimpleKeychain.h>
 
 #define kPublicKeyTag @"public"

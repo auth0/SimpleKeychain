@@ -3,7 +3,9 @@ language: objective-c
 osx_image: xcode7
 before_install: true
 install: true
-script: script/cibuild
+script: 
+  - script/cibuild
+  - ls Carthage/Build/iOS
 notifications:
   slack:
     secure: AXLozZlImcdopg/+srq4wcC4SVGMmoDJDXR1PKrH+Dc7DtnYXLCOKKk8hAXySIiHGR4820CX1SZ25By1Q6l8GIomHMfbYwdPILG61KHbIMydBIeoLUNRlM+VK6ao5uFt0Fj6ByNYMQweUuXDAHli88mHwE1aJmL7K3unn11L0lU=

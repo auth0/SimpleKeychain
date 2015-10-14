@@ -116,7 +116,7 @@ bootstrap_carthage ()
   echo ""
   echo " → Bootstrapping Carthage"
   echo ""
-  carthage_cmd="time carthage bootstrap --platform ios"
+  carthage_cmd="time carthage bootstrap"
 
   if [ "$USE_SSH" == "true" ]
   then
