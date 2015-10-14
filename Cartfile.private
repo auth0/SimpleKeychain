@@ -1,2 +1,2 @@
-github "specta/specta" "c07c003cfe3a41fa510567e2e0a9fd7f5ae3b098"
-github "specta/expecta" ~> 1.0
+github "Quick/Nimble" "v2.0.0"
+github "Quick/Quick" "v0.6.0"
