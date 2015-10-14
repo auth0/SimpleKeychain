@@ -93,10 +93,6 @@ class A0SimpleKeychainSpec: QuickSpec {
                     key = NSUUID().UUIDString
                 })
 
-                it("should fail to store a value with nil key") {
-                    expect(keychain.setString("SOME RANDOM STRING", forKey: nil)).to(beFalsy())
-                }
-
                 it("should store a a value under a new key") {
                     expect(keychain.setString("value", forKey: key)).to(beTruthy())
                 }
@@ -104,10 +100,6 @@ class A0SimpleKeychainSpec: QuickSpec {
                 it("should store a a value under an existing key") {
                     keychain.setString("value1", forKey:key)
                     expect(keychain.setString("value2", forKey:key)).to(beTruthy())
-                }
-
-                it("should fail to store a data value with nil key") {
-                    expect(keychain.setData(NSData(), forKey:nil)).to(beFalsy())
                 }
 
                 it("should store a data value under a new key") {
@@ -131,20 +123,8 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain.setString("value1", forKey:key)
                 }
 
-                it("should remove a key when value is nil") {
-                    expect(keychain.setString(nil, forKey:key)).to(beTruthy())
-                }
-
-                it("should remove a key when data value is nil") {
-                    expect(keychain.setData(nil, forKey:key)).to(beTruthy())
-                }
-
                 it("should remove entry for key") {
                     expect(keychain.deleteEntryForKey(key)).to(beTruthy())
-                }
-
-                it("should fail with nil key") {
-                    expect(keychain.deleteEntryForKey(nil)).to(beFalsy())
                 }
 
                 it("should fail with nonexisting key") {
@@ -168,20 +148,8 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain.setString("value1", forKey:key)
                 }
 
-                it("should return that a nil key doesnt exist") {
-                    expect(keychain.stringForKey(nil)).to(beNil())
-                }
-
                 it("should return that a key exists") {
                     expect(keychain.stringForKey(key)).toNot(beNil())
-                }
-
-                it("should return nil string with nil key") {
-                    expect(keychain.stringForKey(nil)).to(beNil())
-                }
-
-                it("should return nil data with nil key") {
-                    expect(keychain.dataForKey(nil)).to(beNil())
                 }
 
                 it("should return nil data with non existing key") {
