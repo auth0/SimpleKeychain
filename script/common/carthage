@@ -1,0 +1,53 @@
+force_install_carthage ()
+{
+  echo ""
+  echo " → Installing carthage '$REQUIRED_CARTHAGE_VERSION'"
+  echo ""
+  curl -s -L -O https://github.com/Carthage/Carthage/releases/download/$REQUIRED_CARTHAGE_VERSION/Carthage.pkg > /dev/null
+  sudo installer -pkg Carthage.pkg -target / > /dev/null
+  rm Carthage.pkg
+  echo "    ✔ carthage '$REQUIRED_CARTHAGE_VERSION' successfully installed"
+  echo ""
+}
+
+uninstall_carthage ()
+{
+  echo ""
+  echo " → Uninstalling carthage"
+  echo ""
+  local carthage_installed_version=`carthage version`
+  if type brew > /dev/null && [ ! -z "$(brew list --versions carthage)" ]
+  then
+    brew uninstall carthage > /dev/null
+  else
+    sudo rm -frd /Library/Frameworks/CarthageKit.framework
+    sudo rm /usr/local/bin/carthage
+  fi
+  echo "    ✔ carthage '$carthage_installed_version' successfully uninstalled"
+}
+
+check_carthage_version ()
+{
+  local carthage_installed_version=`carthage version`
+  if [ "$carthage_installed_version" != "$REQUIRED_CARTHAGE_VERSION" ]
+  then
+    printf "\033[1;31mError: carthage version '$carthage_installed_version' is not equal to '$REQUIRED_CARTHAGE_VERSION'"
+    printf "\033[0m"
+    if [ ! -z "$NO_CARTHAGE_UPDATE" ]
+    then
+      exit 1
+    else
+      echo ""
+      echo ""
+      echo "Would you like to update carthage to version '$REQUIRED_CARTHAGE_VERSION'? [N/y]"
+      read update_carthage
+      if [ "$update_carthage" == "y" ]
+      then
+        uninstall_carthage
+        force_install_carthage
+      else
+        exit 1
+      fi
+    fi
+  fi
+}

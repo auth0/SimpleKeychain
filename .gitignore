@@ -18,9 +18,15 @@ profile
 DerivedData
 *.hmap
 *.ipa
+*.xcscmblueprint
 
 # Bundler
 .bundle
 
 # CocoaPods
 Pods/
+
+# Carthage
+Carthage/
+SimpleKeychain.framework
+SimpleKeychain.framework.zip

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+source script/.env
+
+if type xcode-coveralls > /dev/null
+then
+  if [ ! -f script/xcenv.sh ]
+  then
+    # Running the test generates the xcenv.sh
+    script/test
+  fi
+
+  if [ -f script/xcenv.sh ]
+  then
+    source script/xcenv.sh
+    declare -r DIR_BUILD="${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/"
+    xcode-coveralls --include $SRCROOT --exclude "$SRCROOT""Tests" --exclude Carthage --exclude Pods --token $COVERALLS_TOKEN "${DIR_BUILD}"
+  else
+    # TODO print instruction of how to add the generation of xcenv.sh
+    echo ""
+    echo " Error: script/xcenv.sh was not generated after running 'script/test'."
+    echo ""
+    exit 1
+  fi
+fi

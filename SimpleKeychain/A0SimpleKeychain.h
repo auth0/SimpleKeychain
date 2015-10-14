@@ -120,22 +120,24 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainError) {
  *  Service name under all items are saved. Default value is Bundle Identifier.
  */
 @property (readonly, nonatomic) NSString *service;
+
 /**
  *  Access Group for Keychain item sharing. If it's nil no keychain sharing is possible. Default value is nil.
  */
 @property (readonly, nonatomic) NSString *accessGroup;
+
 /**
  *  What type of accessibility the items stored will have. All values are translated to `kSecAttrAccessible` constants.
  *  Default value is A0SimpleKeychainItemAccessibleAfterFirstUnlock.
  *  @see kSecAttrAccessible
  */
 @property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccessiblity;
+
 /**
  *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
  *  Default value is NO.
  */
 @property (assign, nonatomic) BOOL useAccessControl;
-
 
 ///---------------------------------------------------
 /// @name Initialization
