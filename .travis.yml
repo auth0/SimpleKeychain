@@ -9,4 +9,7 @@ notifications:
     secure: AXLozZlImcdopg/+srq4wcC4SVGMmoDJDXR1PKrH+Dc7DtnYXLCOKKk8hAXySIiHGR4820CX1SZ25By1Q6l8GIomHMfbYwdPILG61KHbIMydBIeoLUNRlM+VK6ao5uFt0Fj6ByNYMQweUuXDAHli88mHwE1aJmL7K3unn11L0lU=
 branches:
   only:
-    - master
+  - master
+env:
+  global:
+    secure: ZHhBGQ6//jbloPvoxOWiO9L7rb5jgqhJbnkRzdGk1FqPCYc4t9bijVrQuLrIhKAU9wrCJaqaqmvTu7U782uWHt4+QtbEk+tDvEkS/x2kFA7bp0Pwj4MA7Nv0fM24kFAHn7dvBpWgpbMdtYHILeE00kSO+CoQXETy8ApsMOom6nY=
