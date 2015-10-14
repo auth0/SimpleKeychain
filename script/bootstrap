@@ -196,7 +196,7 @@ main ()
   install_git_hooks
   install_dependencies
 
-  if [ -f Cartfile ]
+  if [ -f Cartfile.resolved ]
   then
     install_carthage
     bootstrap_carthage
