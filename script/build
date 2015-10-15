@@ -7,7 +7,7 @@ source script/common/carthage
 build_using_carthage ()
 {
   check_carthage_version
-  carthage_cmd="carthage build --no-skip-current --platform ios"
+  carthage_cmd="carthage build --no-skip-current --platform $CARTHAGE_BUILD_PLATFORM"
   if [ "$USE_SSH" == "true" ]
   then
     carthage_cmd="$carthage_cmd --use-ssh"

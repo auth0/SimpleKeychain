@@ -1,19 +1,12 @@
 #!/bin/bash
 
-if [ -z "$DEFAULT_OSX_DESTINATION" ]; then
-  DEFAULT_OSX_DESTINATION="'platform=OS X'"
-fi
+IOS_DESTINATION="'platform=iOS Simulator,name=$IOS_DESTINATION_SIMULATOR_NAME,OS=$IOS_DESTINATION_VERSION'"
 
-if [ -z "$IOS_OS_VERSION" ]; then
-  IOS_OS_VERSION="latest"
-fi
-
-if [ -z "$IOS_SIMULATOR_NAME" ]; then
-  IOS_SIMULATOR_NAME="iPhone 6"
-fi
-
-if [ -z "$DEFAULT_IOS_DESTINATION" ]; then
-  DEFAULT_IOS_DESTINATION="'platform=iOS Simulator,name=$IOS_SIMULATOR_NAME,OS=$IOS_OS_VERSION'"
+if [ -z "$OSX_DESTINATION_ARCH" ]
+then
+  OSX_DESTINATION="'platform=OS X'"
+else
+  OSX_DESTINATION="'platform=OS X,arch=$OSX_DESTINATION_ARCH'"
 fi
 
 scheme_destination ()
@@ -22,13 +15,13 @@ scheme_destination ()
 
   case "$1" in
   *iOS) 
-    destination=$DEFAULT_IOS_DESTINATION
+    destination=$IOS_DESTINATION
     ;;
   *OSX) 
-    destination=$DEFAULT_OSX_DESTINATION
+    destination=$OSX_DESTINATION
     ;;
   *) 
-    destination=$DEFAULT_IOS_DESTINATION
+    destination=$IOS_DESTINATION
     ;;
   esac
 

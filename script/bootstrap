@@ -116,7 +116,7 @@ bootstrap_carthage ()
   echo ""
   echo " → Bootstrapping Carthage"
   echo ""
-  carthage_cmd="time carthage bootstrap"
+  carthage_cmd="time carthage bootstrap --platform $CARTHAGE_BUILD_PLATFORM"
 
   if [ "$USE_SSH" == "true" ]
   then
@@ -161,13 +161,6 @@ install_dependencies ()
   echo ""
   echo " → Installing dependencies"
   echo ""
-  install_homebrew
-  brew_install "xcode-coveralls" "macmade/tap"
-
-  if [ -f script/script_hooks/bootstrap ]
-  then
-    script/script_hooks/bootstrap
-  fi
 }
 
 install_carthage ()
@@ -196,7 +189,7 @@ main ()
   install_git_hooks
   install_dependencies
 
-  if [ -f Cartfile.resolved ]
+  if [ -f Cartfile ] || [ -f Cartfile.private ]
   then
     install_carthage
     bootstrap_carthage

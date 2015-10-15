@@ -8,7 +8,7 @@ source script/common/carthage
 if [ -f Cartfile ] && type carthage > /dev/null
 then
   check_carthage_version
-  carthage_cmd="carthage update --platform ios"
+  carthage_cmd="carthage update --platform $CARTHAGE_BUILD_PLATFORM"
   if [ "$USE_SSH" == "true" ]
   then
     carthage_cmd="$carthage_cmd --use-ssh"
