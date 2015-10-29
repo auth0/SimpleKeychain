@@ -116,7 +116,7 @@ bootstrap_carthage ()
   echo ""
   echo " → Bootstrapping Carthage"
   echo ""
-  carthage_cmd="time carthage bootstrap --platform $CARTHAGE_BUILD_PLATFORM"
+  carthage_cmd="time carthage bootstrap --platform $CARTHAGE_BUILD_PLATFORM --no-use-binaries"
 
   if [ "$USE_SSH" == "true" ]
   then
