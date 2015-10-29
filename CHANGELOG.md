@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.6.1](https://github.com/auth0/SimpleKeychain/tree/0.6.1) (2015-10-29)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.6.0...0.6.1)
+
 ## [0.6.0](https://github.com/auth0/SimpleKeychain/tree/0.6.0) (2015-10-29)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.5.0...0.6.0)
 
