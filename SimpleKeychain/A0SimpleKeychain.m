@@ -356,8 +356,12 @@
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
 #if TARGET_OS_IPHONE
-    if (message) {
-        query[(__bridge id)kSecUseOperationPrompt] = message;
+    if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+        if (message) {
+            query[(__bridge id)kSecUseOperationPrompt] = message;
+        }
+    } else {
+        NSLog(@"Error trying to access to non available kSecUseOperationPrompt in iOS7");
     }
 #endif
 
