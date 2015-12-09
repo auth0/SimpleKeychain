@@ -240,7 +240,7 @@
             accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
             break;
         default:
-            accessibility = kSecAttrAccessibleAfterFirstUnlock;
+            accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
     }
     return accessibility;
 }
