@@ -1,5 +1,18 @@
 # Change Log
 
+## [0.7.0](https://github.com/auth0/SimpleKeychain/tree/0.7.0) (2016-01-20)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.6.1...0.7.0)
+
+**Closed issues:**
+
+- Always getting "Error trying to access to non available kSecUseOperationPrompt in iOS7" log [\#24](https://github.com/auth0/SimpleKeychain/issues/24)
+- Default accessiblity should be kSecAttrAccessibleWhenUnlockedThisDeviceOnly [\#17](https://github.com/auth0/SimpleKeychain/issues/17)
+
+**Merged pull requests:**
+
+- Update default accessibility [\#26](https://github.com/auth0/SimpleKeychain/pull/26) ([tupakapoor](https://github.com/tupakapoor))
+- Only show ios7 error message when attempting to use access control [\#25](https://github.com/auth0/SimpleKeychain/pull/25) ([tupakapoor](https://github.com/tupakapoor))
+
 ## [0.6.1](https://github.com/auth0/SimpleKeychain/tree/0.6.1) (2015-10-29)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.6.0...0.6.1)
 
