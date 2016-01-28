@@ -356,7 +356,7 @@
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
 #if TARGET_OS_IPHONE
-    if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_0) {
         if (message) {
             query[(__bridge id)kSecUseOperationPrompt] = message;
         }
