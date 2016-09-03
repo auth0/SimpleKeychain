@@ -51,6 +51,12 @@ github "auth0/SimpleKeychain"
 
 ##A0SimpleKeychain
 
+###Import SimpleKeychain
+
+```
+import SimpleKeychain
+```
+
 ###Save a JWT token or password
 
 ```objc
