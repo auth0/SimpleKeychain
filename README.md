@@ -8,7 +8,7 @@
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
 
-##Key Features
+## Key Features
 
 - **Simple interface** to store user's credentials (e.g. JWT) in the Keychain.
 - Store credentials under an **Access Group to enable Keychain Sharing**.
@@ -30,7 +30,7 @@ At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcc
 
 ## Installation
 
-###CocoaPods
+### CocoaPods
 
 SimpleKeychain is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -41,7 +41,7 @@ pod "SimpleKeychain"
 
 Or you can add `A0SimpleKeychain.h` and `A0SimpleKeychain.m` to your project.
 
-###Carthage
+### Carthage
 
 In your Cartfile add this line
 
@@ -49,9 +49,9 @@ In your Cartfile add this line
 github "auth0/SimpleKeychain"
 ```
 
-##A0SimpleKeychain
+## A0SimpleKeychain
 
-###Save a JWT token or password
+### Save a JWT token or password
 
 ```objc
 NSString *jwt = //user's JWT token obtained after login
@@ -63,7 +63,7 @@ let jwt = //user's JWT token obtained after login
 A0SimpleKeychain().setString(jwt, forKey:"auth0-user-jwt")
 ```
 
-###Obtain a JWT token or password
+### Obtain a JWT token or password
 
 ```objc
 NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
@@ -73,7 +73,7 @@ NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
 let jwt = A0SimpleKeychain().stringForKey("auth0-user-jwt")
 ```
 
-###Share JWT Token with other apps using iOS Access Group
+### Share JWT Token with other apps using iOS Access Group
 
 ```objc
 NSString *jwt = //user's JWT token obtained after login
@@ -87,7 +87,7 @@ let keychain = A0SimpleKeychain(service: "Auth0", accessGroup: "ABCDEFGH.com.myd
 keychain.setString(jwt, forKey:"auth0-user-jwt")
 ```
 
-###Store and retrieve JWT token using TouchID and Keychain AcessControl attribute (iOS 8 Only).
+### Store and retrieve JWT token using TouchID and Keychain AcessControl attribute (iOS 8 Only).
 
 Let's save the JWT first:
 ```objc
@@ -119,7 +119,7 @@ let keychain = A0SimpleKeychain()
 let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
 ```
 
-###Remove a JWT token or password
+### Remove a JWT token or password
 ```objc
 [[A0SimpleKeychain keychain] deleteEntryForKey:@"auth0-user-jwt"];
 ```
@@ -128,7 +128,7 @@ let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
 A0SimpleKeychain().deleteEntryForKey("auth0-user-jwt")
 ```
 
-##Contributing
+## Contributing
 
 Just clone the repo, and run pod install from the Example directory and you're ready to contribute!.
 
