@@ -118,8 +118,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B062A411EA63FBC00827E79 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = SOURCE_ROOT; };
-		5B062A421EA63FBC00827E79 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		5B0D47591EA63C74009FF1BF /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B0D47651EA63D17009FF1BF /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		5B0D47661EA63D17009FF1BF /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
@@ -229,8 +227,6 @@
 		5F51D71D1BCDC4D400613162 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B062A411EA63FBC00827E79 /* Carthage */,
-				5B062A421EA63FBC00827E79 /* CHANGELOG.md */,
 				5B062A3F1EA63F9E00827E79 /* tvOS */,
 				5F51D7251BCDC8A200613162 /* OSX */,
 				5F51D71E1BCDC4DA00613162 /* iOS */,

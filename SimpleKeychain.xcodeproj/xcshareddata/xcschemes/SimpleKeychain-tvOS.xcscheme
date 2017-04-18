@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B0D47581EA63C74009FF1BF"
-               BuildableName = "SimpleKeychainTests-tvOS.xctest"
+               BuildableName = "SimpleKeychainTests.xctest"
                BlueprintName = "SimpleKeychainTests-tvOS"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
