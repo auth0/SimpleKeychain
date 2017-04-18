@@ -38,7 +38,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                 it("should init with default values") {
                     keychain = A0SimpleKeychain()
                     expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -46,7 +46,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService)
                     expect(keychain.accessGroup).to(beNil())
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -54,7 +54,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService, accessGroup: "Group")
                     expect(keychain.accessGroup).to(equal("Group"))
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
             }
@@ -63,7 +63,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                 it("should create with default values") {
                     keychain = A0SimpleKeychain()
                     expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -71,7 +71,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService)
                     expect(keychain.accessGroup).to(beNil())
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -79,7 +79,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService, accessGroup: "Group")
                     expect(keychain.accessGroup).to(equal("Group"))
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.AfterFirstUnlock))
+                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
             }
@@ -90,7 +90,7 @@ class A0SimpleKeychainSpec: QuickSpec {
 
                 beforeEach({
                     keychain = A0SimpleKeychain(service: kKeychainService)
-                    key = NSUUID().UUIDString
+                    key = NSUUID().uuidString
                 })
 
                 it("should store a a value under a new key") {
@@ -103,12 +103,12 @@ class A0SimpleKeychainSpec: QuickSpec {
                 }
 
                 it("should store a data value under a new key") {
-                    expect(keychain.setData(NSData(), forKey:key)).to(beTruthy())
+                    expect(keychain.setData(NSData() as Data, forKey:key)).to(beTruthy())
                 }
 
                 it("should store a data value under an existing key") {
-                    keychain.setData(NSData(), forKey:key)
-                    expect(keychain.setData(NSData(), forKey:key)).to(beTruthy())
+                    keychain.setData(NSData() as Data, forKey:key)
+                    expect(keychain.setData(NSData() as Data, forKey:key)).to(beTruthy())
                 }
 
             }
@@ -119,21 +119,21 @@ class A0SimpleKeychainSpec: QuickSpec {
 
                 beforeEach {
                     keychain = A0SimpleKeychain(service: kKeychainService)
-                    key = NSUUID().UUIDString
+                    key = NSUUID().uuidString
                     keychain.setString("value1", forKey:key)
                 }
 
                 it("should remove entry for key") {
-                    expect(keychain.deleteEntryForKey(key)).to(beTruthy())
+                    expect(keychain.deleteEntry(forKey: key)).to(beTruthy())
                 }
 
                 it("should fail with nonexisting key") {
-                    expect(keychain.deleteEntryForKey("SHOULDNOTEXIST")).to(beFalsy())
+                    expect(keychain.deleteEntry(forKey: "SHOULDNOTEXIST")).to(beFalsy())
                 }
 
                 it("should clear all entries") {
                     keychain.clearAll()
-                    expect(keychain.stringForKey(key)).to(beNil())
+                    expect(keychain.string(forKey: key)).to(beNil())
                 }
 
             }
@@ -144,28 +144,28 @@ class A0SimpleKeychainSpec: QuickSpec {
 
                 beforeEach {
                     keychain = A0SimpleKeychain(service: kKeychainService)
-                    key = NSUUID().UUIDString
+                    key = NSUUID().uuidString
                     keychain.setString("value1", forKey:key)
                 }
 
                 it("should return that a key exists") {
-                    expect(keychain.stringForKey(key)).toNot(beNil())
+                    expect(keychain.string(forKey: key)).toNot(beNil())
                 }
 
                 it("should return nil data with non existing key") {
-                    expect(keychain.dataForKey("SHOULDNOTEXIST")).to(beNil())
+                    expect(keychain.data(forKey: "SHOULDNOTEXIST")).to(beNil())
                 }
 
                 it("should return nil string with non existing key") {
-                    expect(keychain.stringForKey("SHOULDNOTEXIST")).to(beNil())
+                    expect(keychain.string(forKey: "SHOULDNOTEXIST")).to(beNil())
                 }
 
                 it("should return string for a key") {
-                    expect(keychain.stringForKey(key)).to(equal("value1"))
+                    expect(keychain.string(forKey: key)).to(equal("value1"))
                 }
 
                 it("should return data for a key") {
-                    expect(keychain.dataForKey(key)).notTo(beNil())
+                    expect(keychain.data(forKey: key)).notTo(beNil())
                 }
             }
 
@@ -176,14 +176,14 @@ class A0SimpleKeychainSpec: QuickSpec {
                 }
 
                 afterEach {
-                    keychain.deleteRSAKeyWithTag(PublicKeyTag)
-                    keychain.deleteRSAKeyWithTag(PrivateKeyTag)
+                    keychain.deleteRSAKey(withTag: PublicKeyTag)
+                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
                 }
 
                 it("should generate a key pair") {
-                keychain.generateRSAKeyPairWithLength(A0SimpleKeychainRSAKeySize.Size1024Bits, publicKeyTag:PublicKeyTag, privateKeyTag:PrivateKeyTag)
-                expect(keychain.dataForRSAKeyWithTag(PublicKeyTag)).notTo(beNil())
-                expect(keychain.dataForRSAKeyWithTag(PrivateKeyTag)).notTo(beNil())
+                keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits, publicKeyTag:PublicKeyTag, privateKeyTag:PrivateKeyTag)
+                expect(keychain.dataForRSAKey(withTag: PublicKeyTag)).notTo(beNil())
+                expect(keychain.dataForRSAKey(withTag: PrivateKeyTag)).notTo(beNil())
                 }
             }
 
@@ -191,19 +191,19 @@ class A0SimpleKeychainSpec: QuickSpec {
 
                 beforeEach {
                     keychain = A0SimpleKeychain(service: kKeychainService)
-                    keychain.generateRSAKeyPairWithLength(A0SimpleKeychainRSAKeySize.Size1024Bits,
+                    keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits,
                         publicKeyTag:PublicKeyTag,
                         privateKeyTag:PrivateKeyTag)
                 }
 
                 afterEach {
-                    keychain.deleteRSAKeyWithTag(PublicKeyTag)
-                    keychain.deleteRSAKeyWithTag(PrivateKeyTag)
+                    keychain.deleteRSAKey(withTag: PublicKeyTag)
+                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
                 }
 
                 it("should obtain keys") {
-                    expect(keychain.dataForRSAKeyWithTag(PublicKeyTag)).notTo(beNil())
-                    expect(keychain.dataForRSAKeyWithTag(PrivateKeyTag)).notTo(beNil())
+                    expect(keychain.dataForRSAKey(withTag: PublicKeyTag)).notTo(beNil())
+                    expect(keychain.dataForRSAKey(withTag: PrivateKeyTag)).notTo(beNil())
                 }
             }
 
@@ -211,23 +211,23 @@ class A0SimpleKeychainSpec: QuickSpec {
 
                 beforeEach {
                     keychain = A0SimpleKeychain(service: kKeychainService)
-                    keychain.generateRSAKeyPairWithLength(A0SimpleKeychainRSAKeySize.Size1024Bits,
+                    keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits,
                         publicKeyTag:PublicKeyTag,
                         privateKeyTag:PrivateKeyTag)
                 }
 
                 afterEach {
-                    keychain.deleteRSAKeyWithTag(PublicKeyTag)
-                    keychain.deleteRSAKeyWithTag(PrivateKeyTag)
+                    keychain.deleteRSAKey(withTag: PublicKeyTag)
+                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
                 }
 
                 it("should check if the key exists") {
-                    expect(keychain.hasRSAKeyWithTag(PublicKeyTag)).to(beTruthy())
-                    expect(keychain.hasRSAKeyWithTag(PrivateKeyTag)).to(beTruthy())
+                    expect(keychain.hasRSAKey(withTag: PublicKeyTag)).to(beTruthy())
+                    expect(keychain.hasRSAKey(withTag: PrivateKeyTag)).to(beTruthy())
                 }
 
                 it("should return NO for nonexisting key") {
-                    expect(keychain.hasRSAKeyWithTag("NONEXISTENT")).to(beFalsy())
+                    expect(keychain.hasRSAKey(withTag: "NONEXISTENT")).to(beFalsy())
                 }
             }
         }
