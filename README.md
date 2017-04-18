@@ -77,7 +77,7 @@ NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
 ```
 
 ```swift
-let jwt = A0SimpleKeychain().stringForKey("auth0-user-jwt")
+let jwt = A0SimpleKeychain().string(forKey: "auth0-user-jwt")
 ```
 
 ### Share JWT Token with other apps using iOS Access Group
@@ -109,7 +109,7 @@ keychain.defaultAccessiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThis
 let jwt = //user's JWT token obtained after login
 let keychain = A0SimpleKeychain()
 keychain.useAccessControl = true
-keychain.defaultAccessiblity = .WhenPasscodeSetThisDeviceOnly
+keychain.defaultAccessiblity = .whenPasscodeSetThisDeviceOnly
 keychain.setString(jwt, forKey:"auth0-user-jwt")
 ```
 
@@ -126,7 +126,7 @@ NSString *jwt = [keychain stringForKey:@"auth0-user-jwt" promptMessage:message];
 ```swift
 let message = NSLocalizedString("Please enter your passcode/fingerprint to login with awesome App!.", comment: "Prompt TouchID message")
 let keychain = A0SimpleKeychain()
-let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
+let jwt = keychain.string(forKey: "auth0-user-jwt", promptMessage:message)
 ```
 
 ### Remove a JWT token or password
@@ -135,7 +135,7 @@ let jwt = keychain.stringForKey("auth0-user-jwt", promptMessage:message)
 ```
 
 ```swift
-A0SimpleKeychain().deleteEntryForKey("auth0-user-jwt")
+A0SimpleKeychain().deleteEntry(forKey: "auth0-user-jwt")
 ```
 
 ## Contributing
