@@ -32,4 +32,3 @@ FOUNDATION_EXPORT const unsigned char SimpleKeychainVersionString[];
 
 #import <SimpleKeychain/A0SimpleKeychain.h>
 #import <SimpleKeychain/A0SimpleKeychain+KeyPair.h>
-
