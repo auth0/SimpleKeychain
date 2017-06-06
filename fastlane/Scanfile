@@ -1,7 +1,6 @@
 
 for_platform :ios do
   scheme "SimpleKeychain-iOS"
-  device "iPhone 7 (10.3)"
 end
 
 for_platform :mac do
@@ -10,7 +9,7 @@ end
 
 for_platform :tvos do
   scheme "SimpleKeychain-tvOS"
-  device "Apple TV 1080p (10.3)"
+  device "Apple TV 1080p (10.2)"
 end
 
 clean true

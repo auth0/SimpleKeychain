@@ -7,7 +7,7 @@ install:
   - bundle exec fastlane bootstrap
 cache:
   directories:
-    - Carthage/
+    - Carthage
 script:
   - bundle exec fastlane "$CI_PLATFORM" ci
 notifications:
@@ -20,7 +20,7 @@ env:
   global:
     secure: ZHhBGQ6//jbloPvoxOWiO9L7rb5jgqhJbnkRzdGk1FqPCYc4t9bijVrQuLrIhKAU9wrCJaqaqmvTu7U782uWHt4+QtbEk+tDvEkS/x2kFA7bp0Pwj4MA7Nv0fM24kFAHn7dvBpWgpbMdtYHILeE00kSO+CoQXETy8ApsMOom6nY=
   matrix:
-    - CI_PLATFORM=ios
+    - CI_PLATFORM=ios CI_DEVICE="iPhone 7 (10.3)"
     - CI_PLATFORM=ios CI_DEVICE="iPhone 6 (8.4)"
     - CI_PLATFORM=ios CI_DEVICE="iPhone 6s (9.3)"
     - CI_PLATFORM=mac
