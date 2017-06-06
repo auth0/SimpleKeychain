@@ -1,0 +1,17 @@
+
+for_platform :ios do
+  scheme "SimpleKeychain-iOS"
+end
+
+for_platform :mac do
+  scheme "SimpleKeychain-OSX"
+end
+
+for_platform :tvos do
+  scheme "SimpleKeychain-tvOS"
+  device "Apple TV 1080p (10.2)"
+end
+
+clean true
+
+output_types "html"

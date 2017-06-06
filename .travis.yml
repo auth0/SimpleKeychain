@@ -2,9 +2,14 @@ reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
 osx_image: xcode8.3
 before_install: true
-install: true
+install:
+  - bundle install
+  - bundle exec fastlane bootstrap
+cache:
+  directories:
+    - Carthage
 script:
-  - script/cibuild
+  - bundle exec fastlane "$CI_PLATFORM" ci
 notifications:
   slack:
     secure: AXLozZlImcdopg/+srq4wcC4SVGMmoDJDXR1PKrH+Dc7DtnYXLCOKKk8hAXySIiHGR4820CX1SZ25By1Q6l8GIomHMfbYwdPILG61KHbIMydBIeoLUNRlM+VK6ao5uFt0Fj6ByNYMQweUuXDAHli88mHwE1aJmL7K3unn11L0lU=
@@ -15,8 +20,8 @@ env:
   global:
     secure: ZHhBGQ6//jbloPvoxOWiO9L7rb5jgqhJbnkRzdGk1FqPCYc4t9bijVrQuLrIhKAU9wrCJaqaqmvTu7U782uWHt4+QtbEk+tDvEkS/x2kFA7bp0Pwj4MA7Nv0fM24kFAHn7dvBpWgpbMdtYHILeE00kSO+CoQXETy8ApsMOom6nY=
   matrix:
-    - SCHEME="SimpleKeychain-iOS" IOS_DESTINATION_VERSION="9.1" CARTHAGE_BUILD_PLATFORM="iOS"
-    - SCHEME="SimpleKeychain-iOS" IOS_DESTINATION_VERSION="9.0" CARTHAGE_BUILD_PLATFORM="iOS"
-    - SCHEME="SimpleKeychain-iOS" IOS_DESTINATION_VERSION="8.4" CARTHAGE_BUILD_PLATFORM="iOS"
-    - SCHEME="SimpleKeychain-OSX" CARTHAGE_BUILD_PLATFORM="Mac"
-    - SCHEME="SimpleKeychain-tvOS" CARTHAGE_BUILD_PLATFORM="tvOS"
+    - CI_PLATFORM=ios CI_DEVICE="iPhone 7 (10.3)"
+    - CI_PLATFORM=ios CI_DEVICE="iPhone 6 (8.4)"
+    - CI_PLATFORM=ios CI_DEVICE="iPhone 6s (9.3)"
+    - CI_PLATFORM=mac
+    - CI_PLATFORM=tvos

@@ -1,0 +1,48 @@
+opt_out_usage
+
+fastlane_version "2.37.0"
+
+default_platform :ios
+
+desc "Installs dependencies using Carthage"
+lane :dependencies do |options|
+  action = options[:action]
+  carthage(use_binaries: false, command: action, cache_builds: true)
+end
+
+desc "Bootstrap the development environment"
+lane :bootstrap do
+  dependencies
+end
+
+private_lane :base_test do |options|
+  device = ENV["CI_DEVICE"]
+  scan(
+    device: device,
+    clean: true,
+    skip_build: true,
+    output_types: 'junit'
+    )
+end
+
+desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
+desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
+lane :release do |options|
+  release_options = {repository: 'SimpleKeychain', xcodeproj: 'SimpleKeychain.xcodeproj'}.merge(options)
+  prepare_release release_options
+  publish_release
+end
+
+[:ios, :tvos, :mac].each do |single_platform|
+  platform single_platform do
+    desc "Runs all the tests"
+    lane :test do
+      base_test
+    end
+
+    desc "Runs all the tests in a CI environment"
+    lane :ci do
+      test
+    end
+  end
+end
