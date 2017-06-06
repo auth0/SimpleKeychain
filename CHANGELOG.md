@@ -1,5 +1,15 @@
 # Change Log
 
+## [0.8.0](https://github.com/auth0/SimpleKeychain/tree/0.8.0) (2017-06-06)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.7.0...0.8.0)
+
+**Added**
+- Added tvOS and watchOS platform support [\#43](https://github.com/auth0/SimpleKeychain/pull/43) ([cocojoe](https://github.com/cocojoe))
+- Xcode 8.3 Compatibility [\#42](https://github.com/auth0/SimpleKeychain/pull/42) ([cocojoe](https://github.com/cocojoe))
+
+**Changed**
+- Fix Xcode warnings [\#45](https://github.com/auth0/SimpleKeychain/pull/45) ([hzalaz](https://github.com/hzalaz))
+
 ## [0.7.0](https://github.com/auth0/SimpleKeychain/tree/0.7.0) (2016-01-20)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.6.1...0.7.0)
 
