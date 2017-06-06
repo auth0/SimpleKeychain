@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  
  *  @deprecated 0.2.0
  */
-- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag;
+- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag __attribute__((deprecated));
 
 @end
 
