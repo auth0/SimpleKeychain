@@ -9,7 +9,7 @@ cache:
   directories:
     - Carthage/
 script:
-  - bundle exec fastlane "$PLATFORM" ci
+  - bundle exec fastlane "$CI_PLATFORM" ci
 notifications:
   slack:
     secure: AXLozZlImcdopg/+srq4wcC4SVGMmoDJDXR1PKrH+Dc7DtnYXLCOKKk8hAXySIiHGR4820CX1SZ25By1Q6l8GIomHMfbYwdPILG61KHbIMydBIeoLUNRlM+VK6ao5uFt0Fj6ByNYMQweUuXDAHli88mHwE1aJmL7K3unn11L0lU=
@@ -20,6 +20,8 @@ env:
   global:
     secure: ZHhBGQ6//jbloPvoxOWiO9L7rb5jgqhJbnkRzdGk1FqPCYc4t9bijVrQuLrIhKAU9wrCJaqaqmvTu7U782uWHt4+QtbEk+tDvEkS/x2kFA7bp0Pwj4MA7Nv0fM24kFAHn7dvBpWgpbMdtYHILeE00kSO+CoQXETy8ApsMOom6nY=
   matrix:
-    - PLATFORM=ios
-    - PLATFORM=mac
-    - PLATFORM=tvos
+    - CI_PLATFORM=ios
+    - CI_PLATFORM=ios CI_DEVICE="iPhone 6 (8.4)"
+    - CI_PLATFORM=ios CI_DEVICE="iPhone 6s (9.3)"
+    - CI_PLATFORM=mac
+    - CI_PLATFORM=tvos

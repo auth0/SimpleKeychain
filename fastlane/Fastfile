@@ -16,10 +16,8 @@ lane :bootstrap do
 end
 
 private_lane :base_test do |options|
-  scheme = options[:scheme]
-  device = options[:device]
+  device = ENV["CI_DEVICE"]
   scan(
-    scheme: scheme,
     device: device,
     clean: true,
     skip_build: true,
