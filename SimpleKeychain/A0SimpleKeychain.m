@@ -336,7 +336,12 @@
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
         if (error == NULL || accessControl != NULL) {
             query[(__bridge id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
+#if defined __MAC_10_12 || defined __IPHONE_11_0
+            // This also applies to watchOS & tvOS
+            query[(__bridge id)kSecUseAuthenticationUI] = (__bridge_transfer id)kSecUseAuthenticationUIFail;
+#else
             query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
+#endif
         }
     } else {
         query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];

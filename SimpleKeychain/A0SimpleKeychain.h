@@ -209,7 +209,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Saves the NSData with the type `kSecClassGenericPassword` in the keychain.
  *
- *  @param string   value to save in the keychain
+ *  @param data   value to save in the keychain
  *  @param key      key for the keychain entry.
  *  @param message  prompt message to display for TouchID/passcode prompt if neccesary
  *
