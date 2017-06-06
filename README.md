@@ -8,7 +8,7 @@
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
 
-##Key Features
+## Key Features
 
 - **Simple interface** to store user's credentials (e.g. JWT) in the Keychain.
 - Store credentials under an **Access Group to enable Keychain Sharing**.
