@@ -30,3 +30,9 @@ Pods/
 Carthage/
 SimpleKeychain.framework
 SimpleKeychain.framework.zip
+
+#Fastlane
+fastlane/report.xml
+**/test_output/
+.env
+fastlane/screenshots/
