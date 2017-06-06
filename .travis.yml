@@ -6,7 +6,6 @@ install:
   - bundle install
   - bundle exec fastlane bootstrap
 cache:
-  - bundler
   directories:
     - Carthage/
 script:
