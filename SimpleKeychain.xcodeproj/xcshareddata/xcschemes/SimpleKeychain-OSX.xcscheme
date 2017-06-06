@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F4D278E1BCEA69E003C27B3"
-               BuildableName = "SimpleKeychainTests-OSX.xctest"
+               BuildableName = "SimpleKeychainTests.xctest"
                BlueprintName = "SimpleKeychainTests-OSX"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F4D278E1BCEA69E003C27B3"
-               BuildableName = "SimpleKeychainTests-OSX.xctest"
+               BuildableName = "SimpleKeychainTests.xctest"
                BlueprintName = "SimpleKeychainTests-OSX"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>

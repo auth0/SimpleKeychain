@@ -14,13 +14,16 @@ scheme_destination ()
   shopt -s nocasematch
 
   case "$1" in
-  *iOS) 
+  *iOS)
     destination=$IOS_DESTINATION
     ;;
-  *OSX) 
+  *OSX)
     destination=$OSX_DESTINATION
     ;;
-  *) 
+  *tvOS)
+    destination="'platform=tvOS Simulator,name=Apple TV 1080p'"
+    ;;
+  *)
     destination=$IOS_DESTINATION
     ;;
   esac
