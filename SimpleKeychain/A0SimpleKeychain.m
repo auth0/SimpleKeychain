@@ -338,7 +338,9 @@
             query[(__bridge id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
 #if defined __MAC_10_12 || defined __IPHONE_11_0
             // This also applies to watchOS & tvOS
-            query[(__bridge id)kSecUseAuthenticationUI] = (__bridge_transfer id)kSecUseAuthenticationUIFail;
+            if (@available(iOS 9, *)) {
+                query[(__bridge id)kSecUseAuthenticationUI] = (__bridge_transfer id)kSecUseAuthenticationUIFail;
+            }
 #else
             query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
 #endif
