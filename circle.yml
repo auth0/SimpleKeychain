@@ -1,6 +1,6 @@
 machine:
   xcode:
-    version: 9.3
+    version: 9.2.0
   environment:
     SCHEME: "SimpleKeychain.iOS"
     DEVICE: "iPhone 8"
