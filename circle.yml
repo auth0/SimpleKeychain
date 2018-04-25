@@ -1,0 +1,26 @@
+machine:
+  xcode:
+    version: 9.3
+  environment:
+    SCHEME: "SimpleKeychain.iOS"
+    DEVICE: "iPhone 8"
+    FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
+
+dependencies:
+pre:
+    - grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
+post:
+    - mkdir -p fastlane/test_output
+  cache_directories:
+    - "Carthage/Build"
+  override:
+    - bundle install --without=development
+    - bundle exec fastlane ios bootstrap
+
+test:
+  override:
+    - bundle exec fastlane ios ci
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/scan/
+    - cp fastlane/test_output/report.junit $CIRCLE_TEST_REPORTS/scan/report.xml
+    - bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain'

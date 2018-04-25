@@ -1,0 +1,19 @@
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  ignore:
+    - SimpleKeychainTests/*
+    - SimpleKeychainApp/*
+  status:
+    patch:
+      default:
+        threshold: 50
+        if_no_uploads: error
+    changes: true
+    project:
+      default:
+        target: auto
+        threshold: 2
+        if_no_uploads: error
+comment: false
