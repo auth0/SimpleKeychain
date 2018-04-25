@@ -30,5 +30,5 @@ FOUNDATION_EXPORT const unsigned char SimpleKeychainVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SimpleKeychain/PublicHeader.h>
 
-#import <SimpleKeychain/A0SimpleKeychain.h>
-#import <SimpleKeychain/A0SimpleKeychain+KeyPair.h>
+#import "A0SimpleKeychain.h"
+#import "A0SimpleKeychain+KeyPair.h"
