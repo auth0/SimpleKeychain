@@ -29,27 +29,17 @@ xcode-select --install
 </table>
 
 # Available Actions
-### dependencies
+## iOS
+### ios dependencies
 ```
-fastlane dependencies
+fastlane ios dependencies
 ```
 Installs dependencies using Carthage
-### bootstrap
+### ios bootstrap
 ```
-fastlane bootstrap
+fastlane ios bootstrap
 ```
 Bootstrap the development environment
-### release
-```
-fastlane release
-```
-Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG
-
-You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
-
-----
-
-## iOS
 ### ios test
 ```
 fastlane ios test
@@ -60,34 +50,18 @@ Runs all the tests
 fastlane ios ci
 ```
 Runs all the tests in a CI environment
+### ios pod_lint
+```
+fastlane ios pod_lint
+```
+Cocoapods library lint
+### ios release
+```
+fastlane ios release
+```
+Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG
 
-----
-
-## tvos
-### tvos test
-```
-fastlane tvos test
-```
-Runs all the tests
-### tvos ci
-```
-fastlane tvos ci
-```
-Runs all the tests in a CI environment
-
-----
-
-## Mac
-### mac test
-```
-fastlane mac test
-```
-Runs all the tests
-### mac ci
-```
-fastlane mac ci
-```
-Runs all the tests in a CI environment
+You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
 
 ----
 

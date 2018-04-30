@@ -543,6 +543,7 @@
 				TargetAttributes = {
 					5B0D47581EA63C74009FF1BF = {
 						CreatedOnToolsVersion = 8.3;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 					5B108AAB1EA637B100ED4DD2 = {
@@ -550,16 +551,16 @@
 					};
 					5F4D277A1BCE99DF003C27B3 = {
 						CreatedOnToolsVersion = 7.0.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0930;
 						TestTargetID = 5F7B45AB1B7D0CE700D5AC89;
 					};
 					5F4D278E1BCEA69E003C27B3 = {
 						CreatedOnToolsVersion = 7.0.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0930;
 					};
 					5F7B45AB1B7D0CE700D5AC89 = {
 						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 					};
 					5FEEB99B1B7BD70A00501415 = {
@@ -1012,7 +1013,7 @@
 				);
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.samples.simplekeychain;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.simplekeychain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1028,7 +1029,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.samples.simplekeychain;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.simplekeychain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;

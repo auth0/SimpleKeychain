@@ -20,20 +20,6 @@
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F4D278E1BCEA69E003C27B3"
-               BuildableName = "SimpleKeychainTests.xctest"
-               BlueprintName = "SimpleKeychainTests-OSX"
-               ReferencedContainer = "container:SimpleKeychain.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
