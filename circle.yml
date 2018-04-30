@@ -2,14 +2,14 @@ machine:
   xcode:
     version: 9.2.0
   environment:
-    SCHEME: "SimpleKeychain.iOS"
+    SCHEME: "SimpleKeychain-iOS"
     DEVICE: "iPhone 8"
     FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
 
 dependencies:
-pre:
+  pre:
     - grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
-post:
+  post:
     - mkdir -p fastlane/test_output
   cache_directories:
     - "Carthage/Build"
