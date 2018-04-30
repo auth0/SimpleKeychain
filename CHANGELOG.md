@@ -1,5 +1,17 @@
 # Change Log
 
+## [0.8.1](https://github.com/auth0/SimpleKeychain/tree/0.8.1) (2018-04-30)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.8.0...0.8.1)
+
+**Added**
+- Added Circle CI 2.0 [\#51](https://github.com/auth0/SimpleKeychain/pull/51) ([cocojoe](https://github.com/cocojoe))
+
+**Changed**
+- Update dependencies [\#49](https://github.com/auth0/SimpleKeychain/pull/49) ([cocojoe](https://github.com/cocojoe))
+
+**Fixed**
+- Fix Pod Lib Lint Warnings [\#48](https://github.com/auth0/SimpleKeychain/pull/48) ([Y2JChamp](https://github.com/Y2JChamp))
+
 ## [0.8.0](https://github.com/auth0/SimpleKeychain/tree/0.8.0) (2017-06-06)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.7.0...0.8.0)
 
