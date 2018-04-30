@@ -2,8 +2,6 @@ require('semantic')
 
 opt_out_usage
 
-fastlane_version "2.27.0"
-
 default_platform :ios
 
 platform :ios do
@@ -46,7 +44,7 @@ platform :ios do
   desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
   desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
   lane :release do |options|
-    release_options = {repository: 'Auth0.swift', xcodeproj: 'Auth0.xcodeproj'}.merge(options)
+    release_options = {repository: 'SimpleKeychain', xcodeproj: 'SimpleKeychain.xcodeproj'}.merge(options)
     prepare_release release_options
     publish_release
   end
