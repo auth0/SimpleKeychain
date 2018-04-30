@@ -21,8 +21,8 @@ jobs:
             DEVICE: iPhone 8
             FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
       - run:
-        name: Pod Lib Lint
-        command: bundle exec fastlane ios pod_lint
+          name: Pod Lib Lint
+          command: bundle exec fastlane ios pod_lint
       - run: |
           bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain' 
       - save_cache:
