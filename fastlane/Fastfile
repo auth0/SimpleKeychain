@@ -38,6 +38,11 @@ platform :ios do
     test
   end
 
+  desc "Cocoapods library lint"
+  lane :pod_lint do
+    pod_lib_lint()
+  end
+
   desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
   desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
   lane :release do |options|

@@ -50,6 +50,11 @@ Runs all the tests
 fastlane ios ci
 ```
 Runs all the tests in a CI environment
+### ios pod_lint
+```
+fastlane ios pod_lint
+```
+Cocoapods library lint
 ### ios release
 ```
 fastlane ios release
