@@ -141,6 +141,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (assign, nonatomic) BOOL useAccessControl;
 
+
+/**
+ * Additional attributes to associate with the keychain when querying items for adding or retriving.
+ * Default value is nil.
+ * You can use this to provide attributes like kSecAttrSynchronizable, etc. By default, only the kSecAttrService and kSecClass attributes are used.
+ */
+@property (nonatomic, copy) NSDictionary *additionalAttributes;
+
 ///---------------------------------------------------
 /// @name Initialization
 ///---------------------------------------------------

@@ -285,6 +285,10 @@
         attributes[(__bridge id)kSecAttrAccessGroup] = self.accessGroup;
     }
 #endif
+    
+    if (self.additionalAttributes != nil) {
+        [attributes addEntriesFromDictionary:self.additionalAttributes];
+    }
 
     return attributes;
 }
