@@ -289,7 +289,17 @@
     if (self.additionalAttributes != nil) {
         [attributes addEntriesFromDictionary:self.additionalAttributes];
     }
-
+    
+    /*
+     * if the kSecAttrSyncrhonizable is defined, the docs mention the following:
+     *Items stored or obtained using the kSecAttrSynchronizable key cannot specify SecAccessRef based access control with kSecAttrAccess.
+     */
+#if TARGET_OS_MACOS
+    if ([self.additionalAttributes valueForKey:(__bridge id)kSecAttrSynchronizable]) {
+        [attributes removeObjectForKey:(__bridge  id)kSecAttrAccess];
+    }
+#endif 
+    
     return attributes;
 }
 
