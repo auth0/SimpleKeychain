@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(nullable NSString *)message;
+- (BOOL)setData:(nullable NSData *)data forKey:(nullable NSString *)key promptMessage:(nullable NSString *)message;
 
 ///---------------------------------------------------
 /// @name Remove values

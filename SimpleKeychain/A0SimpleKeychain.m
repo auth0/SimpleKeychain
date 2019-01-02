@@ -115,7 +115,7 @@
 }
 
 
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key promptMessage:(NSString *)message {
+- (BOOL)setData:(nullable NSData *)data forKey:(nullable NSString *)key promptMessage:(NSString *)message {
     if (!key) {
         return NO;
     }
