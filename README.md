@@ -1,6 +1,6 @@
 # SimpleKeychain
 
-[![CircleCI](https://circleci.com/gh/auth0/SimpleKeychain.svg?style=svg)](https://circleci.com/gh/auth0/SimpleKeychain)
+[![CircleCI](https://circleci.com/gh/auth0/SimpleKeychain.svg?style=shield)](https://circleci.com/gh/auth0/SimpleKeychain)
 [![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
