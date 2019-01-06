@@ -1,9 +1,9 @@
 # SimpleKeychain
 
-[![CI Status](http://img.shields.io/travis/auth0/SimpleKeychain.svg?style=flat-square)](https://travis-ci.org/auth0/SimpleKeychain)
-[![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat-square)](http://cocoadocs.org/docsets/SimpleKeychain)
-[![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](http://cocoadocs.org/docsets/SimpleKeychain)
-[![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](http://cocoadocs.org/docsets/SimpleKeychain)
+[![CircleCI](https://circleci.com/gh/auth0/SimpleKeychain.svg?style=shield)](https://circleci.com/gh/auth0/SimpleKeychain)
+[![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
+[![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
+[![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
@@ -23,7 +23,7 @@ At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAcc
 
 ### CocoaPods
 
-SimpleKeychain is available through [CocoaPods](http://cocoapods.org). To install
+SimpleKeychain is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
@@ -140,7 +140,7 @@ A0SimpleKeychain().deleteEntry(forKey: "auth0-user-jwt")
 
 ## Contributing
 
-Just clone the repo, and run pod install from the Example directory and you're ready to contribute!.
+Just clone the repo, and run `pod install` from the Example directory and you're ready to contribute!
 
 ## Issue Reporting
 
@@ -148,7 +148,7 @@ If you have found a bug or if you have a feature request, please report them at 
 
 ## License
 
-SimpleKeychain is available under the MIT license. See the [LICENSE file]([LICENSE file](https://github.com/auth0/SimpleKeychain/blob/master/LICENSE)) for more info.
+SimpleKeychain is available under the MIT license. See the [LICENSE file](https://github.com/auth0/SimpleKeychain/blob/master/LICENSE) for more info.
 
 ## Author
 
