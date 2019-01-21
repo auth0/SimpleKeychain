@@ -24,8 +24,10 @@ Description of the bug or feature request and why it's a problem. Consider inclu
 Please provide the following:
 
 - Version of SimpleKeychain used:
-- Version of iOS used:
+- Version of OS used:
 - Additional dependencies that might be relevant:
+- If using Carthage or CocoaPods, please include your Cartfile or Podfile
+- Xcode version: 
 
 ### Reproduction
 
