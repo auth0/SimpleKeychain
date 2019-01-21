@@ -6,6 +6,7 @@ Please describe both what is changing and why this is important. Include:
 - Classes and methods added, deleted, deprecated, or changed
 - Screenshots of new or changed UI, if applicable
 - A summary of usage if this is a new feature or change to a public API (this should also be added to relevant documentation once released)
+- Any alternative designs or architectures considered
 
 ### References
 
