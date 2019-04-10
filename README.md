@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage)
+[![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg)](https://github.com/JamitLabs/Accio)
+
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
 
@@ -39,6 +41,28 @@ In your Cartfile add
 ```ruby
 github "auth0/SimpleKeychain"
 ```
+
+### Accio
+
+Add the following to your Package.swift:
+
+```swift
+.package(url: "https://github.com/auth0/SimpleKeychain.git", .branch("master")),
+```
+
+Next, add `SimpleKeychain` to your App targets dependencies like so:
+
+```swift
+targets: [
+    .target(
+        name: "Auth0",
+        dependencies: ["SimpleKeychain"],
+        path: "App"
+    )
+]
+```
+
+Then run `accio update`.
 
 ## Before Getting Started
 
