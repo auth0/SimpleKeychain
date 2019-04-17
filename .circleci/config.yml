@@ -7,7 +7,6 @@ jobs:
     steps:
       - checkout
       - run: | 
-          brew install swiftlint
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
       - run:
