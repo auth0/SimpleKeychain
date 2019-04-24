@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.9.0](https://github.com/auth0/SimpleKeychain/tree/0.9.0) (2019-04-23)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.8.1...0.9.0)
+
+**Changed**
+- Update Swift 5 / Xcode 10.2 [\#66](https://github.com/auth0/SimpleKeychain/pull/66) ([cocojoe](https://github.com/cocojoe))
+
 ## [0.8.1](https://github.com/auth0/SimpleKeychain/tree/0.8.1) (2018-04-30)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.8.0...0.8.1)
 
