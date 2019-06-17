@@ -12,12 +12,14 @@ A wrapper to make it really easy to deal with iOS Keychain and store your user's
 
 - **Simple interface** to store user's credentials (e.g. JWT) in the Keychain.
 - Store credentials under an **Access Group to enable Keychain Sharing**.
-- Support for **iOS 8 Access Control** for fine grained access control. _(Only for iOS 8+)_
-- **TouchID and Keychain integration** with iOS 8 new accessibility field `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`. _(Only for iOS 8+)_
+- Support for **iOS 8 Access Control** for fine grained access control. 
+- **TouchID and Keychain integration** with iOS 8 new accessibility field `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`. 
 
 ## Requirements
 
-At least iOS 7, if you want to use `kSecAttrAccessControl` with the flag `useAccessControl` you need to have iOS 8+.
+- iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
+- Xcode 10.x
+- Swift 4.x/5.x
 
 ## Installation
 
@@ -30,8 +32,6 @@ it, simply add the following line to your Podfile:
 pod "SimpleKeychain"
 ```
 
-Or you can add `A0SimpleKeychain.h` and `A0SimpleKeychain.m` to your project.
-
 ### Carthage
 
 In your Cartfile add
@@ -41,13 +41,6 @@ github "auth0/SimpleKeychain"
 ```
 
 ## Before Getting Started
-
-### Objective-C
-Just import in your source file's header:
-
-```objc
-#import <SimpleKeychain/SimpleKeychain.h>
-```
 
 ### Swift
 Import Lock module in your swift file:
@@ -60,11 +53,6 @@ import SimpleKeychain
 
 ### Save a JWT token or password
 
-```objc
-NSString *jwt = //user's JWT token obtained after login
-[[A0SimpleKeychain keychain] setString:jwt forKey:@"auth0-user-jwt"];
-```
-
 ```swift
 let jwt = //user's JWT token obtained after login
 A0SimpleKeychain().setString(jwt, forKey:"auth0-user-jwt")
@@ -72,21 +60,11 @@ A0SimpleKeychain().setString(jwt, forKey:"auth0-user-jwt")
 
 ### Obtain a JWT token or password
 
-```objc
-NSString *jwt = [[A0SimpleKeychain keychain] stringForKey:@"auth0-user-jwt"];
-```
-
 ```swift
 let jwt = A0SimpleKeychain().string(forKey: "auth0-user-jwt")
 ```
 
 ### Share JWT Token with other apps using iOS Access Group
-
-```objc
-NSString *jwt = //user's JWT token obtained after login
-A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"ABCDEFGH.com.mydomain.myaccessgroup"];
-[keychain setString:jwt forKey:@"auth0-user-jwt"];
-```
 
 ```swift
 let jwt = //user's JWT token obtained after login
@@ -97,13 +75,6 @@ keychain.setString(jwt, forKey:"auth0-user-jwt")
 ### Store and retrieve JWT token using TouchID and Keychain AcessControl attribute (iOS 8 Only).
 
 Let's save the JWT first:
-```objc
-NSString *jwt = //user's JWT token obtained after login
-A0SimpleKeychain *keychain = [A0SimpleKeychain keychain];
-keychain.useAccessControl = YES;
-keychain.defaultAccessiblity = A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly;
-[keychain setString:jwt forKey:@"auth0-user-jwt"];
-```
 
 ```swift
 let jwt = //user's JWT token obtained after login
@@ -117,12 +88,6 @@ keychain.setString(jwt, forKey:"auth0-user-jwt")
 
 Then let's obtain the value
 
-```objc
-NSString *message = NSLocalizedString(@"Please enter your passcode/fingerprint to login with awesome App!.", @"Prompt TouchID message");
-A0SimpleKeychain *keychain = [A0SimpleKeychain keychain];
-NSString *jwt = [keychain stringForKey:@"auth0-user-jwt" promptMessage:message];
-```
-
 ```swift
 let message = NSLocalizedString("Please enter your passcode/fingerprint to login with awesome App!.", comment: "Prompt TouchID message")
 let keychain = A0SimpleKeychain()
@@ -130,9 +95,6 @@ let jwt = keychain.string(forKey: "auth0-user-jwt", promptMessage:message)
 ```
 
 ### Remove a JWT token or password
-```objc
-[[A0SimpleKeychain keychain] deleteEntryForKey:@"auth0-user-jwt"];
-```
 
 ```swift
 A0SimpleKeychain().deleteEntry(forKey: "auth0-user-jwt")
