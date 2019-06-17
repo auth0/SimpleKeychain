@@ -2,14 +2,12 @@ version: 2
 jobs:
   build-and-test:
     macos:
-      xcode: "9.3.0"
+      xcode: "10.2.0"
 
     steps:
       - checkout
       - run: | 
-          brew install swiftlint
           bundle install --without=development
-          grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
       - run:
           name: Bootstrap
           command: bundle exec fastlane ios bootstrap
