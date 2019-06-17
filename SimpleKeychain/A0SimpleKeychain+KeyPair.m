@@ -106,7 +106,7 @@
     return status == errSecSuccess;
 }
 
-- (nonnull SecKeyRef)keyRefOfRSAKeyWithTag:(NSString *)keyTag {
+- (nullable SecKeyRef)keyRefOfRSAKeyWithTag:(NSString *)keyTag {
     NSAssert(keyTag.length > 0, @"key tag should be non-empty!");
     NSDictionary *query = @{
                             (__bridge id)kSecClass: (__bridge id)kSecClassKey,
