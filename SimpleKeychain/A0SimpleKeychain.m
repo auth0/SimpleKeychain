@@ -44,8 +44,20 @@
         _accessGroup = accessGroup;
         _defaultAccessiblity = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
         _useAccessControl = NO;
+        _localAuthenticationContext = [LAContext new];
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = 0;
     }
     return self;
+}
+
+- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration {
+    if (duration <= 0) {
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = 0;
+    } else if (duration >= LATouchIDAuthenticationMaximumAllowableReuseDuration) {
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = LATouchIDAuthenticationMaximumAllowableReuseDuration;
+    } else {
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = duration;
+    }
 }
 
 - (NSString *)stringForKey:(NSString *)key {
@@ -279,6 +291,8 @@
     NSMutableDictionary *attributes = [@{
                                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
                                          (__bridge id)kSecAttrService: self.service,
+                                         (__bridge id)kSecUseAuthenticationContext: _localAuthenticationContext,
+                                         (__bridge id)kSecUseAuthenticationUI: (__bridge id)kSecUseAuthenticationUIAllow,
                                          } mutableCopy];
 #if !TARGET_IPHONE_SIMULATOR
     if (self.accessGroup) {

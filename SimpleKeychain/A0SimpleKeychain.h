@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-
+#import <LocalAuthentication/LocalAuthentication.h>
 ///---------------------------------------------------
 /// @name Keychain Items Accessibility Values
 ///---------------------------------------------------
@@ -141,6 +141,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (assign, nonatomic) BOOL useAccessControl;
 
+
+/**
+*  LocalAuthenticationContext used to access items. Default value is a new LAContext object
+*/
+@property (readonly, nullable, nonatomic) LAContext *localAuthenticationContext;
+
+
 ///---------------------------------------------------
 /// @name Initialization
 ///---------------------------------------------------
@@ -170,6 +177,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return an initialised instance.
  */
 - (instancetype)initWithService:(NSString *)service accessGroup:(nullable NSString *)accessGroup;
+
+/**
+ *  The duration for which Touch ID authentication reuse is allowable.
+ *  Maximun value is LATouchIDAuthenticationMaximumAllowableReuseDuration
+ */
+- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration;
 
 ///---------------------------------------------------
 /// @name Store values
