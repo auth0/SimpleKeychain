@@ -36,3 +36,7 @@ fastlane/report.xml
 **/test_output/
 .env
 fastlane/screenshots/
+
+#SwiftPM
+.build
+Package.resolved
