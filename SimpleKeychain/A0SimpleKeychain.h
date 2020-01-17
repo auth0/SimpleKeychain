@@ -21,7 +21,13 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+
+#if __has_include("LocalAuthentication/LocalAuthentication.h")
+
 #import <LocalAuthentication/LocalAuthentication.h>
+
+#endif
+
 ///---------------------------------------------------
 /// @name Keychain Items Accessibility Values
 ///---------------------------------------------------
@@ -61,6 +67,9 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
 };
 
 #define A0ErrorDomain @"com.auth0.simplekeychain"
+
+#define A0LocalAuthenticationCapable __IPHONE_OS_VERSION_MIN_ALLOWED >= 80000 || __MAC_OS_X_VERSION_MIN_ALLOWED >= 101200
+
 
 /**
  * Enum with keychain error codes. It's a mirror of the keychain error codes. 
@@ -145,8 +154,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
 *  LocalAuthenticationContext used to access items. Default value is a new LAContext object
 */
+#if A0LocalAuthenticationCapable
 @property (readonly, nullable, nonatomic) LAContext *localAuthenticationContext;
-
+#endif
 
 ///---------------------------------------------------
 /// @name Initialization
@@ -182,7 +192,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The duration for which Touch ID authentication reuse is allowable.
  *  Maximun value is LATouchIDAuthenticationMaximumAllowableReuseDuration
  */
-- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration;
+#if A0LocalAuthenticationCapable
+- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration API_AVAILABLE(ios(8), macosx(10.12)) API_UNAVAILABLE(watchos, tvos);
+#endif
 
 ///---------------------------------------------------
 /// @name Store values
