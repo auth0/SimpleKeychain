@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Pod Lib Lint
           command: bundle exec fastlane ios pod_lint
+      - run:
+          name: SwiftPM Test
+          command: swift test
       - run: |
           bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain' 
       - save_cache:
