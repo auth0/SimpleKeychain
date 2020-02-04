@@ -44,8 +44,27 @@
         _accessGroup = accessGroup;
         _defaultAccessiblity = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
         _useAccessControl = NO;
+        
+// This does not apply to watchOS & tvOS
+#if A0LocalAuthenticationCapable
+        _localAuthenticationContext = [LAContext new];
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = 0;
+#endif
     }
     return self;
+}
+
+- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration {
+// This does not apply to watchOS & tvOS
+#if A0LocalAuthenticationCapable
+    if (duration <= 0) {
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = 0;
+    } else if (duration >= LATouchIDAuthenticationMaximumAllowableReuseDuration) {
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = LATouchIDAuthenticationMaximumAllowableReuseDuration;
+    } else {
+        _localAuthenticationContext.touchIDAuthenticationAllowableReuseDuration = duration;
+    }
+#endif
 }
 
 - (NSString *)stringForKey:(NSString *)key {
@@ -279,7 +298,13 @@
     NSMutableDictionary *attributes = [@{
                                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
                                          (__bridge id)kSecAttrService: self.service,
+                                         (__bridge id)kSecUseAuthenticationUI: (__bridge id)kSecUseAuthenticationUIAllow,
                                          } mutableCopy];
+    
+#if A0LocalAuthenticationCapable
+    [attributes setObject:_localAuthenticationContext forKey:(__bridge id)kSecUseAuthenticationContext];
+#endif
+    
 #if !TARGET_IPHONE_SIMULATOR
     if (self.accessGroup) {
         attributes[(__bridge id)kSecAttrAccessGroup] = self.accessGroup;
