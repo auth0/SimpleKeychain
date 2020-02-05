@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.10.0](https://github.com/auth0/SimpleKeychain/tree/0.10.0) (2020-02-05)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.9.0...0.10.0)
+
+**Added**
+- Swift Package Manager support [\#75](https://github.com/auth0/SimpleKeychain/pull/75) ([StuClift](https://github.com/StuClift))
+
+**Changed**
+- Reused LocalAuthentication context [\#74](https://github.com/auth0/SimpleKeychain/pull/74) ([eaceto](https://github.com/eaceto))
+
 ## [0.9.0](https://github.com/auth0/SimpleKeychain/tree/0.9.0) (2019-04-23)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.8.1...0.9.0)
 
