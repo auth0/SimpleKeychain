@@ -34,7 +34,7 @@ pod "SimpleKeychain"
 
 Then, run `pod install`.
 
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+> For more information on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
 ### Carthage
 
