@@ -62,7 +62,7 @@ https://github.com/auth0/SimpleKeychain.git
 
 Then, press **Next** and complete the remaining steps.
 
-> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
+> For more information on SPM, check [its official documentation](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
 
 ## Before Getting Started
 
