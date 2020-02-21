@@ -18,7 +18,7 @@ commands:
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
       - restore_cache:
           keys:
-            - carthage-cache-{{ checksum "Cartfile.resolved" }}
+            - carthage-{{ checksum "Cartfile.resolved" }}
   send-coverage-report:
     steps:
       - run: |
@@ -30,7 +30,7 @@ commands:
   save-carthage-cache:
     steps:
       - save_cache:
-          key: carthage-cache-{{ checksum "Cartfile.resolved" }}
+          key: carthage-{{ checksum "Cartfile.resolved" }}
           paths:
             - Carthage/Build
   build-package-ios:
