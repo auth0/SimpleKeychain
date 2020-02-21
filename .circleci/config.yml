@@ -10,6 +10,13 @@ executors:
       LANG: en_US.UTF-8
 
 commands:
+  create-keychain:
+    steps: 
+      - run: |
+          security create-keychain -p circle cikeychain
+          security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
+          security default-keychain -s /Users/distiller/Library/Keychains/cikeychain-db
+          security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
   prepare:
     steps:
       - run: |
@@ -40,10 +47,6 @@ commands:
     steps: 
       - run: |
           carthage bootstrap --platform mac
-          security create-keychain -p circle cikeychain
-          security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
-          security default-keychain -s /Users/distiller/Library/Keychains/cikeychain-db
-          security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
           xcodebuild test -scheme SimpleKeychain-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
           swift test
       - save-carthage-cache
@@ -73,12 +76,14 @@ jobs:
     executor: job-environment
     steps:
       - checkout
+      - create-keychain
       - prepare
       - test-macos
   build-tvOS:
     executor: job-environment
     steps:
       - checkout
+      - create-keychain
       - prepare
       - test-tvos
 
