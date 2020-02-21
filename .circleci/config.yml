@@ -45,7 +45,7 @@ commands:
         - run: bundle exec fastlane ios ci
   test-macos:
     steps: 
-      - run: carthage bootstrap --platform mac
+      - run: carthage bootstrap
       - save-carthage-cache
       - run: |
           security create-keychain -p circle cikeychain
@@ -56,7 +56,7 @@ commands:
           swift test
   test-tvos:
     steps: 
-      - run: carthage bootstrap --platform tvOS
+      - run: carthage bootstrap
       - save-carthage-cache
       - run: xcodebuild test -scheme SimpleKeychainTests-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
 
