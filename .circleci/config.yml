@@ -40,27 +40,25 @@ commands:
             carthage update --no-use-binaries && carthage build --no-skip-current
   test-ios:
       steps:
-        - run: |
-            bundle exec fastlane ios bootstrap
-            bundle exec fastlane ios ci
+        - run: bundle exec fastlane ios bootstrap
         - save-carthage-cache
+        - run: bundle exec fastlane ios ci
   test-macos:
     steps: 
+      - run: carthage bootstrap --platform mac
+      - save-carthage-cache
       - run: |
-          carthage bootstrap --platform mac
           security create-keychain -p circle cikeychain
           security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
           security default-keychain -s /Users/distiller/Library/Keychains/cikeychain-db
           security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
           xcodebuild test -scheme SimpleKeychain-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
           swift test
-      - save-carthage-cache
   test-tvos:
     steps: 
-      - run: |
-          carthage bootstrap --platform tvOS
-          xcodebuild test -scheme SimpleKeychainTests-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
+      - run: carthage bootstrap --platform tvOS
       - save-carthage-cache
+      - run: xcodebuild test -scheme SimpleKeychainTests-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
 
 jobs:
   build-iOS:
