@@ -59,7 +59,7 @@ jobs:
     executor: job-environment
     environment:
       SCHEME: SimpleKeychain-iOS
-      DEVICE: iPhone 8
+      DEVICE: iPhone 11
       FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
     steps:
       - checkout
