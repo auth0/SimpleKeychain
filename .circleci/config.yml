@@ -18,7 +18,12 @@ commands:
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
   send-coverage-report:
     steps:
-      - run: bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain'
+      - run: |
+          slather
+          mkdir /tmp/artifacts
+          cp ./fastlane/test_output/* /tmp/artifacts/
+          cp ./cobertura.xml /tmp/artifacts/
+          bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain' -f ./cobertura.xml
   save-carthage-cache:
     steps:
       - save_cache:
