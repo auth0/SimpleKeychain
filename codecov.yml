@@ -1,3 +1,6 @@
+codecov:
+  require_ci_to_pass: no
+
 coverage:
   precision: 2
   round: down
@@ -16,4 +19,5 @@ coverage:
         target: auto
         threshold: 2
         if_no_uploads: error
+
 comment: false
