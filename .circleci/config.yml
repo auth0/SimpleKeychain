@@ -16,6 +16,9 @@ commands:
           echo "ruby-2.6.5" > ~/.ruby-version
           bundle install --without=development
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
+      - restore-cache:
+          keys:
+            - carthage-cache-{{ checksum "Cartfile.resolved" }}
   send-coverage-report:
     steps:
       - run: |
@@ -27,7 +30,7 @@ commands:
   save-carthage-cache:
     steps:
       - save_cache:
-          key: dependency-cache
+          key: carthage-cache-{{ checksum "Cartfile.resolved" }}
           paths:
             - Carthage/Build
   build-package-ios:
