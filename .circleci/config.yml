@@ -58,7 +58,7 @@ commands:
     steps: 
       - run: carthage bootstrap
       - save-carthage-cache
-      - run: xcodebuild test -scheme SimpleKeychain-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
+      - run: xcodebuild test -scheme SimpleKeychain-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' -sdk appletvsimulator13.2 | xcpretty
 
 jobs:
   build-iOS:
