@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B062A451EA63FC300827E79 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */; };
 		5B062A461EA63FCE00827E79 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D47651EA63D17009FF1BF /* Nimble.framework */; };
 		5B062A471EA63FCE00827E79 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D47661EA63D17009FF1BF /* Quick.framework */; };
 		5B0D47641EA63CD1009FF1BF /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
@@ -166,6 +167,7 @@
 			files = (
 				5B062A461EA63FCE00827E79 /* Nimble.framework in Frameworks */,
 				5B062A471EA63FCE00827E79 /* Quick.framework in Frameworks */,
+				5B062A451EA63FC300827E79 /* SimpleKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
