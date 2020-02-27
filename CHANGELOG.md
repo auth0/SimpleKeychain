@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.11.0](https://github.com/auth0/SimpleKeychain/tree/0.11.0) (2020-02-27)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.10.0...0.11.0)
+
+**Changed**
+- Marked up A0SimpleKeychain+KeyPair to admit that keys may not exist [\#86](https://github.com/auth0/SimpleKeychain/pull/86) ([cysp](https://github.com/cysp))
+
+**Fixed**
+- Fixed A0LocalAuthenticationCapable macro [\#81](https://github.com/auth0/SimpleKeychain/pull/81) ([Widcket](https://github.com/Widcket))
+
 ## [0.10.0](https://github.com/auth0/SimpleKeychain/tree/0.10.0) (2020-02-05)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.9.0...0.10.0)
 
