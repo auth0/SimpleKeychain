@@ -1,40 +1,99 @@
-version: 2
-jobs:
-  build-and-test:
-    macos:
-      xcode: "10.2.0"
+version: 2.1
 
+executors:
+  job-environment:
+    shell: /bin/bash --login -eo pipefail
+    macos:
+      xcode: 11.2.0
+    environment:
+      LC_ALL: en_US.UTF-8
+      LANG: en_US.UTF-8
+
+commands:
+  prepare:
     steps:
-      - checkout
-      - run: | 
-          bundle install --without=development
-      - run:
-          name: Bootstrap
-          command: bundle exec fastlane ios bootstrap
-      - run:
-          name: Run test suite
-          command: bundle exec fastlane ios ci
-          environment:
-            SCHEME: SimpleKeychain-iOS
-            DEVICE: iPhone 8
-            FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
-      - run:
-          name: Pod Lib Lint
-          command: bundle exec fastlane ios pod_lint
-      - run:
-          name: SwiftPM Test
-          command: swift test
       - run: |
-          bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain' 
+          echo "ruby-2.6.5" > ~/.ruby-version
+          bundle install --without=development
+          grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
+      - restore_cache:
+          keys:
+            - carthage-{{ checksum "Cartfile.resolved" }}
+  send-coverage-report:
+    steps:
+      - run: |
+          slather
+          mkdir /tmp/artifacts
+          cp ./fastlane/test_output/* /tmp/artifacts/
+          cp ./cobertura.xml /tmp/artifacts/
+          bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain' -f ./cobertura.xml
+  save-carthage-cache:
+    steps:
       - save_cache:
-          key: dependency-cache
+          key: carthage-{{ checksum "Cartfile.resolved" }}
           paths:
             - Carthage/Build
+  build-package-ios:
+      steps:
+        - run: |
+            bundle exec fastlane ios pod_lint
+            carthage update --no-use-binaries && carthage build --no-skip-current
+  test-ios:
+      steps:
+        - run: |
+            ([[ ! -d Carthage/Build ]] && bundle exec fastlane ios bootstrap) || true
+        - save-carthage-cache
+        - run: bundle exec fastlane ios ci
+  test-macos:
+    steps: 
+      - run: |
+          ([[ ! -d Carthage/Build ]] && carthage bootstrap) || true
+      - save-carthage-cache
+      - run: |
+          security create-keychain -p circle cikeychain
+          security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
+          security default-keychain -s /Users/distiller/Library/Keychains/cikeychain-db
+          security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
+          xcodebuild test -scheme SimpleKeychain-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
+          swift test
+  test-tvos:
+    steps: 
+      - run: |
+          ([[ ! -d Carthage/Build ]] && carthage bootstrap) || true
+      - save-carthage-cache
+      - run: xcodebuild test -scheme 'SimpleKeychain-tvOS' -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
+
+jobs:
+  build-iOS:
+    executor: job-environment
+    environment:
+      SCHEME: SimpleKeychain-iOS
+      DEVICE: iPhone 11
+      FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
+    steps:
+      - checkout
+      - prepare
+      - test-ios
+      - build-package-ios
+      - send-coverage-report
       - store_test_results:
           path: fastlane/test_output
+  build-macOS:
+    executor: job-environment
+    steps:
+      - checkout
+      - prepare
+      - test-macos
+  build-tvOS:
+    executor: job-environment
+    steps:
+      - checkout
+      - prepare
+      - test-tvos
 
 workflows:
-  version: 2
-  build-test-report:
+  build:
     jobs:
-      - build-and-test
+      - build-iOS
+      - build-macOS
+      - build-tvOS
