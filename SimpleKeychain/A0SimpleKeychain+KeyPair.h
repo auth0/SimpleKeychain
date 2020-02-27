@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return SecKeyRef of RSA Key
  */
-- (SecKeyRef)keyRefOfRSAKeyWithTag:(NSString *)keyTag;
+- (nullable SecKeyRef)keyRefOfRSAKeyWithTag:(NSString *)keyTag;
 
 /**
  *  Checks if a RSA key exists with a given tag.
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  
  *  @deprecated 0.2.0
  */
-- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag __attribute__((deprecated));
+- (nullable NSData *)publicRSAKeyDataForTag:(NSString *)keyTag __attribute__((deprecated));
 
 @end
 
