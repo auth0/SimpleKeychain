@@ -70,6 +70,13 @@
 			remoteGlobalIDString = 5F7B45AB1B7D0CE700D5AC89;
 			remoteInfo = SimpleKeychainApp;
 		};
+		5C70AB9C24074300006E2EB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C29744223FF457A00BC18FA;
+			remoteInfo = tvOSTestHost;
+		};
 		5F4D27801BCE99E0003C27B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
@@ -434,6 +441,7 @@
 			dependencies = (
 				5B0D47601EA63C74009FF1BF /* PBXTargetDependency */,
 				5B0D476A1EA63D36009FF1BF /* PBXTargetDependency */,
+				5C70AB9D24074300006E2EB2 /* PBXTargetDependency */,
 			);
 			name = "SimpleKeychainTests-tvOS";
 			productName = "SimpleKeychainTests-tvOS";
@@ -598,6 +606,7 @@
 						CreatedOnToolsVersion = 8.3;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
+						TestTargetID = 5C29744223FF457A00BC18FA;
 					};
 					5B108AAB1EA637B100ED4DD2 = {
 						ProvisioningStyle = Manual;
@@ -815,6 +824,11 @@
 			isa = PBXTargetDependency;
 			target = 5F7B45AB1B7D0CE700D5AC89 /* SimpleKeychainApp */;
 			targetProxy = 5B0D47691EA63D36009FF1BF /* PBXContainerItemProxy */;
+		};
+		5C70AB9D24074300006E2EB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C29744223FF457A00BC18FA /* tvOSTestHost */;
+			targetProxy = 5C70AB9C24074300006E2EB2 /* PBXContainerItemProxy */;
 		};
 		5F4D27811BCE99E0003C27B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
