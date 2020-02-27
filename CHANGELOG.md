@@ -1,7 +1,7 @@
 # Change Log
 
-## [0.10.1](https://github.com/auth0/SimpleKeychain/tree/0.10.1) (2020-02-27)
-[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.10.0...0.10.1)
+## [0.11.0](https://github.com/auth0/SimpleKeychain/tree/0.11.0) (2020-02-27)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.10.0...0.11.0)
 
 **Changed**
 - Marked up A0SimpleKeychain+KeyPair to admit that keys may not exist [\#86](https://github.com/auth0/SimpleKeychain/pull/86) ([cysp](https://github.com/cysp))
