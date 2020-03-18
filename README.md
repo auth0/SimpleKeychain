@@ -149,7 +149,7 @@ Auth0 helps you to:
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
+If you have found a bug or to request a feature, please [raise an issue](https://github.com/auth0/simplekeychain/issues). Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
 
 ## Author
 
