@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.11.1](https://github.com/auth0/SimpleKeychain/tree/0.11.1) (2020-03-26)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.11.0...0.11.1)
+
+**Fixed**
+- Disabled LAContext attribute in simulator [SDK-1476] [\#91](https://github.com/auth0/SimpleKeychain/pull/91) ([Widcket](https://github.com/Widcket))
+
 ## [0.11.0](https://github.com/auth0/SimpleKeychain/tree/0.11.0) (2020-02-27)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.10.0...0.11.0)
 
