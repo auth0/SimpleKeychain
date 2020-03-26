@@ -300,15 +300,15 @@
                                          (__bridge id)kSecAttrService: self.service,
                                          (__bridge id)kSecUseAuthenticationUI: (__bridge id)kSecUseAuthenticationUIAllow,
                                          } mutableCopy];
-    
-#if A0LocalAuthenticationCapable
-    [attributes setObject:_localAuthenticationContext forKey:(__bridge id)kSecUseAuthenticationContext];
-#endif
-    
+
 #if !TARGET_IPHONE_SIMULATOR
     if (self.accessGroup) {
         attributes[(__bridge id)kSecAttrAccessGroup] = self.accessGroup;
     }
+    
+#if A0LocalAuthenticationCapable
+    attributes[(__bridge id)kSecUseAuthenticationContext] = self.localAuthenticationContext;
+#endif
 #endif
 
     return attributes;
