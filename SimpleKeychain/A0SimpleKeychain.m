@@ -288,7 +288,7 @@
         case errSecDecode:
             return NSLocalizedStringFromTable(@"errSecDecode: Unable to decode the provided data", @"SimpleKeychain", @"Possible error from keychain. ");
         default:
-            return [NSString stringWithFormat:NSLocalizedStringFromTable(@"Unknown error code %d", @"SimpleKeychain", @"Possible error from keychain. "), status];
+            return [NSString stringWithFormat:NSLocalizedStringFromTable(@"Unknown error code %d", @"SimpleKeychain", @"Possible error from keychain. "), (int)status];
     }
 }
 
