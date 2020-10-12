@@ -78,8 +78,6 @@ jobs:
     executor: job-environment
     environment:
       FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
-    macos:
-      xcode: 11.7.0
     steps:
       - checkout
       - prepare
@@ -92,16 +90,12 @@ jobs:
           path: output
   build-and-test-macOS:
     executor: job-environment
-    macos:
-      xcode: 11.7.0
     steps:
       - checkout
       - prepare
       - test-macos
   build-and-test-tvOS:
     executor: job-environment
-    macos:
-      xcode: 11.7.0
     steps:
       - checkout
       - prepare
