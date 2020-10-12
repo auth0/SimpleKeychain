@@ -16,6 +16,9 @@ A wrapper to make it really easy to deal with iOS Keychain and store your user's
 - Store credentials under an **Access Group to enable Keychain Sharing**.
 - **TouchID/FaceID integration** with a reusable `LAContext` instance. 
 
+## Important Notices
+- [The latest majors of Quick and Nimble](https://github.com/auth0/SimpleKeychain/pull/97) require that developers using Carthage **must** use Xcode 11.4+ only, starting from SimpleKeychain [0.12.0](https://github.com/auth0/SimpleKeychain/releases/tag/0.12.0).
+
 ## Table of Contents
 
 - [Requirements](#requirements)
