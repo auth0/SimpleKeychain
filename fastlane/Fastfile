@@ -38,7 +38,7 @@ platform :ios do
 
   desc "Cocoapods library lint"
   lane :pod_lint do
-    pod_lib_lint()
+    pod_lib_lint(allow_warnings: true)
   end
 
   desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
