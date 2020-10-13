@@ -15,11 +15,11 @@ let package = Package(
         .library(
             name: "SimpleKeychain",
             targets: ["SimpleKeychain"]
-        ),
+        )
     ],
     dependencies: [
-        .package(url: "https://github.com/Quick/Quick", from: "3.0.0"),
-        .package(url: "https://github.com/Quick/Nimble", from: "9.0.0"),
+        .package(url: "https://github.com/Quick/Quick", .upToNextMajor(from: "3.0.0")),
+        .package(url: "https://github.com/Quick/Nimble", .upToNextMajor(from: "9.0.0"))
     ],
     targets: [
         .target(
@@ -31,6 +31,6 @@ let package = Package(
             name: "SimpleKeychainTests",
             dependencies: ["SimpleKeychain", "Quick", "Nimble"],
             path: "SimpleKeychainTests"
-        ),
+        )
     ]
 )
