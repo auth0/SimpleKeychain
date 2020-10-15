@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.12.0](https://github.com/auth0/SimpleKeychain/tree/0.12.0) (2020-10-15)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.11.1...0.12.0)
+
+**Changed**
+- Updated Quick and Nimble [\#97](https://github.com/auth0/SimpleKeychain/pull/97) ([Widcket](https://github.com/Widcket))
+
 ## [0.11.1](https://github.com/auth0/SimpleKeychain/tree/0.11.1) (2020-03-26)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.11.0...0.11.1)
 
