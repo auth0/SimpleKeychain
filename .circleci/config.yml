@@ -4,51 +4,64 @@ executors:
   job-environment:
     shell: /bin/bash --login -eo pipefail
     macos:
-      xcode: 11.2.0
+      xcode: 11.7.0
     environment:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
+      BUNDLE_JOBS: 4
+      BUNDLE_RETRY: 3
+      BUNDLE_PATH: vendor/bundle
+      HOMEBREW_LOGS: ~/homebrew-logs
+      HOMEBREW_TEMP: ~/homebrew-temp
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      FL_OUTPUT_DIR: output
 
 commands:
   prepare:
+    parameters:
+      ruby:
+        type: string
+        default: "2.7.1p83"
+      xcode:
+        type: string
+        default: "11.7.0"
     steps:
+      - restore_cache:
+          keys:
+          - simplekeychain-gems-{{ checksum "Gemfile.lock" }}
+          - simplekeychain-gems-
       - run: |
-          echo "ruby-2.6.5" > ~/.ruby-version
-          bundle install --without=development
+          echo "ruby-<< parameters.ruby >>" > ~/.ruby-version
+          bundle check || bundle install --without=development
+      - save_cache:
+          key: simplekeychain-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run: |
+          brew install swiftlint
           grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
       - restore_cache:
           keys:
-            - carthage-{{ checksum "Cartfile.resolved" }}
-  send-coverage-report:
-    steps:
-      - run: |
-          slather
-          mkdir /tmp/artifacts
-          cp ./fastlane/test_output/* /tmp/artifacts/
-          cp ./cobertura.xml /tmp/artifacts/
-          bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain' -f ./cobertura.xml
-  save-carthage-cache:
-    steps:
+            - simplekeychain-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
+            - simplekeychain-carthage-{ checksum "Cartfile.resolved" }}
+            - simplekeychain-carthage-
+      - run: carthage bootstrap --no-use-binaries --cache-builds
       - save_cache:
-          key: carthage-{{ checksum "Cartfile.resolved" }}
+          key: simplekeychain-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
           paths:
             - Carthage/Build
-  build-package-ios:
-      steps:
-        - run: |
-            bundle exec fastlane ios pod_lint
-            carthage update --no-use-binaries && carthage build --no-skip-current
   test-ios:
-      steps:
-        - run: |
-            ([[ ! -d Carthage/Build ]] && bundle exec fastlane ios bootstrap) || true
-        - save-carthage-cache
-        - run: bundle exec fastlane ios ci
+    steps: 
+      - run: bundle exec fastlane ios ci
+  pod-lint:
+    steps:
+      - run: bundle exec fastlane ios pod_lint
+  send-coverage-report:
+    steps:
+      - run: bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain'
   test-macos:
     steps: 
-      - run: |
-          ([[ ! -d Carthage/Build ]] && carthage bootstrap) || true
-      - save-carthage-cache
       - run: |
           security create-keychain -p circle cikeychain
           security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
@@ -58,33 +71,30 @@ commands:
           swift test
   test-tvos:
     steps: 
-      - run: |
-          ([[ ! -d Carthage/Build ]] && carthage bootstrap) || true
-      - save-carthage-cache
       - run: xcodebuild test -scheme 'SimpleKeychain-tvOS' -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
 
 jobs:
-  build-iOS:
+  build-and-test-iOS:
     executor: job-environment
     environment:
-      SCHEME: SimpleKeychain-iOS
-      DEVICE: iPhone 11
       FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
     steps:
       - checkout
       - prepare
       - test-ios
-      - build-package-ios
       - send-coverage-report
+      - pod-lint
       - store_test_results:
-          path: fastlane/test_output
-  build-macOS:
+          path: output/scan
+      - store_artifacts:
+          path: output
+  build-and-test-macOS:
     executor: job-environment
     steps:
       - checkout
       - prepare
       - test-macos
-  build-tvOS:
+  build-and-test-tvOS:
     executor: job-environment
     steps:
       - checkout
@@ -94,6 +104,6 @@ jobs:
 workflows:
   build:
     jobs:
-      - build-iOS
-      - build-macOS
-      - build-tvOS
+      - build-and-test-iOS
+      - build-and-test-macOS
+      - build-and-test-tvOS

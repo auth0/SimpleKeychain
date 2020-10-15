@@ -1,6 +1,4 @@
 scheme "SimpleKeychain-iOS"
-devices ["iPhone 8"]
+devices ["iPhone 11"]
 
 clean true
-
-output_types "html"
