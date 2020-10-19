@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
 
 #define A0ErrorDomain @"com.auth0.simplekeychain"
 
-#define A0LocalAuthenticationCapable (TARGET_OS_IOS && __IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (TARGET_OS_OSX && __MAC_OS_X_VERSION_MIN_REQUIRED >= 101200)
+#define A0LocalAuthenticationCapable (TARGET_OS_IOS && __IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (TARGET_OS_OSX && __MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_2)
 
 
 /**
