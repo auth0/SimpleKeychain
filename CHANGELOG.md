@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.12.1](https://github.com/auth0/SimpleKeychain/tree/0.12.1) (2020-10-19)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.0...0.12.1)
+
+**Fixed**
+- Fixed macOS version check on Big Sur [\#99](https://github.com/auth0/SimpleKeychain/pull/99) ([Widcket](https://github.com/Widcket))
+
 ## [0.12.0](https://github.com/auth0/SimpleKeychain/tree/0.12.0) (2020-10-15)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.11.1...0.12.0)
 
