@@ -5,7 +5,6 @@
 [![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2FSimpleKeychain.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2FSimpleKeychain?ref=badge_shield)
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
 
@@ -30,12 +29,12 @@ A wrapper to make it really easy to deal with iOS Keychain and store your user's
 ## Requirements
 
 - iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 11.4+/12.x
-- Swift 4.x/5.x
+- Xcode 11.4+ / 12.x
+- Swift 4.x / 5.x
 
 ## Installation
 
-### CocoaPods
+#### CocoaPods
 
 If you are using [Cocoapods](https://cocoapods.org), add this line to your `Podfile`:
 
@@ -47,7 +46,7 @@ Then run `pod install`.
 
 > For more information on Cocoapods, check [their official documentation](https://guides.cocoapods.org/using/getting-started.html).
 
-### Carthage
+#### Carthage
 
 If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
 
@@ -59,7 +58,7 @@ Then run `carthage bootstrap`.
 
 > For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 
-#### SPM (Xcode 11.2+)
+#### SPM
 
 If you are using the Swift Package Manager, open the following menu item in Xcode:
 
@@ -158,6 +157,3 @@ If you have found a bug or to request a feature, please [raise an issue](https:/
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fauth0%2FSimpleKeychain.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fauth0%2FSimpleKeychain?ref=badge_large)
