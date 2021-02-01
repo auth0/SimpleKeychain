@@ -231,13 +231,21 @@
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
             break;
         case A0SimpleKeychainItemAccessibleAlways:
+#if TARGET_OS_MACCATALYST
+            accessibility = kSecAttrAccessibleAfterFirstUnlock;
+#else
             accessibility = kSecAttrAccessibleAlways;
+#endif
             break;
         case A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
             accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
             break;
         case A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly:
+#if TARGET_OS_MACCATALYST
+            accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
+#else
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
+#endif
             break;
 #if TARGET_OS_IPHONE
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
