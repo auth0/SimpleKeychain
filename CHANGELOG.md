@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.12.2](https://github.com/auth0/SimpleKeychain/tree/0.12.2) (2021-02-11)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.1...0.12.2)
+
+**Fixed**
+- Fixed Mac Catalyst warnings related to deprecated accessibility options [\#105](https://github.com/auth0/SimpleKeychain/pull/105) ([eaceto](https://github.com/eaceto))
+
 ## [0.12.1](https://github.com/auth0/SimpleKeychain/tree/0.12.1) (2020-10-19)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.0...0.12.1)
 
