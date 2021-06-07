@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.12.3](https://github.com/auth0/SimpleKeychain/tree/0.12.3) (2021-06-07)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.2...0.12.3)
+
+**Changed**
+- Make test dependencies not resolve when installing with SPM [SDK-2598] [\#108](https://github.com/auth0/SimpleKeychain/pull/108) ([Widcket](https://github.com/Widcket))
+
 ## [0.12.2](https://github.com/auth0/SimpleKeychain/tree/0.12.2) (2021-02-11)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.1...0.12.2)
 
