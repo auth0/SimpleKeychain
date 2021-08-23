@@ -45,7 +45,7 @@ platform :ios do
     test
   end
 
-  desc "Performs the prepared release by creating a tag and pusing to remote"
+  desc "Performs the prepared release by creating a tag and pushing to remote"
   lane :release_perform do
     perform_release target: 'SimpleKeychain-iOS'
   end
