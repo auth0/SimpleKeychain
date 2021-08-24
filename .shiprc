@@ -1,0 +1,7 @@
+{
+    "files": {
+        "SimpleKeychain/Info.plist": []
+    },
+    "postbump": "bundle update",
+    "prefixVersion": false
+}

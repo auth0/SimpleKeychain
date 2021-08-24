@@ -34,22 +34,24 @@ platform :ios do
       )
   end
 
+  desc "Cocoapods library lint"
+  lane :pod_lint do
+    pod_lib_lint(verbose: false, allow_warnings: true)
+  end
+
   desc "Runs all the tests in a CI environment"
   lane :ci do
     # TODO: Run rest of platforms
     test
   end
 
-  desc "Cocoapods library lint"
-  lane :pod_lint do
-    pod_lib_lint(allow_warnings: true)
+  desc "Performs the prepared release by creating a tag and pushing to remote"
+  lane :release_perform do
+    perform_release target: 'SimpleKeychain-iOS'
   end
 
-  desc "Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG"
-  desc "You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]"
-  lane :release do |options|
-    release_options = {repository: 'SimpleKeychain', xcodeproj: 'SimpleKeychain.xcodeproj'}.merge(options)
-    prepare_release release_options
-    publish_release
+  desc "Releases the library to CocoaPods trunk & Github Releases"
+  lane :release_publish do
+    publish_release repository: 'SimpleKeychain'
   end
 end
