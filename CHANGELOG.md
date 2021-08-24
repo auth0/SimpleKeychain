@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.12.4](https://github.com/auth0/SimpleKeychain/tree/0.12.4) (2021-08-24)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.3...0.12.4)
+
+**Security**
+- Update Addressable to v2.8.0 [\#111](https://github.com/auth0/SimpleKeychain/pull/111) ([Widcket](https://github.com/Widcket))
+
 ## [0.12.3](https://github.com/auth0/SimpleKeychain/tree/0.12.3) (2021-06-07)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.2...0.12.3)
 
