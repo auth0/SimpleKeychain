@@ -31,26 +31,29 @@ Bootstrap the development environment
 fastlane ios test
 ```
 Runs all the tests
-### ios ci
-```
-fastlane ios ci
-```
-Runs all the tests in a CI environment
 ### ios pod_lint
 ```
 fastlane ios pod_lint
 ```
 Cocoapods library lint
-### ios release
+### ios ci
 ```
-fastlane ios release
+fastlane ios ci
 ```
-Releases the library to Cocoapods & Github Releases and updates README/CHANGELOG
-
-You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
+Runs all the tests in a CI environment
+### ios release_perform
+```
+fastlane ios release_perform
+```
+Performs the prepared release by creating a tag and pushing to remote
+### ios release_publish
+```
+fastlane ios release_publish
+```
+Releases the library to CocoaPods trunk & Github Releases
 
 ----
 
-This README.md is auto-generated and will be re-generated every time [fastlane](https://fastlane.tools) is run.
+This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 More information about fastlane can be found on [fastlane.tools](https://fastlane.tools).
 The documentation of fastlane can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
