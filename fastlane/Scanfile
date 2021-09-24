@@ -1,4 +1,4 @@
 scheme "SimpleKeychain-iOS"
-devices ["iPhone 11"]
+devices ["iPhone 12"]
 
 clean true

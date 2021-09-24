@@ -29,7 +29,7 @@ A wrapper to make it really easy to deal with iOS Keychain and store your user's
 ## Requirements
 
 - iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 11.4+ / 12.x
+- Xcode 12.x / 13.x
 - Swift 4.x / 5.x
 
 ## Installation
@@ -54,7 +54,7 @@ If you are using [Carthage](https://github.com/Carthage/Carthage), add the follo
 github "auth0/SimpleKeychain"
 ```
 
-Then run `carthage bootstrap`.
+Then run `carthage bootstrap --use-xcframeworks`.
 
 > For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
 

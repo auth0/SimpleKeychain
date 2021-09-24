@@ -10,17 +10,6 @@ platform :ios do
     setup_circle_ci
   end
 
-  desc "Installs dependencies using Carthage"
-  lane :dependencies do |options|
-    action = options[:action]
-    carthage(use_binaries: false, command: action, cache_builds: true)
-  end
-
-  desc "Bootstrap the development environment"
-  lane :bootstrap do
-    dependencies
-  end
-
   desc "Runs all the tests"
   lane :test do |options|
     scheme = options[:scheme]
