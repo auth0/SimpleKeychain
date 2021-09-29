@@ -32,8 +32,7 @@ commands:
             - << parameters.scheme >>-v1-gems-{{ checksum "Gemfile.lock" }}
       - run:
           name: Install gems
-          command: |
-            bundle check || bundle install --without=development
+          command: bundle check || bundle install --without=development
       - save_cache:
           key: << parameters.scheme >>-v1-gems-{{ checksum "Gemfile.lock" }}
           paths:
