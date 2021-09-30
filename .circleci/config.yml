@@ -1,10 +1,13 @@
 version: 2.1
 
 executors:
-  job-environment:
+  macos-executor:
+    parameters:
+      xcode:
+        type: string
     shell: /bin/bash --login -eo pipefail
     macos:
-      xcode: 11.7.0
+      xcode: << parameters.xcode >>
     environment:
       LC_ALL: en_US.UTF-8
       LANG: en_US.UTF-8
@@ -16,93 +19,115 @@ executors:
       HOMEBREW_NO_AUTO_UPDATE: 1
       HOMEBREW_NO_INSTALL_CLEANUP: 1
       FL_OUTPUT_DIR: output
+      FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
 
 commands:
   prepare:
     parameters:
-      ruby:
+      scheme:
         type: string
-        default: "2.7.1p83"
-      xcode:
-        type: string
-        default: "11.7.0"
     steps:
       - restore_cache:
           keys:
-          - simplekeychain-gems-{{ checksum "Gemfile.lock" }}
-          - simplekeychain-gems-
-      - run: |
-          echo "ruby-<< parameters.ruby >>" > ~/.ruby-version
-          bundle check || bundle install --without=development
+            - << parameters.scheme >>-v1-gems-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install gems
+          command: bundle check || bundle install --without=development
       - save_cache:
-          key: simplekeychain-gems-{{ checksum "Gemfile.lock" }}
+          key: << parameters.scheme >>-v1-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
-      - run: |
-          grep -lR "shouldUseLaunchSchemeArgsEnv" *.* --null | xargs -0 sed -i '' -e 's/shouldUseLaunchSchemeArgsEnv = "YES"/shouldUseLaunchSchemeArgsEnv = "YES" codeCoverageEnabled = "YES"/g'
+      - run:
+          name: Save Xcode version
+          command: xcodebuild -version | tee .xcode-version
       - restore_cache:
           keys:
-            - simplekeychain-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
-            - simplekeychain-carthage-{ checksum "Cartfile.resolved" }}
-            - simplekeychain-carthage-
-      - run: carthage bootstrap --no-use-binaries --cache-builds
+            - << parameters.scheme >>-v1-carthage-{{ checksum "Cartfile.resolved" }}-{{ checksum ".xcode-version" }}
+      - run:
+          name: Install dependencies
+          command: carthage bootstrap --use-xcframeworks --no-use-binaries --cache-builds
       - save_cache:
-          key: simplekeychain-carthage-{ checksum "Cartfile.resolved" }}-<< parameters.xcode >>
+          key: << parameters.scheme >>-v1-carthage-{{ checksum "Cartfile.resolved" }}-{{ checksum ".xcode-version" }}
           paths:
             - Carthage/Build
   test-ios:
-    steps: 
-      - run: bundle exec fastlane ios ci
-  pod-lint:
+    parameters:
+      scheme:
+        type: string
     steps:
-      - run: bundle exec fastlane ios pod_lint
-  send-coverage-report:
-    steps:
-      - run: bash <(curl -s https://codecov.io/bash) -J 'SimpleKeychain'
-  test-macos:
-    steps: 
-      - run: |
-          security create-keychain -p circle cikeychain
-          security list-keychains -d user -s "/Users/distiller/Library/Keychains/xcode.keychain-db" /Users/distiller/Library/Keychains/cikeychain-db
-          security default-keychain -s /Users/distiller/Library/Keychains/cikeychain-db
-          security unlock-keychain -p circle "/Users/distiller/Library/Keychains/cikeychain-db"
-          xcodebuild test -scheme SimpleKeychain-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
-          swift test
-  test-tvos:
-    steps: 
-      - run: xcodebuild test -scheme 'SimpleKeychain-tvOS' -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
-
-jobs:
-  build-and-test-iOS:
-    executor: job-environment
-    environment:
-      FASTLANE_EXPLICIT_OPEN_SIMULATOR: 2
-    steps:
-      - checkout
-      - prepare
-      - test-ios
-      - send-coverage-report
-      - pod-lint
+      - run:
+          name: Run iOS tests
+          command: bundle exec fastlane ios ci
+      - run:
+          name: Upload coverage report
+          command: bash <(curl -s https://codecov.io/bash) -J '<< parameters.scheme >>'
+      - run:
+          name: Run pod lib lint
+          command: bundle exec fastlane ios pod_lint
       - store_test_results:
           path: output/scan
       - store_artifacts:
           path: output
-  build-and-test-macOS:
-    executor: job-environment
+  test-macos:
+    parameters:
+      scheme:
+        type: string
+    steps:
+      - run:
+          name: Run macOS tests
+          command: |
+            xcodebuild test -scheme << parameters.scheme >>-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
+            swift test
+  test-tvos:
+    parameters:
+      scheme:
+        type: string
+    steps:
+      - run:
+          name: Run tvOS tests
+          command: xcodebuild test -scheme << parameters.scheme >>-tvOS -destination 'platform=tvOS Simulator,name=Apple TV' | xcpretty
+
+jobs:
+  build-and-test:
+    parameters:
+      platform:
+        type: string
+      xcode:
+        type: string
+      scheme:
+        type: string
+    executor:
+      name: macos-executor
+      xcode: << parameters.xcode >>
     steps:
       - checkout
-      - prepare
-      - test-macos
-  build-and-test-tvOS:
-    executor: job-environment
-    steps:
-      - checkout
-      - prepare
-      - test-tvos
+      - prepare:
+          scheme: << parameters.scheme >>
+      - when:
+          condition:
+            equal: [ios, << parameters.platform >>]
+          steps:
+            - test-ios:
+                scheme: << parameters.scheme >>
+      - when:
+          condition:
+            equal: [macos, << parameters.platform >>]
+          steps:
+            - test-macos:
+                scheme: << parameters.scheme >>
+      - when:
+          condition:
+            equal: [tvos, << parameters.platform >>]
+          steps:
+            - test-tvos:
+                scheme: << parameters.scheme >>
 
 workflows:
   build:
     jobs:
-      - build-and-test-iOS
-      - build-and-test-macOS
-      - build-and-test-tvOS
+      - build-and-test:
+          scheme: "SimpleKeychain"
+          matrix:
+            parameters:
+              platform: ["ios", "macos", "tvos"]
+              xcode: ["13.0.0", "12.5.1"]

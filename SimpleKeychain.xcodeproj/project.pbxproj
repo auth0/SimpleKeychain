@@ -3,15 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B062A451EA63FC300827E79 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */; };
-		5B062A461EA63FCE00827E79 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D47651EA63D17009FF1BF /* Nimble.framework */; };
-		5B062A471EA63FCE00827E79 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D47661EA63D17009FF1BF /* Quick.framework */; };
 		5B0D47641EA63CD1009FF1BF /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
-		5B0D476B1EA63DF9009FF1BF /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */; };
 		5B108A9E1EA62F6100ED4DD2 /* A0SimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9DE1B7BF72C00501415 /* A0SimpleKeychain.m */; };
 		5B108A9F1EA62F6100ED4DD2 /* A0SimpleKeychain+KeyPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEEB9D81B7BF71800501415 /* A0SimpleKeychain+KeyPair.m */; };
 		5B108AA21EA62F6100ED4DD2 /* A0SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9DD1B7BF72C00501415 /* A0SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,23 +18,27 @@
 		5B108AB11EA637B100ED4DD2 /* A0SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9DD1B7BF72C00501415 /* A0SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B108AB21EA637B100ED4DD2 /* SimpleKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9A11B7BD70A00501415 /* SimpleKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B108AB31EA637B100ED4DD2 /* A0SimpleKeychain+KeyPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FEEB9D71B7BF71800501415 /* A0SimpleKeychain+KeyPair.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B710A8C1EA6408B00C7B380 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B0D47651EA63D17009FF1BF /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5B710A8D1EA6408B00C7B380 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B0D47661EA63D17009FF1BF /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C29744623FF457A00BC18FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29744523FF457A00BC18FA /* AppDelegate.swift */; };
 		5C29744823FF457A00BC18FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29744723FF457A00BC18FA /* ViewController.swift */; };
 		5C29744B23FF457A00BC18FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C29744923FF457A00BC18FA /* Main.storyboard */; };
 		5C29744D23FF457E00BC18FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C29744C23FF457E00BC18FA /* Assets.xcassets */; };
 		5C29745023FF457E00BC18FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C29744E23FF457E00BC18FA /* LaunchScreen.storyboard */; };
+		5CAF69A626FE57A90045266B /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */; };
+		5CAF69A726FE57A90045266B /* SimpleKeychain.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA1226FD42B0005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
+		5CE9CA1326FD42B0005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
+		5CE9CA1426FD42C0005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA1526FD42C0005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA1626FD42F4005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
+		5CE9CA1726FD42F4005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
+		5CE9CA1826FD42FA005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA1926FD42FA005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA1A26FD430F005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
+		5CE9CA1B26FD430F005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
+		5CE9CA1C26FD4316005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA1D26FD4316005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CE9CA2126FD43F5005A75FA /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */; };
 		5F4D27851BCE99E7003C27B3 /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
-		5F4D27861BCE9BA3003C27B3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D273E1BCE9224003C27B3 /* Nimble.framework */; };
-		5F4D27871BCE9BA3003C27B3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D273F1BCE9224003C27B3 /* Quick.framework */; };
-		5F4D27891BCEA620003C27B3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273E1BCE9224003C27B3 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F4D278A1BCEA620003C27B3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273F1BCE9224003C27B3 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F4D27941BCEA69E003C27B3 /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */; };
-		5F4D279A1BCEA6A4003C27B3 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D273A1BCE9216003C27B3 /* Nimble.framework */; };
-		5F4D279B1BCEA6A4003C27B3 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D273B1BCE9216003C27B3 /* Quick.framework */; };
-		5F4D279D1BCEA6AD003C27B3 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273A1BCE9216003C27B3 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5F4D279E1BCEA6AD003C27B3 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F4D273B1BCE9216003C27B3 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5F4D279F1BCEA6CE003C27B3 /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
 		5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */; };
 		5F7B45B81B7D0CE700D5AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */; };
@@ -100,9 +100,20 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5B710A8C1EA6408B00C7B380 /* Nimble.framework in CopyFiles */,
-				5B710A8D1EA6408B00C7B380 /* Quick.framework in CopyFiles */,
+				5CE9CA1C26FD4316005A75FA /* Nimble.xcframework in CopyFiles */,
+				5CE9CA1D26FD4316005A75FA /* Quick.xcframework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CAF69A826FE57A90045266B /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CAF69A726FE57A90045266B /* SimpleKeychain.framework in Copy Files */,
+			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5F4D27881BCEA618003C27B3 /* CopyFiles */ = {
@@ -111,8 +122,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F4D27891BCEA620003C27B3 /* Nimble.framework in CopyFiles */,
-				5F4D278A1BCEA620003C27B3 /* Quick.framework in CopyFiles */,
+				5CE9CA1426FD42C0005A75FA /* Nimble.xcframework in CopyFiles */,
+				5CE9CA1526FD42C0005A75FA /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,8 +133,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5F4D279D1BCEA6AD003C27B3 /* Nimble.framework in CopyFiles */,
-				5F4D279E1BCEA6AD003C27B3 /* Quick.framework in CopyFiles */,
+				5CE9CA1826FD42FA005A75FA /* Nimble.xcframework in CopyFiles */,
+				5CE9CA1926FD42FA005A75FA /* Quick.xcframework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +143,6 @@
 /* Begin PBXFileReference section */
 		5B0AB18F2088E2DB002D7109 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		5B0D47591EA63C74009FF1BF /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B0D47651EA63D17009FF1BF /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/tvOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		5B0D47661EA63D17009FF1BF /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/tvOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		5B108AA91EA62F6100ED4DD2 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C29744323FF457A00BC18FA /* tvOSTestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSTestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,10 +153,8 @@
 		5C29744F23FF457E00BC18FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C29745123FF457E00BC18FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C29745523FF458C00BC18FA /* tvOSTestHost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOSTestHost.entitlements; sourceTree = "<group>"; };
-		5F4D273A1BCE9216003C27B3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		5F4D273B1BCE9216003C27B3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
-		5F4D273E1BCE9224003C27B3 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
-		5F4D273F1BCE9224003C27B3 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		5CE9CA1026FD42B0005A75FA /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = SOURCE_ROOT; };
+		5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = SOURCE_ROOT; };
 		5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleKeychainSpec.swift; sourceTree = "<group>"; };
 		5F4D277B1BCE99DF003C27B3 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D278F1BCEA69E003C27B3 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,9 +179,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B062A461EA63FCE00827E79 /* Nimble.framework in Frameworks */,
-				5B062A471EA63FCE00827E79 /* Quick.framework in Frameworks */,
-				5B062A451EA63FC300827E79 /* SimpleKeychain.framework in Frameworks */,
+				5CE9CA1A26FD430F005A75FA /* Nimble.xcframework in Frameworks */,
+				5CE9CA1B26FD430F005A75FA /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE9CA2126FD43F5005A75FA /* SimpleKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,8 +210,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4D27861BCE9BA3003C27B3 /* Nimble.framework in Frameworks */,
-				5F4D27871BCE9BA3003C27B3 /* Quick.framework in Frameworks */,
+				5CE9CA1326FD42B0005A75FA /* Nimble.xcframework in Frameworks */,
+				5CE9CA1226FD42B0005A75FA /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,9 +219,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4D27941BCEA69E003C27B3 /* SimpleKeychain.framework in Frameworks */,
-				5F4D279A1BCEA6A4003C27B3 /* Nimble.framework in Frameworks */,
-				5F4D279B1BCEA6A4003C27B3 /* Quick.framework in Frameworks */,
+				5CE9CA1626FD42F4005A75FA /* Nimble.xcframework in Frameworks */,
+				5CE9CA1726FD42F4005A75FA /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B0D476B1EA63DF9009FF1BF /* SimpleKeychain.framework in Frameworks */,
+				5CAF69A626FE57A90045266B /* SimpleKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,15 +249,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B062A3F1EA63F9E00827E79 /* tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				5B0D47651EA63D17009FF1BF /* Nimble.framework */,
-				5B0D47661EA63D17009FF1BF /* Quick.framework */,
-			);
-			name = tvOS;
-			sourceTree = "<group>";
-		};
 		5C29744423FF457A00BC18FA /* tvOSTestHost */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,30 +266,11 @@
 		5F51D71D1BCDC4D400613162 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B062A3F1EA63F9E00827E79 /* tvOS */,
-				5F51D7251BCDC8A200613162 /* OSX */,
-				5F51D71E1BCDC4DA00613162 /* iOS */,
+				5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */,
+				5CE9CA1026FD42B0005A75FA /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			path = SimpleKeychain;
-			sourceTree = "<group>";
-		};
-		5F51D71E1BCDC4DA00613162 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				5F4D273E1BCE9224003C27B3 /* Nimble.framework */,
-				5F4D273F1BCE9224003C27B3 /* Quick.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		5F51D7251BCDC8A200613162 /* OSX */ = {
-			isa = PBXGroup;
-			children = (
-				5F4D273A1BCE9216003C27B3 /* Nimble.framework */,
-				5F4D273B1BCE9216003C27B3 /* Quick.framework */,
-			);
-			name = OSX;
 			sourceTree = "<group>";
 		};
 		5F7B45AD1B7D0CE700D5AC89 /* SimpleKeychainApp */ = {
@@ -546,6 +524,7 @@
 				5F7B45A81B7D0CE700D5AC89 /* Sources */,
 				5F7B45A91B7D0CE700D5AC89 /* Frameworks */,
 				5F7B45AA1B7D0CE700D5AC89 /* Resources */,
+				5CAF69A826FE57A90045266B /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -878,12 +857,12 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -904,12 +883,12 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -939,7 +918,11 @@
 				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
@@ -963,7 +946,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
@@ -985,14 +972,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1014,14 +1000,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1047,7 +1032,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = tvOSTestHost/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.simplekeychain.tvOSTestHost;
@@ -1075,7 +1063,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = tvOSTestHost/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.simplekeychain.tvOSTestHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1092,13 +1083,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1112,13 +1103,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
 				SWIFT_VERSION = 5.0;
@@ -1131,12 +1122,12 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
@@ -1150,12 +1141,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
@@ -1175,7 +1166,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.simplekeychain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1191,7 +1185,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.simplekeychain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1306,7 +1303,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1324,14 +1322,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SKIP_INSTALL = YES;
@@ -1347,14 +1344,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SKIP_INSTALL = YES;
@@ -1378,7 +1374,11 @@
 				);
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
@@ -1399,7 +1399,11 @@
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
