@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.12.5](https://github.com/auth0/SimpleKeychain/tree/0.12.5) (2021-09-30)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.4...0.12.5)
+
+**Changed**
+- Updated dependencies [\#116](https://github.com/auth0/SimpleKeychain/pull/116) ([Widcket](https://github.com/Widcket))
+
 ## [0.12.4](https://github.com/auth0/SimpleKeychain/tree/0.12.4) (2021-08-24)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.3...0.12.4)
 
