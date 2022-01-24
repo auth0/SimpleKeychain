@@ -128,7 +128,7 @@ A0SimpleKeychain().deleteEntry(forKey: "auth0-user-jwt")
 
 ### Remove all entries
 
-Useful for testing
+Useful for testing.
 
 ```swift
 A0SimpleKeychain().clearAll()
