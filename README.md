@@ -126,6 +126,14 @@ let jwt = keychain.string(forKey: "auth0-user-jwt", promptMessage: message)
 A0SimpleKeychain().deleteEntry(forKey: "auth0-user-jwt")
 ```
 
+### Remove all entries
+
+Useful for testing.
+
+```swift
+A0SimpleKeychain().clearAll()
+```
+
 ## Contributing
 
 Just clone the repo, run `carthage bootstrap` and you're ready to contribute!
