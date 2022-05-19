@@ -1,2 +1,2 @@
-github "Quick/Quick" ~> 4.0
-github "Quick/Nimble" ~> 9.0
+github "Quick/Quick" ~> 5.0
+github "Quick/Nimble" ~> 10.0
