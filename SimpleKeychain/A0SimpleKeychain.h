@@ -323,6 +323,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)hasValueForKey:(NSString *)key;
 
+
+/**
+ *  Fetches an array of NSString containing all the keys used in the keychain
+ *
+ *  @return a NSString array with all keys from the keychain.
+ */
+- (nonnull NSArray *)keys;
+
 ///---------------------------------------------------
 /// @name Create helper methods
 ///---------------------------------------------------
