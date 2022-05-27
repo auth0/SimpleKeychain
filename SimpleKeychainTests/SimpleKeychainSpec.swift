@@ -178,9 +178,9 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain.clearAll()
                     
                     keychain = A0SimpleKeychain(service: kKeychainService)
-                    keys.append(NSUUID().uuidString)
-                    keys.append(NSUUID().uuidString)
-                    keys.append(NSUUID().uuidString)
+                    keys.append(UUID().uuidString)
+                    keys.append(UUID().uuidString)
+                    keys.append(UUID().uuidString)
                     for (i, key) in keys.enumerated() {
                         keychain.setString("value\(i)", forKey: key)
                     }
