@@ -126,7 +126,7 @@
     NSDictionary *query = [self queryFindAll];
     CFArrayRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-    if (status == errSecSuccess || status == errSecItemNotFound) {
+    if (status == errSecSuccess) {
         NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
         CFBridgingRelease(result);
         for (NSDictionary *item in items) {
