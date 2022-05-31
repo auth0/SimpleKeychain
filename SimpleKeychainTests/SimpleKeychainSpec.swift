@@ -168,6 +168,48 @@ class A0SimpleKeychainSpec: QuickSpec {
                     expect(keychain.data(forKey: key)).notTo(beNil())
                 }
             }
+            
+            describe("retrieving keys") {
+                
+                var keys = [String]()
+                
+                beforeEach {
+                    
+                    keychain.clearAll()
+                    
+                    keychain = A0SimpleKeychain(service: kKeychainService)
+                    keys.append(UUID().uuidString)
+                    keys.append(UUID().uuidString)
+                    keys.append(UUID().uuidString)
+                    for (i, key) in keys.enumerated() {
+                        keychain.setString("value\(i)", forKey: key)
+                    }
+                }
+                
+                afterEach {
+                    keychain.clearAll()
+                }
+                
+                it("should return all the keys") {
+                    expect(keychain.keys() as? [String]).to(equal(keys))
+                }
+                
+                it("should clear all") {
+                    
+                    for key in keys {
+                        expect(keychain.data(forKey: key)).notTo(beNil())
+                    }
+                    expect(keychain.keys().count).to(equal(keys.count))
+                    
+                    keychain.clearAll()
+                    
+                    for key in keys {
+                        expect(keychain.data(forKey: key)).to(beNil())
+                    }
+                    expect(keychain.keys().count).to(equal(0))
+                }
+            }
+
 
             describe("generate key pair") {
 

@@ -120,6 +120,25 @@
     return status == errSecSuccess;
 }
 
+- (nonnull NSArray *)keys {
+    NSMutableArray *keys = [NSMutableArray array];
+    NSDictionary *query = [self queryFindAll];
+    CFArrayRef result = nil;
+    OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+    if (status == errSecSuccess) {
+        NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
+        CFBridgingRelease(result);
+        for (NSDictionary *item in items) {
+            id secAccount = item[(__bridge id)kSecAttrAccount];
+            if ([secAccount isKindOfClass:[NSString class]]) {
+                NSString *key = (NSString *)secAccount;
+                [keys addObject:key];
+            }
+        }
+    }
+    return keys;
+}
+
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key {
     return [self setString:string forKey:key promptMessage:nil];
 }
