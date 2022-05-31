@@ -139,7 +139,6 @@
     return keys;
 }
 
-
 - (BOOL)setString:(NSString *)string forKey:(NSString *)key {
     return [self setString:string forKey:key promptMessage:nil];
 }
