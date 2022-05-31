@@ -121,7 +121,6 @@
 }
 
 - (nonnull NSArray *)keys {
-    
     NSMutableArray *keys = [NSMutableArray array];
     NSDictionary *query = [self queryFindAll];
     CFArrayRef result = nil;
