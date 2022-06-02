@@ -213,10 +213,8 @@
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
 #endif
             break;
-#if TARGET_OS_IPHONE
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
             accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
-#endif
             break;
         case A0SimpleKeychainItemAccessibleWhenUnlocked:
             accessibility = kSecAttrAccessibleWhenUnlocked;
