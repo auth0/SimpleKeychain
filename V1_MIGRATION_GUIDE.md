@@ -4,8 +4,19 @@ As expected with a major release, SimpleKeychain v1 contains breaking changes. P
 
 ## Table of Contents
 
+- [**Supported Languages**](#supported-languages)
+- [**Supported Platform Versions**](#supported-platform-versions)
+- [**Methods Removed**](#methods-removed)
+
 ## Supported Languages
 
 ## Supported Platform Versions
+
+The deployment targets for each platform were raised to:
+
+- iOS **12.0**
+- macOS **10.15**
+- tvOS **12.0**
+- watchOS **6.2**
 
 ## Methods Removed
