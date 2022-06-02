@@ -11,7 +11,7 @@
 ///---------------------------------------------------
 
 /**
- *  Enum with Kechain items accessibility types. It's a mirror of `kSecAttrAccessible` values.
+ *  Enum with Keychain items accessibility types. It's a mirror of `kSecAttrAccessible` values.
  */
 typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     /**
@@ -46,8 +46,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
 
 #define A0ErrorDomain @"com.auth0.simplekeychain"
 
-#define A0LocalAuthenticationCapable (TARGET_OS_IOS && __IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (TARGET_OS_OSX && __MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_2)
-
+#define A0LocalAuthenticationCapable TARGET_OS_IOS || TARGET_OS_OSX
 
 /**
  * Enum with keychain error codes. It's a mirror of the keychain error codes. 
@@ -99,9 +98,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A simple helper class to deal with storing and retrieving values from iOS Keychain.
- *  It has support for sharing keychain items using Access Group and also for iOS 8 fine grained accesibility over a specific Kyechain Item (Using Access Control).
- *  The support is only available for iOS 8+, otherwise it will default using the coarse grained accesibility field.
- *  When a `NSString` or `NSData` is stored using Access Control and the accesibility flag `A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly`, iOS will prompt the user for it's passcode or pass a TouchID challenge (if available).
+ *  It has support for sharing Keychain items using Access Group and also for fine grained accessibility over a specific Keychain Item (Using Access Control).
+ *  When a `NSString` or `NSData` is stored using Access Control and the accessibility flag `A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly`, the OS will prompt the user for their passcode or present a biometrics challenge (if available).
  */
 @interface A0SimpleKeychain : NSObject
 
@@ -123,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccessiblity;
 
 /**
- *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`. It will work only in iOS 8+, defaulting to `kSecAttrAccessible` on lower version.
+ *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`.
  *  Default value is NO.
  */
 @property (assign, nonatomic) BOOL useAccessControl;
@@ -141,37 +139,37 @@ NS_ASSUME_NONNULL_BEGIN
 ///---------------------------------------------------
 
 /**
- *  Initialise a `A0SimpleKeychain` with default values.
+ *  Initialize a `A0SimpleKeychain` with default values.
  *
  *  @return an initialised instance
  */
 - (instancetype)init;
 
 /**
- *  Initialise a `A0SimpleKeychain` with a given service.
+ *  Initialize a `A0SimpleKeychain` with a given service.
  *
  *  @param service name of the service to use to save items.
  *
- *  @return an initialised instance.
+ *  @return an initialized instance.
  */
 - (instancetype)initWithService:(NSString *)service;
 
 /**
- *  Initialise a `A0SimpleKeychain` with a given service and access group.
+ *  Initialize a `A0SimpleKeychain` with a given service and access group.
  *
  *  @param service name of the service to use to save items.
  *  @param accessGroup name of the access group to share items.
  *
- *  @return an initialised instance.
+ *  @return an initialized instance.
  */
 - (instancetype)initWithService:(NSString *)service accessGroup:(nullable NSString *)accessGroup;
 
 /**
  *  The duration for which Touch ID authentication reuse is allowable.
- *  Maximun value is LATouchIDAuthenticationMaximumAllowableReuseDuration
+ *  Maximum value is LATouchIDAuthenticationMaximumAllowableReuseDuration
  */
 #if A0LocalAuthenticationCapable
-- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration API_AVAILABLE(ios(8), macosx(10.12)) API_UNAVAILABLE(watchos, tvos);
+- (void)setTouchIDAuthenticationAllowableReuseDuration:(NSTimeInterval) duration API_UNAVAILABLE(watchos, tvos);
 #endif
 
 ///---------------------------------------------------
@@ -203,7 +201,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param string   value to save in the keychain
  *  @param key      key for the keychain entry.
- *  @param message  prompt message to display for TouchID/passcode prompt if neccesary
+ *  @param message  prompt message to display for TouchID/passcode prompt if necessary
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
@@ -214,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param data   value to save in the keychain
  *  @param key      key for the keychain entry.
- *  @param message  prompt message to display for TouchID/passcode prompt if neccesary
+ *  @param message  prompt message to display for TouchID/passcode prompt if necessary
  *
  *  @return if the value was saved it will return YES. Otherwise it'll return NO.
  */
@@ -234,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)deleteEntryForKey:(NSString *)key;
 
 /**
- *  Remove all entries from the kechain with the service and access group values.
+ *  Remove all entries from the Keychain with the service and access group values.
  */
 - (void)clearAll;
 
@@ -243,7 +241,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///---------------------------------------------------
 
 /**
- *  Fetches a NSString from the keychain
+ *  Fetches a NSString from the Keychain
  *
  *  @param key the key of the value to fetch
  *
@@ -252,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSString *)stringForKey:(NSString *)key;
 
 /**
- *  Fetches a NSData from the keychain
+ *  Fetches a NSData from the Keychain
  *
  *  @param key the key of the value to fetch
  *
@@ -261,30 +259,30 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSData *)dataForKey:(NSString *)key;
 
 /**
- *  Fetches a NSString from the keychain
+ *  Fetches a NSString from the Keychain
  *
  *  @param key     the key of the value to fetch
- *  @param message prompt message to display for TouchID/passcode prompt if neccesary
+ *  @param message prompt message to display for TouchID/passcode prompt if necessary
  *
  *  @return the value or nil if an error occurs.
  */
 - (nullable NSString *)stringForKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
 /**
- *  Fetches a NSData from the keychain
+ *  Fetches a NSData from the Keychain
  *
  *  @param key     the key of the value to fetch
- *  @param message prompt message to display for TouchID/passcode prompt if neccesary
+ *  @param message prompt message to display for TouchID/passcode prompt if necessary
  *
  *  @return the value or nil if an error occurs.
  */
 - (nullable NSData *)dataForKey:(NSString *)key promptMessage:(nullable NSString *)message;
 
 /**
- *  Fetches a NSData from the keychain
+ *  Fetches a NSData from the Keychain
  *
  *  @param key     the key of the value to fetch
- *  @param message prompt message to display for TouchID/passcode prompt if neccesary
+ *  @param message prompt message to display for TouchID/passcode prompt if necessary
  *  @param err     Returns an error, if the item cannot be retrieved. F.e. item not found 
  *                 or user authentication failed in TouchId case.
  *
@@ -303,9 +301,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Fetches an array of NSString containing all the keys used in the keychain
+ *  Fetches an array of NSString containing all the keys used in the Keychain
  *
- *  @return a NSString array with all keys from the keychain.
+ *  @return a NSString array with all keys from the Keychain.
  */
 - (nonnull NSArray *)keys;
 
@@ -333,7 +331,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new instance of `A0SimpleKeychain` with a service name and access group
  *
  *  @param service     name of the service under all items will be stored.
- *  @param accessGroup name of the access group to share keychain items.
+ *  @param accessGroup name of the access group to share Keychain items.
  *
  *  @return a new instance
  */
