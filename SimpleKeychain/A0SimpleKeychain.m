@@ -347,4 +347,3 @@
     return query;
 }
 @end
-
