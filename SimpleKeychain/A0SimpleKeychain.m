@@ -329,6 +329,8 @@
     } else {
         query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
     }
+#else
+    query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
 #endif
     return query;
 }
