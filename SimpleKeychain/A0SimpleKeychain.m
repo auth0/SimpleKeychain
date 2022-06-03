@@ -352,10 +352,8 @@
                                       (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne,
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
-    if (self.useAccessControl) {
-        if (message) {
-            query[(__bridge id)kSecUseOperationPrompt] = message;
-        }
+    if (self.useAccessControl && message) {
+        query[(__bridge id)kSecUseOperationPrompt] = message;
     }
 
     return query;
