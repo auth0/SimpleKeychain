@@ -318,7 +318,6 @@
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
     query[(__bridge id)kSecValueData] = value;
-#if TARGET_OS_IOS || TARGET_OS_OSX
     if (self.useAccessControl) {
         CFErrorRef error = NULL;
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
@@ -329,9 +328,6 @@
     } else {
         query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
     }
-#else
-    query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
-#endif
     return query;
 }
 
@@ -342,14 +338,13 @@
                                       (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne,
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
-#if TARGET_OS_IOS || TARGET_OS_OSX
     if (self.useAccessControl) {
         if (message) {
             query[(__bridge id)kSecUseOperationPrompt] = message;
         }
     }
-#endif
 
     return query;
 }
 @end
+
