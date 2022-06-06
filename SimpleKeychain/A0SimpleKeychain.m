@@ -137,7 +137,7 @@
     }
     
     NSDictionary *query = [self queryFindByKey:key message:message];
-    
+
     // Touch ID case
     if (self.useAccessControl && self.defaultAccessiblity == A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly) {
         // TouchId case. Doesn't support updating keychain items
@@ -150,7 +150,7 @@
             return status == errSecSuccess;
         }
     }
-    
+
     // Normal case
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status == errSecSuccess) {
@@ -179,32 +179,15 @@
 }
 
 - (void)clearAll {
-#if TARGET_OS_IPHONE
-  NSDictionary *query = [self queryFindAll];
-  CFArrayRef result = nil;
-  OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
-  if (status == errSecSuccess || status == errSecItemNotFound) {
-    NSArray *items = [NSArray arrayWithArray:(__bridge NSArray *)result];
-    CFBridgingRelease(result);
-    for (NSDictionary *item in items) {
-      NSMutableDictionary *queryDelete = [[NSMutableDictionary alloc] initWithDictionary:item];
-      queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
-
-      OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
-      if (status != errSecSuccess) {
-        break;
-      }
-    }
-  }
-#else
   NSMutableDictionary *queryDelete = [self baseQuery];
   queryDelete[(__bridge id)kSecClass] = (__bridge id)kSecClassGenericPassword;
+#if !TARGET_OS_IPHONE
   queryDelete[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
+#endif
   OSStatus status = SecItemDelete((__bridge CFDictionaryRef)queryDelete);
   if (status != errSecSuccess) {
     return;
   }
-#endif
 }
 
 + (A0SimpleKeychain *)keychain {
@@ -244,18 +227,8 @@
             accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
 #endif
             break;
-#if TARGET_OS_IPHONE
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
-#ifdef __IPHONE_8_0
-            if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) { //iOS 8
-                accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
-            } else { //iOS <= 7.1
-                accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
-            }
-#else
-            accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly;
-#endif
-#endif
+            accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
             break;
         case A0SimpleKeychainItemAccessibleWhenUnlocked:
             accessibility = kSecAttrAccessibleWhenUnlocked;
@@ -359,29 +332,16 @@
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
     query[(__bridge id)kSecValueData] = value;
-#if TARGET_OS_IPHONE
-#ifdef __IPHONE_8_0
-    if (self.useAccessControl && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
+    if (self.useAccessControl) {
         CFErrorRef error = NULL;
         SecAccessControlRef accessControl = SecAccessControlCreateWithFlags(kCFAllocatorDefault, [self accessibility], kSecAccessControlUserPresence, &error);
         if (error == NULL || accessControl != NULL) {
             query[(__bridge id)kSecAttrAccessControl] = (__bridge_transfer id)accessControl;
-#if defined __MAC_10_12 || defined __IPHONE_11_0
-            // This also applies to watchOS & tvOS
-            if (@available(iOS 9, *)) {
-                query[(__bridge id)kSecUseAuthenticationUI] = (__bridge_transfer id)kSecUseAuthenticationUIFail;
-            }
-#else
-            query[(__bridge id)kSecUseNoAuthenticationUI] = @YES;
-#endif
+            query[(__bridge id)kSecUseAuthenticationUI] = (__bridge_transfer id)kSecUseAuthenticationUIFail;
         }
     } else {
         query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
     }
-#else
-    query[(__bridge id)kSecAttrAccessible] = (__bridge id)[self accessibility];
-#endif
-#endif
     return query;
 }
 
@@ -392,13 +352,9 @@
                                       (__bridge id)kSecMatchLimit: (__bridge id)kSecMatchLimitOne,
                                       (__bridge id)kSecAttrAccount: key,
                                       }];
-#if TARGET_OS_IPHONE
-    if (self.useAccessControl) {
-        if (message && floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_7_1) {
-            query[(__bridge id)kSecUseOperationPrompt] = message;
-        }
+    if (self.useAccessControl && message) {
+        query[(__bridge id)kSecUseOperationPrompt] = message;
     }
-#endif
 
     return query;
 }
