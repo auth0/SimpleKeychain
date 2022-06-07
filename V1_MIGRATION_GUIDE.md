@@ -20,3 +20,5 @@ The deployment targets for each platform were raised to:
 - watchOS **6.2**
 
 ## Methods Removed
+
+The method `publicRSAKeyData(forTag:)` was removed.
