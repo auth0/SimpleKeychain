@@ -210,13 +210,7 @@
         case A0SimpleKeychainItemAccessibleAfterFirstUnlock:
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
             break;
-        case A0SimpleKeychainItemAccessibleAlways:
-            accessibility = kSecAttrAccessibleAfterFirstUnlock;
-            break;
         case A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
-            accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
-            break;
-        case A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly:
             accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
             break;
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
