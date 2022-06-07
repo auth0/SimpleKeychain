@@ -211,21 +211,13 @@
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
             break;
         case A0SimpleKeychainItemAccessibleAlways:
-#if TARGET_OS_MACCATALYST
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
-#else
-            accessibility = kSecAttrAccessibleAlways;
-#endif
             break;
         case A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly:
             accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
             break;
         case A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly:
-#if TARGET_OS_MACCATALYST
             accessibility = kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly;
-#else
-            accessibility = kSecAttrAccessibleAlwaysThisDeviceOnly;
-#endif
             break;
         case A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly:
             accessibility = kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly;
@@ -276,7 +268,6 @@
     NSMutableDictionary *attributes = [@{
                                          (__bridge id)kSecClass: (__bridge id)kSecClassGenericPassword,
                                          (__bridge id)kSecAttrService: self.service,
-                                         (__bridge id)kSecUseAuthenticationUI: (__bridge id)kSecUseAuthenticationUIAllow,
                                          } mutableCopy];
 
 #if !TARGET_IPHONE_SIMULATOR
@@ -305,27 +296,20 @@
     NSAssert(key != nil, @"Must have a valid non-nil key");
     NSMutableDictionary *query = [self baseQuery];
     query[(__bridge id)kSecAttrAccount] = key;
-#if TARGET_OS_IPHONE
     if (message) {
         query[(__bridge id)kSecUseOperationPrompt] = message;
     }
-#endif
     return query;
 }
 
 - (NSDictionary *)queryUpdateValue:(NSData *)data message:(NSString *)message {
     if (message) {
         return @{
-#if TARGET_OS_IPHONE
-                 (__bridge id)kSecUseOperationPrompt: message,
-#endif
-                 (__bridge id)kSecValueData: data,
-                 };
-    } else {
-        return @{
-                 (__bridge id)kSecValueData: data,
-                 };
+            (__bridge id)kSecUseOperationPrompt: message,
+            (__bridge id)kSecValueData: data
+        };
     }
+    return @{(__bridge id)kSecValueData: data};
 }
 
 - (NSDictionary *)queryNewKey:(NSString *)key value:(NSData *)value {

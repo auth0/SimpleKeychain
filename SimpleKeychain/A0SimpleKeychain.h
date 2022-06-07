@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
-*  LocalAuthenticationContext used to access items. Default value is a new LAContext object
+*  Local Authentication context used to access items. Default value is a new `LAContext` object.
 */
 #if A0LocalAuthenticationCapable
 @property (readonly, nullable, nonatomic) LAContext *localAuthenticationContext;
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Initialize a `A0SimpleKeychain` with default values.
  *
- *  @return an initialised instance
+ *  @return an initialized instance
  */
 - (instancetype)init;
 
