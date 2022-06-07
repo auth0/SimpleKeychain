@@ -23,10 +23,6 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
      */
     A0SimpleKeychainItemAccessibleAfterFirstUnlock,
     /**
-     *  @see kSecAttrAccessibleAlways
-     */
-    A0SimpleKeychainItemAccessibleAlways,
-    /**
      *  @see kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
      */
     A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly,
@@ -37,11 +33,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     /**
      *  kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
      */
-    A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly,
-    /**
-     *  @see kSecAttrAccessibleAlwaysThisDeviceOnly
-     */
-    A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly
+    A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly
 };
 
 #define A0ErrorDomain @"com.auth0.simplekeychain"

@@ -19,4 +19,11 @@ The deployment targets for each platform were raised to:
 - tvOS **12.0**
 - watchOS **6.2**
 
+## Enum Cases Removed
+
+The following cases were rmoved from the `A0SimpleKeychainItemAccessible` enum:
+
+- `A0SimpleKeychainItemAccessibleAlways`
+- `A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly`
+
 ## Methods Removed
