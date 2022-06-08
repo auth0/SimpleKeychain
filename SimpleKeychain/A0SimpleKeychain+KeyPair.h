@@ -65,19 +65,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface A0SimpleKeychain (Deprecated)
-
-/**
- *  Returns the public key as NSData.
- *
- *  @param keyTag tag of the public key
- *
- *  @return the public key as NSData or nil if not found
- *  
- *  @deprecated 0.2.0
- */
-- (nullable NSData *)publicRSAKeyDataForTag:(NSString *)keyTag __attribute__((deprecated));
-
-@end
-
 NS_ASSUME_NONNULL_END
