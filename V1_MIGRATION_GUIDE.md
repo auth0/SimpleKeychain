@@ -21,7 +21,7 @@ The deployment targets for each platform were raised to:
 
 ## Enum Cases Removed
 
-The following cases were rmoved from the `A0SimpleKeychainItemAccessible` enum:
+The following cases were removed from the `A0SimpleKeychainItemAccessible` enum:
 
 - `A0SimpleKeychainItemAccessibleAlways`
 - `A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly`
