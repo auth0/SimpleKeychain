@@ -23,10 +23,6 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
      */
     A0SimpleKeychainItemAccessibleAfterFirstUnlock,
     /**
-     *  @see kSecAttrAccessibleAlways
-     */
-    A0SimpleKeychainItemAccessibleAlways,
-    /**
      *  @see kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
      */
     A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly,
@@ -37,11 +33,7 @@ typedef NS_ENUM(NSInteger, A0SimpleKeychainItemAccessible) {
     /**
      *  kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
      */
-    A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly,
-    /**
-     *  @see kSecAttrAccessibleAlwaysThisDeviceOnly
-     */
-    A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly
+    A0SimpleKeychainItemAccessibleAfterFirstUnlockThisDeviceOnly
 };
 
 #define A0ErrorDomain @"com.auth0.simplekeychain"
@@ -128,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
-*  LocalAuthenticationContext used to access items. Default value is a new LAContext object
+*  Local Authentication context used to access items. Default value is a new `LAContext` object.
 */
 #if A0LocalAuthenticationCapable
 @property (readonly, nullable, nonatomic) LAContext *localAuthenticationContext;
@@ -141,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Initialize a `A0SimpleKeychain` with default values.
  *
- *  @return an initialised instance
+ *  @return an initialized instance
  */
 - (instancetype)init;
 
