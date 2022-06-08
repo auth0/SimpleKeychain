@@ -101,11 +101,3 @@
 }
 
 @end
-
-@implementation A0SimpleKeychain (Deprecated)
-
-- (NSData *)publicRSAKeyDataForTag:(NSString *)keyTag {
-    return [self dataForRSAKeyWithTag:keyTag];
-}
-
-@end

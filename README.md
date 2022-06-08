@@ -1,167 +1,165 @@
 # SimpleKeychain
 
-[![CircleCI](https://img.shields.io/circleci/project/github/auth0/SimpleKeychain.svg?style=flat-square)](https://circleci.com/gh/auth0/SimpleKeychain/tree/master)
-[![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat-square)](https://codecov.io/github/auth0/SimpleKeychain)
-[![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
-[![License](https://img.shields.io/cocoapods/l/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
-[![Platform](https://img.shields.io/cocoapods/p/SimpleKeychain.svg?style=flat-square)](https://cocoapods.org/pods/SimpleKeychain)
+![CircleCI](https://img.shields.io/circleci/project/github/auth0/SimpleKeychain.svg?style=flat)
+![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)
+![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)
+![License](https://img.shields.io/github/license/Auth0/SimpleKeychain.svg?style=flat)
 
-A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
+Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** and integrating **Touch ID / Face ID** with a reusable `LAContext` instance.
 
-## Key Features
+> ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
-- **Simple interface** to store user's credentials (e.g. JWT) in the Keychain.
-- Store credentials under an **Access Group to enable Keychain Sharing**.
-- **TouchID/FaceID integration** with a reusable `LAContext` instance. 
+**Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).**
+
+---
 
 ## Table of Contents
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [What is Auth0?](#what-is-auth0)
-- [Create a Free Auth0 Account](#create-a-free-auth0-account)
-- [Issue Reporting](#issue-reporting)
-- [Author](#author)
-- [License](#license)
+- [**Requirements**](#requirements)
+- [**Installation**](#installation)
+  + [Swift Package Manager](#swift-package-manager)
+  + [Cocoapods](#cocoapods)
+  + [Carthage](#carthage)
+- [**Usage**](#usage)
+  + [Save an entry](#save-an-entry)
+  + [Retrieve an entry](#retrieve-an-entry)
+  + [Remove an entry](#remove-an-entry)
+  + [Remove all entries](#remove-all-entries)
+  + [Require Touch ID / Face ID to retrieve an entry](#require-touch-id--face-id-to-retrieve-an-entry)
+  + [Share entries with other apps and extensions using an Access Group](#share-entries-with-other-apps-and-extensions-using-an-access-group)
+- [**Issue Reporting**](#issue-reporting)
+- [**What is Auth0?**](#what-is-auth0)
+- [**License**](#license)
 
 ## Requirements
 
-- iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 12.x / 13.x
-- Swift 4.x / 5.x
+- iOS 12.0+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
+- Xcode 13.x / 14.x
+- Swift 5.x
 
 ## Installation
 
-#### CocoaPods
+### Swift Package Manager
 
-If you are using [Cocoapods](https://cocoapods.org), add this line to your `Podfile`:
-
-```ruby
-pod "SimpleKeychain"
-```
-
-Then run `pod install`.
-
-> For more information on Cocoapods, check [their official documentation](https://guides.cocoapods.org/using/getting-started.html).
-
-#### Carthage
-
-If you are using [Carthage](https://github.com/Carthage/Carthage), add the following line to your `Cartfile`:
-
-```ruby
-github "auth0/SimpleKeychain"
-```
-
-Then run `carthage bootstrap --use-xcframeworks`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-#### SPM
-
-If you are using the Swift Package Manager, open the following menu item in Xcode:
+Open the following menu item in Xcode:
 
 **File > Add Packages...**
 
-In the **Search or Enter Package URL** search box enter this url: 
+In the **Search or Enter Package URL** search box enter this URL: 
 
+```text
+https://github.com/auth0/SimpleKeychain
 ```
-https://github.com/auth0/SimpleKeychain.git
+
+Then, select the dependency rule and press **Add Package**.
+
+> 💡 For further reference on SPM, check its [official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
+
+### Cocoapods
+
+Add the following line to your `Podfile`:
+
+```ruby
+pod 'SimpleKeychain', '~> 1.0'
 ```
 
-Then select the dependency rule and press **Add Package**.
+Then, run `pod install`.
 
-> For further reference on SPM, check [its official documentation](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app).
+> 💡 For further reference on Cocoapods, check their [official documentation](https://guides.cocoapods.org/using/getting-started.html).
+
+### Carthage
+
+Add the following line to your `Cartfile`:
+
+```text
+github "auth0/SimpleKeychain" ~> 1.0
+```
+
+Then, run `carthage bootstrap --use-xcframeworks`.
+
+> 💡 For further reference on Carthage, check their [official documentation](https://github.com/Carthage/Carthage#getting-started).
 
 ## Usage
 
-### Save a JWT token or password
-
 ```swift
-let jwt = // user's JWT token obtained after login
-A0SimpleKeychain().setString(jwt, forKey: "auth0-user-jwt")
-```
-
-### Obtain a JWT token or password
-
-```swift
-let jwt = A0SimpleKeychain().string(forKey: "auth0-user-jwt")
-```
-
-### Share a JWT Token with other apps using iOS Access Group
-
-```swift
-let jwt = // user's JWT token obtained after login
-let keychain = A0SimpleKeychain(service: "Auth0", accessGroup: "ABCDEFGH.com.mydomain.myaccessgroup")
-keychain.setString(jwt, forKey: "auth0-user-jwt")
-```
-
-### Store and retrieve a JWT token using TouchID/FaceID
-
-Let's save the JWT first:
-
-```swift
-let jwt = // user's JWT token obtained after login
 let keychain = A0SimpleKeychain()
-keychain.useAccessControl = true
-keychain.defaultAccessiblity = .whenPasscodeSetThisDeviceOnly
-keychain.setTouchIDAuthenticationAllowableReuseDuration(5.0)
-keychain.setString(jwt, forKey: "auth0-user-jwt")
 ```
 
-> If there is an existent value under the key `auth0-user-jwt` saved with AccessControl and `A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly`, iOS will prompt the user to enter their passcode or fingerprint before updating the value.
-
-Then let's obtain the value:
+### Save an entry
 
 ```swift
-let message = NSLocalizedString("Please enter your passcode/fingerprint to login with awesome App!.", comment: "Prompt TouchID message")
-let keychain = A0SimpleKeychain()
-let jwt = keychain.string(forKey: "auth0-user-jwt", promptMessage: message)
+keychain.setString(accessToken, forKey: "auth0-access-token")
 ```
 
-### Remove a JWT token or password
+### Retrieve an entry
 
 ```swift
-A0SimpleKeychain().deleteEntry(forKey: "auth0-user-jwt")
+let accessToken = keychain.string(forKey: "auth0-access-token")
+```
+
+### Remove an entry
+
+```swift
+keychain.deleteEntry(forKey: "auth0-access-token")
 ```
 
 ### Remove all entries
 
-Useful for testing.
+This is useful for testing.
 
 ```swift
-A0SimpleKeychain().clearAll()
+keychain.clearAll()
 ```
 
-## Contributing
+### Require Touch ID / Face ID to retrieve an entry
 
-Just clone the repo, run `carthage bootstrap` and you're ready to contribute!
+First, configure the SimpleKeychain instance to use Face ID / Touch ID.
+
+```swift
+keychain.useAccessControl = true
+keychain.defaultAccessiblity = .whenPasscodeSetThisDeviceOnly
+keychain.setTouchIDAuthenticationAllowableReuseDuration(5.0)
+```
+
+When retrieving an entry, specify a prompt message for Face ID / Touch ID.
+
+```swift
+let message = NSLocalizedString("Please enter your passcode or fingerprint to login with Awesome App!", comment: "Prompt message")
+let accessToken = keychain.string(forKey: "auth0-access-token", promptMessage: message)
+```
+
+### Share entries with other apps and extensions using an Access Group
+
+When creating the SimpleKeychain instance, specify the Access Group that the app may share entries with.
+
+```swift
+let keychain = A0SimpleKeychain(service: "Auth0", accessGroup: "ABCDEFGH.com.example.myaccessgroup")
+keychain.setString(accessToken, forKey: "auth0-access-token")
+```
+
+## Issue Reporting
+
+For general support or usage questions, use the [Auth0 Community](https://community.auth0.com/c/sdks/5) forums or raise a [support ticket](https://support.auth0.com/). Only [raise an issue](https://github.com/auth0/SimpleKeychain/issues) if you have found a bug or want to request a feature.
+
+**Do not report security vulnerabilities on the public GitHub issue tracker.** The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
 
 ## What is Auth0?
 
 Auth0 helps you to:
 
-* Add authentication with [multiple sources](https://auth0.com/docs/identityproviders), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://auth0.com/docs/connections/database/custom-db)**.
-* Add support for **[linking different user accounts](https://auth0.com/docs/link-accounts)** with the same user.
-* Support for generating signed [JSON Web Tokens](https://auth0.com/docs/tokens/concepts/jwts) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when, and where users are logging in.
-* Pull data from other sources and add it to the user profile through [JavaScript rules](https://auth0.com/docs/rules).
+- Add authentication with [multiple sources](https://auth0.com/docs/authenticate/identity-providers), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
+- Add authentication through more traditional **[username/password databases](https://auth0.com/docs/authenticate/database-connections/custom-db)**.
+- Add support for **[linking different user accounts](https://auth0.com/docs/manage-users/user-accounts/user-account-linking)** with the same user.
+- Support for generating signed [JSON Web Tokens](https://auth0.com/docs/secure/tokens/json-web-tokens) to call your APIs and **flow the user identity** securely.
+- Analytics of how, when, and where users are logging in.
+- Pull data from other sources and add it to the user profile through [JavaScript Actions](https://auth0.com/docs/customize/actions).
 
-## Create a Free Auth0 Account
-
-1. Go to [Auth0](https://auth0.com) and click **Sign Up**.
-2. Use Google, GitHub, or Microsoft Account to login.
-
-## Issue Reporting
-
-If you have found a bug or to request a feature, please [raise an issue](https://github.com/auth0/simplekeychain/issues). Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](https://auth0.com)
+**Why Auth0?** Because you should save time, be happy, and focus on what really matters: building your product.
 
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+
+---
+
+[Go up ⤴](#table-of-contents)

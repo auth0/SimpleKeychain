@@ -27,3 +27,5 @@ The following cases were removed from the `A0SimpleKeychainItemAccessible` enum:
 - `A0SimpleKeychainItemAccessibleAlwaysThisDeviceOnly`
 
 ## Methods Removed
+
+The method `publicRSAKeyData(forTag:)` was removed.
