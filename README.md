@@ -34,7 +34,7 @@ Easily store your user's credentials in the Keychain. Supports sharing credentia
 ## Requirements
 
 - iOS 12.0+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
-- Xcode 13.x
+- Xcode 13.x / 14.x
 - Swift 5.x
 
 ## Installation
