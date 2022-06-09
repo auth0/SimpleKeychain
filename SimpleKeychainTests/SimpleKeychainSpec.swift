@@ -9,7 +9,6 @@ let kKeychainService = "com.auth0.simplekeychain.tests"
 class A0SimpleKeychainSpec: QuickSpec {
     override func spec() {
         describe("A0SimpleKeychain") {
-
             var keychain: A0SimpleKeychain!
 
             describe("initialization") {
@@ -62,7 +61,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                 }
             }
 
-            describe("Storing values") {
+            describe("storing values") {
 
                 var key: String!
 
@@ -91,7 +90,7 @@ class A0SimpleKeychainSpec: QuickSpec {
 
             }
 
-            describe("Removing values") {
+            describe("removing values") {
 
                 var key: String!
 
@@ -152,13 +151,12 @@ class A0SimpleKeychainSpec: QuickSpec {
                 var keys = [String]()
                 
                 beforeEach {
-                    
                     keychain.clearAll()
-                    
                     keychain = A0SimpleKeychain(service: kKeychainService)
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
+
                     for (i, key) in keys.enumerated() {
                         keychain.setString("value\(i)", forKey: key)
                     }
@@ -185,69 +183,6 @@ class A0SimpleKeychainSpec: QuickSpec {
                         expect(keychain.data(forKey: key)).to(beNil())
                     }
                     expect(keychain.keys().count).to(equal(0))
-                }
-            }
-
-
-            describe("generate key pair") {
-
-                beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                }
-
-                afterEach {
-                    keychain.deleteRSAKey(withTag: PublicKeyTag)
-                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
-                }
-
-                it("should generate a key pair") {
-                keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits, publicKeyTag:PublicKeyTag, privateKeyTag:PrivateKeyTag)
-                expect(keychain.dataForRSAKey(withTag: PublicKeyTag)).notTo(beNil())
-                expect(keychain.dataForRSAKey(withTag: PrivateKeyTag)).notTo(beNil())
-                }
-            }
-
-            describe("obtain RSA key as NSData") {
-
-                beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits,
-                        publicKeyTag:PublicKeyTag,
-                        privateKeyTag:PrivateKeyTag)
-                }
-
-                afterEach {
-                    keychain.deleteRSAKey(withTag: PublicKeyTag)
-                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
-                }
-
-                it("should obtain keys") {
-                    expect(keychain.dataForRSAKey(withTag: PublicKeyTag)).notTo(beNil())
-                    expect(keychain.dataForRSAKey(withTag: PrivateKeyTag)).notTo(beNil())
-                }
-            }
-
-            describe("check if RSA key exists") {
-
-                beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits,
-                        publicKeyTag:PublicKeyTag,
-                        privateKeyTag:PrivateKeyTag)
-                }
-
-                afterEach {
-                    keychain.deleteRSAKey(withTag: PublicKeyTag)
-                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
-                }
-
-                it("should check if the key exists") {
-                    expect(keychain.hasRSAKey(withTag: PublicKeyTag)).to(beTruthy())
-                    expect(keychain.hasRSAKey(withTag: PrivateKeyTag)).to(beTruthy())
-                }
-
-                it("should return NO for nonexisting key") {
-                    expect(keychain.hasRSAKey(withTag: "NONEXISTENT")).to(beFalsy())
                 }
             }
         }
