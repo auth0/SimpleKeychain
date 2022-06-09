@@ -27,6 +27,7 @@ Easily store your user's credentials in the Keychain. Supports sharing credentia
   + [Remove all entries](#remove-all-entries)
   + [Require Touch ID / Face ID to retrieve an entry](#require-touch-id--face-id-to-retrieve-an-entry)
   + [Share entries with other apps and extensions using an Access Group](#share-entries-with-other-apps-and-extensions-using-an-access-group)
+- [**Support Policy**](#support-policy)
 - [**Issue Reporting**](#issue-reporting)
 - [**What is Auth0?**](#what-is-auth0)
 - [**License**](#license)
@@ -36,6 +37,8 @@ Easily store your user's credentials in the Keychain. Supports sharing credentia
 - iOS 12.0+ / macOS 10.15+ / tvOS 12.0+ / watchOS 6.2+
 - Xcode 13.x / 14.x
 - Swift 5.x
+
+> ⚠️ Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ## Installation
 
@@ -136,6 +139,32 @@ When creating the SimpleKeychain instance, specify the Access Group that the app
 let keychain = A0SimpleKeychain(service: "Auth0", accessGroup: "ABCDEFGH.com.example.myaccessgroup")
 keychain.setString(accessToken, forKey: "auth0-access-token")
 ```
+
+## Support Policy
+
+This Policy defines the extent of the support for Xcode, Swift, and platform (iOS, macOS, tvOS, and watchOS) versions in SimpleKeychain.
+
+### Xcode
+
+The only supported versions of Xcode are those that can be currently used to submit apps to the App Store. Once a Xcode version becomes unsupported, dropping it from SimpleKeychain **will not be considered a breaking change**, and will be done in a **minor** release.
+
+### Swift
+
+The minimum supported Swift minor version is the one released with the oldest-supported Xcode version. Once a Swift minor becomes unsupported, dropping it from SimpleKeychain **will not be considered a breaking change**, and will be done in a **minor** release.
+
+### Platforms
+
+Only the last 4 major platform versions are supported, starting from:
+
+- iOS **12**
+- macOS **10.15**
+- Catalyst **13**
+- tvOS **12**
+- watchOS **6.2**
+
+Once a platform version becomes unsupported, dropping it from SimpleKeychain **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 12 will cease to be supported when iOS 16 gets released, and SimpleKeychain will be able to drop it in a minor release.
+
+In the case of macOS, the yearly named releases are considered a major platform version for the purposes of this Policy, regardless of the actual version numbers.
 
 ## Issue Reporting
 
