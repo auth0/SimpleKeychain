@@ -19,6 +19,10 @@ The deployment targets for each platform were raised to:
 - tvOS **12.0**
 - watchOS **6.2**
 
+## Properties Changed
+
+The `defaultAccessiblity` property was renamed to `defaultAccessibility`.
+
 ## Enum Cases Removed
 
 The following cases were removed from the `A0SimpleKeychainItemAccessible` enum:

@@ -16,7 +16,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                 it("should init with default values") {
                     keychain = A0SimpleKeychain()
                     expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
+                    expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -24,7 +24,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService)
                     expect(keychain.accessGroup).to(beNil())
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
+                    expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -32,7 +32,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService, accessGroup: "Group")
                     expect(keychain.accessGroup).to(equal("Group"))
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
+                    expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
             }
@@ -41,7 +41,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                 it("should create with default values") {
                     keychain = A0SimpleKeychain()
                     expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
+                    expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -49,7 +49,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService)
                     expect(keychain.accessGroup).to(beNil())
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
+                    expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
 
@@ -57,7 +57,7 @@ class A0SimpleKeychainSpec: QuickSpec {
                     keychain = A0SimpleKeychain(service: kKeychainService, accessGroup: "Group")
                     expect(keychain.accessGroup).to(equal("Group"))
                     expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
+                    expect(keychain.defaultAccessibility).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
                     expect(keychain.useAccessControl).to(beFalsy())
                 }
             }

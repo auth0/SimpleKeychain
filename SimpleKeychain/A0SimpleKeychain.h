@@ -110,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Default value is A0SimpleKeychainItemAccessibleAfterFirstUnlock.
  *  @see kSecAttrAccessible
  */
-@property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccessiblity;
+@property (assign, nonatomic) A0SimpleKeychainItemAccessible defaultAccessibility;
 
 /**
  *  Tells A0SimpleKeychain to use `kSecAttrAccessControl` instead of `kSecAttrAccessible`.
