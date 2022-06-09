@@ -28,4 +28,11 @@ The following cases were removed from the `A0SimpleKeychainItemAccessible` enum:
 
 ## Methods Removed
 
-The method `publicRSAKeyData(forTag:)` was removed.
+The following methods were removed, and have no replacement:
+
+- `publicRSAKeyData(forTag:)`
+- `generateRSAKeyPair(withLength:publicKeyTag:privateKeyTag:)`
+- `dataForRSAKey(withTag:)`
+- `keyRefOfRSAKey(withTag:)`
+- `deleteRSAKey(withTag:)`
+- `hasRSAKey(withTag:)`
