@@ -20,7 +20,7 @@
     if (self) {
         _service = service;
         _accessGroup = accessGroup;
-        _defaultAccessiblity = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
+        _defaultAccessibility = A0SimpleKeychainItemAccessibleAfterFirstUnlock;
         _useAccessControl = NO;
         
 // This does not apply to watchOS & tvOS
@@ -139,7 +139,7 @@
     NSDictionary *query = [self queryFindByKey:key message:message];
 
     // Touch ID case
-    if (self.useAccessControl && self.defaultAccessiblity == A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly) {
+    if (self.useAccessControl && self.defaultAccessibility == A0SimpleKeychainItemAccessibleWhenPasscodeSetThisDeviceOnly) {
         // TouchId case. Doesn't support updating keychain items
         // see Known Issues: https://developer.apple.com/library/ios/releasenotes/General/RN-iOSSDK-8.0/
         // We need to delete old and add a new item. This can fail
@@ -206,7 +206,7 @@
 
 - (CFTypeRef)accessibility {
     CFTypeRef accessibility;
-    switch (self.defaultAccessiblity) {
+    switch (self.defaultAccessibility) {
         case A0SimpleKeychainItemAccessibleAfterFirstUnlock:
             accessibility = kSecAttrAccessibleAfterFirstUnlock;
             break;
