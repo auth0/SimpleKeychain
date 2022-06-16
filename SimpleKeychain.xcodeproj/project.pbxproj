@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -408,6 +408,7 @@
 				5B108AA01EA62F6100ED4DD2 /* Frameworks */,
 				5B108AA11EA62F6100ED4DD2 /* Headers */,
 				5B108AA51EA62F6100ED4DD2 /* Resources */,
+				5C737B54285AD58F00B4BB25 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -426,6 +427,7 @@
 				5B108AAF1EA637B100ED4DD2 /* Frameworks */,
 				5B108AB01EA637B100ED4DD2 /* Headers */,
 				5B108AB41EA637B100ED4DD2 /* Resources */,
+				5C737B55285AD5A800B4BB25 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -518,6 +520,7 @@
 				5FEEB9981B7BD70A00501415 /* Frameworks */,
 				5FEEB9991B7BD70A00501415 /* Headers */,
 				5FEEB99A1B7BD70A00501415 /* Resources */,
+				5C737B51285AD54500B4BB25 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -536,6 +539,7 @@
 				5FEEB9B91B7BD82800501415 /* Frameworks */,
 				5FEEB9BA1B7BD82800501415 /* Headers */,
 				5FEEB9BB1B7BD82800501415 /* Resources */,
+				5C737B52285AD56900B4BB25 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -693,6 +697,85 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C737B51285AD54500B4BB25 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+		};
+		5C737B52285AD56900B4BB25 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+		};
+		5C737B54285AD58F00B4BB25 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+		};
+		5C737B55285AD5A800B4BB25 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B0D47551EA63C74009FF1BF /* Sources */ = {
