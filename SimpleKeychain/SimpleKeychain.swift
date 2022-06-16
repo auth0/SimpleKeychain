@@ -65,7 +65,11 @@ public struct SimpleKeychain {
 // MARK: - Retrieve items
 
 public extension SimpleKeychain {
-    /// Retrieves a `String`value from the Keychain.
+    /// Retrieves a `String` value from the Keychain.
+    ///
+    /// ```swift
+    /// let value = try simpleKeychain.string(forKey: "your_key")
+    /// ```
     ///
     /// - Parameter key: Key of the Keychain item to retrieve.
     /// - Returns: The `String` value.
@@ -82,6 +86,10 @@ public extension SimpleKeychain {
     }
 
     /// Retrieves a `Data` value from the Keychain.
+    ///
+    /// ```swift
+    /// let value = try simpleKeychain.data(forKey: "your_key")
+    /// ```
     ///
     /// - Parameter key: Key of the Keychain item to retrieve.
     /// - Returns: The `Data` value.
@@ -105,6 +113,10 @@ public extension SimpleKeychain {
 public extension SimpleKeychain {
     /// Saves a `String` value with the type `kSecClassGenericPassword` in the Keychain.
     ///
+    /// ```swift
+    /// try simpleKeychain.set("some string", forKey: "your_key")
+    /// ```
+    ///
     /// - Parameter string: Value to save in the Keychain.
     /// - Parameter key: Key for the Keychain item.
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
@@ -118,6 +130,10 @@ public extension SimpleKeychain {
     }
 
     /// Saves a `Data` value with the type `kSecClassGenericPassword` in the Keychain.
+    ///
+    /// ```swift
+    /// try simpleKeychain.set(data, forKey: "your_key")
+    /// ```
     ///
     /// - Parameter data: Value to save in the Keychain.
     /// - Parameter key: Key for the Keychain item.
@@ -142,6 +158,10 @@ public extension SimpleKeychain {
 public extension SimpleKeychain {
     /// Deletes an item from the Keychain.
     ///
+    /// ```swift
+    /// try simpleKeychain.deleteItem(forKey: "your_key")
+    /// ```
+    ///
     /// - Parameter key: Key of the Keychain item to delete..
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func deleteItem(forKey key: String) throws {
@@ -150,6 +170,12 @@ public extension SimpleKeychain {
     }
 
     /// Deletes all items from the Keychain for the service and access group values.
+    ///
+    /// ```swift
+    /// try simpleKeychain.deleteAll()
+    /// ```
+    ///
+    /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func deleteAll() throws {
         var query = self.baseQuery()
         #if os(macOS)
@@ -166,6 +192,10 @@ public extension SimpleKeychain {
 public extension SimpleKeychain {
     /// Checks if an item is stored in the Keychain.
     ///
+    /// ```swift
+    /// let isStored = try simpleKeychain.hasItem(forKey: "your_key")
+    /// ```
+    ///
     /// - Parameter key: Key of the Keychain item to check.
     /// - Returns: Whether the item is stored in the Keychain or not.
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
@@ -180,6 +210,10 @@ public extension SimpleKeychain {
     }
 
     /// Retrieves the keys of all the items stored in the Keychain for the service and access group values.
+    ///
+    /// ```swift
+    /// let keys = try simpleKeychain.keys()
+    /// ```
     ///
     /// - Returns: A `String` array containing the keys.
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
