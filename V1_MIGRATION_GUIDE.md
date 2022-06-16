@@ -40,6 +40,7 @@ The deployment targets for each platform were raised to:
 - The `A0SimpleKeychainError` enum was removed in favor of the new `SimpleKeychainError` enum.
 - The `A0SimpleKeychainItemAccessible` enum was removed in favor of the new `Accessibility` enum.
 - The `A0ErrorDomain` macro was removed.
+- The `A0LocalAuthenticationCapable` macro was removed.
 
 ## Properties removed
 
