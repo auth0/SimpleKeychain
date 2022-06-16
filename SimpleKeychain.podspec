@@ -16,8 +16,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.15'
   s.tvos.deployment_target = '12.0'
   s.watchos.deployment_target = '6.2'
-  s.requires_arc = true
 
-  s.source_files = 'SimpleKeychain/*.{h,m}'
-  s.exclude_files = 'SimpleKeychain/include/*'
+  s.source_files = 'SimpleKeychain/*.swift'
 end
