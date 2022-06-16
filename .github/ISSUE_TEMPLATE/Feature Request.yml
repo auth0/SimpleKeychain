@@ -4,15 +4,17 @@ labels: ["feature request"]
 
 body:
   - type: checkboxes
-    id: not-general-support
+    id: checklist
     attributes:
-      label: This is not for general support and usage questions
+      label: Checklist
       options:
         - label: I have looked into the [README](https://github.com/auth0/SimpleKeychain#readme) and have not found a suitable solution or answer.
           required: true
         - label: I have searched the [issues](https://github.com/auth0/SimpleKeychain/issues) and have not found a suitable solution or answer.
           required: true
         - label: I have searched the [Auth0 Community](https://community.auth0.com/tags/c/sdks/5/ios) forums and have not found a suitable solution or answer.
+          required: true
+        - label: I agree to the terms within the [Auth0 Code of Conduct](https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md).
           required: true
 
   - type: textarea
@@ -46,11 +48,3 @@ body:
       description: Add any other context or screenshots about the feature request here.
     validations:
       required: false
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      options:
-        - label: I agree to the terms within the [Auth0 Code of Conduct](https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md).
-          required: true
