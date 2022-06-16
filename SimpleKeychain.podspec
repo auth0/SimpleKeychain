@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = "SimpleKeychain"
   s.version          = '0.12.5'
-  s.summary          = "A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely."
+  s.summary          = "A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS"
   s.description      = <<-DESC
-                       A simple way to store items in iOS Keychain, without the hassle of dealing with iOS Keychain API directly.
-                       It has support for the new AccessControl for Keychain items added in iOS 8.
+                       Easily store your user's credentials in the Keychain.
+                       Supports sharing credentials with an Access Group and integrating Touch ID / Face ID through a LAContext instance.
                        DESC
   s.homepage         = "https://github.com/auth0/SimpleKeychain"
   s.license          = 'MIT'

@@ -5,7 +5,7 @@
 ![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)
 ![License](https://img.shields.io/github/license/Auth0/SimpleKeychain.svg?style=flat)
 
-Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** and integrating **Touch ID / Face ID** with a reusable `LAContext` instance.
+Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** and integrating **Touch ID / Face ID** through a `LAContext` instance.
 
 > ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
