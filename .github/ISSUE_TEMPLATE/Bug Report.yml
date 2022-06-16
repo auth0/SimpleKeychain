@@ -10,7 +10,7 @@ body:
   - type: checkboxes
     id: not-general-support
     attributes:
-      label: This is not for general support and usage questions.
+      label: This is not for general support and usage questions
       options:
         - label: I have looked into the [README](https://github.com/auth0/SimpleKeychain#readme) and have not found a suitable solution or answer.
           required: true
