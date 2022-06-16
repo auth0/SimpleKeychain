@@ -7,6 +7,7 @@ As expected with a major release, SimpleKeychain v1 contains breaking changes. P
 ## Table of Contents
 
 - [**Supported Languages**](#supported-languages)
+  + [Swift](#swift)
   + [Objective-C](#objective-c)
 - [**Supported Platform Versions**](#supported-platform-versions)
 - [**Types Removed**](#types-removed)
@@ -21,6 +22,10 @@ As expected with a major release, SimpleKeychain v1 contains breaking changes. P
   + [SimpleKeychain Struct](#simplekeychain-struct-3)
 
 ## Supported Languages
+
+### Swift
+
+The minimum supported Swift version is now **5.5**.
 
 ### Objective-C
 
@@ -65,7 +70,7 @@ The following properties are no longer public:
 
 ### SimpleKeychain Struct
 
-The `setTouchIDAuthenticationAllowableReuseDuration` method was removed. Configure that in a custom `LAContext` instance instead.
+The `setTouchIDAuthenticationAllowableReuseDuration(_:)` method was removed. Configure that in a custom `LAContext` instance instead.
 
 <!-- BEFORE/AFTER -->
 
