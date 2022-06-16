@@ -2,6 +2,11 @@ name: 🐞 Report a bug
 description: Have you found a bug or issue? Create a bug report for this library.
 
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please do not report security vulnerabilities here**. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
+
   - type: checkboxes
     id: not-general-support
     attributes:
