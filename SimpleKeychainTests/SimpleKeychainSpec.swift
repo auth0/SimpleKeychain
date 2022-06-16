@@ -64,9 +64,14 @@ class SimpleKeychainSpec: QuickSpec {
                         expect { try sut.set("value2", forKey: key) }.toNot(throwError())
                     }
 
-                    #if !os(macOS)
                     it("should store a string item with a custom accessibility value") {
                         sut = SimpleKeychain(service: kKeychainService, accessibility: .whenUnlocked)
+                        expect(try sut.set("value", forKey: key)).toNot(throwError())
+                    }
+
+                    #if !os(macOS)
+                    it("should store a string item with access control") {
+                        sut = SimpleKeychain(service: kKeychainService, accessControlFlags: .privateKeyUsage)
                         expect(try sut.set("value", forKey: key)).toNot(throwError())
                     }
                     #endif
@@ -89,7 +94,7 @@ class SimpleKeychainSpec: QuickSpec {
 
                     #if !os(macOS)
                     it("should store a data item with access control") {
-                        sut = SimpleKeychain(service: kKeychainService, accessControlFlags: .biometryAny)
+                        sut = SimpleKeychain(service: kKeychainService, accessControlFlags: .privateKeyUsage)
                         expect(try sut.set(Data(), forKey: key)).toNot(throwError())
                     }
                     #endif
