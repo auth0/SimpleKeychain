@@ -4,20 +4,6 @@ import Security
 import LocalAuthentication
 #endif
 
-// ADDED -> A0SimpleKeychain was renamed to SimpleKeychain
-// ADDED -> setTouchIDAuthenticationAllowableReuseDuration was removed
-// ADDED -> useAccessControl was replaced with accessControlFlags
-// ADDED -> deleteEntry(forKey) was renamed to deleteItem(forKey:)
-// ADDED -> hasValueForKey was renamed to hasItem(forKey:)
-// ADDED -> clearAll was renamed to deleteAll
-// ADDED -> defaultAccessiblity is gone -> it's now in the initializer
-// ADDED -> setString(forKey:) is now set(_:forKey:)
-// ADDED -> setData(forKey:) is now set(_:forKey:)
-// no more promptMessage parameter
-// kSecUseAuthenticationUI no longer being added when using access control
-// hasItem no longer returns false on any error, only on errSecItemNotFound
-// errSecAllocate was removed
-
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
 /// Supports sharing items with an **Access Group** and integrating **Touch ID / Face ID** through a `LAContext` instance.
 public struct SimpleKeychain {
