@@ -1,10 +1,11 @@
 import Foundation
 
+/// Represents an error during a SimpleKeychain operation.
 public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible {
     enum Code: RawRepresentable, Equatable {
         case operationNotImplemented
         case invalidParameters
-        case allocationFailed
+        case userCanceled
         case itemNotAvailable
         case authFailed
         case duplicateItem
@@ -18,7 +19,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             switch rawValue {
             case errSecUnimplemented: self = .operationNotImplemented
             case errSecParam: self = .invalidParameters
-            case errSecAllocate: self = .allocationFailed
+            case errSecUserCanceled: self = .userCanceled
             case errSecNotAvailable: self = .itemNotAvailable
             case errSecAuthFailed: self = .authFailed
             case errSecDuplicateItem: self = .duplicateItem
@@ -33,7 +34,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             switch self {
             case .operationNotImplemented: return errSecUnimplemented
             case .invalidParameters: return errSecParam
-            case .allocationFailed: return errSecAllocate
+            case .userCanceled: return errSecUserCanceled
             case .itemNotAvailable: return errSecNotAvailable
             case .authFailed: return errSecAuthFailed
             case .duplicateItem: return errSecDuplicateItem
@@ -41,7 +42,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             case .interactionNotAllowed: return errSecInteractionNotAllowed
             case .decodeFailed: return errSecDecode
             case let .other(status): return status
-            case .unknown: return 0
+            case .unknown: return errSecSuccess
             }
         }
     }
@@ -76,8 +77,8 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             return "errSecUnimplemented: A function or operation is not implemented."
         case .invalidParameters:
             return "errSecParam: One or more parameters passed to the function are not valid."
-        case .allocationFailed:
-            return "errSecAllocate: Failed to allocate memory."
+        case .userCanceled:
+            return "errSecUserCanceled: User canceled the operation."
         case .itemNotAvailable:
             return "errSecNotAvailable: No trust results are available."
         case .authFailed:
@@ -107,9 +108,9 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
     /// See [errSecParam](https://developer.apple.com/documentation/security/errsecparam).
     public static let invalidParameters: SimpleKeychainError = .init(code: .invalidParameters)
 
-    /// Failed to allocate memory.
-    /// See [errSecAllocate](https://developer.apple.com/documentation/security/errsecallocate).
-    public static let allocationFailed: SimpleKeychainError = .init(code: .allocationFailed)
+    /// User canceled the operation.
+    /// See [errSecUserCanceled](https://developer.apple.com/documentation/security/errsecusercanceled).
+    public static let userCanceled: SimpleKeychainError = .init(code: .userCanceled)
 
     /// No trust results are available.
     /// See [errSecNotAvailable](https://developer.apple.com/documentation/security/errsecnotavailable).
@@ -135,7 +136,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
     /// See [errSecDecode](https://developer.apple.com/documentation/security/errsecdecode).
     public static let decodeFailed: SimpleKeychainError = .init(code: .decodeFailed)
 
-    /// Unspecified Keychain error.
+    /// Other Keychain error.
     /// The `OSStatus` of the Keychain operation can be accessed via the ``status`` property.
     public static let other: SimpleKeychainError = .init(code: .other(status: 0))
 

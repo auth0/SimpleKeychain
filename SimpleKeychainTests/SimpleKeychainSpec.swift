@@ -22,7 +22,7 @@ class SimpleKeychainSpec: QuickSpec {
                     sut = SimpleKeychain()
                     expect(sut.accessGroup).to(beNil())
                     expect(sut.service).to(equal(Bundle.main.bundleIdentifier))
-                    expect(sut.accessibility).to(equal(SimpleKeychain.Accessibility.afterFirstUnlock))
+                    expect(sut.accessibility).to(equal(Accessibility.afterFirstUnlock))
                     expect(sut.accessControlFlags).to(beNil())
                 }
 
@@ -33,7 +33,7 @@ class SimpleKeychainSpec: QuickSpec {
                                          accessControlFlags: .userPresence)
                     expect(sut.accessGroup).to(equal("Group"))
                     expect(sut.service).to(equal(kKeychainService))
-                    expect(sut.accessibility).to(equal(SimpleKeychain.Accessibility.whenUnlocked))
+                    expect(sut.accessibility).to(equal(Accessibility.whenUnlocked))
                     expect(sut.accessControlFlags).to(equal(.userPresence))
                 }
 

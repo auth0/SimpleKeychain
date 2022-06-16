@@ -75,9 +75,9 @@ class SimpleKeychainErrorSpec: QuickSpec {
                 expect(error.localizedDescription) == message
             }
 
-            it("should return message for allocation failed") {
-                let message = "errSecAllocate: Failed to allocate memory."
-                let error = SimpleKeychainError(code: .allocationFailed)
+            it("should return message for user canceled") {
+                let message = "errSecUserCanceled: User canceled the operation."
+                let error = SimpleKeychainError(code: .userCanceled)
                 expect(error.localizedDescription) == message
             }
 
