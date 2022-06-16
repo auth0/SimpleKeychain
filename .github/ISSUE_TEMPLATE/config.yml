@@ -8,4 +8,4 @@ contact_links:
     about: Check the Usage section of the README to get up to speed with SimpleKeychain
   - name: 📖 API Documentation
     url: https://auth0.github.io/SimpleKeychain/
-    about: Check the public API documentation for in-depth overview of all the available features.
+    about: Check the public API documentation for in-depth overview of all the available features
