@@ -27,10 +27,10 @@ public struct SimpleKeychain {
     let context: LAContext
 
     public init(service: String = Bundle.main.bundleIdentifier!,
-         accessGroup: String? = nil,
-         accessibility: Accessibility = .afterFirstUnlock,
-         accessControlFlags: SecAccessControlCreateFlags? = nil,
-         context: LAContext = LAContext()) {
+                accessGroup: String? = nil,
+                accessibility: Accessibility = .afterFirstUnlock,
+                accessControlFlags: SecAccessControlCreateFlags? = nil,
+                context: LAContext = LAContext()) {
         self.service = service
         self.accessGroup = accessGroup
         self.accessibility = accessibility
@@ -39,9 +39,9 @@ public struct SimpleKeychain {
     }
     #else
     public init(service: String = Bundle.main.bundleIdentifier!,
-         accessGroup: String? = nil,
-         accessibility: Accessibility = .afterFirstUnlock,
-         accessControlFlags: SecAccessControlCreateFlags? = nil) {
+                accessGroup: String? = nil,
+                accessibility: Accessibility = .afterFirstUnlock,
+                accessControlFlags: SecAccessControlCreateFlags? = nil) {
         self.service = service
         self.accessGroup = accessGroup
         self.accessibility = accessibility
@@ -204,7 +204,7 @@ extension SimpleKeychain {
         if let data = data {
             query[kSecValueData as String] = data
         }
-        #if canImport(LocalAuthentication)
+        #if !targetEnvironment(simulator) && canImport(LocalAuthentication)
         query[kSecUseAuthenticationContext as String] = self.context
         #endif
         return query
