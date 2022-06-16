@@ -257,7 +257,7 @@ extension SimpleKeychain {
         if let data = data {
             query[kSecValueData as String] = data
         }
-        #if !targetEnvironment(simulator) && canImport(LocalAuthentication)
+        #if canImport(LocalAuthentication)
         query[kSecUseAuthenticationContext as String] = self.context
         #endif
         return query
