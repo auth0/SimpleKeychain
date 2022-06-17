@@ -4,6 +4,9 @@ import Security
 import LocalAuthentication
 #endif
 
+typealias StoreFunction = (_ attributes: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
+typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
+
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
 /// Supports sharing items with an **Access Group** and integrating **Touch ID / Face ID** through a `LAContext` instance.
 public struct SimpleKeychain {
@@ -11,6 +14,9 @@ public struct SimpleKeychain {
     let accessGroup: String?
     let accessibility: Accessibility
     let accessControlFlags: SecAccessControlCreateFlags?
+
+    var store: StoreFunction = SecItemAdd
+    var retrieve: RetrieveFunction = SecItemCopyMatching
 
     #if canImport(LocalAuthentication)
     let context: LAContext
@@ -97,7 +103,7 @@ public extension SimpleKeychain {
     func data(forKey key: String) throws -> Data {
         let query = self.getOneQuery(byKey: key)
         var result: AnyObject?
-        try assertSuccess(forStatus: SecItemCopyMatching(query as CFDictionary, &result))
+        try assertSuccess(forStatus: retrieve(query as CFDictionary, &result))
 
         guard let data = result as? Data else {
             let message = "Unable to cast the retrieved item to a Data value"
@@ -121,12 +127,7 @@ public extension SimpleKeychain {
     /// - Parameter key: Key for the Keychain item.
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func set(_ string: String, forKey key: String) throws {
-        guard let data = string.data(using: .utf8) else {
-            let message = "Unable to encode the string into a Data value"
-            throw SimpleKeychainError(code: SimpleKeychainError.Code.unknown(message: message))
-        }
-
-        return try self.set(data, forKey: key)
+        return try self.set(Data(string.utf8), forKey: key)
     }
 
     /// Saves a `Data` value with the type `kSecClassGenericPassword` in the Keychain.
@@ -140,9 +141,9 @@ public extension SimpleKeychain {
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func set(_ data: Data, forKey key: String) throws {
         let addItemQuery = self.setQuery(forKey: key, value: data)
-        let addStatus = SecItemAdd(addItemQuery as CFDictionary, nil)
+        let addStatus = store(addItemQuery as CFDictionary, nil)
 
-        if addStatus == errSecDuplicateItem {
+        if addStatus == SimpleKeychainError.duplicateItem.status {
             let updateQuery = self.baseQuery(withKey: key)
             let updateAttributes = self.attributes(withData: data)
             let updateStatus = SecItemUpdate(updateQuery as CFDictionary, updateAttributes as CFDictionary)
@@ -201,8 +202,8 @@ public extension SimpleKeychain {
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func hasItem(forKey key: String) throws -> Bool {
         let query = self.baseQuery(withKey: key)
-        let status = SecItemCopyMatching(query as CFDictionary, nil)
-        if status == errSecItemNotFound {
+        let status = retrieve(query as CFDictionary, nil)
+        if status == SimpleKeychainError.itemNotFound.status {
             return false
         }
         try assertSuccess(forStatus: status)
@@ -221,7 +222,7 @@ public extension SimpleKeychain {
         let query = self.getAllQuery
         var keys: [String] = []
         var result: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        let status = retrieve(query as CFDictionary, &result)
         guard SimpleKeychainError.Code(rawValue: status) != SimpleKeychainError.Code.itemNotFound else { return keys }
         try assertSuccess(forStatus: status)
 

@@ -23,17 +23,6 @@ public enum Accessibility: RawRepresentable {
     /// See [kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly](https://developer.apple.com/documentation/security/ksecattraccessiblewhenpasscodesetthisdeviceonly).
     case whenPasscodeSetThisDeviceOnly
 
-    /// The `kSecAttrAccessible` value of a given accessibility type.
-    public var rawValue: CFString {
-        switch self {
-        case .whenUnlocked: return kSecAttrAccessibleWhenUnlocked
-        case .whenUnlockedThisDeviceOnly: return kSecAttrAccessibleWhenUnlockedThisDeviceOnly
-        case .afterFirstUnlock: return kSecAttrAccessibleAfterFirstUnlock
-        case .afterFirstUnlockThisDeviceOnly: return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
-        case .whenPasscodeSetThisDeviceOnly: return kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
-        }
-    }
-
     /// Maps a `kSecAttrAccessible` value to an accessibility type.
     public init(rawValue: CFString) {
         switch rawValue {
@@ -43,6 +32,17 @@ public enum Accessibility: RawRepresentable {
         case kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly: self = .afterFirstUnlockThisDeviceOnly
         case kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly: self = .whenPasscodeSetThisDeviceOnly
         default: self = .afterFirstUnlock
+        }
+    }
+
+    /// The `kSecAttrAccessible` value of a given accessibility type.
+    public var rawValue: CFString {
+        switch self {
+        case .whenUnlocked: return kSecAttrAccessibleWhenUnlocked
+        case .whenUnlockedThisDeviceOnly: return kSecAttrAccessibleWhenUnlockedThisDeviceOnly
+        case .afterFirstUnlock: return kSecAttrAccessibleAfterFirstUnlock
+        case .afterFirstUnlockThisDeviceOnly: return kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
+        case .whenPasscodeSetThisDeviceOnly: return kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly
         }
     }
 }

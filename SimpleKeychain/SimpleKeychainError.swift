@@ -42,7 +42,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             case .interactionNotAllowed: return errSecInteractionNotAllowed
             case .decodeFailed: return errSecDecode
             case let .other(status): return status
-            case .unknown: return errSecSuccess
+            case .unknown: return errSecSuccess // This is not a Keychain error
             }
         }
     }
