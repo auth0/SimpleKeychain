@@ -6,7 +6,6 @@ import SimpleKeychain
 class AccessibilitySpec: QuickSpec {
     override func spec() {
         describe("raw representable") {
-            
             context("from raw value to case") {
                 it("should map kSecAttrAccessibleWhenUnlocked") {
                     let sut = Accessibility(rawValue: kSecAttrAccessibleWhenUnlocked)
