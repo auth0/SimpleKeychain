@@ -1,3 +1,5 @@
+
+import Foundation
 import Security
 import Nimble
 import Quick
