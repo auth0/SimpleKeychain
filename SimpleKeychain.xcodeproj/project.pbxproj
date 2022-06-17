@@ -43,6 +43,9 @@
 		5CE9CA1C26FD4316005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CE9CA1D26FD4316005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CE9CA2126FD43F5005A75FA /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */; };
+		5CEB577B285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
+		5CEB577C285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
+		5CEB577D285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
 		5F4D27851BCE99E7003C27B3 /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
 		5F4D279F1BCEA6CE003C27B3 /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
 		5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */; };
@@ -154,6 +157,7 @@
 		5CDF40592852D88C003840E6 /* SimpleKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychain.swift; sourceTree = "<group>"; };
 		5CE9CA1026FD42B0005A75FA /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = SOURCE_ROOT; };
 		5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = SOURCE_ROOT; };
+		5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySpec.swift; sourceTree = "<group>"; };
 		5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleKeychainSpec.swift; sourceTree = "<group>"; };
 		5F4D277B1BCE99DF003C27B3 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4D278F1BCEA69E003C27B3 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +344,7 @@
 				5FEEB9AC1B7BD70B00501415 /* Supporting Files */,
 				5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */,
 				5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */,
+				5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */,
 			);
 			path = SimpleKeychainTests;
 			sourceTree = "<group>";
@@ -789,6 +794,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B0D47641EA63CD1009FF1BF /* SimpleKeychainSpec.swift in Sources */,
+				5CEB577D285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */,
 				5C737B36285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -827,6 +833,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4D27851BCE99E7003C27B3 /* SimpleKeychainSpec.swift in Sources */,
+				5CEB577B285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */,
 				5C737B34285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -836,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4D279F1BCEA6CE003C27B3 /* SimpleKeychainSpec.swift in Sources */,
+				5CEB577C285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */,
 				5C737B35285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
