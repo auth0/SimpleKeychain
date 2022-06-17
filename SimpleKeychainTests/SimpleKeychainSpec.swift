@@ -81,7 +81,7 @@ class SimpleKeychainSpec: QuickSpec {
                         sut = SimpleKeychain(service: KeychainService, accessControlFlags: .privateKeyUsage)
                         sut.store = { query, _ in
                             let key = kSecAttrAccessControl as String
-                            accessControl = (query as NSDictionary).value(forKey: key) as? AnyObject
+                            accessControl = (query as NSDictionary).value(forKey: key) as AnyObject
                             return errSecSuccess
                         }
                         try sut.set("value", forKey: key)
@@ -109,7 +109,7 @@ class SimpleKeychainSpec: QuickSpec {
                         var accessControl: AnyObject?
                         sut = SimpleKeychain(service: KeychainService, accessControlFlags: .privateKeyUsage)
                         sut.store = { query, _ in
-                            accessControl = (query as NSDictionary).value(forKey: key) as? AnyObject
+                            accessControl = (query as NSDictionary).value(forKey: key) as AnyObject
                             return errSecSuccess
                         }
                         try sut.set(Data(), forKey: key)
