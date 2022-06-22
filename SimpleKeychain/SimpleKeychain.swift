@@ -30,7 +30,7 @@ public struct SimpleKeychain {
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.
     ///   When set, `kSecAttrAccessControl` will be used instead of `kSecAttrAccessible`.  Defaults to `nil`.
     /// - Parameter context: `LAContext` used to access Keychain items. Defaults to a new `LAContext` instance.
-    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud or not. Defaults to `false`.
+    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
     /// - Returns: A ``SimpleKeychain`` instance.
     public init(service: String = Bundle.main.bundleIdentifier!,
                 accessGroup: String? = nil,
@@ -53,7 +53,7 @@ public struct SimpleKeychain {
     /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.
     ///   When set, `kSecAttrAccessControl` will be used instead of `kSecAttrAccessible`.  Defaults to `nil`.
-    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud or not. Defaults to `false`.
+    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
     /// - Returns: A ``SimpleKeychain`` instance.
     public init(service: String = Bundle.main.bundleIdentifier!,
                 accessGroup: String? = nil,
