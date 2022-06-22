@@ -14,6 +14,7 @@ public struct SimpleKeychain {
     let accessGroup: String?
     let accessibility: Accessibility
     let accessControlFlags: SecAccessControlCreateFlags?
+    let isSynchronizable: Bool
 
     var store: StoreFunction = SecItemAdd
     var retrieve: RetrieveFunction = SecItemCopyMatching
@@ -29,17 +30,20 @@ public struct SimpleKeychain {
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.
     ///   When set, `kSecAttrAccessControl` will be used instead of `kSecAttrAccessible`.  Defaults to `nil`.
     /// - Parameter context: `LAContext` used to access Keychain items. Defaults to a new `LAContext` instance.
+    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud or not. Defaults to `false`.
     /// - Returns: A ``SimpleKeychain`` instance.
     public init(service: String = Bundle.main.bundleIdentifier!,
                 accessGroup: String? = nil,
                 accessibility: Accessibility = .afterFirstUnlock,
                 accessControlFlags: SecAccessControlCreateFlags? = nil,
-                context: LAContext = LAContext()) {
+                context: LAContext = LAContext(),
+                synchronizable: Bool = false) {
         self.service = service
         self.accessGroup = accessGroup
         self.accessibility = accessibility
         self.accessControlFlags = accessControlFlags
         self.context = context
+        self.isSynchronizable = synchronizable
     }
     #else
     /// Initializes a ``SimpleKeychain`` instance.
@@ -49,15 +53,18 @@ public struct SimpleKeychain {
     /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.
     ///   When set, `kSecAttrAccessControl` will be used instead of `kSecAttrAccessible`.  Defaults to `nil`.
+    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud or not. Defaults to `false`.
     /// - Returns: A ``SimpleKeychain`` instance.
     public init(service: String = Bundle.main.bundleIdentifier!,
                 accessGroup: String? = nil,
                 accessibility: Accessibility = .afterFirstUnlock,
-                accessControlFlags: SecAccessControlCreateFlags? = nil) {
+                accessControlFlags: SecAccessControlCreateFlags? = nil,
+                synchronizable: Bool = false) {
         self.service = service
         self.accessGroup = accessGroup
         self.accessibility = accessibility
         self.accessControlFlags = accessControlFlags
+        self.isSynchronizable = synchronizable
     }
     #endif
 
@@ -257,6 +264,9 @@ extension SimpleKeychain {
         }
         if let data = data {
             query[kSecValueData as String] = data
+        }
+        if isSynchronizable {
+            query[kSecAttrSynchronizable as String] = kCFBooleanTrue
         }
         #if canImport(LocalAuthentication)
         query[kSecUseAuthenticationContext as String] = self.context
