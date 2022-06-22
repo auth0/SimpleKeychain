@@ -41,3 +41,6 @@ fastlane/screenshots/
 .swiftpm/
 .build/
 Package.resolved
+
+# DocC
+docs.archive/

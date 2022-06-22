@@ -36,6 +36,11 @@ Runs all the tests in a CI environment
 fastlane ios release
 ```
 Tags the release and pushes the Podspec to CocoaPods
+### ios build_docs
+```
+fastlane ios build_docs
+```
+Generate API documentation
 
 ----
 
