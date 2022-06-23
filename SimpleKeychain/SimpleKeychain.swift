@@ -147,7 +147,7 @@ public extension SimpleKeychain {
     /// - Parameter key: Key for the Keychain item.
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func set(_ data: Data, forKey key: String) throws {
-        let addItemQuery = self.setQuery(forKey: key, value: data)
+        let addItemQuery = self.setQuery(forKey: key, data: data)
         let addStatus = store(addItemQuery as CFDictionary, nil)
 
         if addStatus == SimpleKeychainError.duplicateItem.status {
@@ -265,7 +265,7 @@ extension SimpleKeychain {
         if let data = data {
             query[kSecValueData as String] = data
         }
-        if isSynchronizable {
+        if self.isSynchronizable {
             query[kSecAttrSynchronizable as String] = kCFBooleanTrue
         }
         #if canImport(LocalAuthentication)
@@ -288,8 +288,8 @@ extension SimpleKeychain {
         return query
     }
 
-    func setQuery(forKey key: String, value: Data) -> [String: Any] {
-        var query = self.baseQuery(withKey: key, data: value)
+    func setQuery(forKey key: String, data: Data) -> [String: Any] {
+        var query = self.baseQuery(withKey: key, data: data)
 
         if let flags = self.accessControlFlags,
            let access = SecAccessControlCreateWithFlags(kCFAllocatorDefault, self.accessibility.rawValue, flags, nil) {
