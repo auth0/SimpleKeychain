@@ -59,72 +59,12 @@ class SimpleKeychainSpec: QuickSpec {
 
                 context("string items") {
                     it("should store a string item under a new key") {
-                        expect(try sut.set("value", forKey: key)).toNot(throwError())
+                        expect(try sut.set("foo", forKey: key)).toNot(throwError())
                     }
 
                     it("should store a string item under an existing key") {
-                        try sut.set("value1", forKey: key)
-                        expect(try sut.set("value2", forKey: key)).toNot(throwError())
-                    }
-
-                    it("should store a string item with the default accessibility value") {
-                        var accessible: String?
-                        sut = SimpleKeychain(service: KeychainService)
-                        sut.store = { query, _ in
-                            let key = kSecAttrAccessible as String
-                            accessible = (query as NSDictionary).value(forKey: key) as? String
-                            return errSecSuccess
-                        }
-                        try sut.set("value", forKey: key)
-                        expect(accessible).toEventually(equal(kSecAttrAccessibleAfterFirstUnlock as String))
-                    }
-
-                    it("should store a string item with a custom accessibility value") {
-                        var accessible: String?
-                        sut = SimpleKeychain(service: KeychainService, accessibility: .whenUnlocked)
-                        sut.store = { query, _ in
-                            let key = kSecAttrAccessible as String
-                            accessible = (query as NSDictionary).value(forKey: key) as? String
-                            return errSecSuccess
-                        }
-                        try sut.set("value", forKey: key)
-                        expect(accessible).toEventually(equal(kSecAttrAccessibleWhenUnlocked as String))
-                    }
-
-                    it("should store a string item with access control") {
-                        var accessControl: AnyObject?
-                        sut = SimpleKeychain(service: KeychainService, accessControlFlags: .privateKeyUsage)
-                        sut.store = { query, _ in
-                            let key = kSecAttrAccessControl as String
-                            accessControl = (query as NSDictionary).value(forKey: key) as AnyObject
-                            return errSecSuccess
-                        }
-                        try sut.set("value", forKey: key)
-                        expect(accessControl).toEventuallyNot(beNil())
-                    }
-
-                    it("should store a non-synchronizable string item by default") {
-                        var synchronizable: Bool? = false
-                        sut = SimpleKeychain(service: KeychainService)
-                        sut.store = { query, _ in
-                            let key = kSecAttrSynchronizable as String
-                            synchronizable = (query as NSDictionary).value(forKey: key) as? Bool
-                            return errSecSuccess
-                        }
-                        try sut.set("value", forKey: key)
-                        expect(synchronizable).toEventually(beNil())
-                    }
-
-                    it("should store a synchronizable string item") {
-                        var synchronizable: Bool?
-                        sut = SimpleKeychain(service: KeychainService, synchronizable: true)
-                        sut.store = { query, _ in
-                            let key = kSecAttrSynchronizable as String
-                            synchronizable = (query as NSDictionary).value(forKey: key) as? Bool
-                            return errSecSuccess
-                        }
-                        try sut.set("value", forKey: key)
-                        expect(synchronizable).toEventually(equal(true))
+                        try sut.set("foo", forKey: key)
+                        expect(try sut.set("bar", forKey: key)).toNot(throwError())
                     }
                 }
 
@@ -137,59 +77,6 @@ class SimpleKeychainSpec: QuickSpec {
                         try sut.set( Data(), forKey: key)
                         expect(try sut.set(Data(), forKey: key)).toNot(throwError())
                     }
-
-                    it("should store a data item with the default accessibility value") {
-                        var accessible: String?
-                        sut = SimpleKeychain(service: KeychainService)
-                        sut.store = { query, _ in
-                            let key = kSecAttrAccessible as String
-                            accessible = (query as NSDictionary).value(forKey: key) as? String
-                            return errSecSuccess
-                        }
-                        try sut.set(Data(), forKey: key)
-                        expect(accessible).toEventually(equal(kSecAttrAccessibleAfterFirstUnlock as String))
-                    }
-
-                    it("should store a string item with a custom accessibility value") {
-                        sut = SimpleKeychain(service: KeychainService, accessibility: .whenUnlocked)
-                        expect(try sut.set(Data(), forKey: key)).toNot(throwError())
-                    }
-
-                    it("should store a data item with access control") {
-                        let key = kSecAttrAccessControl as String
-                        var accessControl: AnyObject?
-                        sut = SimpleKeychain(service: KeychainService, accessControlFlags: .privateKeyUsage)
-                        sut.store = { query, _ in
-                            accessControl = (query as NSDictionary).value(forKey: key) as AnyObject
-                            return errSecSuccess
-                        }
-                        try sut.set(Data(), forKey: key)
-                        expect(accessControl).toEventuallyNot(beNil())
-                    }
-
-                    it("should store a non-synchronizable data item by default") {
-                        var synchronizable: Bool? = false
-                        sut = SimpleKeychain(service: KeychainService)
-                        sut.store = { query, _ in
-                            let key = kSecAttrSynchronizable as String
-                            synchronizable = (query as NSDictionary).value(forKey: key) as? Bool
-                            return errSecSuccess
-                        }
-                        try sut.set(Data(), forKey: key)
-                        expect(synchronizable).toEventually(beNil())
-                    }
-
-                    it("should store a synchronizable data item") {
-                        var synchronizable: Bool?
-                        sut = SimpleKeychain(service: KeychainService, synchronizable: true)
-                        sut.store = { query, _ in
-                            let key = kSecAttrSynchronizable as String
-                            synchronizable = (query as NSDictionary).value(forKey: key) as? Bool
-                            return errSecSuccess
-                        }
-                        try sut.set(Data(), forKey: key)
-                        expect(synchronizable).toEventually(equal(true))
-                    }
                 }
             }
 
@@ -199,7 +86,7 @@ class SimpleKeychainSpec: QuickSpec {
                 beforeEach {
                     sut = SimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
-                    try! sut.set("value1", forKey: key)
+                    try! sut.set("foo", forKey: key)
                 }
 
                 it("should delete item") {
@@ -222,11 +109,11 @@ class SimpleKeychainSpec: QuickSpec {
                 beforeEach {
                     sut = SimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
-                    try! sut.set("value1", forKey: key)
+                    try! sut.set("foo", forKey: key)
                 }
 
                 it("should retrieve string item") {
-                    expect(try sut.string(forKey: key)) == "value1"
+                    expect(try sut.string(forKey: key)) == "foo"
                 }
 
                 it("should retrieve data item") {
@@ -270,7 +157,7 @@ class SimpleKeychainSpec: QuickSpec {
                 beforeEach {
                     sut = SimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
-                    try! sut.set("value1", forKey: key)
+                    try! sut.set("foo", forKey: key)
                 }
 
                 it("should return true when the item is stored") {
@@ -292,7 +179,7 @@ class SimpleKeychainSpec: QuickSpec {
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
                     for (i, key) in keys.enumerated() {
-                        try! sut.set("value\(i)", forKey: key)
+                        try! sut.set("foo\(i)", forKey: key)
                     }
                 }
 
@@ -323,6 +210,122 @@ class SimpleKeychainSpec: QuickSpec {
                     expect(try sut.keys()).to(throwError(expectedError))
                 }
             }
+
+            describe("queries") {
+                beforeEach {
+                    sut = SimpleKeychain(service: KeychainService)
+                }
+
+                context("base query") {
+                    it("should should contain default attribute") {
+                        let query = sut.baseQuery()
+                        expect((query[kSecClass as String] as? String)) == kSecClassGenericPassword as String
+                        expect((query[kSecAttrService as String] as? String)) == sut.service
+                        #if canImport(LocalAuthentication)
+                        expect((query[kSecUseAuthenticationContext as String] as? LAContext)) == sut.context
+                        #endif
+                        expect((query[kSecAttrAccount as String] as? String)).to(beNil())
+                        expect((query[kSecValueData as String] as? Data)).to(beNil())
+                        expect((query[kSecAttrAccessGroup as String] as? String)).to(beNil())
+                        expect((query[kSecAttrSynchronizable as String] as? Bool)).to(beNil())
+                    }
+
+                    it("should include account attribute") {
+                        let key = "foo"
+                        let query = sut.baseQuery(withKey: key)
+                        expect((query[kSecAttrAccount as String] as? String)) == key
+                    }
+
+                    it("should include data attribute") {
+                        let data = Data()
+                        let query = sut.baseQuery(data: data)
+                        expect((query[kSecValueData as String] as? Data)) == data
+                    }
+
+                    it("should include access group attribute") {
+                        sut = SimpleKeychain(service: KeychainService, accessGroup: "foo")
+                        let query = sut.baseQuery()
+                        expect((query[kSecAttrAccessGroup as String] as? String)) == sut.accessGroup
+                    }
+
+                    it("should include synchronizable attribute") {
+                        sut = SimpleKeychain(service: KeychainService, synchronizable: true)
+                        let query = sut.baseQuery()
+                        expect((query[kSecAttrSynchronizable as String] as? Bool)) == sut.isSynchronizable
+                    }
+                }
+
+                context("get all query") {
+                    it("should should contain the base query") {
+                        expect(sut.getAllQuery).to(containBaseQuery(sut.baseQuery()))
+                    }
+
+                    it("should contain return attribute") {
+                        let query = sut.getAllQuery
+                        expect((query[kSecReturnAttributes as String] as? Bool)) == true
+                    }
+
+                    it("should contain limit attribute") {
+                        let query = sut.getAllQuery
+                        expect((query[kSecMatchLimit as String] as? String)) == kSecMatchLimitAll as String
+                    }
+                }
+
+                context("get one query") {
+                    it("should should contain the base query") {
+                        let key = "foo"
+                        expect(sut.getOneQuery(byKey: key)).to(containBaseQuery(sut.baseQuery(withKey: key)))
+                    }
+
+                    it("should contain data attribute") {
+                        let query = sut.getOneQuery(byKey: "foo")
+                        expect((query[kSecReturnData as String] as? Bool)) == true
+                    }
+
+                    it("should contain limit attribute") {
+                        let query = sut.getOneQuery(byKey: "foo")
+                        expect((query[kSecMatchLimit as String] as? String)) == kSecMatchLimitOne as String
+                    }
+                }
+
+                context("set query") {
+                    it("should should contain the base query") {
+                        let key = "foo"
+                        let data = Data()
+                        let query = sut.setQuery(forKey: key, data: data)
+                        let baseQuery = sut.baseQuery(withKey: key, data: data)
+                        expect(query).to(containBaseQuery(baseQuery))
+                    }
+
+                    it("should include access control attribute") {
+                        sut = SimpleKeychain(service: KeychainService, accessControlFlags: .userPresence)
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        expect(query[kSecAttrAccessControl as String]).toNot(beNil())
+                    }
+
+                    it("should include accessibility attribute") {
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        let expectedAccessibility = sut.accessibility.rawValue as String
+                        expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
+                    }
+                }
+            }
         }
     }
+}
+
+public func containBaseQuery(_ baseQuery: [String: Any]) -> Predicate<[String: Any]> {
+    return Predicate<[String: Any]>.define("contain base query <\(baseQuery)>") { expression, failureMessage in
+        guard let actual = try expression.evaluate() else {
+            return PredicateResult(status: .doesNotMatch, message: failureMessage)
+        }
+        let filtered = actual.filter { element in
+            return baseQuery.keys.contains(element.key)
+        }
+        return PredicateResult(bool: filtered == baseQuery, message: failureMessage)
+    }
+}
+
+public func ==(lhs: [String: Any], rhs: [String: Any]) -> Bool {
+    return NSDictionary(dictionary: lhs).isEqual(to: rhs)
 }
