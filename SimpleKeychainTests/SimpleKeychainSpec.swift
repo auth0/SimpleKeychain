@@ -217,7 +217,7 @@ class SimpleKeychainSpec: QuickSpec {
                 }
 
                 context("base query") {
-                    it("should should contain default attribute") {
+                    it("should should contain default attributes") {
                         let query = sut.baseQuery()
                         expect((query[kSecClass as String] as? String)) == kSecClassGenericPassword as String
                         expect((query[kSecAttrService as String] as? String)) == sut.service
@@ -315,7 +315,7 @@ class SimpleKeychainSpec: QuickSpec {
 }
 
 public func containBaseQuery(_ baseQuery: [String: Any]) -> Predicate<[String: Any]> {
-    return Predicate<[String: Any]>.define("contain base query <\(baseQuery)>") { expression, failureMessage in
+    return Predicate<[String: Any]>.define("contains base query <\(baseQuery)>") { expression, failureMessage in
         guard let actual = try expression.evaluate() else {
             return PredicateResult(status: .doesNotMatch, message: failureMessage)
         }
