@@ -5,7 +5,7 @@
 ![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)
 ![License](https://img.shields.io/github/license/Auth0/SimpleKeychain.svg?style=flat)
 
-Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** and integrating **Touch ID / Face ID** through a `LAContext` instance.
+Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** or through **iCloud**, and integrating **Touch ID / Face ID**.
 
 > ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
@@ -21,12 +21,19 @@ Easily store your user's credentials in the Keychain. Supports sharing credentia
   + [Cocoapods](#cocoapods)
   + [Carthage](#carthage)
 - [**Usage**](#usage)
-  + [Save an entry](#save-an-entry)
-  + [Retrieve an entry](#retrieve-an-entry)
-  + [Remove an entry](#remove-an-entry)
-  + [Remove all entries](#remove-all-entries)
-  + [Require Touch ID / Face ID to retrieve an entry](#require-touch-id--face-id-to-retrieve-an-entry)
-  + [Share entries with other apps and extensions using an Access Group](#share-entries-with-other-apps-and-extensions-using-an-access-group)
+  + [Store a string or data item](#store-a-string-or-data-item)
+  + [Check if an item is stored](#check-if-an-item-is-stored)
+  + [Retrieve a string item](#retrieve-a-string-item)
+  + [Retrieve a data item](#retrieve-a-data-item)
+  + [Retrieve the keys of all stored items](#retrieve-the-keys-of-all-stored-items)
+  + [Remove an item](#remove-an-item)
+  + [Remove all items](#remove-all-items)
+  + [Error handling](#error-handling)
+- [**Configuration**](#configuration)
+  + [Share items with other apps and extensions using an Access Group](#share-items-with-other-apps-and-extensions-using-an-access-group)
+  + [Share items with other devices through iCloud synchronization](#share-items-with-other-devices-through-icloud-synchronization)
+  + [Restrict item accessibility based on device state](#restrict-item-accessibility-based-on-device-state)
+  + [Require Touch ID / Face ID to retrieve an item](#require-touch-id--face-id-to-retrieve-an-item)
 - [**Support Policy**](#support-policy)
 - [**Issue Reporting**](#issue-reporting)
 - [**What is Auth0?**](#what-is-auth0)
@@ -84,61 +91,114 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 ## Usage
 
-```swift
-let keychain = A0SimpleKeychain()
-```
-
-### Save an entry
+**See all the available features in the [API documentation ↗](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/)**
 
 ```swift
-keychain.setString(accessToken, forKey: "auth0-access-token")
+let simpleKeychain = SimpleKeychain()
 ```
 
-### Retrieve an entry
+You can specify a service name under which to save items. By default the bundle identifier of your app is used.
 
 ```swift
-let accessToken = keychain.string(forKey: "auth0-access-token")
+let simpleKeychain = SimpleKeychain(service: "Auth0")
 ```
 
-### Remove an entry
+### Store a string or data item
 
 ```swift
-keychain.deleteEntry(forKey: "auth0-access-token")
+try simpleKeychain.set(accessToken, forKey: "auth0-access-token")
 ```
 
-### Remove all entries
-
-This is useful for testing.
+### Check if an item is stored
 
 ```swift
-keychain.clearAll()
+let isStored = try simpleKeychain.hasItem(forKey: "auth0-access-token")
 ```
 
-### Require Touch ID / Face ID to retrieve an entry
-
-First, configure the SimpleKeychain instance to use Face ID / Touch ID.
+### Retrieve a string item
 
 ```swift
-keychain.useAccessControl = true
-keychain.defaultAccessiblity = .whenPasscodeSetThisDeviceOnly
-keychain.setTouchIDAuthenticationAllowableReuseDuration(5.0)
+let accessToken = try simpleKeychain.string(forKey: "auth0-access-token")
 ```
 
-When retrieving an entry, specify a prompt message for Face ID / Touch ID.
+### Retrieve a data item
 
 ```swift
-let message = NSLocalizedString("Please enter your passcode or fingerprint to login with Awesome App!", comment: "Prompt message")
-let accessToken = keychain.string(forKey: "auth0-access-token", promptMessage: message)
+let accessToken = try simpleKeychain.data(forKey: "auth0-credentials")
 ```
 
-### Share entries with other apps and extensions using an Access Group
+### Retrieve the keys of all stored items
+
+```swift
+let keys = try simpleKeychain.keys()
+```
+
+### Remove an item
+
+```swift
+try simpleKeychain.deleteItem(forKey: "auth0-access-token")
+```
+
+### Remove all items
+
+```swift
+try simpleKeychain.deleteAll()
+```
+
+### Error handling
+
+All methods will throw a `SimpleKeychainError` upon failure.
+
+```swift
+catch let error as SimpleKeychainError {
+    print(error)
+}
+```
+
+## Configuration
+
+### Share items with other apps and extensions using an Access Group
 
 When creating the SimpleKeychain instance, specify the Access Group that the app may share entries with.
 
 ```swift
-let keychain = A0SimpleKeychain(service: "Auth0", accessGroup: "ABCDEFGH.com.example.myaccessgroup")
-keychain.setString(accessToken, forKey: "auth0-access-token")
+let simpleKeychain = SimpleKeychain(accessGroup: "ABCDEFGH.com.example.myaccessgroup")
 ```
+
+> 💡 For more information on Access Group sharing, see [Sharing Access to Keychain Items Among a Collection of Apps](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
+
+### Share items with other devices through iCloud synchronization
+
+When creating the SimpleKeychain instance, set `synchronizable` to `true` to enable iCloud synchronization.
+
+```swift
+let simpleKeychain = SimpleKeychain(sychronizable: true)
+```
+
+> 💡 For more information on iCloud synchronization, check the [kSecAttrSynchronizable documentation](https://developer.apple.com/documentation/security/ksecattrsynchronizable).
+
+### Restrict item accessibility based on device state
+
+When creating the SimpleKeychain instance, specify a custom accesibility value to be used. The default value is `.afterFirstUnlock`.
+
+```swift
+let simpleKeychain = SimpleKeychain(accessibility: .whenUnlocked)
+```
+
+> 💡 For more information on accessibility, see [Restricting Keychain Item Accessibility](https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility).
+
+### Require Touch ID / Face ID to retrieve an item
+
+When creating the SimpleKeychain instance, specify the access control flags to be used. You can also include an `LAContext` instance with your Touch ID / Face ID configuration.
+
+```swift
+let context = LAContext()
+context.touchIDAuthenticationAllowableReuseDuration = 10
+let simpleKeychain = SimpleKeychain(accessControlFlags: .biometryCurrentSet,
+                                    context: context)
+```
+
+> 💡 For more information on access control, see [Restricting Keychain Item Accessibility](https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility).
 
 ## Support Policy
 

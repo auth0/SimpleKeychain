@@ -51,15 +51,59 @@ The deployment targets for each platform were raised to:
 
 ### SimpleKeychain Struct
 
-- The property `defaultAccessiblity` was removed in favor of the new `accessibility` initalizer parameter.
+#### `defaultAccessiblity`
 
-<!-- BEFORE/AFTER -->
+The property `defaultAccessiblity` was removed in favor of the new `accessibility` initalizer parameter.
 
-- The property `useAccessControl` was removed in favor of the new `accessControlFlags` initializer parameter.
+<details>
+  <summary>Before / After</summary>
 
-<!-- BEFORE/AFTER -->
+```swift
+// Before
+let simpleKeychain = A0SimpleKeychain()
+simpleKeychain.defaultAccessiblity = .whenPasscodeSetThisDeviceOnly
 
-- The property `localAuthenticationContext` was removed in favor of the new `context` initializer parameter.
+// After
+let simpleKeychain = SimpleKeychain(accessibility: .whenPasscodeSetThisDeviceOnly)
+```
+</details>
+
+#### `useAccessControl`
+
+The property `useAccessControl` was removed in favor of the new `accessControlFlags` initializer parameter.
+
+<details>
+  <summary>Before / After</summary>
+
+```swift
+// Before
+let simpleKeychain = A0SimpleKeychain()
+simpleKeychain.useAccessControl = true
+
+// After
+let simpleKeychain = SimpleKeychain(accessControlFlags: .userPresence)
+```
+</details>
+
+#### `localAuthenticationContext`
+
+The property `localAuthenticationContext` was removed in favor of the new `context` initializer parameter. This means that SimpleKeychain will no longer create an `LAContext` instance, and instead one must be provided through the initializer.
+
+<details>
+  <summary>Before / After</summary>
+
+```swift
+// Before
+let simpleKeychain = A0SimpleKeychain()
+let context = simpleKeychain.localAuthenticationContext
+
+// After
+let context = LAContext()
+let simpleKeychain = SimpleKeychain(context: context)
+```
+</details>
+
+#### No longer public
 
 The following properties are no longer public:
 
@@ -70,9 +114,26 @@ The following properties are no longer public:
 
 ### SimpleKeychain Struct
 
-The `setTouchIDAuthenticationAllowableReuseDuration(_:)` method was removed. Configure that in a custom `LAContext` instance instead.
+#### `setTouchIDAuthenticationAllowableReuseDuration(_:)`
 
-<!-- BEFORE/AFTER -->
+The `setTouchIDAuthenticationAllowableReuseDuration(_:)` method was removed. Configure that through an `LAContext` instance instead.
+
+<details>
+  <summary>Before / After</summary>
+
+```swift
+// Before
+let simpleKeychain = A0SimpleKeychain()
+simpleKeychain.setTouchIDAuthenticationAllowableReuseDuration(10)
+
+// After
+let context = LAContext()
+context.touchIDAuthenticationAllowableReuseDuration = 10
+let simpleKeychain = SimpleKeychain(context: context)
+```
+</details>
+
+#### No replacement
 
 The following methods were removed and have no replacement:
 
@@ -83,8 +144,6 @@ The following methods were removed and have no replacement:
 - `deleteRSAKey(withTag:)`
 - `hasRSAKey(withTag:)`
 
-<!-- BEFORE/AFTER -->
-
 ## Types Changed
 
 `A0SimpleKeychain` was renamed to `SimpleKeychain`, and was changed from class to struct.
@@ -93,7 +152,7 @@ The following methods were removed and have no replacement:
 
 ### SimpleKeychain Struct
 
-All the methods now **throw** a `SimpleKeychainError` when the operation fails.
+All the methods now **throw** a `SimpleKeychainError` upon failure.
 
 #### Methods renamed
 
@@ -107,25 +166,25 @@ All the methods now **throw** a `SimpleKeychainError` when the operation fails.
 
 #### Parameters removed
 
+#### `promptMessage`
+
 The `promptMessage` parameter was removed from the following methods, as `kSecUseOperationPrompt` [is deprecated](https://developer.apple.com/documentation/security/ksecuseoperationprompt):
 
 - `string(forKey:)`
 - `data(forKey:)`
 - `set(_:forKey:)`
 
-Configure the message in a custom `LAContext` instance instead, using the `LAContext.localizedReason` property.
+Configure the message through an `LAContext` instance instead, using the `LAContext.localizedReason` property.
 
-<!-- BEFORE/AFTER -->
+#### `error`
 
 The `error` parameter was removed from the `data(forKey:)` method, as it now throws a `SimpleKeychainError`. 
-
-<!-- BEFORE/AFTER -->
 
 ## Behavior Changes
 
 ### SimpleKeychain Struct
 
-- `kSecUseAuthenticationUI` is no longer used. Configure if the user should be prompted for authentication in a custom `LAContext` instance instead, using the `LAContext.interactionNotAllowed` property.
+- `kSecUseAuthenticationUI` is no longer used. Configure whether the user should be prompted for authentication through an `LAContext` instance instead, using the `LAContext.interactionNotAllowed` property.
 - The `hasItem(forKey:)` method no longer retuns `false` whenever any error occurs. Now it only returns `false` when the error is `errSecItemNotFound`.
 
 ---
