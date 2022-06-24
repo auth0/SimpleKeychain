@@ -97,10 +97,36 @@ class SimpleKeychainSpec: QuickSpec {
                     expect(try sut.deleteItem(forKey: "SHOULDNOTEXIST")).to(throwError())
                 }
 
-                it("should clear all items") {
+                it("should delete all items") {
                     try sut.deleteAll()
                     expect(try sut.string(forKey: key)).to(throwError(SimpleKeychainError.itemNotFound))
                 }
+
+                #if os(macOS)
+                it("should include limit all attribute when deleting all items") {
+                    var limit: String?
+                    sut = SimpleKeychain(service: KeychainService)
+                    sut.delete = { query in
+                        let key = kSecMatchLimit as String
+                        limit = (query as NSDictionary).value(forKey: key) as? String
+                        return errSecSuccess
+                    }
+                    try sut.deleteAll()
+                    expect(limit).toEventually(equal(kSecMatchLimitAll as String))
+                }
+                #else
+                it("should not include limit all attribute when deleting all items") {
+                    var limit: String? = ""
+                    sut = SimpleKeychain(service: KeychainService)
+                    sut.remove = { query in
+                        let key = kSecMatchLimit as String
+                        limit = (query as NSDictionary).value(forKey: key) as? String
+                        return errSecSuccess
+                    }
+                    try sut.deleteAll()
+                    expect(limit).toEventually(beNil())
+                }
+                #endif
             }
 
             describe("retrieving items") {
@@ -221,13 +247,13 @@ class SimpleKeychainSpec: QuickSpec {
                         let query = sut.baseQuery()
                         expect((query[kSecClass as String] as? String)) == kSecClassGenericPassword as String
                         expect((query[kSecAttrService as String] as? String)) == sut.service
-                        #if canImport(LocalAuthentication)
-                        expect((query[kSecUseAuthenticationContext as String] as? LAContext)) == sut.context
-                        #endif
                         expect((query[kSecAttrAccount as String] as? String)).to(beNil())
                         expect((query[kSecValueData as String] as? Data)).to(beNil())
                         expect((query[kSecAttrAccessGroup as String] as? String)).to(beNil())
                         expect((query[kSecAttrSynchronizable as String] as? Bool)).to(beNil())
+                        #if canImport(LocalAuthentication)
+                        expect((query[kSecUseAuthenticationContext as String] as? LAContext)).to(beNil())
+                        #endif
                     }
 
                     it("should include account attribute") {
@@ -253,6 +279,14 @@ class SimpleKeychainSpec: QuickSpec {
                         let query = sut.baseQuery()
                         expect((query[kSecAttrSynchronizable as String] as? Bool)) == sut.isSynchronizable
                     }
+
+                    #if canImport(LocalAuthentication)
+                    it("should include context attribute") {
+                        sut = SimpleKeychain(service: KeychainService, context: LAContext())
+                        let query = sut.baseQuery()
+                        expect((query[kSecUseAuthenticationContext as String] as? LAContext)) == sut.context
+                    }
+                    #endif
                 }
 
                 context("get all query") {
@@ -303,11 +337,25 @@ class SimpleKeychainSpec: QuickSpec {
                         expect(query[kSecAttrAccessControl as String]).toNot(beNil())
                     }
 
+                    #if os(macOS)
+                    it("should include accessibility attribute when iCloud sharing is enabled") {
+                        sut = SimpleKeychain(service: KeychainService, synchronizable: true)
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        let expectedAccessibility = sut.accessibility.rawValue as String
+                        expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
+                    }
+
+                    it("should not include accessibility attribute when iCloud sharing is disabled") {
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        expect((query[kSecAttrAccessible as String] as? String)).to(beNil())
+                    }
+                    #else
                     it("should include accessibility attribute") {
                         let query = sut.setQuery(forKey: "foo", data: Data())
                         let expectedAccessibility = sut.accessibility.rawValue as String
                         expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
                     }
+                    #endif
                 }
             }
         }

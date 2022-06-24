@@ -4,11 +4,11 @@ import Security
 import LocalAuthentication
 #endif
 
-typealias StoreFunction = (_ attributes: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
 typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
+typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
 
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
-/// Supports sharing items with an **Access Group** and integrating **Touch ID / Face ID** through a `LAContext` instance.
+/// Supports sharing credentials with an **Access Group** or through **iCloud**, and integrating **Touch ID / Face ID**.
 public struct SimpleKeychain {
     let service: String
     let accessGroup: String?
@@ -16,15 +16,15 @@ public struct SimpleKeychain {
     let accessControlFlags: SecAccessControlCreateFlags?
     let isSynchronizable: Bool
 
-    var store: StoreFunction = SecItemAdd
     var retrieve: RetrieveFunction = SecItemCopyMatching
+    var remove: RemoveFunction = SecItemDelete
 
     #if canImport(LocalAuthentication)
-    let context: LAContext
+    let context: LAContext?
 
     /// Initializes a ``SimpleKeychain`` instance.
     ///
-    /// - Parameter service: Name of the service to save items under. Defaults to the bundle identifier.
+    /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
     /// - Parameter accessGroup: Access Group for sharing Keychain items. Defaults to `nil`.
     /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.
@@ -36,7 +36,7 @@ public struct SimpleKeychain {
                 accessGroup: String? = nil,
                 accessibility: Accessibility = .afterFirstUnlock,
                 accessControlFlags: SecAccessControlCreateFlags? = nil,
-                context: LAContext = LAContext(),
+                context: LAContext? = nil,
                 synchronizable: Bool = false) {
         self.service = service
         self.accessGroup = accessGroup
@@ -48,7 +48,7 @@ public struct SimpleKeychain {
     #else
     /// Initializes a ``SimpleKeychain`` instance.
     ///
-    /// - Parameter service: Name of the service to save items under. Defaults to the bundle identifier.
+    /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
     /// - Parameter accessGroup: Access Group for sharing Keychain items. Defaults to `nil`.
     /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.
@@ -148,7 +148,7 @@ public extension SimpleKeychain {
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func set(_ data: Data, forKey key: String) throws {
         let addItemQuery = self.setQuery(forKey: key, data: data)
-        let addStatus = store(addItemQuery as CFDictionary, nil)
+        let addStatus = SecItemAdd(addItemQuery as CFDictionary, nil)
 
         if addStatus == SimpleKeychainError.duplicateItem.status {
             let updateQuery = self.baseQuery(withKey: key)
@@ -174,7 +174,7 @@ public extension SimpleKeychain {
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func deleteItem(forKey key: String) throws {
         let query = self.baseQuery(withKey: key)
-        try assertSuccess(forStatus: SecItemDelete(query as CFDictionary))
+        try assertSuccess(forStatus: remove(query as CFDictionary))
     }
 
     /// Deletes all items from the Keychain for the service and access group values.
@@ -189,7 +189,7 @@ public extension SimpleKeychain {
         #if os(macOS)
         query[kSecMatchLimit as String] = kSecMatchLimitAll
         #endif
-        let status = SecItemDelete(query as CFDictionary)
+        let status = remove(query as CFDictionary)
         guard SimpleKeychainError.Code(rawValue: status) != SimpleKeychainError.Code.itemNotFound else { return }
         try assertSuccess(forStatus: status)
     }
@@ -269,7 +269,9 @@ extension SimpleKeychain {
             query[kSecAttrSynchronizable as String] = kCFBooleanTrue
         }
         #if canImport(LocalAuthentication)
-        query[kSecUseAuthenticationContext as String] = self.context
+        if let context = self.context {
+            query[kSecUseAuthenticationContext as String] = context
+        }
         #endif
         return query
     }
@@ -295,7 +297,13 @@ extension SimpleKeychain {
            let access = SecAccessControlCreateWithFlags(kCFAllocatorDefault, self.accessibility.rawValue, flags, nil) {
             query[kSecAttrAccessControl as String] = access
         } else {
+            #if os(macOS)
+            if self.isSynchronizable {
+                query[kSecAttrAccessible as String] = self.accessibility.rawValue
+            }
+            #else
             query[kSecAttrAccessible as String] = self.accessibility.rawValue
+            #endif
         }
 
         return query
