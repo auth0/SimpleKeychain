@@ -1,5 +1,11 @@
 # v1 Migration Guide
 
+SimpleKeychain v1 includes a few significant changes:
+
+- Improved error handling.
+- Support for custom attributes.
+- Support for sharing items with other devices through iCloud synchronization.
+
 As expected with a major release, SimpleKeychain v1 contains breaking changes. Please review this guide thorougly to understand the changes required to migrate your application to v1.
 
 ---

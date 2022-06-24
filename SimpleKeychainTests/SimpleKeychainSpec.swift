@@ -25,6 +25,7 @@ class SimpleKeychainSpec: QuickSpec {
                     expect(sut.accessibility) == Accessibility.afterFirstUnlock
                     expect(sut.accessControlFlags).to(beNil())
                     expect(sut.isSynchronizable) == false
+                    expect(sut.attributes).to(beEmpty())
                 }
 
                 it("should init with custom values") {
@@ -32,12 +33,15 @@ class SimpleKeychainSpec: QuickSpec {
                                          accessGroup: "Group",
                                          accessibility: .whenUnlocked,
                                          accessControlFlags: .userPresence,
-                                         synchronizable: true)
+                                         synchronizable: true,
+                                         attributes: ["foo": "bar"])
                     expect(sut.accessGroup) == "Group"
                     expect(sut.service) == KeychainService
                     expect(sut.accessibility) == Accessibility.whenUnlocked
                     expect(sut.accessControlFlags) == .userPresence
                     expect(sut.isSynchronizable) == true
+                    expect(sut.attributes.count) == 1
+                    expect(sut.attributes["foo"] as? String) == "bar"
                 }
 
                 #if canImport(LocalAuthentication)
@@ -105,7 +109,6 @@ class SimpleKeychainSpec: QuickSpec {
                 #if os(macOS)
                 it("should include limit all attribute when deleting all items") {
                     var limit: String?
-                    sut = SimpleKeychain(service: KeychainService)
                     sut.remove = { query in
                         let key = kSecMatchLimit as String
                         limit = (query as NSDictionary).value(forKey: key) as? String
@@ -117,7 +120,6 @@ class SimpleKeychainSpec: QuickSpec {
                 #else
                 it("should not include limit all attribute when deleting all items") {
                     var limit: String? = ""
-                    sut = SimpleKeychain(service: KeychainService)
                     sut.remove = { query in
                         let key = kSecMatchLimit as String
                         limit = (query as NSDictionary).value(forKey: key) as? String
@@ -243,7 +245,7 @@ class SimpleKeychainSpec: QuickSpec {
                 }
 
                 context("base query") {
-                    it("should should contain default attributes") {
+                    it("should contain default attributes") {
                         let query = sut.baseQuery()
                         expect((query[kSecClass as String] as? String)) == kSecClassGenericPassword as String
                         expect((query[kSecAttrService as String] as? String)) == sut.service
@@ -254,6 +256,22 @@ class SimpleKeychainSpec: QuickSpec {
                         #if canImport(LocalAuthentication)
                         expect((query[kSecUseAuthenticationContext as String] as? LAContext)).to(beNil())
                         #endif
+                    }
+
+                    it("should include additional attributes") {
+                        let key = "foo"
+                        let value = "bar"
+                        sut = SimpleKeychain(attributes: [key: value])
+                        let query = sut.baseQuery()
+                        expect((query[key] as? String)) == value
+                    }
+
+                    it("should supersede additional attributes") {
+                        let key = kSecAttrService as String
+                        let value = "foo"
+                        sut = SimpleKeychain(attributes: [key: value])
+                        let query = sut.baseQuery()
+                        expect((query[key] as? String)) == sut.service
                     }
 
                     it("should include account attribute") {
@@ -269,20 +287,20 @@ class SimpleKeychainSpec: QuickSpec {
                     }
 
                     it("should include access group attribute") {
-                        sut = SimpleKeychain(service: KeychainService, accessGroup: "foo")
+                        sut = SimpleKeychain(accessGroup: "foo")
                         let query = sut.baseQuery()
                         expect((query[kSecAttrAccessGroup as String] as? String)) == sut.accessGroup
                     }
 
                     it("should include synchronizable attribute") {
-                        sut = SimpleKeychain(service: KeychainService, synchronizable: true)
+                        sut = SimpleKeychain(synchronizable: true)
                         let query = sut.baseQuery()
                         expect((query[kSecAttrSynchronizable as String] as? Bool)) == sut.isSynchronizable
                     }
 
                     #if canImport(LocalAuthentication)
                     it("should include context attribute") {
-                        sut = SimpleKeychain(service: KeychainService, context: LAContext())
+                        sut = SimpleKeychain(context: LAContext())
                         let query = sut.baseQuery()
                         expect((query[kSecUseAuthenticationContext as String] as? LAContext)) == sut.context
                     }
@@ -290,7 +308,7 @@ class SimpleKeychainSpec: QuickSpec {
                 }
 
                 context("get all query") {
-                    it("should should contain the base query") {
+                    it("should contain the base query") {
                         expect(sut.getAllQuery).to(containBaseQuery(sut.baseQuery()))
                     }
 
@@ -306,7 +324,7 @@ class SimpleKeychainSpec: QuickSpec {
                 }
 
                 context("get one query") {
-                    it("should should contain the base query") {
+                    it("should contain the base query") {
                         let key = "foo"
                         expect(sut.getOneQuery(byKey: key)).to(containBaseQuery(sut.baseQuery(withKey: key)))
                     }
@@ -323,7 +341,7 @@ class SimpleKeychainSpec: QuickSpec {
                 }
 
                 context("set query") {
-                    it("should should contain the base query") {
+                    it("should contain the base query") {
                         let key = "foo"
                         let data = Data()
                         let query = sut.setQuery(forKey: key, data: data)
@@ -332,22 +350,30 @@ class SimpleKeychainSpec: QuickSpec {
                     }
 
                     it("should include access control attribute") {
-                        sut = SimpleKeychain(service: KeychainService, accessControlFlags: .userPresence)
+                        sut = SimpleKeychain(accessControlFlags: .userPresence)
                         let query = sut.setQuery(forKey: "foo", data: Data())
                         expect(query[kSecAttrAccessControl as String]).toNot(beNil())
                     }
 
                     #if os(macOS)
+                    it("should not include accessibility attribute by default") {
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        expect((query[kSecAttrAccessible as String] as? String)).to(beNil())
+                    }
+
                     it("should include accessibility attribute when iCloud sharing is enabled") {
-                        sut = SimpleKeychain(service: KeychainService, synchronizable: true)
+                        sut = SimpleKeychain(synchronizable: true)
                         let query = sut.setQuery(forKey: "foo", data: Data())
                         let expectedAccessibility = sut.accessibility.rawValue as String
                         expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
                     }
 
-                    it("should not include accessibility attribute when iCloud sharing is disabled") {
+                    it("should include accessibility attribute when data protection is enabled") {
+                        let attributes = [kSecUseDataProtectionKeychain as String: kCFBooleanTrue as Any]
+                        sut = SimpleKeychain(attributes: attributes)
                         let query = sut.setQuery(forKey: "foo", data: Data())
-                        expect((query[kSecAttrAccessible as String] as? String)).to(beNil())
+                        let expectedAccessibility = sut.accessibility.rawValue as String
+                        expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
                     }
                     #else
                     it("should include accessibility attribute") {

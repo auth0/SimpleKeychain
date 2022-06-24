@@ -7,7 +7,7 @@
 
 Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** or through **iCloud**, and integrating **Touch ID / Face ID**.
 
-> ⚠️ This library is currently in **First Availability**. We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
+> ⚠️ This library is currently in [**First Availability**](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages). We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
 **Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).**
 
@@ -30,6 +30,7 @@ Easily store your user's credentials in the Keychain. Supports sharing credentia
   + [Remove all items](#remove-all-items)
   + [Error handling](#error-handling)
 - [**Configuration**](#configuration)
+  + [Include additional attributes](#include-additional-attributes)
   + [Share items with other apps and extensions using an Access Group](#share-items-with-other-apps-and-extensions-using-an-access-group)
   + [Share items with other devices through iCloud synchronization](#share-items-with-other-devices-through-icloud-synchronization)
   + [Restrict item accessibility based on device state](#restrict-item-accessibility-based-on-device-state)
@@ -156,6 +157,14 @@ catch let error as SimpleKeychainError {
 ```
 
 ## Configuration
+
+### Include additional attributes
+
+When creating the SimpleKeychain instance, specify additional attributes to include in every query.
+
+```swift
+let simpleKeychain = SimpleKeychain(attributes: [kSecUseDataProtectionKeychain as String: true])
+```
 
 ### Share items with other apps and extensions using an Access Group
 
