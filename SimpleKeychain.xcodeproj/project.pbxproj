@@ -87,7 +87,7 @@
 			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5FEEB9BC1B7BD82800501415;
-			remoteInfo = "SimpleKeychain-OSX";
+			remoteInfo = "SimpleKeychain-macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -426,7 +426,7 @@
 			dependencies = (
 			);
 			name = "SimpleKeychain-watchOS";
-			productName = "SimpleKeychain-OSX";
+			productName = "SimpleKeychain-macOS";
 			productReference = 5B108AA91EA62F6100ED4DD2 /* SimpleKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -486,9 +486,9 @@
 			productReference = 5F4D277B1BCE99DF003C27B3 /* SimpleKeychainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5F4D278E1BCEA69E003C27B3 /* SimpleKeychainTests-OSX */ = {
+		5F4D278E1BCEA69E003C27B3 /* SimpleKeychainTests-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F4D27971BCEA69E003C27B3 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-OSX" */;
+			buildConfigurationList = 5F4D27971BCEA69E003C27B3 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-macOS" */;
 			buildPhases = (
 				5F4D278B1BCEA69E003C27B3 /* Sources */,
 				5F4D278C1BCEA69E003C27B3 /* Frameworks */,
@@ -500,8 +500,8 @@
 			dependencies = (
 				5F4D27961BCEA69E003C27B3 /* PBXTargetDependency */,
 			);
-			name = "SimpleKeychainTests-OSX";
-			productName = "SimpleKeychainTests-OSX";
+			name = "SimpleKeychainTests-macOS";
+			productName = "SimpleKeychainTests-macOS";
 			productReference = 5F4D278F1BCEA69E003C27B3 /* SimpleKeychainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -542,9 +542,9 @@
 			productReference = 5FEEB99C1B7BD70A00501415 /* SimpleKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5FEEB9BC1B7BD82800501415 /* SimpleKeychain-OSX */ = {
+		5FEEB9BC1B7BD82800501415 /* SimpleKeychain-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FEEB9D01B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-OSX" */;
+			buildConfigurationList = 5FEEB9D01B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-macOS" */;
 			buildPhases = (
 				5FEEB9B81B7BD82800501415 /* Sources */,
 				5FEEB9B91B7BD82800501415 /* Frameworks */,
@@ -556,8 +556,8 @@
 			);
 			dependencies = (
 			);
-			name = "SimpleKeychain-OSX";
-			productName = "SimpleKeychain-OSX";
+			name = "SimpleKeychain-macOS";
+			productName = "SimpleKeychain-macOS";
 			productReference = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -626,13 +626,13 @@
 			projectRoot = "";
 			targets = (
 				5FEEB99B1B7BD70A00501415 /* SimpleKeychain-iOS */,
-				5FEEB9BC1B7BD82800501415 /* SimpleKeychain-OSX */,
+				5FEEB9BC1B7BD82800501415 /* SimpleKeychain-macOS */,
 				5B108A9C1EA62F6100ED4DD2 /* SimpleKeychain-watchOS */,
 				5B108AAB1EA637B100ED4DD2 /* SimpleKeychain-tvOS */,
 				5F7B45AB1B7D0CE700D5AC89 /* SimpleKeychainApp */,
 				5C29744223FF457A00BC18FA /* tvOSTestHost */,
 				5F4D277A1BCE99DF003C27B3 /* SimpleKeychainTests-iOS */,
-				5F4D278E1BCEA69E003C27B3 /* SimpleKeychainTests-OSX */,
+				5F4D278E1BCEA69E003C27B3 /* SimpleKeychainTests-macOS */,
 				5B0D47581EA63C74009FF1BF /* SimpleKeychainTests-tvOS */,
 			);
 		};
@@ -901,7 +901,7 @@
 		};
 		5F4D27961BCEA69E003C27B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5FEEB9BC1B7BD82800501415 /* SimpleKeychain-OSX */;
+			target = 5FEEB9BC1B7BD82800501415 /* SimpleKeychain-macOS */;
 			targetProxy = 5F4D27951BCEA69E003C27B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1571,7 +1571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F4D27971BCEA69E003C27B3 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-OSX" */ = {
+		5F4D27971BCEA69E003C27B3 /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F4D27981BCEA69E003C27B3 /* Debug */,
@@ -1607,7 +1607,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FEEB9D01B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-OSX" */ = {
+		5FEEB9D01B7BD82800501415 /* Build configuration list for PBXNativeTarget "SimpleKeychain-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FEEB9D11B7BD82800501415 /* Debug */,
