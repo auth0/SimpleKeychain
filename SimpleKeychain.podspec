@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary          = 'A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS'
   s.description      = <<-DESC
                        Easily store your user's credentials in the Keychain.
-                       Supports sharing credentials with an Access Group** or through iCloud, and integrating Touch ID / Face ID.
+                       Supports sharing credentials with an Access Group or through iCloud, and integrating Touch ID / Face ID.
                        DESC
   s.homepage         = 'https://github.com/auth0/SimpleKeychain'
   s.license          = 'MIT'
