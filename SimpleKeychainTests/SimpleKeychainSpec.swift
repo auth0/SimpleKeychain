@@ -106,7 +106,7 @@ class SimpleKeychainSpec: QuickSpec {
                 it("should include limit all attribute when deleting all items") {
                     var limit: String?
                     sut = SimpleKeychain(service: KeychainService)
-                    sut.delete = { query in
+                    sut.remove = { query in
                         let key = kSecMatchLimit as String
                         limit = (query as NSDictionary).value(forKey: key) as? String
                         return errSecSuccess
