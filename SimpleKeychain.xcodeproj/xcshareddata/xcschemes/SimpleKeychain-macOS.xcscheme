@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
                BuildableName = "SimpleKeychain.framework"
-               BlueprintName = "SimpleKeychain-OSX"
+               BlueprintName = "SimpleKeychain-macOS"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,7 +32,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
             BuildableName = "SimpleKeychain.framework"
-            BlueprintName = "SimpleKeychain-OSX"
+            BlueprintName = "SimpleKeychain-macOS"
             ReferencedContainer = "container:SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -43,7 +43,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F4D278E1BCEA69E003C27B3"
                BuildableName = "SimpleKeychainTests.xctest"
-               BlueprintName = "SimpleKeychainTests-OSX"
+               BlueprintName = "SimpleKeychainTests-macOS"
                ReferencedContainer = "container:SimpleKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -64,7 +64,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
             BuildableName = "SimpleKeychain.framework"
-            BlueprintName = "SimpleKeychain-OSX"
+            BlueprintName = "SimpleKeychain-macOS"
             ReferencedContainer = "container:SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5FEEB9BC1B7BD82800501415"
             BuildableName = "SimpleKeychain.framework"
-            BlueprintName = "SimpleKeychain-OSX"
+            BlueprintName = "SimpleKeychain-macOS"
             ReferencedContainer = "container:SimpleKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

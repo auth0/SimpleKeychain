@@ -76,7 +76,7 @@ commands:
       - run:
           name: Run macOS tests
           command: |
-            xcodebuild test -scheme << parameters.scheme >>-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
+            xcodebuild test -scheme << parameters.scheme >>-macOS -destination 'platform=macOS,arch=x86_64' | xcpretty
             swift test
   test-tvos:
     parameters:
