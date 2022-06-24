@@ -1,4 +1,4 @@
-# SimpleKeychain
+# SimpleKeychain (First Availability)
 
 ![CircleCI](https://img.shields.io/circleci/project/github/auth0/SimpleKeychain.svg?style=flat)
 ![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)
