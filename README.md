@@ -5,7 +5,7 @@
 ![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)
 ![License](https://img.shields.io/github/license/Auth0/SimpleKeychain.svg?style=flat)
 
-Easily store your user's credentials in the Keychain. Supports sharing credentials with an **Access Group** or through **iCloud**, and integrating **Touch ID / Face ID**.
+Easily store your user's credentials in the Keychain. Supports sharing credentials with an **access group** or through **iCloud**, and integrating **Touch ID / Face ID**.
 
 > ⚠️ This library is currently in [**First Availability**](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages). We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
@@ -31,7 +31,7 @@ Easily store your user's credentials in the Keychain. Supports sharing credentia
   + [Error handling](#error-handling)
 - [**Configuration**](#configuration)
   + [Include additional attributes](#include-additional-attributes)
-  + [Share items with other apps and extensions using an Access Group](#share-items-with-other-apps-and-extensions-using-an-access-group)
+  + [Share items with other apps and extensions using an access group](#share-items-with-other-apps-and-extensions-using-an-access-group)
   + [Share items with other devices through iCloud synchronization](#share-items-with-other-devices-through-icloud-synchronization)
   + [Restrict item accessibility based on device state](#restrict-item-accessibility-based-on-device-state)
   + [Require Touch ID / Face ID to retrieve an item](#require-touch-id--face-id-to-retrieve-an-item)
@@ -166,15 +166,15 @@ When creating the SimpleKeychain instance, specify additional attributes to incl
 let simpleKeychain = SimpleKeychain(attributes: [kSecUseDataProtectionKeychain as String: true])
 ```
 
-### Share items with other apps and extensions using an Access Group
+### Share items with other apps and extensions using an access group
 
-When creating the SimpleKeychain instance, specify the Access Group that the app may share entries with.
+When creating the SimpleKeychain instance, specify the access group that the app may share entries with.
 
 ```swift
 let simpleKeychain = SimpleKeychain(accessGroup: "ABCDEFGH.com.example.myaccessgroup")
 ```
 
-> 💡 For more information on Access Group sharing, see [Sharing Access to Keychain Items Among a Collection of Apps](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
+> 💡 For more information on access group sharing, see [Sharing Access to Keychain Items Among a Collection of Apps](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
 
 ### Share items with other devices through iCloud synchronization
 

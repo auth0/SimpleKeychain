@@ -8,7 +8,7 @@ typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePoin
 typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
 
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
-/// Supports sharing credentials with an **Access Group** or through **iCloud**, and integrating **Touch ID / Face ID**.
+/// Supports sharing credentials with an **access group** or through **iCloud**, and integrating **Touch ID / Face ID**.
 public struct SimpleKeychain {
     let service: String
     let accessGroup: String?
@@ -26,10 +26,10 @@ public struct SimpleKeychain {
     /// Initializes a ``SimpleKeychain`` instance.
     ///
     /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
-    /// - Parameter accessGroup: Access Group for sharing Keychain items. Defaults to `nil`.
+    /// - Parameter accessGroup: access group for sharing Keychain items. Defaults to `nil`.
     /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.  Defaults to `nil`.
-    /// - Parameter context: `LAContext` used to access Keychain items. Defaults to a new `LAContext` instance.
+    /// - Parameter context: `LAContext` used to access Keychain items. Defaults to `nil`.
     /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
     /// - Parameter attributes: Additional attributes to include in every query. Defaults to an empty dictionary.
     /// - Returns: A ``SimpleKeychain`` instance.
@@ -52,7 +52,7 @@ public struct SimpleKeychain {
     /// Initializes a ``SimpleKeychain`` instance.
     ///
     /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
-    /// - Parameter accessGroup: Access Group for sharing Keychain items. Defaults to `nil`.
+    /// - Parameter accessGroup: access group for sharing Keychain items. Defaults to `nil`.
     /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.  Defaults to `nil`.
     /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
@@ -306,6 +306,7 @@ extension SimpleKeychain {
             query[kSecAttrAccessControl as String] = access
         } else {
             #if os(macOS)
+            // See https://developer.apple.com/documentation/security/ksecattraccessible
             if self.isSynchronizable || query[kSecUseDataProtectionKeychain as String] as? Bool == true {
                 query[kSecAttrAccessible as String] = self.accessibility.rawValue
             }
