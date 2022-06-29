@@ -8,6 +8,10 @@
 
 A wrapper to make it really easy to deal with iOS Keychain and store your user's credentials securely.
 
+> 📣 **The [First Availability](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages) release of SimpleKeychain 1.0.0 is out**
+<br>It includes support for custom properties, synchronization of items through iCloud, and improved error handling. The GA release is planned for the third week of July.
+<br>See [#157](https://github.com/auth0/SimpleKeychain/issues/157) for more information.
+
 ## Key Features
 
 - **Simple interface** to store user's credentials (e.g. JWT) in the Keychain.
