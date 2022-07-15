@@ -1,4 +1,4 @@
-# SimpleKeychain (First Availability)
+# SimpleKeychain
 
 ![CircleCI](https://img.shields.io/circleci/project/github/auth0/SimpleKeychain.svg?style=flat)
 ![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)
@@ -6,8 +6,6 @@
 ![License](https://img.shields.io/github/license/Auth0/SimpleKeychain.svg?style=flat)
 
 Easily store your user's credentials in the Keychain. Supports sharing credentials with an **access group** or through **iCloud**, and integrating **Touch ID / Face ID**.
-
-> ⚠️ This library is currently in [**First Availability**](https://auth0.com/docs/troubleshoot/product-lifecycle/product-release-stages). We do not recommend using this library in production yet. As we move towards General Availability, please be aware that releases may contain breaking changes.
 
 **Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).**
 
@@ -160,10 +158,11 @@ catch let error as SimpleKeychainError {
 
 ### Include additional attributes
 
-When creating the SimpleKeychain instance, specify additional attributes to include in every query.
+When creating the SimpleKeychain instance, specify additional attributes to be included in every query.
 
 ```swift
-let simpleKeychain = SimpleKeychain(attributes: [kSecUseDataProtectionKeychain as String: true])
+let attributes = [kSecUseDataProtectionKeychain as String: true]
+let simpleKeychain = SimpleKeychain(attributes: attributes)
 ```
 
 ### Share items with other apps and extensions using an access group
