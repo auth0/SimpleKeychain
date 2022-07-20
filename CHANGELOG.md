@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.0.0](https://github.com/auth0/SimpleKeychain/tree/1.0.0) (2022-07-20)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.5...1.0.0)
+
+**⚠️ BREAKING CHANGES**
+- Merge `fa` into `master` [\#167](https://github.com/auth0/SimpleKeychain/pull/167) ([Widcket](https://github.com/Widcket))
+
+**Added**
+- Added keys method [\#125](https://github.com/auth0/SimpleKeychain/pull/125) ([asclepix](https://github.com/asclepix))
+
 ## [1.0.0-fa.0](https://github.com/auth0/SimpleKeychain/tree/1.0.0-fa.0) (2022-06-24)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.5...1.0.0-fa.0)
 
