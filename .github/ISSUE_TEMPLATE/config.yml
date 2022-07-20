@@ -1,5 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Auth0 Community
+  - name: 🤔 Help & Questions
     url: https://community.auth0.com/tags/c/sdks/5/ios
-    about: Discuss this library in the Auth0 Community forums
+    about: Ask general support or usage questions in the Auth0 Community forums
+  - name: 🚀 Usage
+    url: https://github.com/auth0/SimpleKeychain#usage
+    about: Check the Usage section of the README to get up to speed with SimpleKeychain
+  - name: 📖 API Documentation
+    url: https://auth0.github.io/SimpleKeychain/
+    about: Check the public API documentation for in-depth overview of all the available features

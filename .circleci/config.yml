@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@3
+
 executors:
   macos-executor:
     parameters:
@@ -59,8 +62,10 @@ commands:
           name: Run iOS tests
           command: bundle exec fastlane ios ci
       - run:
-          name: Upload coverage report
-          command: bash <(curl -s https://codecov.io/bash) -J '<< parameters.scheme >>'
+          name: Generate coverage report
+          command: bundle exec slather coverage -x --output-directory output --arch x86_64 --scheme << parameters.scheme >>-iOS << parameters.scheme >>.xcodeproj
+      - codecov/upload:
+          file: output/cobertura.xml
       - run:
           name: Run pod lib lint
           command: bundle exec fastlane ios pod_lint
@@ -76,7 +81,7 @@ commands:
       - run:
           name: Run macOS tests
           command: |
-            xcodebuild test -scheme << parameters.scheme >>-OSX -destination 'platform=macOS,arch=x86_64' | xcpretty
+            xcodebuild test -scheme << parameters.scheme >>-macOS -destination 'platform=macOS,arch=x86_64' | xcpretty
             swift test
   test-tvos:
     parameters:
@@ -126,8 +131,8 @@ workflows:
   build:
     jobs:
       - build-and-test:
-          scheme: "SimpleKeychain"
+          scheme: SimpleKeychain
           matrix:
             parameters:
-              platform: ["ios", "macos", "tvos"]
-              xcode: ["13.0.0", "12.5.1"]
+              platform: [ios, macos, tvos]
+              xcode: ["13.0.0"]

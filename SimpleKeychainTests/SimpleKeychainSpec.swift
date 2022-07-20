@@ -1,277 +1,405 @@
-// SimpleKeychainSpec.swift
-//
-// Copyright (c) 2014 Auth0 (http://auth0.com)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-import SimpleKeychain
+import LocalAuthentication
 import Nimble
 import Quick
 
+@testable import SimpleKeychain
+
 let PublicKeyTag = "public"
 let PrivateKeyTag = "private"
-let kKeychainService = "com.auth0.simplekeychain.tests"
+let KeychainService = "com.auth0.simplekeychain.tests"
 
-class A0SimpleKeychainSpec: QuickSpec {
+class SimpleKeychainSpec: QuickSpec {
     override func spec() {
-        describe("A0SimpleKeychain") {
+        describe("SimpleKeychain") {
+            var sut: SimpleKeychain!
 
-            var keychain: A0SimpleKeychain!
+            afterEach {
+                try? sut.deleteAll()
+            }
 
             describe("initialization") {
                 it("should init with default values") {
-                    keychain = A0SimpleKeychain()
-                    expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
-                    expect(keychain.useAccessControl).to(beFalsy())
+                    sut = SimpleKeychain()
+                    expect(sut.accessGroup).to(beNil())
+                    expect(sut.service) == Bundle.main.bundleIdentifier
+                    expect(sut.accessibility) == Accessibility.afterFirstUnlock
+                    expect(sut.accessControlFlags).to(beNil())
+                    expect(sut.isSynchronizable) == false
+                    expect(sut.attributes).to(beEmpty())
                 }
 
-                it("should init with service only") {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
-                    expect(keychain.useAccessControl).to(beFalsy())
+                it("should init with custom values") {
+                    sut = SimpleKeychain(service: KeychainService,
+                                         accessGroup: "Group",
+                                         accessibility: .whenUnlocked,
+                                         accessControlFlags: .userPresence,
+                                         synchronizable: true,
+                                         attributes: ["foo": "bar"])
+                    expect(sut.accessGroup) == "Group"
+                    expect(sut.service) == KeychainService
+                    expect(sut.accessibility) == Accessibility.whenUnlocked
+                    expect(sut.accessControlFlags) == .userPresence
+                    expect(sut.isSynchronizable) == true
+                    expect(sut.attributes.count) == 1
+                    expect(sut.attributes["foo"] as? String) == "bar"
                 }
 
-                it("should init with service and access group") {
-                    keychain = A0SimpleKeychain(service: kKeychainService, accessGroup: "Group")
-                    expect(keychain.accessGroup).to(equal("Group"))
-                    expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
-                    expect(keychain.useAccessControl).to(beFalsy())
+                #if canImport(LocalAuthentication)
+                it("should init with custom local authentication context") {
+                    let context = LAContext()
+                    sut = SimpleKeychain(context: context)
+                    expect(sut.context).to(be(context))
                 }
+                #endif
             }
 
-            describe("factory methods") {
-                it("should create with default values") {
-                    keychain = A0SimpleKeychain()
-                    expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
-                    expect(keychain.useAccessControl).to(beFalsy())
-                }
-
-                it("should create with service only") {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    expect(keychain.accessGroup).to(beNil())
-                    expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
-                    expect(keychain.useAccessControl).to(beFalsy())
-                }
-
-                it("should create with service and access group") {
-                    keychain = A0SimpleKeychain(service: kKeychainService, accessGroup: "Group")
-                    expect(keychain.accessGroup).to(equal("Group"))
-                    expect(keychain.service).to(equal(kKeychainService))
-                    expect(keychain.defaultAccessiblity).to(equal(A0SimpleKeychainItemAccessible.afterFirstUnlock))
-                    expect(keychain.useAccessControl).to(beFalsy())
-                }
-            }
-
-            describe("Storing values") {
-
+            describe("storing items") {
                 var key: String!
 
                 beforeEach({
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    key = NSUUID().uuidString
+                    sut = SimpleKeychain(service: KeychainService)
+                    key = UUID().uuidString
                 })
 
-                it("should store a a value under a new key") {
-                    expect(keychain.setString("value", forKey: key)).to(beTruthy())
+                context("string items") {
+                    it("should store a string item under a new key") {
+                        expect(try sut.set("foo", forKey: key)).toNot(throwError())
+                    }
+
+                    it("should store a string item under an existing key") {
+                        try sut.set("foo", forKey: key)
+                        expect(try sut.set("bar", forKey: key)).toNot(throwError())
+                    }
                 }
 
-                it("should store a a value under an existing key") {
-                    keychain.setString("value1", forKey:key)
-                    expect(keychain.setString("value2", forKey:key)).to(beTruthy())
-                }
+                context("data items") {
+                    it("should store a data item under a new key") {
+                        expect(try sut.set(Data(), forKey: key)).toNot(throwError())
+                    }
 
-                it("should store a data value under a new key") {
-                    expect(keychain.setData(NSData() as Data, forKey:key)).to(beTruthy())
+                    it("should store a data item under an existing key") {
+                        try sut.set( Data(), forKey: key)
+                        expect(try sut.set(Data(), forKey: key)).toNot(throwError())
+                    }
                 }
-
-                it("should store a data value under an existing key") {
-                    keychain.setData(NSData() as Data, forKey:key)
-                    expect(keychain.setData(NSData() as Data, forKey:key)).to(beTruthy())
-                }
-
             }
 
-            describe("Removing values") {
-
+            describe("removing items") {
                 var key: String!
 
                 beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    key = NSUUID().uuidString
-                    keychain.setString("value1", forKey:key)
+                    sut = SimpleKeychain(service: KeychainService)
+                    key = UUID().uuidString
+                    try! sut.set("foo", forKey: key)
                 }
 
-                it("should remove entry for key") {
-                    expect(keychain.deleteEntry(forKey: key)).to(beTruthy())
+                it("should delete item") {
+                    expect(try sut.deleteItem(forKey: key)).toNot(throwError())
                 }
 
-                it("should fail with nonexisting key") {
-                    expect(keychain.deleteEntry(forKey: "SHOULDNOTEXIST")).to(beFalsy())
+                it("should throw an error when deleting an item with a non-existing key") {
+                    expect(try sut.deleteItem(forKey: "SHOULDNOTEXIST")).to(throwError())
                 }
 
-                it("should clear all entries") {
-                    keychain.clearAll()
-                    expect(keychain.string(forKey: key)).to(beNil())
+                it("should delete all items") {
+                    try sut.deleteAll()
+                    expect(try sut.string(forKey: key)).to(throwError(SimpleKeychainError.itemNotFound))
                 }
 
+                #if os(macOS)
+                it("should include limit all attribute when deleting all items") {
+                    var limit: String?
+                    sut.remove = { query in
+                        let key = kSecMatchLimit as String
+                        limit = (query as NSDictionary).value(forKey: key) as? String
+                        return errSecSuccess
+                    }
+                    try sut.deleteAll()
+                    expect(limit).toEventually(equal(kSecMatchLimitAll as String))
+                }
+                #else
+                it("should not include limit all attribute when deleting all items") {
+                    var limit: String? = ""
+                    sut.remove = { query in
+                        let key = kSecMatchLimit as String
+                        limit = (query as NSDictionary).value(forKey: key) as? String
+                        return errSecSuccess
+                    }
+                    try sut.deleteAll()
+                    expect(limit).toEventually(beNil())
+                }
+                #endif
             }
 
-            describe("retrieving values") {
-
+            describe("retrieving items") {
                 var key: String!
 
                 beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    key = NSUUID().uuidString
-                    keychain.setString("value1", forKey:key)
+                    sut = SimpleKeychain(service: KeychainService)
+                    key = UUID().uuidString
+                    try! sut.set("foo", forKey: key)
                 }
 
-                it("should return that a key exists") {
-                    expect(keychain.string(forKey: key)).toNot(beNil())
+                it("should retrieve string item") {
+                    expect(try sut.string(forKey: key)) == "foo"
                 }
 
-                it("should return nil data with non existing key") {
-                    expect(keychain.data(forKey: "SHOULDNOTEXIST")).to(beNil())
+                it("should retrieve data item") {
+                    expect(try sut.data(forKey: key)).notTo(beNil())
                 }
 
-                it("should return nil string with non existing key") {
-                    expect(keychain.string(forKey: "SHOULDNOTEXIST")).to(beNil())
+                it("should throw error when retrieving a string item with non-existing key") {
+                    let expectedError = SimpleKeychainError.itemNotFound
+                    expect(try sut.string(forKey: "SHOULDNOTEXIST")).to(throwError(expectedError))
                 }
 
-                it("should return string for a key") {
-                    expect(keychain.string(forKey: key)).to(equal("value1"))
+                it("should throw error when retrieving a data item with non-existing key") {
+                    let expectedError = SimpleKeychainError.itemNotFound
+                    expect(try sut.data(forKey: "SHOULDNOTEXIST")).to(throwError(expectedError))
                 }
 
-                it("should return data for a key") {
-                    expect(keychain.data(forKey: key)).notTo(beNil())
+                it("should throw an error when retrieving a string item that cannot be decoded") {
+                    let message = "Unable to convert the retrieved item to a String value"
+                    let expectedError = SimpleKeychainError(code: .unknown(message: message))
+                    sut.retrieve = { _, result in
+                        result?.pointee = .some(NSData(data: withUnsafeBytes(of: Date()) { Data($0) }))
+                        return errSecSuccess
+                    }
+                    expect(try sut.string(forKey: key)).to(throwError(expectedError))
+                }
+
+                it("should throw an error when retrieving an invalid data item") {
+                    let message = "Unable to cast the retrieved item to a Data value"
+                    let expectedError = SimpleKeychainError(code: .unknown(message: message))
+                    sut.retrieve = { _, result in
+                        result?.pointee = .some(NSDate())
+                        return errSecSuccess
+                    }
+                    expect(try sut.string(forKey: key)).to(throwError(expectedError))
                 }
             }
-            
+
+            describe("checking items") {
+                var key: String!
+
+                beforeEach {
+                    sut = SimpleKeychain(service: KeychainService)
+                    key = UUID().uuidString
+                    try! sut.set("foo", forKey: key)
+                }
+
+                it("should return true when the item is stored") {
+                    expect(try sut.hasItem(forKey: key)) == true
+                }
+
+                it("should return false when the item is not stored") {
+                    expect(try sut.hasItem(forKey: "SHOULDNOTEXIST")) == false
+                }
+            }
+
             describe("retrieving keys") {
-                
-                var keys = [String]()
-                
+                var keys: [String] = []
+
                 beforeEach {
-                    
-                    keychain.clearAll()
-                    
-                    keychain = A0SimpleKeychain(service: kKeychainService)
+                    try! sut.deleteAll()
+                    sut = SimpleKeychain(service: KeychainService)
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
                     for (i, key) in keys.enumerated() {
-                        keychain.setString("value\(i)", forKey: key)
+                        try! sut.set("foo\(i)", forKey: key)
                     }
                 }
-                
-                afterEach {
-                    keychain.clearAll()
-                }
-                
+
                 it("should return all the keys") {
-                    expect(keychain.keys() as? [String]).to(equal(keys))
+                    expect(try sut.keys()) == keys
                 }
-                
-                it("should clear all") {
-                    
+
+                it("should return an empty array when there are no keys") {
                     for key in keys {
-                        expect(keychain.data(forKey: key)).notTo(beNil())
+                        expect(try sut.data(forKey: key)).notTo(beNil())
                     }
-                    expect(keychain.keys().count).to(equal(keys.count))
-                    
-                    keychain.clearAll()
-                    
+                    expect(try sut.keys().count) == keys.count
+                    try sut.deleteAll()
+                    let expectedError = SimpleKeychainError.itemNotFound
                     for key in keys {
-                        expect(keychain.data(forKey: key)).to(beNil())
+                        expect(try sut.data(forKey: key)).to(throwError(expectedError))
                     }
-                    expect(keychain.keys().count).to(equal(0))
+                    expect(try sut.keys().count) == 0
+                }
+
+                it("should throw an error when retrieving invalid attributes") {
+                    let message = "Unable to cast the retrieved items to a [[String: Any]] value"
+                    let expectedError = SimpleKeychainError(code: .unknown(message: message))
+                    sut.retrieve = { _, result in
+                        result?.pointee = .some(NSDate())
+                        return errSecSuccess
+                    }
+                    expect(try sut.keys()).to(throwError(expectedError))
                 }
             }
 
-
-            describe("generate key pair") {
-
+            describe("queries") {
                 beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
+                    sut = SimpleKeychain(service: KeychainService)
                 }
 
-                afterEach {
-                    keychain.deleteRSAKey(withTag: PublicKeyTag)
-                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
+                context("base query") {
+                    it("should contain default attributes") {
+                        let query = sut.baseQuery()
+                        expect((query[kSecClass as String] as? String)) == kSecClassGenericPassword as String
+                        expect((query[kSecAttrService as String] as? String)) == sut.service
+                        expect((query[kSecAttrAccount as String] as? String)).to(beNil())
+                        expect((query[kSecValueData as String] as? Data)).to(beNil())
+                        expect((query[kSecAttrAccessGroup as String] as? String)).to(beNil())
+                        expect((query[kSecAttrSynchronizable as String] as? Bool)).to(beNil())
+                        #if canImport(LocalAuthentication)
+                        expect((query[kSecUseAuthenticationContext as String] as? LAContext)).to(beNil())
+                        #endif
+                    }
+
+                    it("should include additional attributes") {
+                        let key = "foo"
+                        let value = "bar"
+                        sut = SimpleKeychain(attributes: [key: value])
+                        let query = sut.baseQuery()
+                        expect((query[key] as? String)) == value
+                    }
+
+                    it("should supersede additional attributes") {
+                        let key = kSecAttrService as String
+                        let value = "foo"
+                        sut = SimpleKeychain(attributes: [key: value])
+                        let query = sut.baseQuery()
+                        expect((query[key] as? String)) == sut.service
+                    }
+
+                    it("should include account attribute") {
+                        let key = "foo"
+                        let query = sut.baseQuery(withKey: key)
+                        expect((query[kSecAttrAccount as String] as? String)) == key
+                    }
+
+                    it("should include data attribute") {
+                        let data = Data()
+                        let query = sut.baseQuery(data: data)
+                        expect((query[kSecValueData as String] as? Data)) == data
+                    }
+
+                    it("should include access group attribute") {
+                        sut = SimpleKeychain(accessGroup: "foo")
+                        let query = sut.baseQuery()
+                        expect((query[kSecAttrAccessGroup as String] as? String)) == sut.accessGroup
+                    }
+
+                    it("should include synchronizable attribute") {
+                        sut = SimpleKeychain(synchronizable: true)
+                        let query = sut.baseQuery()
+                        expect((query[kSecAttrSynchronizable as String] as? Bool)) == sut.isSynchronizable
+                    }
+
+                    #if canImport(LocalAuthentication)
+                    it("should include context attribute") {
+                        sut = SimpleKeychain(context: LAContext())
+                        let query = sut.baseQuery()
+                        expect((query[kSecUseAuthenticationContext as String] as? LAContext)) == sut.context
+                    }
+                    #endif
                 }
 
-                it("should generate a key pair") {
-                keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits, publicKeyTag:PublicKeyTag, privateKeyTag:PrivateKeyTag)
-                expect(keychain.dataForRSAKey(withTag: PublicKeyTag)).notTo(beNil())
-                expect(keychain.dataForRSAKey(withTag: PrivateKeyTag)).notTo(beNil())
-                }
-            }
+                context("get all query") {
+                    it("should contain the base query") {
+                        expect(sut.getAllQuery).to(containBaseQuery(sut.baseQuery()))
+                    }
 
-            describe("obtain RSA key as NSData") {
+                    it("should contain return attribute") {
+                        let query = sut.getAllQuery
+                        expect((query[kSecReturnAttributes as String] as? Bool)) == true
+                    }
 
-                beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits,
-                        publicKeyTag:PublicKeyTag,
-                        privateKeyTag:PrivateKeyTag)
-                }
-
-                afterEach {
-                    keychain.deleteRSAKey(withTag: PublicKeyTag)
-                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
+                    it("should contain limit attribute") {
+                        let query = sut.getAllQuery
+                        expect((query[kSecMatchLimit as String] as? String)) == kSecMatchLimitAll as String
+                    }
                 }
 
-                it("should obtain keys") {
-                    expect(keychain.dataForRSAKey(withTag: PublicKeyTag)).notTo(beNil())
-                    expect(keychain.dataForRSAKey(withTag: PrivateKeyTag)).notTo(beNil())
-                }
-            }
+                context("get one query") {
+                    it("should contain the base query") {
+                        let key = "foo"
+                        expect(sut.getOneQuery(byKey: key)).to(containBaseQuery(sut.baseQuery(withKey: key)))
+                    }
 
-            describe("check if RSA key exists") {
+                    it("should contain data attribute") {
+                        let query = sut.getOneQuery(byKey: "foo")
+                        expect((query[kSecReturnData as String] as? Bool)) == true
+                    }
 
-                beforeEach {
-                    keychain = A0SimpleKeychain(service: kKeychainService)
-                    keychain.generateRSAKeyPair(withLength: A0SimpleKeychainRSAKeySize.size1024Bits,
-                        publicKeyTag:PublicKeyTag,
-                        privateKeyTag:PrivateKeyTag)
-                }
-
-                afterEach {
-                    keychain.deleteRSAKey(withTag: PublicKeyTag)
-                    keychain.deleteRSAKey(withTag: PrivateKeyTag)
+                    it("should contain limit attribute") {
+                        let query = sut.getOneQuery(byKey: "foo")
+                        expect((query[kSecMatchLimit as String] as? String)) == kSecMatchLimitOne as String
+                    }
                 }
 
-                it("should check if the key exists") {
-                    expect(keychain.hasRSAKey(withTag: PublicKeyTag)).to(beTruthy())
-                    expect(keychain.hasRSAKey(withTag: PrivateKeyTag)).to(beTruthy())
-                }
+                context("set query") {
+                    it("should contain the base query") {
+                        let key = "foo"
+                        let data = Data()
+                        let query = sut.setQuery(forKey: key, data: data)
+                        let baseQuery = sut.baseQuery(withKey: key, data: data)
+                        expect(query).to(containBaseQuery(baseQuery))
+                    }
 
-                it("should return NO for nonexisting key") {
-                    expect(keychain.hasRSAKey(withTag: "NONEXISTENT")).to(beFalsy())
+                    it("should include access control attribute") {
+                        sut = SimpleKeychain(accessControlFlags: .userPresence)
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        expect(query[kSecAttrAccessControl as String]).toNot(beNil())
+                    }
+
+                    #if os(macOS)
+                    it("should not include accessibility attribute by default") {
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        expect((query[kSecAttrAccessible as String] as? String)).to(beNil())
+                    }
+
+                    it("should include accessibility attribute when iCloud sharing is enabled") {
+                        sut = SimpleKeychain(synchronizable: true)
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        let expectedAccessibility = sut.accessibility.rawValue as String
+                        expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
+                    }
+
+                    it("should include accessibility attribute when data protection is enabled") {
+                        let attributes = [kSecUseDataProtectionKeychain as String: kCFBooleanTrue as Any]
+                        sut = SimpleKeychain(attributes: attributes)
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        let expectedAccessibility = sut.accessibility.rawValue as String
+                        expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
+                    }
+                    #else
+                    it("should include accessibility attribute") {
+                        let query = sut.setQuery(forKey: "foo", data: Data())
+                        let expectedAccessibility = sut.accessibility.rawValue as String
+                        expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
+                    }
+                    #endif
                 }
             }
         }
     }
+}
+
+public func containBaseQuery(_ baseQuery: [String: Any]) -> Predicate<[String: Any]> {
+    return Predicate<[String: Any]>.define("contains base query <\(baseQuery)>") { expression, failureMessage in
+        guard let actual = try expression.evaluate() else {
+            return PredicateResult(status: .doesNotMatch, message: failureMessage)
+        }
+        let filtered = actual.filter { element in
+            return baseQuery.keys.contains(element.key)
+        }
+        return PredicateResult(bool: filtered == baseQuery, message: failureMessage)
+    }
+}
+
+public func ==(lhs: [String: Any], rhs: [String: Any]) -> Bool {
+    return NSDictionary(dictionary: lhs).isEqual(to: rhs)
 }

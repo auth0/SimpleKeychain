@@ -1,22 +1,11 @@
-// swift-tools-version:5.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.5
 
 import PackageDescription
 
 let package = Package(
     name: "SimpleKeychain",
-    platforms: [
-        .iOS(.v9),
-        .macOS(.v10_11),
-        .watchOS(.v2),
-        .tvOS(.v9)
-    ],
-    products: [
-        .library(
-            name: "SimpleKeychain",
-            targets: ["SimpleKeychain"]
-        )
-    ],
+    platforms: [.iOS(.v12), .macOS(.v10_15), .tvOS(.v12), .watchOS("6.2")],
+    products: [.library(name: "SimpleKeychain", targets: ["SimpleKeychain"])],
     dependencies: [
         .package(name: "Quick", url: "https://github.com/Quick/Quick.git", .upToNextMajor(from: "5.0.0")),
         .package(name: "Nimble", url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "10.0.0"))
@@ -25,12 +14,12 @@ let package = Package(
         .target(
             name: "SimpleKeychain",
             dependencies: [],
-            path: "SimpleKeychain"
-        ),
+            path: "SimpleKeychain",
+            exclude: ["Info.plist"]),
         .testTarget(
             name: "SimpleKeychainTests",
             dependencies: ["SimpleKeychain", "Quick", "Nimble"],
-            path: "SimpleKeychainTests"
-        )
+            path: "SimpleKeychainTests",
+            exclude: ["Info.plist"])
     ]
 )

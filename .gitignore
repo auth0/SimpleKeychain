@@ -38,5 +38,9 @@ fastlane/report.xml
 fastlane/screenshots/
 
 #SwiftPM
-.build
+.swiftpm/
+.build/
 Package.resolved
+
+# DocC
+docs.archive/

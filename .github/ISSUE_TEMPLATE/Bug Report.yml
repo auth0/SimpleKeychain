@@ -1,0 +1,84 @@
+name: 🐞 Report a bug
+description: Have you found a bug or issue? Create a bug report for this library
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please do not report security vulnerabilities here**. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have looked into the [README](https://github.com/auth0/SimpleKeychain#readme) and have not found a suitable solution or answer.
+          required: true
+        - label: I have searched the [issues](https://github.com/auth0/SimpleKeychain/issues) and have not found a suitable solution or answer.
+          required: true
+        - label: I have searched the [Auth0 Community](https://community.auth0.com/tags/c/sdks/5/ios) forums and have not found a suitable solution or answer.
+          required: true
+        - label: I agree to the terms within the [Auth0 Code of Conduct](https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md).
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a clear and concise description of the issue, including what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Detail the steps taken to reproduce this error, and whether this issue can be reproduced consistently or if it is intermittent.
+      placeholder: |
+        1. Step 1...
+        2. Step 2...
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: environment-version
+    attributes:
+      label: SimpleKeychain version
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment-platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - iOS
+        - macOS
+        - tvOS
+        - watchOS
+    validations:
+      required: true
+
+  - type: input
+    id: environment-platform-version
+    attributes:
+      label: Platform version(s)
+    validations:
+      required: true
+
+  - type: input
+    id: environment-xcode-version
+    attributes:
+      label: Xcode version
+    validations:
+      required: true
+
+  - type: input
+    id: environment-package-manager
+    attributes:
+      label: Package manager
+      placeholder: SPM, Cocoapods, Carthage, etc.
+    validations:
+      required: true
