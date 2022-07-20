@@ -1,7 +1,31 @@
 # Change Log
 
-## [1.0.0-fa.0](https://github.com/auth0/SimpleKeychain/tree/1.0.0-fa.0) (2022-06-24)
-[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.5...1.0.0-fa.0)
+## [1.0.0](https://github.com/auth0/SimpleKeychain/tree/1.0.0) (2022-07-20)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.5...1.0.0)
+
+[Migration Guide](V1_MIGRATION_GUIDE.md)
+
+**⚠️ BREAKING CHANGES**
+- Drop support for old Swift versions [SDK-3444] [\#141](https://github.com/auth0/SimpleKeychain/pull/141) ([Widcket](https://github.com/Widcket))
+- Migrate to Swift [SDK-3428] [\#139](https://github.com/auth0/SimpleKeychain/pull/139) ([Widcket](https://github.com/Widcket))
+- Remove obsolete functionality [SDK-3419] [\#136](https://github.com/auth0/SimpleKeychain/pull/136) ([Widcket](https://github.com/Widcket))
+- Remove usage of deprecated properties [SDK-3414] [\#133](https://github.com/auth0/SimpleKeychain/pull/133) ([Widcket](https://github.com/Widcket))
+- Remove deprecated method [SDK-3413] [\#132](https://github.com/auth0/SimpleKeychain/pull/132) ([Widcket](https://github.com/Widcket))
+- Drop old platform versions [SDK-3387] [\#129](https://github.com/auth0/SimpleKeychain/pull/129) ([Widcket](https://github.com/Widcket))
+
+**Added**
+- Add support for custom attributes [\#153](https://github.com/auth0/SimpleKeychain/pull/153) ([Widcket](https://github.com/Widcket))
+- Add support for iCloud synchronization [SDK-3453] [\#146](https://github.com/auth0/SimpleKeychain/pull/146) ([Widcket](https://github.com/Widcket))
+- Added keys method [\#125](https://github.com/auth0/SimpleKeychain/pull/125) ([asclepix](https://github.com/asclepix))
+
+**Changed**
+- Replace OSX with macOS in schemes and targets [\#154](https://github.com/auth0/SimpleKeychain/pull/154) ([Widcket](https://github.com/Widcket))
+- Apply recommended Xcode 14 settings [\#143](https://github.com/auth0/SimpleKeychain/pull/143) ([Widcket](https://github.com/Widcket))
+
+## [1.0.0-fa](https://github.com/auth0/SimpleKeychain/tree/1.0.0-fa) (2022-06-24)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.5...1.0.0-fa)
+
+[Migration Guide](V1_MIGRATION_GUIDE.md)
 
 **⚠️ BREAKING CHANGES**
 - Drop support for old Swift versions [SDK-3444] [\#141](https://github.com/auth0/SimpleKeychain/pull/141) ([Widcket](https://github.com/Widcket))
