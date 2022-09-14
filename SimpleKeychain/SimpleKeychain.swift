@@ -20,7 +20,7 @@ public struct SimpleKeychain {
     var retrieve: RetrieveFunction = SecItemCopyMatching
     var remove: RemoveFunction = SecItemDelete
 
-    #if canImport(LocalAuthentication)
+    #if canImport(LocalAuthentication) && !os(tvOS)
     let context: LAContext?
 
     /// Initializes a ``SimpleKeychain`` instance.
@@ -272,7 +272,7 @@ extension SimpleKeychain {
         if let accessGroup = self.accessGroup {
             query[kSecAttrAccessGroup as String] = accessGroup
         }
-        #if canImport(LocalAuthentication)
+        #if canImport(LocalAuthentication) && !os(tvOS)
         if let context = self.context {
             query[kSecUseAuthenticationContext as String] = context
         }

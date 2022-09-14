@@ -44,7 +44,7 @@ class SimpleKeychainSpec: QuickSpec {
                     expect(sut.attributes["foo"] as? String) == "bar"
                 }
 
-                #if canImport(LocalAuthentication)
+                #if canImport(LocalAuthentication) && !os(tvOS)
                 it("should init with custom local authentication context") {
                     let context = LAContext()
                     sut = SimpleKeychain(context: context)
@@ -253,7 +253,7 @@ class SimpleKeychainSpec: QuickSpec {
                         expect((query[kSecValueData as String] as? Data)).to(beNil())
                         expect((query[kSecAttrAccessGroup as String] as? String)).to(beNil())
                         expect((query[kSecAttrSynchronizable as String] as? Bool)).to(beNil())
-                        #if canImport(LocalAuthentication)
+                        #if canImport(LocalAuthentication) && !os(tvOS)
                         expect((query[kSecUseAuthenticationContext as String] as? LAContext)).to(beNil())
                         #endif
                     }
@@ -298,7 +298,7 @@ class SimpleKeychainSpec: QuickSpec {
                         expect((query[kSecAttrSynchronizable as String] as? Bool)) == sut.isSynchronizable
                     }
 
-                    #if canImport(LocalAuthentication)
+                    #if canImport(LocalAuthentication) && !os(tvOS)
                     it("should include context attribute") {
                         sut = SimpleKeychain(context: LAContext())
                         let query = sut.baseQuery()
