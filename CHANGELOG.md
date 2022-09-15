@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.1](https://github.com/auth0/SimpleKeychain/tree/1.0.1) (2022-09-14)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.0.0...1.0.1)
+
+**Fixed**
+- Fix Xcode 14 tvOS builds [\#170](https://github.com/auth0/SimpleKeychain/pull/170) ([yanniks](https://github.com/yanniks))
+
 ## [1.0.0](https://github.com/auth0/SimpleKeychain/tree/1.0.0) (2022-07-20)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/0.12.5...1.0.0)
 
