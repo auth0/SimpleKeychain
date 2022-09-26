@@ -132,7 +132,7 @@ class SimpleKeychainErrorSpec: QuickSpec {
                 expect(sut.localizedDescription) == message
             }
         }
- 
+
         describe("code") {
             context("from status to code") {
                 it("should map errSecUnimplemented") {

@@ -30,11 +30,11 @@ class SimpleKeychainSpec: QuickSpec {
 
                 it("should init with custom values") {
                     sut = SKSimpleKeychain(service: KeychainService,
-                                         accessGroup: "Group",
-                                         accessibility: .whenUnlocked,
-                                         accessControlFlags: .userPresence,
-                                         synchronizable: true,
-                                         attributes: ["foo": "bar"])
+                                           accessGroup: "Group",
+                                           accessibility: .whenUnlocked,
+                                           accessControlFlags: .userPresence,
+                                           synchronizable: true,
+                                           attributes: ["foo": "bar"])
                     expect(sut.accessGroup) == "Group"
                     expect(sut.service) == KeychainService
                     expect(sut.accessibility) == SKAccessibility.whenUnlocked
