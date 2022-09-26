@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '6.2'
 
   s.source_files = 'SimpleKeychain/*.swift'
-  s.swift_versions = ['5.5', '5.6']
+  s.swift_versions = ['5.5', '5.6', '5.7']
 end
