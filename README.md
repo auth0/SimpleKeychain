@@ -187,7 +187,7 @@ let simpleKeychain = SimpleKeychain(sychronizable: true)
 
 ### Restrict item accessibility based on device state
 
-When creating the SimpleKeychain instance, specify a custom accesibility value to be used. The default value is `.afterFirstUnlock`.
+When creating the SimpleKeychain instance, specify a custom accessibility value to be used. The default value is `.afterFirstUnlock`.
 
 ```swift
 let simpleKeychain = SimpleKeychain(accessibility: .whenUnlocked)

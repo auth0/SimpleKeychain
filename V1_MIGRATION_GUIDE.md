@@ -49,7 +49,7 @@ The deployment targets for each platform were raised to:
 ## Types Removed
 
 - The `A0SimpleKeychainError` enum was removed in favor of the new `SimpleKeychainError` enum.
-- The `A0SimpleKeychainItemAccessible` enum was removed in favor of the new `Accessibility` enum.
+- The `A0SimpleKeychainItemAccessible` enum was removed in favor of the new `SKAccessibility` enum.
 - The `A0ErrorDomain` macro was removed.
 - The `A0LocalAuthenticationCapable` macro was removed.
 
@@ -57,9 +57,9 @@ The deployment targets for each platform were raised to:
 
 ### SimpleKeychain Struct
 
-#### `defaultAccessiblity`
+#### `defaultAccessibility`
 
-The property `defaultAccessiblity` was removed in favor of the new `accessibility` initalizer parameter.
+The property `defaultAccessiblity` was removed in favor of the new `accessibility` initializer parameter.
 
 <details>
   <summary>Before / After</summary>
@@ -191,7 +191,7 @@ The `error` parameter was removed from the `data(forKey:)` method, as it now thr
 ### SimpleKeychain Struct
 
 - `kSecUseAuthenticationUI` is no longer used. Configure whether the user should be prompted for authentication through an `LAContext` instance instead, using the `LAContext.interactionNotAllowed` property.
-- The `hasItem(forKey:)` method no longer retuns `false` whenever any error occurs. Now it only returns `false` when the error is `errSecItemNotFound`.
+- The `hasItem(forKey:)` method no longer returns `false` whenever any error occurs. Now it only returns `false` when the error is `errSecItemNotFound`.
 
 ---
 
