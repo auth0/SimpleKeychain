@@ -9,7 +9,7 @@ typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
 
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
 /// Supports sharing credentials with an **access group** or through **iCloud**, and integrating **Touch ID / Face ID**.
-public struct SimpleKeychain {
+public struct SKSimpleKeychain {
     let service: String
     let accessGroup: String?
     let accessibility: SKAccessibility
@@ -82,7 +82,7 @@ public struct SimpleKeychain {
 
 // MARK: - Retrieve items
 
-public extension SimpleKeychain {
+public extension SKSimpleKeychain {
     /// Retrieves a `String` value from the Keychain.
     ///
     /// ```swift
@@ -128,7 +128,7 @@ public extension SimpleKeychain {
 
 // MARK: - Store items
 
-public extension SimpleKeychain {
+public extension SKSimpleKeychain {
     /// Saves a `String` value with the type `kSecClassGenericPassword` in the Keychain.
     ///
     /// ```swift
@@ -168,7 +168,7 @@ public extension SimpleKeychain {
 
 // MARK: - Delete items
 
-public extension SimpleKeychain {
+public extension SKSimpleKeychain {
     /// Deletes an item from the Keychain.
     ///
     /// ```swift
@@ -202,7 +202,7 @@ public extension SimpleKeychain {
 
 // MARK: - Convenience methods
 
-public extension SimpleKeychain {
+public extension SKSimpleKeychain {
     /// Checks if an item is stored in the Keychain.
     ///
     /// ```swift
@@ -257,7 +257,7 @@ public extension SimpleKeychain {
 
 // MARK: - Queries
 
-extension SimpleKeychain {
+extension SKSimpleKeychain {
     func baseQuery(withKey key: String? = nil, data: Data? = nil) -> [String: Any] {
         var query = self.attributes
         query[kSecClass as String] = kSecClassGenericPassword
