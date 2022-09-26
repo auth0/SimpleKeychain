@@ -22,7 +22,7 @@ class SimpleKeychainSpec: QuickSpec {
                     sut = SimpleKeychain()
                     expect(sut.accessGroup).to(beNil())
                     expect(sut.service) == Bundle.main.bundleIdentifier
-                    expect(sut.accessibility) == Accessibility.afterFirstUnlock
+                    expect(sut.accessibility) == SKAccessibility.afterFirstUnlock
                     expect(sut.accessControlFlags).to(beNil())
                     expect(sut.isSynchronizable) == false
                     expect(sut.attributes).to(beEmpty())
@@ -37,7 +37,7 @@ class SimpleKeychainSpec: QuickSpec {
                                          attributes: ["foo": "bar"])
                     expect(sut.accessGroup) == "Group"
                     expect(sut.service) == KeychainService
-                    expect(sut.accessibility) == Accessibility.whenUnlocked
+                    expect(sut.accessibility) == SKAccessibility.whenUnlocked
                     expect(sut.accessControlFlags) == .userPresence
                     expect(sut.isSynchronizable) == true
                     expect(sut.attributes.count) == 1

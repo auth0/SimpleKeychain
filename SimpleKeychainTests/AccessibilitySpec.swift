@@ -8,64 +8,64 @@ class AccessibilitySpec: QuickSpec {
         describe("raw representable") {
             context("from raw value to case") {
                 it("should map kSecAttrAccessibleWhenUnlocked") {
-                    let sut = Accessibility(rawValue: kSecAttrAccessibleWhenUnlocked)
-                    expect(sut) == Accessibility.whenUnlocked
+                    let sut = SKAccessibility(rawValue: kSecAttrAccessibleWhenUnlocked)
+                    expect(sut) == SKAccessibility.whenUnlocked
                 }
 
                 it("should map kSecAttrAccessibleWhenUnlockedThisDeviceOnly") {
-                    let sut = Accessibility(rawValue: kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
-                    expect(sut) == Accessibility.whenUnlockedThisDeviceOnly
+                    let sut = SKAccessibility(rawValue: kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
+                    expect(sut) == SKAccessibility.whenUnlockedThisDeviceOnly
                 }
 
                 it("should map kSecAttrAccessibleAfterFirstUnlock") {
-                    let sut = Accessibility(rawValue: kSecAttrAccessibleAfterFirstUnlock)
-                    expect(sut) == Accessibility.afterFirstUnlock
+                    let sut = SKAccessibility(rawValue: kSecAttrAccessibleAfterFirstUnlock)
+                    expect(sut) == SKAccessibility.afterFirstUnlock
                 }
 
                 it("should map kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly") {
-                    let sut = Accessibility(rawValue: kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly)
-                    expect(sut) == Accessibility.afterFirstUnlockThisDeviceOnly
+                    let sut = SKAccessibility(rawValue: kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly)
+                    expect(sut) == SKAccessibility.afterFirstUnlockThisDeviceOnly
                 }
 
                 it("should map kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly") {
-                    let sut = Accessibility(rawValue: kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly)
-                    expect(sut) == Accessibility.whenPasscodeSetThisDeviceOnly
+                    let sut = SKAccessibility(rawValue: kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly)
+                    expect(sut) == SKAccessibility.whenPasscodeSetThisDeviceOnly
                 }
 
                 it("should map unknown values") {
-                    let sut = Accessibility(rawValue: "foo" as CFString)
-                    expect(sut) == Accessibility.afterFirstUnlock
+                    let sut = SKAccessibility(rawValue: "foo" as CFString)
+                    expect(sut) == SKAccessibility.afterFirstUnlock
                 }
             }
 
             context("from case to raw value") {
                 it("should map whenUnlocked") {
-                    let sut = Accessibility.whenUnlocked.rawValue as String
+                    let sut = SKAccessibility.whenUnlocked.rawValue as String
                     expect(sut) == (kSecAttrAccessibleWhenUnlocked as String)
                 }
 
                 it("should map whenUnlockedThisDeviceOnly") {
-                    let sut = Accessibility.whenUnlockedThisDeviceOnly.rawValue as String
+                    let sut = SKAccessibility.whenUnlockedThisDeviceOnly.rawValue as String
                     expect(sut) == (kSecAttrAccessibleWhenUnlockedThisDeviceOnly as String)
                 }
 
                 it("should map afterFirstUnlock") {
-                    let sut = Accessibility.afterFirstUnlock.rawValue as String
+                    let sut = SKAccessibility.afterFirstUnlock.rawValue as String
                     expect(sut) == (kSecAttrAccessibleAfterFirstUnlock as String)
                 }
 
                 it("should map afterFirstUnlockThisDeviceOnly") {
-                    let sut = Accessibility.afterFirstUnlockThisDeviceOnly.rawValue as String
+                    let sut = SKAccessibility.afterFirstUnlockThisDeviceOnly.rawValue as String
                     expect(sut) == (kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly as String)
                 }
 
                 it("should map whenPasscodeSetThisDeviceOnly") {
-                    let sut = Accessibility.whenPasscodeSetThisDeviceOnly.rawValue as String
+                    let sut = SKAccessibility.whenPasscodeSetThisDeviceOnly.rawValue as String
                     expect(sut) == (kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly as String)
                 }
 
                 it("should map whenPasscodeSetThisDeviceOnly") {
-                    let sut = Accessibility.whenPasscodeSetThisDeviceOnly.rawValue as String
+                    let sut = SKAccessibility.whenPasscodeSetThisDeviceOnly.rawValue as String
                     expect(sut) == (kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly as String)
                 }
             }
