@@ -11,7 +11,7 @@ let KeychainService = "com.auth0.simplekeychain.tests"
 class SimpleKeychainSpec: QuickSpec {
     override func spec() {
         describe("SimpleKeychain") {
-            var sut: SimpleKeychain!
+            var sut: SKSimpleKeychain!
 
             afterEach {
                 try? sut.deleteAll()
@@ -19,7 +19,7 @@ class SimpleKeychainSpec: QuickSpec {
 
             describe("initialization") {
                 it("should init with default values") {
-                    sut = SimpleKeychain()
+                    sut = SKSimpleKeychain()
                     expect(sut.accessGroup).to(beNil())
                     expect(sut.service) == Bundle.main.bundleIdentifier
                     expect(sut.accessibility) == SKAccessibility.afterFirstUnlock
@@ -29,7 +29,7 @@ class SimpleKeychainSpec: QuickSpec {
                 }
 
                 it("should init with custom values") {
-                    sut = SimpleKeychain(service: KeychainService,
+                    sut = SKSimpleKeychain(service: KeychainService,
                                          accessGroup: "Group",
                                          accessibility: .whenUnlocked,
                                          accessControlFlags: .userPresence,
@@ -47,7 +47,7 @@ class SimpleKeychainSpec: QuickSpec {
                 #if canImport(LocalAuthentication) && !os(tvOS)
                 it("should init with custom local authentication context") {
                     let context = LAContext()
-                    sut = SimpleKeychain(context: context)
+                    sut = SKSimpleKeychain(context: context)
                     expect(sut.context).to(be(context))
                 }
                 #endif
@@ -57,7 +57,7 @@ class SimpleKeychainSpec: QuickSpec {
                 var key: String!
 
                 beforeEach({
-                    sut = SimpleKeychain(service: KeychainService)
+                    sut = SKSimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
                 })
 
@@ -88,7 +88,7 @@ class SimpleKeychainSpec: QuickSpec {
                 var key: String!
 
                 beforeEach {
-                    sut = SimpleKeychain(service: KeychainService)
+                    sut = SKSimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
                     try! sut.set("foo", forKey: key)
                 }
@@ -135,7 +135,7 @@ class SimpleKeychainSpec: QuickSpec {
                 var key: String!
 
                 beforeEach {
-                    sut = SimpleKeychain(service: KeychainService)
+                    sut = SKSimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
                     try! sut.set("foo", forKey: key)
                 }
@@ -183,7 +183,7 @@ class SimpleKeychainSpec: QuickSpec {
                 var key: String!
 
                 beforeEach {
-                    sut = SimpleKeychain(service: KeychainService)
+                    sut = SKSimpleKeychain(service: KeychainService)
                     key = UUID().uuidString
                     try! sut.set("foo", forKey: key)
                 }
@@ -202,7 +202,7 @@ class SimpleKeychainSpec: QuickSpec {
 
                 beforeEach {
                     try! sut.deleteAll()
-                    sut = SimpleKeychain(service: KeychainService)
+                    sut = SKSimpleKeychain(service: KeychainService)
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
                     keys.append(UUID().uuidString)
@@ -241,7 +241,7 @@ class SimpleKeychainSpec: QuickSpec {
 
             describe("queries") {
                 beforeEach {
-                    sut = SimpleKeychain(service: KeychainService)
+                    sut = SKSimpleKeychain(service: KeychainService)
                 }
 
                 context("base query") {
@@ -261,7 +261,7 @@ class SimpleKeychainSpec: QuickSpec {
                     it("should include additional attributes") {
                         let key = "foo"
                         let value = "bar"
-                        sut = SimpleKeychain(attributes: [key: value])
+                        sut = SKSimpleKeychain(attributes: [key: value])
                         let query = sut.baseQuery()
                         expect((query[key] as? String)) == value
                     }
@@ -269,7 +269,7 @@ class SimpleKeychainSpec: QuickSpec {
                     it("should supersede additional attributes") {
                         let key = kSecAttrService as String
                         let value = "foo"
-                        sut = SimpleKeychain(attributes: [key: value])
+                        sut = SKSimpleKeychain(attributes: [key: value])
                         let query = sut.baseQuery()
                         expect((query[key] as? String)) == sut.service
                     }
@@ -287,20 +287,20 @@ class SimpleKeychainSpec: QuickSpec {
                     }
 
                     it("should include access group attribute") {
-                        sut = SimpleKeychain(accessGroup: "foo")
+                        sut = SKSimpleKeychain(accessGroup: "foo")
                         let query = sut.baseQuery()
                         expect((query[kSecAttrAccessGroup as String] as? String)) == sut.accessGroup
                     }
 
                     it("should include synchronizable attribute") {
-                        sut = SimpleKeychain(synchronizable: true)
+                        sut = SKSimpleKeychain(synchronizable: true)
                         let query = sut.baseQuery()
                         expect((query[kSecAttrSynchronizable as String] as? Bool)) == sut.isSynchronizable
                     }
 
                     #if canImport(LocalAuthentication) && !os(tvOS)
                     it("should include context attribute") {
-                        sut = SimpleKeychain(context: LAContext())
+                        sut = SKSimpleKeychain(context: LAContext())
                         let query = sut.baseQuery()
                         expect((query[kSecUseAuthenticationContext as String] as? LAContext)) == sut.context
                     }
@@ -350,7 +350,7 @@ class SimpleKeychainSpec: QuickSpec {
                     }
 
                     it("should include access control attribute") {
-                        sut = SimpleKeychain(accessControlFlags: .userPresence)
+                        sut = SKSimpleKeychain(accessControlFlags: .userPresence)
                         let query = sut.setQuery(forKey: "foo", data: Data())
                         expect(query[kSecAttrAccessControl as String]).toNot(beNil())
                     }
@@ -362,7 +362,7 @@ class SimpleKeychainSpec: QuickSpec {
                     }
 
                     it("should include accessibility attribute when iCloud sharing is enabled") {
-                        sut = SimpleKeychain(synchronizable: true)
+                        sut = SKSimpleKeychain(synchronizable: true)
                         let query = sut.setQuery(forKey: "foo", data: Data())
                         let expectedAccessibility = sut.accessibility.rawValue as String
                         expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
@@ -370,7 +370,7 @@ class SimpleKeychainSpec: QuickSpec {
 
                     it("should include accessibility attribute when data protection is enabled") {
                         let attributes = [kSecUseDataProtectionKeychain as String: kCFBooleanTrue as Any]
-                        sut = SimpleKeychain(attributes: attributes)
+                        sut = SKSimpleKeychain(attributes: attributes)
                         let query = sut.setQuery(forKey: "foo", data: Data())
                         let expectedAccessibility = sut.accessibility.rawValue as String
                         expect((query[kSecAttrAccessible as String] as? String)) == expectedAccessibility
