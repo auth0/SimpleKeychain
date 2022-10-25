@@ -8,7 +8,7 @@ By submitting a Pull Request to this repository, you agree to the terms within t
 - [ ] I have added documentation for all new/changed functionality (or N/A)
 
 <!--
-❗ All the above items are required. Pull Requests with an incomplete or missing checklist will be unceremoniously closed.
+❗ All the above items are required. Pull Requests with an incomplete or missing checklist will be closed.
 -->
 
 ### 📋 Changes

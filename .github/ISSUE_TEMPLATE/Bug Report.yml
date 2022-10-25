@@ -1,5 +1,6 @@
 name: 🐞 Report a bug
 description: Have you found a bug or issue? Create a bug report for this library
+labels: ["bug"]
 
 body:
   - type: markdown
@@ -12,7 +13,7 @@ body:
     attributes:
       label: Checklist
       options:
-        - label: I have looked into the [README](https://github.com/auth0/SimpleKeychain#readme) and have not found a suitable solution or answer.
+        - label: I have looked into the [README](https://github.com/auth0/SimpleKeychain#readme) and the [Examples](https://github.com/auth0/SimpleKeychain/blob/master/EXAMPLES.md) and have not found a suitable solution or answer.
           required: true
         - label: I have searched the [issues](https://github.com/auth0/SimpleKeychain/issues) and have not found a suitable solution or answer.
           required: true
@@ -55,7 +56,9 @@ body:
       multiple: true
       options:
         - iOS
+        - iPadOS
         - macOS
+        - macCatalyst
         - tvOS
         - watchOS
     validations:
