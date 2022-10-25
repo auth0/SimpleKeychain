@@ -66,7 +66,7 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 ### Usage
 
-**Learn about more advanced features in the [Examples ↗](EXAMPLES.md)**
+**Learn about more advanced features in [Examples ↗](EXAMPLES.md)**
 
 **See all the available features in the [API documentation ↗](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/)**
 
