@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)](https://codecov.io/github/auth0/SimpleKeychain)
 ![License](https://img.shields.io/github/license/auth0/SimpleKeychain.svg?style=flat)
 
-📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 🤝 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
+📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 📃 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
 
 Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 
