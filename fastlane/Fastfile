@@ -41,21 +41,19 @@ platform :ios do
     docs_dir = 'docs'
     docs_archive = 'docs.archive'
     redirect_file = <<~HEREDOC
-      <html>
+      <!DOCTYPE html>
         <head>
           <meta http-equiv="refresh" content="0; url=documentation/#{target.downcase}/" />
         </head>
         <body>
-          <p>
-            <a href="documentation/#{target.downcase}/">Redirect</a>
-          </p>
+          <a href="documentation/#{target.downcase}/">Redirect</a>
         </body>
       </html>
     HEREDOC
     # Work from project root (defaults to /fastlane)
     Dir.chdir('..') do
-      # Clear existing docs
-      FileUtils.rm_r(docs_dir)
+      # Clear existing docs, or create docs folder if it doesn't already exist
+      Dir.exist?(docs_dir) ? FileUtils.rm_r(docs_dir) : FileUtils.mkdir(docs_dir)
       # Generate the .doccarchive
       sh "xcodebuild docbuild -scheme #{target}-iOS -configuration Release -destination 'generic/platform=iOS' -derivedDataPath #{docs_archive}"
       # Generate the static site

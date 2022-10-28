@@ -12,7 +12,7 @@ Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 ## Documentation
 
 - [**Examples**](EXAMPLES.md) - explains how to use more advanced features.
-- [**API Documentation**](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/) - documentation auto-generated from the code comments that explains all the available features.
+- [**API Documentation**](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain) - documentation auto-generated from the code comments that explains all the available features.
   + [SimpleKeychain](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/simplekeychain)
   + [Accessibility](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/accessibility)
   + [SimpleKeychainError](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/simplekeychainerror)
@@ -68,7 +68,7 @@ Then, run `carthage bootstrap --use-xcframeworks`.
 
 **Learn about more advanced features in [Examples ↗](EXAMPLES.md)**
 
-**See all the available features in the [API documentation ↗](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain/)**
+**See all the available features in the [API documentation ↗](https://auth0.github.io/SimpleKeychain/documentation/simplekeychain)**
 
 ```swift
 let simpleKeychain = SimpleKeychain()

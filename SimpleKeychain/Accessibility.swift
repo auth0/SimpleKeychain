@@ -7,19 +7,23 @@ public enum Accessibility: RawRepresentable {
     /// See [kSecAttrAccessibleWhenUnlocked](https://developer.apple.com/documentation/security/ksecattraccessiblewhenunlocked).
     case whenUnlocked
 
-    /// The data in the Keychain can only be accessed when the device is unlocked. Only available if a passcode is set on the device.
+    /// The data in the Keychain can only be accessed when the device is unlocked. Only available if a passcode is set
+    /// on the device.
     /// See [kSecAttrAccessibleWhenUnlockedThisDeviceOnly](https://developer.apple.com/documentation/security/ksecattraccessiblewhenpasscodesetthisdeviceonly).
     case whenUnlockedThisDeviceOnly
 
-    /// The data in the Keychain item cannot be accessed after a restart until the device has been unlocked once by the user.
+    /// The data in the Keychain item cannot be accessed after a restart until the device has been unlocked once by the
+    /// user.
     /// See [kSecAttrAccessibleAfterFirstUnlock](https://developer.apple.com/documentation/security/ksecattraccessibleafterfirstunlock).
     case afterFirstUnlock
 
-    /// The data in the Keychain item cannot be accessed after a restart until the device has been unlocked once by the user.
+    /// The data in the Keychain item cannot be accessed after a restart until the device has been unlocked once by the
+    /// user.
     /// See [kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly](https://developer.apple.com/documentation/security/ksecattraccessibleafterfirstunlockthisdeviceonly).
     case afterFirstUnlockThisDeviceOnly
 
-    /// The data in the Keychain can only be accessed when the device is unlocked. Only available if a passcode is set on the device.
+    /// The data in the Keychain can only be accessed when the device is unlocked. Only available if a passcode is set
+    /// on the device.
     /// See [kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly](https://developer.apple.com/documentation/security/ksecattraccessiblewhenpasscodesetthisdeviceonly).
     case whenPasscodeSetThisDeviceOnly
 

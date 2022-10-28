@@ -8,7 +8,8 @@ typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePoin
 typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
 
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
-/// Supports sharing credentials with an **access group** or through **iCloud**, and integrating **Touch ID / Face ID**.
+/// Supports sharing credentials with an **access group** or through **iCloud**, and integrating
+/// **Touch ID / Face ID**.
 public struct SimpleKeychain {
     let service: String
     let accessGroup: String?
@@ -27,7 +28,8 @@ public struct SimpleKeychain {
     ///
     /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
     /// - Parameter accessGroup: access group for sharing Keychain items. Defaults to `nil`.
-    /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
+    /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to
+    /// ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.  Defaults to `nil`.
     /// - Parameter context: `LAContext` used to access Keychain items. Defaults to `nil`.
     /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
@@ -53,7 +55,8 @@ public struct SimpleKeychain {
     ///
     /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
     /// - Parameter accessGroup: access group for sharing Keychain items. Defaults to `nil`.
-    /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to ``Accessibility/afterFirstUnlock``.
+    /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to
+    /// ``Accessibility/afterFirstUnlock``.
     /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.  Defaults to `nil`.
     /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
     /// - Parameter attributes: Additional attributes to include in every query. Defaults to an empty dictionary.
