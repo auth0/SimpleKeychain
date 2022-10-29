@@ -1,7 +1,0 @@
-app_identifier "com.auth0.simplekeychain" # The bundle identifier of your app
-apple_id "mobile@auth0.com" # Your Apple email address
-
-team_id "86WQXF56BC"  # Developer Portal Team ID
-
-# you can even provide different app identifiers, Apple IDs and team names per lane:
-# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md

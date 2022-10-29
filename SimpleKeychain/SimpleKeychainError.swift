@@ -140,7 +140,8 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
     /// The `OSStatus` of the Keychain operation can be accessed via the ``status`` property.
     public static let other: SimpleKeychainError = .init(code: .other(status: 0))
 
-    /// Unknown error. This is not a Keychain error but a SimpleKeychain failure. For example, being unable to cast the retrieved item.
+    /// Unknown error. This is not a Keychain error but a SimpleKeychain failure. For example, being unable to cast the
+    /// retrieved item.
     public static let unknown: SimpleKeychainError = .init(code: .unknown(message: ""))
 }
 
