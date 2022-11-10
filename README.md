@@ -26,7 +26,8 @@ Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 - Xcode 13.x / 14.x
 - Swift 5.x
 
-> ⚠️ Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
+> **Note**
+> Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ### Installation
 
