@@ -126,7 +126,7 @@ class SimpleKeychainSpec: QuickSpec {
                         return errSecSuccess
                     }
                     try sut.deleteAll()
-                    expect(limit).toEventually(beNil())
+                    await expect(limit).toEventually(beNil())
                 }
                 #endif
             }
