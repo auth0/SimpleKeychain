@@ -20,7 +20,7 @@ platform :ios do
 
   desc 'Cocoapods library lint'
   lane :pod_lint do
-    pod_lib_lint(verbose: false, allow_warnings: true)
+    pod_lib_lint(verbose: false, allow_warnings: true, platforms: 'ios,osx,tvos')
   end
 
   desc 'Runs all the tests in a CI environment'
