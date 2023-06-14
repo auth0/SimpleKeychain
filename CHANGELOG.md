@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.1.0](https://github.com/auth0/SimpleKeychain/tree/1.1.0) (2023-06-14)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.0.1...1.1.0)
+
+**Removed**
+- Drop support for iOS 12, tvOS 12, macOS 10.15, watch0S < 7, and Xcode 13 [\#184](https://github.com/auth0/SimpleKeychain/pull/184) ([Widcket](https://github.com/Widcket))
+
 ## [1.0.1](https://github.com/auth0/SimpleKeychain/tree/1.0.1) (2022-09-14)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.0.0...1.0.1)
 

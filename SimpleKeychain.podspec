@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SimpleKeychain'
-  s.version          = '1.0.1'
+  s.version          = '1.1.0'
   s.summary          = 'A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS'
   s.description      = <<-DESC
                        Easily store your user's credentials in the Keychain.
