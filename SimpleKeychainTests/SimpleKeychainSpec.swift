@@ -8,8 +8,8 @@ let PublicKeyTag = "public"
 let PrivateKeyTag = "private"
 let KeychainService = "com.auth0.simplekeychain.tests"
 
-class SimpleKeychainSpec: QuickSpec {
-    override func spec() {
+class SimpleKeychainSpec: AsyncSpec {
+    override class func spec() {
         describe("SimpleKeychain") {
             var sut: SimpleKeychain!
 

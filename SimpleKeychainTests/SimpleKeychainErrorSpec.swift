@@ -6,7 +6,7 @@ import Quick
 @testable import SimpleKeychain
 
 class SimpleKeychainErrorSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("init") {
             it("should initialize with code") {
                 let sut = SimpleKeychainError(code: .operationNotImplemented)
