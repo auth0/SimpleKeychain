@@ -1,0 +1,112 @@
+name: CI
+on: push
+
+jobs:
+    test:
+        name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
+        runs-on: macos-latest
+
+        env:
+            xcodeproj: SimpleKeychain.xcodeproj
+
+        strategy:
+          matrix:
+            platform: 
+              - { os: iOS, scheme: SimpleKeychain-iOS }
+              - { os: macOS, scheme: SimpleKeychain-macOS }
+              - { os: tvOS, scheme: SimpleKeychain-tvOS }
+            xcode: 
+              - '14.2'
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+              with:
+                xcode: ${{ matrix.xcode }}
+
+            - name: Run tests
+              uses: ./.github/actions/test
+              with:
+                xcode: ${{ matrix.xcode }}
+                scheme: ${{ matrix.platform.scheme }}
+                platform: ${{ matrix.platform.os }}
+
+            - name: Convert coverage report
+              if: ${{ matrix.platform.os == 'iOS' }}
+              run: bundle exec slather coverage -x --scheme ${{ matrix.platform.scheme }} ${{ env.xcodeproj }}
+
+            - name: Upload coverage report
+              if: ${{ matrix.platform.os == 'iOS' }}
+              uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d
+
+            - name: Cancel wokflow on failure
+              uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1
+              if: ${{ failure() }}
+
+    test-package:
+        name: Test Swift package using Xcode ${{ matrix.xcode }}
+        runs-on: macos-latest
+
+        strategy:
+          matrix:
+            xcode: 
+              - '14.2'
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+              with:
+                xcode: ${{ matrix.xcode }}
+
+            - name: Run tests
+              run: swift test
+
+            - name: Cancel wokflow on failure
+              uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1
+              if: ${{ failure() }}
+
+    pod-lint:
+        name: Lint podspec using Xcode ${{ matrix.xcode }}
+        runs-on: macos-latest
+
+        strategy:
+          matrix:
+            xcode: 
+              - '14.2'
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+              with:
+                xcode: ${{ matrix.xcode }}
+
+            - name: Run pod lib lint
+              run: bundle exec pod lib lint --allow-warnings --fail-fast
+
+            - name: Cancel wokflow on failure
+              uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1
+              if: ${{ failure() }}
+
+    swiftlint:
+        name: Lint code with SwiftLint
+        runs-on: macos-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+
+            - name: Run SwiftLint
+              run: swiftlint lint --reporter github-actions-logging
+
+            - name: Cancel wokflow on failure
+              uses: andymckay/cancel-action@b9280e3f8986d7a8e91c7462efc0fa318010c8b1
+              if: ${{ failure() }}

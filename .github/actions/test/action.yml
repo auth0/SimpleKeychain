@@ -1,0 +1,53 @@
+name: Run tests
+description: Run library tests for a given platform
+
+inputs:
+  xcode:
+    description: The version of Xcode to use
+    required: true
+  scheme:
+    description: The Xcode scheme to use
+    required: true
+  platform:
+    description: The platform to build for
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+    - name: Install xcpretty
+      run: gem install xcpretty
+      shell: bash
+
+    - name: Save Xcode version
+      run: xcodebuild -version | tee .xcode-version
+      shell: bash
+
+    - id: restore-carthage-cache
+      name: Restore Carthage cache
+      uses: actions/cache/restore@v3
+      with:
+        path: Carthage
+        key: carthage-${{ inputs.platform }}-${{ hashFiles('Cartfile.resolved') }}-${{ hashFiles('.xcode-version') }}-v1
+
+    - name: Install dependencies
+      if: steps.restore-carthage-cache.outputs.cache-hit != 'true'
+      run: carthage bootstrap --platform ${{ inputs.platform }} --use-xcframeworks --no-use-binaries --cache-builds
+      shell: bash
+
+    - name: Save Carthage cache
+      id: save-carthage-cache
+      uses: actions/cache/save@v3
+      if: steps.restore-carthage-cache.outputs.cache-hit != 'true'
+      with:
+        path: Carthage
+        key: carthage-${{ inputs.platform }}-${{ hashFiles('Cartfile.resolved') }}-${{ hashFiles('.xcode-version') }}-v1
+
+    - name: Run tests
+      uses: mxcl/xcodebuild@v2
+      with:
+        xcode: ${{ inputs.xcode }}
+        scheme: ${{ inputs.scheme }}
+        platform: ${{ inputs.platform }}
+        code-coverage: true
