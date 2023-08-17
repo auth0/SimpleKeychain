@@ -627,8 +627,8 @@
 			targets = (
 				5FEEB99B1B7BD70A00501415 /* SimpleKeychain-iOS */,
 				5FEEB9BC1B7BD82800501415 /* SimpleKeychain-macOS */,
-				5B108A9C1EA62F6100ED4DD2 /* SimpleKeychain-watchOS */,
 				5B108AAB1EA637B100ED4DD2 /* SimpleKeychain-tvOS */,
+				5B108A9C1EA62F6100ED4DD2 /* SimpleKeychain-watchOS */,
 				5F7B45AB1B7D0CE700D5AC89 /* SimpleKeychainApp */,
 				5C29744223FF457A00BC18FA /* tvOSTestHost */,
 				5F4D277A1BCE99DF003C27B3 /* SimpleKeychainTests-iOS */,
@@ -727,7 +727,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
 		5C737B52285AD56900B4BB25 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -746,7 +746,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
 		5C737B54285AD58F00B4BB25 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -765,7 +765,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
 		5C737B55285AD5A800B4BB25 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -784,7 +784,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${CONFIGURATION}\" = \"Debug\" ]] && [ -z ${CIRCLECI} ] && which swiftlint >/dev/null; then\nswiftlint\nfi\n";
+			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
