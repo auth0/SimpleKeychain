@@ -1,5 +1,11 @@
 name: CI
-on: push
+on:
+    pull_request:
+      types:
+        - opened
+        - synchronize
+
+permissions: {}
 
 jobs:
     test:
