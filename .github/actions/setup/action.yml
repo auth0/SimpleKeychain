@@ -1,0 +1,27 @@
+name: Set up environment
+description: Set up the environment for building and testing the library on a given platform
+
+inputs:
+  xcode:
+    description: The version of Xcode to use
+    required: true
+
+runs:
+  using: composite
+
+  steps:
+    - name: Set Ruby version
+      run: ruby -e 'puts RUBY_VERSION' | tee .ruby-version
+      shell: bash
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@250fcd6a742febb1123a77a841497ccaa8b9e939
+      with:
+        bundler-cache: true
+        cache-version: 1
+
+    - name: Setup Xcode
+      uses: mxcl/xcodebuild@6e60022a0cbe8c89278be2dd1773a2f68e7c5c87
+      with:
+        xcode: ${{ inputs.xcode }}
+        action: none
