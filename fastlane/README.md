@@ -15,30 +15,6 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios test
-
-```sh
-[bundle exec] fastlane ios test
-```
-
-Runs all the tests
-
-### ios pod_lint
-
-```sh
-[bundle exec] fastlane ios pod_lint
-```
-
-Cocoapods library lint
-
-### ios ci
-
-```sh
-[bundle exec] fastlane ios ci
-```
-
-Runs all the tests in a CI environment
-
 ### ios release
 
 ```sh

@@ -1,34 +1,6 @@
 default_platform :ios
 
 platform :ios do
-  before_all do
-    setup_circle_ci
-  end
-
-  desc 'Runs all the tests'
-  lane :test do |options|
-    scheme = options[:scheme]
-    device = options[:device]
-    scan(
-      scheme: scheme,
-      device: device,
-      clean: true,
-      skip_build: true,
-      output_types: 'junit'
-      )
-  end
-
-  desc 'Cocoapods library lint'
-  lane :pod_lint do
-    pod_lib_lint(verbose: false, allow_warnings: true, platforms: 'ios,osx,tvos')
-  end
-
-  desc 'Runs all the tests in a CI environment'
-  lane :ci do
-    # TODO: Run rest of platforms
-    test
-  end
-
   desc 'Tags the release and pushes the Podspec to CocoaPods'
   lane :release do
     perform_release target: 'SimpleKeychain-iOS'

@@ -1,7 +1,7 @@
 ![SimpleKeychain](https://cdn.auth0.com/website/sdks/banners/simplekeychain-banner.png)
 
 ![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)
-[![CircleCI](https://img.shields.io/circleci/project/github/auth0/SimpleKeychain.svg?style=flat)](https://circleci.com/gh/auth0/SimpleKeychain/tree/master)
+![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/SimpleKeychain/main.yml?style=flat)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)](https://codecov.io/github/auth0/SimpleKeychain)
 ![License](https://img.shields.io/github/license/auth0/SimpleKeychain.svg?style=flat)
 
