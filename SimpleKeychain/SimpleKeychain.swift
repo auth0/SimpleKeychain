@@ -216,9 +216,13 @@ public extension SimpleKeychain {
     /// - Returns: Whether the item is stored in the Keychain or not.
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func hasItem(forKey key: String) throws -> Bool {
-        let query = self.baseQuery(withKey: key)
+        var query = self.baseQuery(withKey: key)
+        query[kSecUseAuthenticationUI as String] = kSecUseAuthenticationUIFail
         let status = retrieve(query as CFDictionary, nil)
 
+        if status == SimpleKeychainError.interactionNotAllowed.status {
+            return true
+        }
         if status == SimpleKeychainError.itemNotFound.status {
             return false
         }
