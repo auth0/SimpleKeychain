@@ -26,7 +26,7 @@ runs:
 
     - id: restore-carthage-cache
       name: Restore Carthage cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84
       with:
         path: Carthage
         key: carthage-${{ inputs.platform }}-${{ hashFiles('Cartfile.resolved') }}-${{ hashFiles('.xcode-version') }}-v1
@@ -36,16 +36,8 @@ runs:
       run: carthage bootstrap --platform ${{ inputs.platform }} --use-xcframeworks --no-use-binaries --cache-builds
       shell: bash
 
-    - name: Save Carthage cache
-      id: save-carthage-cache
-      uses: actions/cache/save@v3
-      if: steps.restore-carthage-cache.outputs.cache-hit != 'true'
-      with:
-        path: Carthage
-        key: carthage-${{ inputs.platform }}-${{ hashFiles('Cartfile.resolved') }}-${{ hashFiles('.xcode-version') }}-v1
-
     - name: Run tests
-      uses: mxcl/xcodebuild@v2
+      uses: mxcl/xcodebuild@6e60022a0cbe8c89278be2dd1773a2f68e7c5c87
       with:
         xcode: ${{ inputs.xcode }}
         scheme: ${{ inputs.scheme }}
