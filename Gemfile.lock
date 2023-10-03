@@ -287,10 +287,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods (>= 1.13.0)
+  cocoapods
   fastlane
   fastlane-plugin-auth0_shipper
-  slather (>= 2.7.5)
+  slather
 
 BUNDLED WITH
    2.4.10
