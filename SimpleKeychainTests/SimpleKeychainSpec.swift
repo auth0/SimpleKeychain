@@ -388,7 +388,7 @@ class SimpleKeychainSpec: AsyncSpec {
     }
 }
 
-public func containBaseQuery(_ baseQuery: [String: Any]) -> Predicate<[String: Any]> {
+public func containBaseQuery(_ baseQuery: [String: Any]) -> Nimble.Predicate<[String: Any]> {
     return Predicate<[String: Any]>.define("contains base query <\(baseQuery)>") { expression, failureMessage in
         guard let actual = try expression.evaluate() else {
             return PredicateResult(status: .doesNotMatch, message: failureMessage)
