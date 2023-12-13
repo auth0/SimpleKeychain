@@ -15,7 +15,7 @@ concurrency:
 jobs:
     test:
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
-        runs-on: macos-latest
+        runs-on: macos-13
 
         env:
             xcodeproj: SimpleKeychain.xcodeproj
@@ -55,7 +55,7 @@ jobs:
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
-        runs-on: macos-latest
+        runs-on: macos-13
 
         strategy:
           matrix:
@@ -76,7 +76,7 @@ jobs:
 
     pod-lint:
         name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-latest
+        runs-on: macos-13
 
         strategy:
           matrix:
@@ -97,7 +97,7 @@ jobs:
 
     swiftlint:
         name: Lint code with SwiftLint
-        runs-on: macos-latest
+        runs-on: macos-13
 
         steps:
             - name: Checkout
