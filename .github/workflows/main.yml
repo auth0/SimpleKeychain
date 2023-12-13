@@ -1,4 +1,5 @@
 name: CI
+
 on:
     pull_request:
       types:
@@ -9,7 +10,7 @@ permissions: {}
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+    cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
     test:
@@ -26,7 +27,7 @@ jobs:
               - { os: macOS, scheme: SimpleKeychain-macOS }
               - { os: tvOS, scheme: SimpleKeychain-tvOS }
             xcode: 
-              - '14.2'
+              - '15.0.1'
 
         steps:
             - name: Checkout
@@ -59,7 +60,7 @@ jobs:
         strategy:
           matrix:
             xcode: 
-              - '14.2'
+              - '15.0.1'
 
         steps:
             - name: Checkout
@@ -80,7 +81,7 @@ jobs:
         strategy:
           matrix:
             xcode: 
-              - '14.2'
+              - '15.0.1'
 
         steps:
             - name: Checkout
