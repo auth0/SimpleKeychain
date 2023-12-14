@@ -34,7 +34,7 @@ When creating the SimpleKeychain instance, specify the access group that the app
 let simpleKeychain = SimpleKeychain(accessGroup: "ABCDEFGH.com.example.myaccessgroup")
 ```
 
-> **Note**
+> [!NOTE]
 > For more information on access group sharing, see [Sharing Access to Keychain Items Among a Collection of Apps](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
 
 ## Share items with other devices through iCloud synchronization
@@ -45,7 +45,7 @@ When creating the SimpleKeychain instance, set `synchronizable` to `true` to ena
 let simpleKeychain = SimpleKeychain(sychronizable: true)
 ```
 
-> **Note**
+> [!NOTE]
 > For more information on iCloud synchronization, check the [kSecAttrSynchronizable documentation](https://developer.apple.com/documentation/security/ksecattrsynchronizable).
 
 ## Restrict item accessibility based on device state
@@ -56,7 +56,7 @@ When creating the SimpleKeychain instance, specify a custom accesibility value t
 let simpleKeychain = SimpleKeychain(accessibility: .whenUnlocked)
 ```
 
-> **Note**
+> [!NOTE]
 > For more information on accessibility, see [Restricting Keychain Item Accessibility](https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility).
 
 ## Require Touch ID / Face ID to retrieve an item
@@ -70,7 +70,7 @@ let simpleKeychain = SimpleKeychain(accessControlFlags: .biometryCurrentSet,
                                     context: context)
 ```
 
-> **Note**
+> [!NOTE]
 > For more information on access control, see [Restricting Keychain Item Accessibility](https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility).
 
 ---
