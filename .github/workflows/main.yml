@@ -1,4 +1,5 @@
 name: CI
+
 on:
     pull_request:
       types:
@@ -9,12 +10,12 @@ permissions: {}
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+    cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
     test:
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
-        runs-on: macos-latest
+        runs-on: macos-13
 
         env:
             xcodeproj: SimpleKeychain.xcodeproj
@@ -26,7 +27,7 @@ jobs:
               - { os: macOS, scheme: SimpleKeychain-macOS }
               - { os: tvOS, scheme: SimpleKeychain-tvOS }
             xcode: 
-              - '14.2'
+              - '15.0.1'
 
         steps:
             - name: Checkout
@@ -54,12 +55,12 @@ jobs:
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
-        runs-on: macos-latest
+        runs-on: macos-13
 
         strategy:
           matrix:
             xcode: 
-              - '14.2'
+              - '15.0.1'
 
         steps:
             - name: Checkout
@@ -75,12 +76,12 @@ jobs:
 
     pod-lint:
         name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-latest
+        runs-on: macos-13
 
         strategy:
           matrix:
             xcode: 
-              - '14.2'
+              - '15.0.1'
 
         steps:
             - name: Checkout
@@ -96,7 +97,7 @@ jobs:
 
     swiftlint:
         name: Lint code with SwiftLint
-        runs-on: macos-latest
+        runs-on: macos-13
 
         steps:
             - name: Checkout
