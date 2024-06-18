@@ -51,6 +51,19 @@
 		5F7B45B11B7D0CE700D5AC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7B45B01B7D0CE700D5AC89 /* AppDelegate.swift */; };
 		5F7B45B81B7D0CE700D5AC89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B71B7D0CE700D5AC89 /* Images.xcassets */; };
 		5F7B45BB1B7D0CE700D5AC89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F7B45B91B7D0CE700D5AC89 /* LaunchScreen.xib */; };
+		C1D1FBA52C218F2B008E9E3F /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
+		C1D1FBA62C218F2B008E9E3F /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
+		C1D1FBAB2C219170008E9E3F /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1D1FBAC2C219170008E9E3F /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C1D1FBAD2C2192FA008E9E3F /* SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF40592852D88C003840E6 /* SimpleKeychain.swift */; };
+		C1D1FBAE2C2192FA008E9E3F /* SimpleKeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2A285A7C0200B4BB25 /* SimpleKeychainError.swift */; };
+		C1D1FBAF2C2192FA008E9E3F /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C840111285AFF7B00689C01 /* Accessibility.swift */; };
+		C1D1FBB02C219322008E9E3F /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
+		C1D1FBB12C219322008E9E3F /* SimpleKeychainErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */; };
+		C1D1FBB22C219322008E9E3F /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
+		C1D1FBBD2C21AC93008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FBBC2C21AC93008E9E3F /* CwlPreconditionTesting */; };
+		C1D1FBBF2C21C814008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FBBE2C21C814008E9E3F /* CwlPreconditionTesting */; };
+		C1D1FBC12C21C89C008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FBC02C21C89C008E9E3F /* CwlPreconditionTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +101,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5FEEB9BC1B7BD82800501415;
 			remoteInfo = "SimpleKeychain-macOS";
+		};
+		C1D1FBA82C219155008E9E3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FEEB9931B7BD70A00501415 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1D1FB8F2C218DD1008E9E3F;
+			remoteInfo = "SimpleKeychain-visionOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -136,6 +156,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1D1FBAA2C21915F008E9E3F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C1D1FBAB2C219170008E9E3F /* Nimble.xcframework in CopyFiles */,
+				C1D1FBAC2C219170008E9E3F /* Quick.xcframework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +201,8 @@
 		5FEEB9A01B7BD70A00501415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FEEB9AD1B7BD70B00501415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1D1FB902C218DD1008E9E3F /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1D1FB972C218DD1008E9E3F /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +243,7 @@
 			files = (
 				5CE9CA1326FD42B0005A75FA /* Nimble.xcframework in Frameworks */,
 				5CE9CA1226FD42B0005A75FA /* Quick.xcframework in Frameworks */,
+				C1D1FBC12C21C89C008E9E3F /* CwlPreconditionTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +253,7 @@
 			files = (
 				5CE9CA1626FD42F4005A75FA /* Nimble.xcframework in Frameworks */,
 				5CE9CA1726FD42F4005A75FA /* Quick.xcframework in Frameworks */,
+				C1D1FBBF2C21C814008E9E3F /* CwlPreconditionTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +276,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D1FB8D2C218DD1008E9E3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D1FB942C218DD1008E9E3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1D1FBBD2C21AC93008E9E3F /* CwlPreconditionTesting in Frameworks */,
+				C1D1FBA52C218F2B008E9E3F /* Nimble.xcframework in Frameworks */,
+				C1D1FBA62C218F2B008E9E3F /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +366,8 @@
 				5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */,
 				5B0D47591EA63C74009FF1BF /* SimpleKeychainTests.xctest */,
 				5C29744323FF457A00BC18FA /* tvOSTestHost.app */,
+				C1D1FB902C218DD1008E9E3F /* SimpleKeychain.framework */,
+				C1D1FB972C218DD1008E9E3F /* SimpleKeychainTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -382,6 +436,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5FEEB9BA1B7BD82800501415 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D1FB8B2C218DD1008E9E3F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,6 +543,9 @@
 				5F4D27811BCE99E0003C27B3 /* PBXTargetDependency */,
 			);
 			name = "SimpleKeychainTests-iOS";
+			packageProductDependencies = (
+				C1D1FBC02C21C89C008E9E3F /* CwlPreconditionTesting */,
+			);
 			productName = "SimpleKeychainTests-iOS";
 			productReference = 5F4D277B1BCE99DF003C27B3 /* SimpleKeychainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -501,6 +565,9 @@
 				5F4D27961BCEA69E003C27B3 /* PBXTargetDependency */,
 			);
 			name = "SimpleKeychainTests-macOS";
+			packageProductDependencies = (
+				C1D1FBBE2C21C814008E9E3F /* CwlPreconditionTesting */,
+			);
 			productName = "SimpleKeychainTests-macOS";
 			productReference = 5F4D278F1BCEA69E003C27B3 /* SimpleKeychainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -561,13 +628,54 @@
 			productReference = 5FEEB9BD1B7BD82800501415 /* SimpleKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C1D1FB8F2C218DD1008E9E3F /* SimpleKeychain-visionOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1D1FBA32C218DD1008E9E3F /* Build configuration list for PBXNativeTarget "SimpleKeychain-visionOS" */;
+			buildPhases = (
+				C1D1FB8C2C218DD1008E9E3F /* Sources */,
+				C1D1FB8D2C218DD1008E9E3F /* Frameworks */,
+				C1D1FB8B2C218DD1008E9E3F /* Headers */,
+				C1D1FB8E2C218DD1008E9E3F /* Resources */,
+				C1D1FBA72C218FBB008E9E3F /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SimpleKeychain-visionOS";
+			productName = SimpleKeychain;
+			productReference = C1D1FB902C218DD1008E9E3F /* SimpleKeychain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C1D1FB962C218DD1008E9E3F /* SimpleKeychainTests-visionOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1D1FBA42C218DD1008E9E3F /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-visionOS" */;
+			buildPhases = (
+				C1D1FB932C218DD1008E9E3F /* Sources */,
+				C1D1FB942C218DD1008E9E3F /* Frameworks */,
+				C1D1FB952C218DD1008E9E3F /* Resources */,
+				C1D1FBAA2C21915F008E9E3F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1D1FBA92C219155008E9E3F /* PBXTargetDependency */,
+			);
+			name = "SimpleKeychainTests-visionOS";
+			packageProductDependencies = (
+				C1D1FBBC2C21AC93008E9E3F /* CwlPreconditionTesting */,
+			);
+			productName = "SimpleKeychainTests-visionOS";
+			productReference = C1D1FB972C218DD1008E9E3F /* SimpleKeychainTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5FEEB9931B7BD70A00501415 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = Auth0;
 				TargetAttributes = {
@@ -610,6 +718,12 @@
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 1340;
 					};
+					C1D1FB8F2C218DD1008E9E3F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					C1D1FB962C218DD1008E9E3F = {
+						CreatedOnToolsVersion = 15.4;
+					};
 				};
 			};
 			buildConfigurationList = 5FEEB9961B7BD70A00501415 /* Build configuration list for PBXProject "SimpleKeychain" */;
@@ -621,6 +735,9 @@
 				Base,
 			);
 			mainGroup = 5FEEB9921B7BD70A00501415;
+			packageReferences = (
+				C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
+			);
 			productRefGroup = 5FEEB99D1B7BD70A00501415 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -634,6 +751,8 @@
 				5F4D277A1BCE99DF003C27B3 /* SimpleKeychainTests-iOS */,
 				5F4D278E1BCEA69E003C27B3 /* SimpleKeychainTests-macOS */,
 				5B0D47581EA63C74009FF1BF /* SimpleKeychainTests-tvOS */,
+				C1D1FB8F2C218DD1008E9E3F /* SimpleKeychain-visionOS */,
+				C1D1FB962C218DD1008E9E3F /* SimpleKeychainTests-visionOS */,
 			);
 		};
 /* End PBXProject section */
@@ -707,6 +826,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1D1FB8E2C218DD1008E9E3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D1FB952C218DD1008E9E3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -768,6 +901,25 @@
 			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
 		};
 		5C737B55285AD5A800B4BB25 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -z ${CI} ]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint > /dev/null; then\n        swiftlint\n    else\n        echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n    fi\nfi\n";
+		};
+		C1D1FBA72C218FBB008E9E3F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -876,6 +1028,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1D1FB8C2C218DD1008E9E3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1D1FBAD2C2192FA008E9E3F /* SimpleKeychain.swift in Sources */,
+				C1D1FBAE2C2192FA008E9E3F /* SimpleKeychainError.swift in Sources */,
+				C1D1FBAF2C2192FA008E9E3F /* Accessibility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D1FB932C218DD1008E9E3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1D1FBB02C219322008E9E3F /* SimpleKeychainSpec.swift in Sources */,
+				C1D1FBB12C219322008E9E3F /* SimpleKeychainErrorSpec.swift in Sources */,
+				C1D1FBB22C219322008E9E3F /* AccessibilitySpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -903,6 +1075,11 @@
 			isa = PBXTargetDependency;
 			target = 5FEEB9BC1B7BD82800501415 /* SimpleKeychain-macOS */;
 			targetProxy = 5F4D27951BCEA69E003C27B3 /* PBXContainerItemProxy */;
+		};
+		C1D1FBA92C219155008E9E3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1D1FB8F2C218DD1008E9E3F /* SimpleKeychain-visionOS */;
+			targetProxy = C1D1FBA82C219155008E9E3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1523,6 +1700,186 @@
 			};
 			name = Release;
 		};
+		C1D1FB9F2C218DD1008E9E3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SimpleKeychain/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychain;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		C1D1FBA02C218DD1008E9E3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SimpleKeychain/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychain;
+				PRODUCT_NAME = SimpleKeychain;
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
+		C1D1FBA12C218DD1008E9E3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LD_RUNPATH_SEARCH_PATHS_SHALLOW_BUNDLE_$(SHALLOW_BUNDLE))",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
+				PRODUCT_NAME = SimpleKeychainTests;
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		C1D1FBA22C218DD1008E9E3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES_NONAGGRESSIVE;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LD_RUNPATH_SEARCH_PATHS_SHALLOW_BUNDLE_$(SHALLOW_BUNDLE))",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
+				MARKETING_VERSION = "";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
+				PRODUCT_NAME = SimpleKeychainTests;
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1616,7 +1973,54 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C1D1FBA32C218DD1008E9E3F /* Build configuration list for PBXNativeTarget "SimpleKeychain-visionOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1D1FB9F2C218DD1008E9E3F /* Debug */,
+				C1D1FBA02C218DD1008E9E3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1D1FBA42C218DD1008E9E3F /* Build configuration list for PBXNativeTarget "SimpleKeychainTests-visionOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1D1FBA12C218DD1008E9E3F /* Debug */,
+				C1D1FBA22C218DD1008E9E3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1D1FBBC2C21AC93008E9E3F /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+		C1D1FBBE2C21C814008E9E3F /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+		C1D1FBC02C21C89C008E9E3F /* CwlPreconditionTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
+			productName = CwlPreconditionTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FEEB9931B7BD70A00501415 /* Project object */;
 }
