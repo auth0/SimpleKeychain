@@ -52,6 +52,8 @@ jobs:
             - name: Upload coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
               uses: codecov/codecov-action@ab904c41d6ece82784817410c45d8b8c02684457
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
