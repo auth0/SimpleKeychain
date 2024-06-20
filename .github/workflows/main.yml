@@ -13,8 +13,17 @@ concurrency:
     cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
+    authorize:
+      name: Authorize
+      environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
+      runs-on: ubuntu-latest
+      steps:
+        - run: true
+
     test:
+        needs: authorize # Require approval before running on forked pull requests
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
+        environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
         runs-on: macos-13
 
         env:
@@ -31,7 +40,7 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -52,6 +61,8 @@ jobs:
             - name: Upload coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
               uses: codecov/codecov-action@ab904c41d6ece82784817410c45d8b8c02684457
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
@@ -64,7 +75,7 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -85,7 +96,7 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -101,7 +112,7 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633
+              uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
 
             - name: Run SwiftLint
               run: swiftlint lint --reporter github-actions-logging
