@@ -15,7 +15,7 @@ runs:
       shell: bash
 
     - name: Set up Ruby
-      uses: ruby/setup-ruby@250fcd6a742febb1123a77a841497ccaa8b9e939
+      uses: ruby/setup-ruby@0cde4689ba33c09f1b890c1725572ad96751a3fc # pinned to version v1.178.0
       with:
         bundler-cache: true
         cache-version: 1

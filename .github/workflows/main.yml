@@ -13,8 +13,17 @@ concurrency:
     cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
+    authorize:
+      name: Authorize
+      environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
+      runs-on: ubuntu-latest
+      steps:
+        - run: true
+
     test:
+        needs: authorize # Require approval before running on forked pull requests
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
+        environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
         runs-on: macos-13
 
         env:
@@ -52,6 +61,8 @@ jobs:
             - name: Upload coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
               uses: codecov/codecov-action@ab904c41d6ece82784817410c45d8b8c02684457
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
