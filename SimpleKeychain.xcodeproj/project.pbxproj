@@ -20,8 +20,6 @@
 		5C737B34285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */; };
 		5C737B35285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */; };
 		5C737B36285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */; };
-		5C737B4F285ACC9F00B4BB25 /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5C737B50285ACC9F00B4BB25 /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5C840112285AFF7B00689C01 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C840111285AFF7B00689C01 /* Accessibility.swift */; };
 		5C840113285AFF7B00689C01 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C840111285AFF7B00689C01 /* Accessibility.swift */; };
 		5C840114285AFF7B00689C01 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C840111285AFF7B00689C01 /* Accessibility.swift */; };
@@ -32,16 +30,6 @@
 		5CDF405B2852D88C003840E6 /* SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF40592852D88C003840E6 /* SimpleKeychain.swift */; };
 		5CDF405C2852D88C003840E6 /* SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF40592852D88C003840E6 /* SimpleKeychain.swift */; };
 		5CDF405D2852D88C003840E6 /* SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF40592852D88C003840E6 /* SimpleKeychain.swift */; };
-		5CE9CA1226FD42B0005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
-		5CE9CA1326FD42B0005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
-		5CE9CA1626FD42F4005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
-		5CE9CA1726FD42F4005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
-		5CE9CA1826FD42FA005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CE9CA1926FD42FA005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CE9CA1A26FD430F005A75FA /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
-		5CE9CA1B26FD430F005A75FA /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
-		5CE9CA1C26FD4316005A75FA /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CE9CA1D26FD4316005A75FA /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CE9CA2126FD43F5005A75FA /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B108AB81EA637B100ED4DD2 /* SimpleKeychain.framework */; };
 		5CEB577B285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
 		5CEB577C285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
@@ -92,28 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5B062A3A1EA63F6100827E79 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5CE9CA1C26FD4316005A75FA /* Nimble.xcframework in CopyFiles */,
-				5CE9CA1D26FD4316005A75FA /* Quick.xcframework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5C737B4E285ACC9200B4BB25 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5C737B4F285ACC9F00B4BB25 /* Nimble.xcframework in CopyFiles */,
-				5C737B50285ACC9F00B4BB25 /* Quick.xcframework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5CAF69A826FE57A90045266B /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,17 +89,6 @@
 				5CAF69A726FE57A90045266B /* SimpleKeychain.framework in Copy Files */,
 			);
 			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5F4D279C1BCEA6A7003C27B3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5CE9CA1826FD42FA005A75FA /* Nimble.xcframework in CopyFiles */,
-				5CE9CA1926FD42FA005A75FA /* Quick.xcframework in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -155,8 +110,6 @@
 		5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychainErrorSpec.swift; sourceTree = "<group>"; };
 		5C840111285AFF7B00689C01 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		5CDF40592852D88C003840E6 /* SimpleKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychain.swift; sourceTree = "<group>"; };
-		5CE9CA1026FD42B0005A75FA /* Quick.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Quick.xcframework; path = Carthage/Build/Quick.xcframework; sourceTree = SOURCE_ROOT; };
-		5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = Carthage/Build/Nimble.xcframework; sourceTree = SOURCE_ROOT; };
 		5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySpec.swift; sourceTree = "<group>"; };
 		5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleKeychainSpec.swift; sourceTree = "<group>"; };
 		5F4D277B1BCE99DF003C27B3 /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,8 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CE9CA1A26FD430F005A75FA /* Nimble.xcframework in Frameworks */,
-				5CE9CA1B26FD430F005A75FA /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +159,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CE9CA1326FD42B0005A75FA /* Nimble.xcframework in Frameworks */,
-				5CE9CA1226FD42B0005A75FA /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,8 +166,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CE9CA1626FD42F4005A75FA /* Nimble.xcframework in Frameworks */,
-				5CE9CA1726FD42F4005A75FA /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +211,6 @@
 		5F51D71D1BCDC4D400613162 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */,
-				5CE9CA1026FD42B0005A75FA /* Quick.xcframework */,
 			);
 			name = Frameworks;
 			path = SimpleKeychain;
@@ -398,7 +343,6 @@
 				5B0D47551EA63C74009FF1BF /* Sources */,
 				5B0D47561EA63C74009FF1BF /* Frameworks */,
 				5B0D47571EA63C74009FF1BF /* Resources */,
-				5B062A3A1EA63F6100827E79 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -473,7 +417,6 @@
 				5F4D27771BCE99DF003C27B3 /* Sources */,
 				5F4D27781BCE99DF003C27B3 /* Frameworks */,
 				5F4D27791BCE99DF003C27B3 /* Resources */,
-				5C737B4E285ACC9200B4BB25 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -493,7 +436,6 @@
 				5F4D278B1BCEA69E003C27B3 /* Sources */,
 				5F4D278C1BCEA69E003C27B3 /* Frameworks */,
 				5F4D278D1BCEA69E003C27B3 /* Resources */,
-				5F4D279C1BCEA6A7003C27B3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -937,7 +879,6 @@
 		5B0D47621EA63C74009FF1BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -965,7 +906,6 @@
 		5B0D47631EA63C74009FF1BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1171,7 +1111,6 @@
 		5F4D27831BCE99E0003C27B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
@@ -1192,7 +1131,6 @@
 		5F4D27841BCE99E0003C27B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
