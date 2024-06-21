@@ -131,11 +131,15 @@ class SimpleKeychainTests: XCTestCase {
     }
     
     func testRetrievingNonExistingStringItem() {
-        XCTAssertThrowsError(try sut.string(forKey: "SHOULDNOTEXIST"))
+        XCTAssertThrowsError(try sut.string(forKey: "SHOULDNOTEXIST")) { error in
+            XCTAssertEqual(error as? SimpleKeychainError, .itemNotFound)
+        }
     }
     
     func testRetrievingNonExistingDataItem() {
-        XCTAssertThrowsError(try sut.data(forKey: "SHOULDNOTEXIST"))
+        XCTAssertThrowsError(try sut.data(forKey: "SHOULDNOTEXIST")) { error in
+            XCTAssertEqual(error as? SimpleKeychainError, .itemNotFound)
+        }
     }
     
     func testRetrievingStringItemThatCannotBeDecoded() {
