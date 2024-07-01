@@ -49,11 +49,16 @@ jobs:
                 xcode: ${{ matrix.xcode }}
 
             - name: Run tests
+              if: ${{ matrix.platform.os != 'visionOS' }}              
               uses: ./.github/actions/test
               with:
                 xcode: ${{ matrix.xcode }}
                 scheme: ${{ matrix.platform.scheme }}
                 platform: ${{ matrix.platform.os }}
+              
+            - name: Run tests for visionOS
+              if: ${{ matrix.platform.os == 'visionOS' }}
+              run: xcodebuild test -scheme SimpleKeychain-visionOS -project SimpleKeychain.xcodeproj -destination 'platform=visionOS Simulator,name=Apple Vision Pro'
 
             - name: Convert coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
