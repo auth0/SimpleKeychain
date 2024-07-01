@@ -24,7 +24,7 @@ jobs:
         needs: authorize # Require approval before running on forked pull requests
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
         environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
-        runs-on: macos-13
+        runs-on: macos-14-xlarge
 
         env:
             xcodeproj: SimpleKeychain.xcodeproj
@@ -35,8 +35,9 @@ jobs:
               - { os: iOS, scheme: SimpleKeychain-iOS }
               - { os: macOS, scheme: SimpleKeychain-macOS }
               - { os: tvOS, scheme: SimpleKeychain-tvOS }
+              - { os: visionOS, scheme: SimpleKeychain-visionOS }
             xcode: 
-              - '15.0.1'
+              - '15.4'
 
         steps:
             - name: Checkout
@@ -48,11 +49,18 @@ jobs:
                 xcode: ${{ matrix.xcode }}
 
             - name: Run tests
+              if: ${{ matrix.platform.os != 'visionOS' }}              
               uses: ./.github/actions/test
               with:
                 xcode: ${{ matrix.xcode }}
                 scheme: ${{ matrix.platform.scheme }}
                 platform: ${{ matrix.platform.os }}
+              
+            - name: Run tests for visionOS
+              if: ${{ matrix.platform.os == 'visionOS' }}
+              run: |
+                xcodebuild -scheme SimpleKeychain-visionOS -showdestinations
+                xcodebuild test -scheme SimpleKeychain-visionOS -project SimpleKeychain.xcodeproj -destination 'platform=visionOS Simulator,name=Apple Vision Pro'
 
             - name: Convert coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
@@ -66,12 +74,12 @@ jobs:
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
-        runs-on: macos-13
+        runs-on: macos-14-xlarge
 
         strategy:
           matrix:
             xcode: 
-              - '15.0.1'
+              - '15.4'
 
         steps:
             - name: Checkout
@@ -87,12 +95,12 @@ jobs:
 
     pod-lint:
         name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-13
+        runs-on: macos-14-xlarge
 
         strategy:
           matrix:
             xcode: 
-              - '15.0.1'
+              - '15.4'
 
         steps:
             - name: Checkout
@@ -108,11 +116,14 @@ jobs:
 
     swiftlint:
         name: Lint code with SwiftLint
-        runs-on: macos-13
+        runs-on: macos-14-xlarge
 
         steps:
             - name: Checkout
               uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+
+            - name: Install SwiftLint
+              run: brew install swiftlint
 
             - name: Run SwiftLint
               run: swiftlint lint --reporter github-actions-logging
