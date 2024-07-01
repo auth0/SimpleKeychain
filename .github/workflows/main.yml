@@ -35,8 +35,9 @@ jobs:
               - { os: iOS, scheme: SimpleKeychain-iOS }
               - { os: macOS, scheme: SimpleKeychain-macOS }
               - { os: tvOS, scheme: SimpleKeychain-tvOS }
+              - { os: visionOS, scheme: SimpleKeychain-visionOS }
             xcode: 
-              - '15.0.1'
+              - '15.2'
 
         steps:
             - name: Checkout
@@ -71,7 +72,7 @@ jobs:
         strategy:
           matrix:
             xcode: 
-              - '15.0.1'
+              - '15.2'
 
         steps:
             - name: Checkout
@@ -92,7 +93,7 @@ jobs:
         strategy:
           matrix:
             xcode: 
-              - '15.0.1'
+              - '15.2'
 
         steps:
             - name: Checkout
