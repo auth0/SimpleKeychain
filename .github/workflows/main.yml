@@ -24,7 +24,7 @@ jobs:
         needs: authorize # Require approval before running on forked pull requests
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
         environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
-        runs-on: macos-13-xlarge
+        runs-on: macos-14-xlarge
 
         env:
             xcodeproj: SimpleKeychain.xcodeproj
@@ -37,7 +37,7 @@ jobs:
               - { os: tvOS, scheme: SimpleKeychain-tvOS }
               - { os: visionOS, scheme: SimpleKeychain-visionOS }
             xcode: 
-              - '15.2'
+              - '15.4'
 
         steps:
             - name: Checkout
@@ -74,12 +74,12 @@ jobs:
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
-        runs-on: macos-13-xlarge
+        runs-on: macos-14-xlarge
 
         strategy:
           matrix:
             xcode: 
-              - '15.2'
+              - '15.4'
 
         steps:
             - name: Checkout
@@ -95,12 +95,12 @@ jobs:
 
     pod-lint:
         name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-13-xlarge
+        runs-on: macos-14-xlarge
 
         strategy:
           matrix:
             xcode: 
-              - '15.2'
+              - '15.4'
 
         steps:
             - name: Checkout
@@ -116,7 +116,7 @@ jobs:
 
     swiftlint:
         name: Lint code with SwiftLint
-        runs-on: macos-13-xlarge
+        runs-on: macos-14-xlarge
 
         steps:
             - name: Checkout
