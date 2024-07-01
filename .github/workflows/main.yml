@@ -58,7 +58,9 @@ jobs:
               
             - name: Run tests for visionOS
               if: ${{ matrix.platform.os == 'visionOS' }}
-              run: xcodebuild test -scheme SimpleKeychain-visionOS -project SimpleKeychain.xcodeproj -destination 'platform=visionOS Simulator,name=Apple Vision Pro'
+              run: |
+                xcodebuild -scheme SimpleKeychain-visionOS -showdestinations
+                xcodebuild test -scheme SimpleKeychain-visionOS -project SimpleKeychain.xcodeproj -destination 'platform=visionOS Simulator,name=Apple Vision Pro'
 
             - name: Convert coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
