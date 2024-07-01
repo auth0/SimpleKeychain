@@ -24,18 +24,6 @@ runs:
       run: xcodebuild -version | tee .xcode-version
       shell: bash
 
-    - id: restore-carthage-cache
-      name: Restore Carthage cache
-      uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84
-      with:
-        path: Carthage
-        key: carthage-${{ inputs.platform }}-${{ hashFiles('Cartfile.resolved') }}-${{ hashFiles('.xcode-version') }}-v1
-
-    - name: Install dependencies
-      if: steps.restore-carthage-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --platform ${{ inputs.platform }} --use-xcframeworks --no-use-binaries --cache-builds
-      shell: bash
-
     - name: Run tests
       uses: mxcl/xcodebuild@6e60022a0cbe8c89278be2dd1773a2f68e7c5c87
       with:
