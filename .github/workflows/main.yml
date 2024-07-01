@@ -87,7 +87,7 @@ jobs:
 
     pod-lint:
         name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-13
+        runs-on: macos-13-xlarge
 
         strategy:
           matrix:
