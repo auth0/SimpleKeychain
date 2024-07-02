@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   s.visionos.deployment_target = '1.0'
 
   s.source_files = 'SimpleKeychain/*.swift'
-  s.swift_versions = ['5.7', '5.8']
+  s.swift_versions = ['5.9']
 end
