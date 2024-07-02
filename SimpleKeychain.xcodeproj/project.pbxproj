@@ -42,19 +42,12 @@
 		C1010DEF2C21CEDB001C10B3 /* visionOSTestHostApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1010DEE2C21CEDB001C10B3 /* visionOSTestHostApp.swift */; };
 		C1010DF12C21CEDB001C10B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1010DF02C21CEDB001C10B3 /* ContentView.swift */; };
 		C1010DF32C21CEDD001C10B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1010DF22C21CEDD001C10B3 /* Assets.xcassets */; };
-		C1D1FBA52C218F2B008E9E3F /* Nimble.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; };
-		C1D1FBA62C218F2B008E9E3F /* Quick.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; };
-		C1D1FBAB2C219170008E9E3F /* Nimble.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1126FD42B0005A75FA /* Nimble.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C1D1FBAC2C219170008E9E3F /* Quick.xcframework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CE9CA1026FD42B0005A75FA /* Quick.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C1D1FBAD2C2192FA008E9E3F /* SimpleKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDF40592852D88C003840E6 /* SimpleKeychain.swift */; };
 		C1D1FBAE2C2192FA008E9E3F /* SimpleKeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2A285A7C0200B4BB25 /* SimpleKeychainError.swift */; };
 		C1D1FBAF2C2192FA008E9E3F /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C840111285AFF7B00689C01 /* Accessibility.swift */; };
 		C1D1FBB02C219322008E9E3F /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
 		C1D1FBB12C219322008E9E3F /* SimpleKeychainErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */; };
 		C1D1FBB22C219322008E9E3F /* AccessibilitySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */; };
-		C1D1FBBD2C21AC93008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FBBC2C21AC93008E9E3F /* CwlPreconditionTesting */; };
-		C1D1FBBF2C21C814008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FBBE2C21C814008E9E3F /* CwlPreconditionTesting */; };
-		C1D1FBC12C21C89C008E9E3F /* CwlPreconditionTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C1D1FBC02C21C89C008E9E3F /* CwlPreconditionTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,9 +239,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1D1FBBD2C21AC93008E9E3F /* CwlPreconditionTesting in Frameworks */,
-				C1D1FBA52C218F2B008E9E3F /* Nimble.xcframework in Frameworks */,
-				C1D1FBA62C218F2B008E9E3F /* Quick.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +499,6 @@
 			);
 			name = "SimpleKeychainTests-iOS";
 			packageProductDependencies = (
-				C1D1FBC02C21C89C008E9E3F /* CwlPreconditionTesting */,
 			);
 			productName = "SimpleKeychainTests-iOS";
 			productReference = 5F4D277B1BCE99DF003C27B3 /* SimpleKeychainTests.xctest */;
@@ -530,7 +519,6 @@
 			);
 			name = "SimpleKeychainTests-macOS";
 			packageProductDependencies = (
-				C1D1FBBE2C21C814008E9E3F /* CwlPreconditionTesting */,
 			);
 			productName = "SimpleKeychainTests-macOS";
 			productReference = 5F4D278F1BCEA69E003C27B3 /* SimpleKeychainTests.xctest */;
@@ -637,7 +625,6 @@
 				C1D1FB932C218DD1008E9E3F /* Sources */,
 				C1D1FB942C218DD1008E9E3F /* Frameworks */,
 				C1D1FB952C218DD1008E9E3F /* Resources */,
-				C1D1FBAA2C21915F008E9E3F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -647,7 +634,6 @@
 			);
 			name = "SimpleKeychainTests-visionOS";
 			packageProductDependencies = (
-				C1D1FBBC2C21AC93008E9E3F /* CwlPreconditionTesting */,
 			);
 			productName = "SimpleKeychainTests-visionOS";
 			productReference = C1D1FB972C218DD1008E9E3F /* SimpleKeychainTests.xctest */;
@@ -724,7 +710,6 @@
 			);
 			mainGroup = 5FEEB9921B7BD70A00501415;
 			packageReferences = (
-				C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */,
 			);
 			productRefGroup = 5FEEB99D1B7BD70A00501415 /* Products */;
 			projectDirPath = "";
@@ -1145,7 +1130,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOSTestHost.app/tvOSTestHost";
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -1169,7 +1154,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOSTestHost.app/tvOSTestHost";
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -1262,7 +1247,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -1290,7 +1275,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -1322,7 +1307,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -1350,7 +1335,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -1360,7 +1345,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1379,7 +1364,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SimpleKeychainTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1444,7 +1429,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1465,7 +1450,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SimpleKeychainApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1527,7 +1512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1582,7 +1567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -1607,7 +1592,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1632,7 +1617,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SimpleKeychain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1745,7 +1730,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 1.2;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -1783,7 +1768,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 1.2;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
@@ -2090,35 +2075,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mattgallagher/CwlPreconditionTesting.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C1D1FBBC2C21AC93008E9E3F /* CwlPreconditionTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
-			productName = CwlPreconditionTesting;
-		};
-		C1D1FBBE2C21C814008E9E3F /* CwlPreconditionTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
-			productName = CwlPreconditionTesting;
-		};
-		C1D1FBC02C21C89C008E9E3F /* CwlPreconditionTesting */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1D1FBBB2C21AC93008E9E3F /* XCRemoteSwiftPackageReference "CwlPreconditionTesting" */;
-			productName = CwlPreconditionTesting;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FEEB9931B7BD70A00501415 /* Project object */;
 }
