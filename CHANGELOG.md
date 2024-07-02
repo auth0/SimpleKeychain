@@ -1,5 +1,20 @@
 # Change Log
 
+## [1.2.0-beta.0](https://github.com/auth0/SimpleKeychain/tree/1.2.0-beta.0) (2024-07-02)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.1.0...1.2.0-beta.0)
+
+**Added**
+- feat: added support for visionOS platform [\#215](https://github.com/auth0/SimpleKeychain/pull/215) ([desusai7](https://github.com/desusai7))
+- Add GitHub Actions workflow [SDK-4458] [\#186](https://github.com/auth0/SimpleKeychain/pull/186) ([Widcket](https://github.com/Widcket))
+
+**Changed**
+- Remove CircleCI config and related Fastlane lanes [SDK-4458] [\#187](https://github.com/auth0/SimpleKeychain/pull/187) ([Widcket](https://github.com/Widcket))
+
+**Fixed**
+- test: migrated from Quick & Nimble to use XCTest to remove dependency on third party packages [\#213](https://github.com/auth0/SimpleKeychain/pull/213) ([desusai7](https://github.com/desusai7))
+- Improve GH Actions workflows [\#192](https://github.com/auth0/SimpleKeychain/pull/192) ([Widcket](https://github.com/Widcket))
+- Reduce permissions of GH actions and limit its triggers [\#189](https://github.com/auth0/SimpleKeychain/pull/189) ([Widcket](https://github.com/Widcket))
+
 ## [1.1.0](https://github.com/auth0/SimpleKeychain/tree/1.1.0) (2023-06-14)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.0.1...1.1.0)
 
