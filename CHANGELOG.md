@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.2.0](https://github.com/auth0/SimpleKeychain/tree/1.2.0) (2024-09-16)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.1.0...1.2.0)
+
+**Added**
+- feat: added support for visionOS platform [\#215](https://github.com/auth0/SimpleKeychain/pull/215) ([desusai7](https://github.com/desusai7))
+
+**Changed**
+- Update Platforms Support Policy in README [\#198](https://github.com/auth0/SimpleKeychain/pull/198) ([Widcket](https://github.com/Widcket))
+
 ## [1.2.0-beta.0](https://github.com/auth0/SimpleKeychain/tree/1.2.0-beta.0) (2024-07-02)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.1.0...1.2.0-beta.0)
 
