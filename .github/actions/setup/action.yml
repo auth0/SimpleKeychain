@@ -10,13 +10,11 @@ runs:
   using: composite
 
   steps:
-    - name: Set Ruby version
-      run: ruby -e 'puts RUBY_VERSION' | tee .ruby-version
-      shell: bash
 
     - name: Set up Ruby
-      uses: ruby/setup-ruby@0cde4689ba33c09f1b890c1725572ad96751a3fc # pinned to version v1.178.0
+      uses: ruby/setup-ruby@52753b7da854d5c07df37391a986c76ab4615999 # pinned to version v1.191.0
       with:
+        ruby-version: '3.1.0'
         bundler-cache: true
         cache-version: 1
 
