@@ -108,7 +108,13 @@ class SimpleKeychainErrorSpec: XCTestCase {
         let sut = SimpleKeychainError(code: .decodeFailed)
         XCTAssertEqual(sut.localizedDescription, message)
     }
-    
+
+  func testErrorMessage_shouldReturnMessageForMissingEntitlement() {
+      let message = "errSecMissingEntitlement: A required entitlement is missing."
+      let sut = SimpleKeychainError(code: .missingEntitlement)
+      XCTAssertEqual(sut.localizedDescription, message)
+  }
+
     func testErrorMessage_shouldReturnMessageForOtherError() {
         let status: OSStatus = 123
         let message = "Unspecified Keychain error: \(status)."
@@ -167,7 +173,12 @@ class SimpleKeychainErrorSpec: XCTestCase {
         let sut = SimpleKeychainError.Code(rawValue: errSecDecode)
         XCTAssertEqual(sut, SimpleKeychainError.decodeFailed.code)
     }
-    
+
+    func testMapErrSecMissingEntitlement() {
+        let sut = SimpleKeychainError.Code(rawValue: errSecMissingEntitlement)
+        XCTAssertEqual(sut, SimpleKeychainError.missingEntitlement.code)
+    }
+
     func testMapOtherStatusValue() {
         let status: OSStatus = 1234
         let sut = SimpleKeychainError.Code(rawValue: status)
@@ -205,7 +216,11 @@ class SimpleKeychainErrorSpec: XCTestCase {
     func testMapDecodeFailed() {
         XCTAssertEqual(SimpleKeychainError.decodeFailed.code.rawValue, errSecDecode)
     }
-    
+
+    func testMapMissingEntitlement() {
+        XCTAssertEqual(SimpleKeychainError.missingEntitlement.code.rawValue, errSecMissingEntitlement)
+    }
+
     func testMapOther() {
         let status: OSStatus = 1234
         XCTAssertEqual(SimpleKeychainError(code: .other(status: status)).status, status)
