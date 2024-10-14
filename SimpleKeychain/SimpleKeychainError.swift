@@ -12,6 +12,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
         case itemNotFound
         case interactionNotAllowed
         case decodeFailed
+        case missingEntitlement
         case other(status: OSStatus)
         case unknown(message: String)
 
@@ -26,6 +27,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             case errSecItemNotFound: self = .itemNotFound
             case errSecInteractionNotAllowed: self = .interactionNotAllowed
             case errSecDecode: self = .decodeFailed
+            case errSecMissingEntitlement: self = .missingEntitlement
             default: self = .other(status: rawValue)
             }
         }
@@ -41,6 +43,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             case .itemNotFound: return errSecItemNotFound
             case .interactionNotAllowed: return errSecInteractionNotAllowed
             case .decodeFailed: return errSecDecode
+            case .missingEntitlement: return errSecMissingEntitlement
             case let .other(status): return status
             case .unknown: return errSecSuccess // This is not a Keychain error
             }
@@ -91,6 +94,8 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
             return "errSecInteractionNotAllowed: Interaction with the Security Server is not allowed."
         case .decodeFailed:
             return "errSecDecode: Unable to decode the provided data."
+        case .missingEntitlement:
+            return "errSecMissingEntitlement: A required entitlement is missing."
         case .other:
             return "Unspecified Keychain error: \(self.status)."
         case let .unknown(message):
@@ -135,6 +140,10 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
     /// Unable to decode the provided data.
     /// See [errSecDecode](https://developer.apple.com/documentation/security/errsecdecode).
     public static let decodeFailed: SimpleKeychainError = .init(code: .decodeFailed)
+
+    /// A required entitlement is missing.
+    /// See [errSecMissingEntitlement](https://developer.apple.com/documentation/security/errsecmissingentitlement).
+    public static let missingEntitlement: SimpleKeychainError = .init(code: .missingEntitlement)
 
     /// Other Keychain error.
     /// The `OSStatus` of the Keychain operation can be accessed via the ``status`` property.
