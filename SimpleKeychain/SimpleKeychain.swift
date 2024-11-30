@@ -222,6 +222,9 @@ public extension SimpleKeychain {
         if status == SimpleKeychainError.itemNotFound.status {
             return false
         }
+        if let context = self.context, context.interactionNotAllowed, status == SimpleKeychainError.interactionNotAllowed.status {
+            return true
+        }
 
         try assertSuccess(forStatus: status)
         return true

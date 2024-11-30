@@ -360,6 +360,15 @@ class SimpleKeychainTests: XCTestCase {
         XCTAssertEqual(query[kSecAttrAccessible as String] as? String, expectedAccessibility)
     }
     #endif
+
+    func testInteractionNotAllowed() {
+        let context = LAContext()
+        context.interactionNotAllowed = true
+        sut = SimpleKeychain(context: context)
+        let key = UUID().uuidString
+        XCTAssertNoThrow(try sut.set("foo", forKey: key))
+        XCTAssertTrue(try sut.hasItem(forKey: key))
+    }
 }
 
 public extension Dictionary where Key == String, Value == Any {
