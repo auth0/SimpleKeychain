@@ -1,7 +1,12 @@
 import Foundation
 import Security
 #if canImport(LocalAuthentication)
+#if canImport(_Concurrency)
 @preconcurrency import LocalAuthentication
+#else
+// swiftlint:disable:next duplicate_imports
+import LocalAuthentication
+#endif
 #endif
 
 typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
@@ -10,16 +15,22 @@ typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
 /// Supports sharing credentials with an **access group** or through **iCloud**, and integrating
 /// **Touch ID / Face ID**.
-public struct SimpleKeychain: Sendable {
+public struct SimpleKeychain {
     let service: String
     let accessGroup: String?
     let accessibility: Accessibility
     let accessControlFlags: SecAccessControlCreateFlags?
     let isSynchronizable: Bool
-    nonisolated(unsafe) let attributes: [String: Any]
 
+    #if canImport(_Concurrency)
+    nonisolated(unsafe) let attributes: [String: Any]
     nonisolated(unsafe) var retrieve: RetrieveFunction = SecItemCopyMatching
     nonisolated(unsafe) var remove: RemoveFunction = SecItemDelete
+    #else
+    let attributes: [String: Any]
+    var retrieve: RetrieveFunction = SecItemCopyMatching
+    var remove: RemoveFunction = SecItemDelete
+    #endif
 
     #if canImport(LocalAuthentication) && !os(tvOS)
     let context: LAContext?
@@ -321,3 +332,9 @@ extension SimpleKeychain {
         return query
     }
 }
+
+// MARK: - Sendable conformance
+
+#if canImport(_Concurrency)
+extension SimpleKeychain: Sendable {}
+#endif
