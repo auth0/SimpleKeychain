@@ -60,7 +60,7 @@ jobs:
 
             - name: Upload coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
-              uses: codecov/codecov-action@5a605bd92782ce0810fa3b8acc235c921b497052 # pin@5.2.0
+              uses: codecov/codecov-action@13ce06bfc6bbe3ecf90edbbf1bc32fe5978ca1d3 # pin@5.3.1
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
 
