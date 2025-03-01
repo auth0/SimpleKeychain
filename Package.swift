@@ -4,7 +4,10 @@ import PackageDescription
 let package = Package(
     name: "SimpleKeychain",
     platforms: [.iOS(.v14), .macOS(.v11), .tvOS(.v14), .watchOS(.v7), .visionOS(.v1)],
-    products: [.library(name: "SimpleKeychain", targets: ["SimpleKeychain"])],
+    products: [
+      .library(name: "SimpleKeychain", targets: ["SimpleKeychain"]),
+      .library(name: "SimpleKeychain-dynamic", type: .dynamic, targets: ["SimpleKeychain"])
+    ],
     targets: [
         .target(
             name: "SimpleKeychain",
