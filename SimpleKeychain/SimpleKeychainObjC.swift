@@ -231,7 +231,6 @@ public extension SimpleKeychainObjC {
   /// try simpleKeychain.deleteAll(error: &error)
   /// ```
   /// 
-  /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
   /// - Parameter error: On failure, will be set to the error that occurred.
   /// - Returns: `True` on a successful save. When `False`, check error.
   @objc func deleteAll(error: NSErrorPointer) -> Bool {
