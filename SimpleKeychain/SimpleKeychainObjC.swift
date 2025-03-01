@@ -1,11 +1,4 @@
 import Foundation
-#if canImport(LocalAuthentication) && !os(tvOS)
-import LocalAuthentication
-public typealias SimpleKeychainContext = LAContext
-#else
-// Dummy context type for platforms without LAContext
-public typealias SimpleKeychainContext = NSObject
-#endif
 
 @objc public enum SimpleKeychainAccessibility: Int {
   case whenUnlocked
@@ -60,10 +53,17 @@ public class SimpleKeychainObjC: NSObject {
     } else {
       flags = nil
     }
+
+    // Add kSecUseDataProtectionKeychain on macOS by default
+    // as we want the accessibility to be used
+    var mutableAttributes = attributes
+#if os(macOS)
+    if mutableAttributes[kSecUseDataProtectionKeychain as String] == nil {
+      mutableAttributes[kSecUseDataProtectionKeychain as String] = true
+    }
+#endif
     
     // Initialize the underlying Swift SimpleKeychain
-#if canImport(LocalAuthentication) && !os(tvOS)
-    // On platforms with LA support, pass through the context
     self.simpleKeychain = SimpleKeychain(
       service: service,
       accessGroup: accessGroup,
@@ -73,17 +73,6 @@ public class SimpleKeychainObjC: NSObject {
       synchronizable: synchronizable,
       attributes: attributes
     )
-#else
-    // On platforms without LA support, don't pass a context
-    self.simpleKeychain = SimpleKeychain(
-      service: service,
-      accessGroup: accessGroup,
-      accessibility: swiftAccessibility,
-      accessControlFlags: flags,
-      synchronizable: synchronizable,
-      attributes: attributes
-    )
-#endif
     
     super.init()
   }

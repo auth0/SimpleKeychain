@@ -1,7 +1,11 @@
 import Foundation
 import Security
-#if canImport(LocalAuthentication)
+#if canImport(LocalAuthentication) && !os(tvOS)
 @preconcurrency import LocalAuthentication
+public typealias SimpleKeychainContext = LAContext
+#else
+// Dummy context type for platforms without LAContext
+public typealias SimpleKeychainContext = NSObject
 #endif
 
 typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
@@ -21,8 +25,7 @@ public struct SimpleKeychain: @unchecked Sendable {
     var retrieve: RetrieveFunction = SecItemCopyMatching
     var remove: RemoveFunction = SecItemDelete
 
-    #if canImport(LocalAuthentication) && !os(tvOS)
-    let context: LAContext?
+    let context: SimpleKeychainContext?
 
     /// Initializes a ``SimpleKeychain`` instance.
     ///
@@ -39,7 +42,7 @@ public struct SimpleKeychain: @unchecked Sendable {
                 accessGroup: String? = nil,
                 accessibility: Accessibility = .afterFirstUnlock,
                 accessControlFlags: SecAccessControlCreateFlags? = nil,
-                context: LAContext? = nil,
+                context: SimpleKeychainContext? = nil,
                 synchronizable: Bool = false,
                 attributes: [String: Any] = [:]) {
         self.service = service
@@ -50,31 +53,6 @@ public struct SimpleKeychain: @unchecked Sendable {
         self.isSynchronizable = synchronizable
         self.attributes = attributes
     }
-    #else
-    /// Initializes a ``SimpleKeychain`` instance.
-    ///
-    /// - Parameter service: Name of the service under which to save items. Defaults to the bundle identifier.
-    /// - Parameter accessGroup: access group for sharing Keychain items. Defaults to `nil`.
-    /// - Parameter accessibility: ``Accessibility`` type the stored items will have. Defaults to
-    /// ``Accessibility/afterFirstUnlock``.
-    /// - Parameter accessControlFlags: Access control conditions for `kSecAttrAccessControl`.  Defaults to `nil`.
-    /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
-    /// - Parameter attributes: Additional attributes to include in every query. Defaults to an empty dictionary.
-    /// - Returns: A ``SimpleKeychain`` instance.
-    public init(service: String = Bundle.main.bundleIdentifier!,
-                accessGroup: String? = nil,
-                accessibility: Accessibility = .afterFirstUnlock,
-                accessControlFlags: SecAccessControlCreateFlags? = nil,
-                synchronizable: Bool = false,
-                attributes: [String: Any] = [:]) {
-        self.service = service
-        self.accessGroup = accessGroup
-        self.accessibility = accessibility
-        self.accessControlFlags = accessControlFlags
-        self.isSynchronizable = synchronizable
-        self.attributes = attributes
-    }
-    #endif
 
     private func assertSuccess(forStatus status: OSStatus) throws {
         if status != errSecSuccess {
