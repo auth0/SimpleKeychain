@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		298132FD2D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */; };
+		298132FE2D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */; };
+		298132FF2D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */; };
+		298133002D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */; };
+		298133012D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */; };
+		298133032D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298133022D7301740089E3B8 /* SimpleKeychainObjCTests.swift */; };
+		298133042D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298133022D7301740089E3B8 /* SimpleKeychainObjCTests.swift */; };
+		298133052D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298133022D7301740089E3B8 /* SimpleKeychainObjCTests.swift */; };
+		298133062D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298133022D7301740089E3B8 /* SimpleKeychainObjCTests.swift */; };
 		5B0D47641EA63CD1009FF1BF /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
 		5C29744623FF457A00BC18FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29744523FF457A00BC18FA /* AppDelegate.swift */; };
 		5C29744823FF457A00BC18FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29744723FF457A00BC18FA /* ViewController.swift */; };
@@ -117,6 +126,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychainObjC.swift; sourceTree = "<group>"; };
+		298133022D7301740089E3B8 /* SimpleKeychainObjCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychainObjCTests.swift; sourceTree = "<group>"; };
 		5B0AB18F2088E2DB002D7109 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		5B0D47591EA63C74009FF1BF /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B108AA91EA62F6100ED4DD2 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,6 +334,7 @@
 			children = (
 				5FEEB99F1B7BD70A00501415 /* Supporting Files */,
 				5CDF40592852D88C003840E6 /* SimpleKeychain.swift */,
+				298132FC2D7300490089E3B8 /* SimpleKeychainObjC.swift */,
 				5C737B2A285A7C0200B4BB25 /* SimpleKeychainError.swift */,
 				5C840111285AFF7B00689C01 /* Accessibility.swift */,
 			);
@@ -343,6 +355,7 @@
 			children = (
 				5FEEB9AC1B7BD70B00501415 /* Supporting Files */,
 				5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */,
+				298133022D7301740089E3B8 /* SimpleKeychainObjCTests.swift */,
 				5C737B2F285AB57A00B4BB25 /* SimpleKeychainErrorSpec.swift */,
 				5CEB577A285BCE7E00A32A80 /* AccessibilitySpec.swift */,
 			);
@@ -930,6 +943,7 @@
 				5B0D47641EA63CD1009FF1BF /* SimpleKeychainSpec.swift in Sources */,
 				5CEB577D285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */,
 				5C737B36285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */,
+				298133052D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,6 +953,7 @@
 			files = (
 				5C737B2D285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
 				5C840114285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				298133002D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */,
 				5CDF405C2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +964,7 @@
 			files = (
 				5C737B2E285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
 				5C840115285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				298132FF2D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */,
 				5CDF405D2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -969,6 +985,7 @@
 				5F4D27851BCE99E7003C27B3 /* SimpleKeychainSpec.swift in Sources */,
 				5CEB577B285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */,
 				5C737B34285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */,
+				298133032D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +996,7 @@
 				5F4D279F1BCEA6CE003C27B3 /* SimpleKeychainSpec.swift in Sources */,
 				5CEB577C285BCE7E00A32A80 /* AccessibilitySpec.swift in Sources */,
 				5C737B35285AB9B100B4BB25 /* SimpleKeychainErrorSpec.swift in Sources */,
+				298133042D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1014,7 @@
 			files = (
 				5C737B2B285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
 				5C840112285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				298133012D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */,
 				5CDF405A2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1006,6 +1025,7 @@
 			files = (
 				5C737B2C285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
 				5C840113285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				298132FE2D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */,
 				5CDF405B2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1025,6 +1045,7 @@
 			files = (
 				C1D1FBAD2C2192FA008E9E3F /* SimpleKeychain.swift in Sources */,
 				C1D1FBAE2C2192FA008E9E3F /* SimpleKeychainError.swift in Sources */,
+				298132FD2D7300490089E3B8 /* SimpleKeychainObjC.swift in Sources */,
 				C1D1FBAF2C2192FA008E9E3F /* Accessibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1036,6 +1057,7 @@
 				C1D1FBB02C219322008E9E3F /* SimpleKeychainSpec.swift in Sources */,
 				C1D1FBB12C219322008E9E3F /* SimpleKeychainErrorSpec.swift in Sources */,
 				C1D1FBB22C219322008E9E3F /* AccessibilitySpec.swift in Sources */,
+				298133062D7301740089E3B8 /* SimpleKeychainObjCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,7 +1411,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
 				SDKROOT = macosx;
@@ -1409,7 +1430,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.SimpleKeychainTests;
 				PRODUCT_NAME = SimpleKeychainTests;
 				SDKROOT = macosx;
@@ -1513,7 +1533,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1568,7 +1588,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1654,7 +1674,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SDKROOT = macosx;
@@ -1683,7 +1702,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.auth0.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SimpleKeychain;
 				SDKROOT = macosx;

@@ -44,3 +44,4 @@ Package.resolved
 
 # DocC
 docs.archive/
+.DerivedData.noindex
