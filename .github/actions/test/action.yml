@@ -5,9 +5,11 @@ inputs:
   xcode:
     description: The version of Xcode to use
     required: true
+
   scheme:
     description: The Xcode scheme to use
     required: true
+
   platform:
     description: The platform to build for
     required: true
@@ -16,18 +18,15 @@ runs:
   using: composite
 
   steps:
-    - name: Install xcpretty
-      run: gem install xcpretty
-      shell: bash
-
     - name: Save Xcode version
       run: xcodebuild -version | tee .xcode-version
       shell: bash
 
     - name: Run tests
-      uses: mxcl/xcodebuild@6e60022a0cbe8c89278be2dd1773a2f68e7c5c87
+      uses: mxcl/xcodebuild@2cf0ec52b855fa777531c5c89b714caa7a3abd5e # pin@v3.4.0
       with:
         xcode: ${{ inputs.xcode }}
         scheme: ${{ inputs.scheme }}
         platform: ${{ inputs.platform }}
         code-coverage: true
+        verbosity: xcbeautify
