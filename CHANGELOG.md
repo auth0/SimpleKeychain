@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.3.0](https://github.com/auth0/SimpleKeychain/tree/1.3.0) (2025-03-14)
+[Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.2.0...1.3.0)
+
+**Added**
+- feat: add `errSecMissingEntitlement` error [\#224](https://github.com/auth0/SimpleKeychain/pull/224) ([grdsdev](https://github.com/grdsdev))
+- Add `Sendable` conformance [\#235](https://github.com/auth0/SimpleKeychain/pull/235) ([Widcket](https://github.com/Widcket))
+
 ## [1.2.0](https://github.com/auth0/SimpleKeychain/tree/1.2.0) (2024-09-16)
 [Full Changelog](https://github.com/auth0/SimpleKeychain/compare/1.1.0...1.2.0)
 
