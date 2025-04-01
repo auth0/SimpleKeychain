@@ -22,7 +22,7 @@ runs:
         cache-version: 1
 
     - name: Setup Xcode
-      uses: mxcl/xcodebuild@2cf0ec52b855fa777531c5c89b714caa7a3abd5e # pin@v3.4.0
+      uses: mxcl/xcodebuild@5c66d0aa1072a1b1f6cfc978530bf76b3f13a24d # pin@v3.5.0
       with:
         xcode: ${{ inputs.xcode }}
         action: none
