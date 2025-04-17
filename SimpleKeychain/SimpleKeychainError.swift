@@ -16,6 +16,7 @@ public struct SimpleKeychainError: LocalizedError, CustomDebugStringConvertible 
         case other(status: OSStatus)
         case unknown(message: String)
 
+        // swiftlint:disable:next cyclomatic_complexity
         init(rawValue: OSStatus) {
             switch rawValue {
             case errSecUnimplemented: self = .operationNotImplemented
