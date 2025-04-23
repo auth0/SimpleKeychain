@@ -23,8 +23,8 @@ Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 ### Requirements
 
 - iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+
-- Xcode 15.x
-- Swift 5.9+
+- Xcode 16.x
+- Swift 6.0+
 
 > [!IMPORTANT]
 > Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
