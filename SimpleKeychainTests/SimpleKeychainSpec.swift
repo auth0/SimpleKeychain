@@ -97,13 +97,14 @@ class SimpleKeychainTests: XCTestCase {
     #if os(macOS)
     func testIncludingLimitAllAttributeWhenDeletingAllItems() {
         var limit: String?
-        sut.remove = { query in
+				SimpleKeychainOperations.shared.remove = { query in
             let key = kSecMatchLimit as String
             limit = (query as NSDictionary).value(forKey: key) as? String
             return errSecSuccess
         }
         try? sut.deleteAll()
         XCTAssertEqual(limit, kSecMatchLimitAll as String)
+        SimpleKeychainOperations.shared.remove = SecItemDelete
     }
     #else
     func testNotIncludingLimitAllAttributeWhenDeletingAllItems() {
@@ -146,26 +147,28 @@ class SimpleKeychainTests: XCTestCase {
         let key = UUID().uuidString
         let message = "Unable to convert the retrieved item to a String value"
         let expectedError = SimpleKeychainError(code: .unknown(message: message))
-        sut.retrieve = { _, result in
+        SimpleKeychainOperations.shared.retrieve = { _, result in
             result?.pointee = .some(NSData(data: withUnsafeBytes(of: Date()) { Data($0) }))
             return errSecSuccess
         }
         XCTAssertThrowsError(try sut.string(forKey: key)) { error in
             XCTAssertEqual(error as? SimpleKeychainError, expectedError)
         }
+        SimpleKeychainOperations.shared.retrieve = SecItemCopyMatching
     }
     
     func testRetrievingInvalidDataItem() {
         let key = UUID().uuidString
         let message = "Unable to cast the retrieved item to a Data value"
         let expectedError = SimpleKeychainError(code: .unknown(message: message))
-        sut.retrieve = { _, result in
+        SimpleKeychainOperations.shared.retrieve = { _, result in
             result?.pointee = .some(NSDate())
             return errSecSuccess
         }
         XCTAssertThrowsError(try sut.string(forKey: key)) { error in
             XCTAssertEqual(error as? SimpleKeychainError, expectedError)
         }
+        SimpleKeychainOperations.shared.retrieve = SecItemCopyMatching
     }
     
     func testCheckingStoredItem() {
@@ -216,13 +219,14 @@ class SimpleKeychainTests: XCTestCase {
     func testRetrievingInvalidAttributes() {
         let message = "Unable to cast the retrieved items to a [[String: Any]] value"
         let expectedError = SimpleKeychainError(code: .unknown(message: message))
-        sut.retrieve = { _, result in
+        SimpleKeychainOperations.shared.retrieve = { _, result in
             result?.pointee = .some(NSDate())
             return errSecSuccess
         }
         XCTAssertThrowsError(try sut.keys()) { error in
             XCTAssertEqual(error as? SimpleKeychainError, expectedError)
         }
+        SimpleKeychainOperations.shared.retrieve = SecItemCopyMatching
     }
     
     func testBaseQueryContainsDefaultAttributes() {
