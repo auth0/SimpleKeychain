@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DD9E19C2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */; };
+		1DD9E19D2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */; };
+		1DD9E19E2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */; };
+		1DD9E19F2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */; };
+		1DD9E1A02DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */; };
+		1DD9E1A22DD0036800430020 /* SimpleKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */; };
+		1DD9E1A32DD0036800430020 /* SimpleKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */; };
+		1DD9E1A42DD0036800430020 /* SimpleKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */; };
+		1DD9E1A52DD0036800430020 /* SimpleKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */; };
+		1DD9E1A62DD0036800430020 /* SimpleKeychainOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */; };
 		5B0D47641EA63CD1009FF1BF /* SimpleKeychainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D27651BCE995C003C27B3 /* SimpleKeychainSpec.swift */; };
 		5C29744623FF457A00BC18FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29744523FF457A00BC18FA /* AppDelegate.swift */; };
 		5C29744823FF457A00BC18FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29744723FF457A00BC18FA /* ViewController.swift */; };
@@ -117,6 +127,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychainAttributes.swift; sourceTree = "<group>"; };
+		1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleKeychainOperations.swift; sourceTree = "<group>"; };
 		5B0AB18F2088E2DB002D7109 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		5B0D47591EA63C74009FF1BF /* SimpleKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B108AA91EA62F6100ED4DD2 /* SimpleKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,7 +335,9 @@
 			children = (
 				5FEEB99F1B7BD70A00501415 /* Supporting Files */,
 				5CDF40592852D88C003840E6 /* SimpleKeychain.swift */,
+				1DD9E19B2DCFDC2400430020 /* SimpleKeychainAttributes.swift */,
 				5C737B2A285A7C0200B4BB25 /* SimpleKeychainError.swift */,
+				1DD9E1A12DD0036100430020 /* SimpleKeychainOperations.swift */,
 				5C840111285AFF7B00689C01 /* Accessibility.swift */,
 			);
 			path = SimpleKeychain;
@@ -938,7 +952,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C737B2D285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
+				1DD9E1A22DD0036800430020 /* SimpleKeychainOperations.swift in Sources */,
 				5C840114285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				1DD9E19E2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */,
 				5CDF405C2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -948,7 +964,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C737B2E285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
+				1DD9E1A62DD0036800430020 /* SimpleKeychainOperations.swift in Sources */,
 				5C840115285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				1DD9E1A02DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */,
 				5CDF405D2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -995,7 +1013,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C737B2B285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
+				1DD9E1A32DD0036800430020 /* SimpleKeychainOperations.swift in Sources */,
 				5C840112285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				1DD9E19F2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */,
 				5CDF405A2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1005,7 +1025,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C737B2C285A7C0200B4BB25 /* SimpleKeychainError.swift in Sources */,
+				1DD9E1A42DD0036800430020 /* SimpleKeychainOperations.swift in Sources */,
 				5C840113285AFF7B00689C01 /* Accessibility.swift in Sources */,
+				1DD9E19D2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */,
 				5CDF405B2852D88C003840E6 /* SimpleKeychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1024,7 +1046,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1D1FBAD2C2192FA008E9E3F /* SimpleKeychain.swift in Sources */,
+				1DD9E1A52DD0036800430020 /* SimpleKeychainOperations.swift in Sources */,
 				C1D1FBAE2C2192FA008E9E3F /* SimpleKeychainError.swift in Sources */,
+				1DD9E19C2DCFDC2400430020 /* SimpleKeychainAttributes.swift in Sources */,
 				C1D1FBAF2C2192FA008E9E3F /* Accessibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

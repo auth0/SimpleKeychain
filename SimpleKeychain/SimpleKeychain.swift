@@ -4,22 +4,16 @@ import Security
 @preconcurrency import LocalAuthentication
 #endif
 
-typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
-typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
-
 /// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
 /// Supports sharing credentials with an **access group** or through **iCloud**, and integrating
 /// **Touch ID / Face ID**.
-public struct SimpleKeychain: @unchecked Sendable {
+public struct SimpleKeychain: Sendable {
     let service: String
     let accessGroup: String?
     let accessibility: Accessibility
     let accessControlFlags: SecAccessControlCreateFlags?
     let isSynchronizable: Bool
-    let attributes: [String: Any]
-
-    var retrieve: RetrieveFunction = SecItemCopyMatching
-    var remove: RemoveFunction = SecItemDelete
+    let attributes: SimpleKeychainAttributes
 
     #if canImport(LocalAuthentication) && !os(tvOS)
     let context: LAContext?
@@ -48,7 +42,7 @@ public struct SimpleKeychain: @unchecked Sendable {
         self.accessControlFlags = accessControlFlags
         self.context = context
         self.isSynchronizable = synchronizable
-        self.attributes = attributes
+        self.attributes = SimpleKeychainAttributes(attributes)
     }
     #else
     /// Initializes a ``SimpleKeychain`` instance.
@@ -118,7 +112,7 @@ public extension SimpleKeychain {
     func data(forKey key: String) throws -> Data {
         let query = self.getOneQuery(byKey: key)
         var result: AnyObject?
-        try assertSuccess(forStatus: retrieve(query as CFDictionary, &result))
+        try assertSuccess(forStatus: SimpleKeychainOperations.shared.retrieve(query as CFDictionary, &result))
 
         guard let data = result as? Data else {
             let message = "Unable to cast the retrieved item to a Data value"
@@ -182,7 +176,7 @@ public extension SimpleKeychain {
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func deleteItem(forKey key: String) throws {
         let query = self.baseQuery(withKey: key)
-        try assertSuccess(forStatus: remove(query as CFDictionary))
+        try assertSuccess(forStatus: SimpleKeychainOperations.shared.remove(query as CFDictionary))
     }
 
     /// Deletes all items from the Keychain for the service and access group values.
@@ -197,7 +191,7 @@ public extension SimpleKeychain {
         #if os(macOS)
         query[kSecMatchLimit as String] = kSecMatchLimitAll
         #endif
-        let status = remove(query as CFDictionary)
+        let status = SimpleKeychainOperations.shared.remove(query as CFDictionary)
         guard SimpleKeychainError.Code(rawValue: status) != SimpleKeychainError.Code.itemNotFound else { return }
         try assertSuccess(forStatus: status)
     }
@@ -217,7 +211,7 @@ public extension SimpleKeychain {
     /// - Throws: A ``SimpleKeychainError`` when the SimpleKeychain operation fails.
     func hasItem(forKey key: String) throws -> Bool {
         let query = self.baseQuery(withKey: key)
-        let status = retrieve(query as CFDictionary, nil)
+        let status = SimpleKeychainOperations.shared.retrieve(query as CFDictionary, nil)
 
         if status == SimpleKeychainError.itemNotFound.status {
             return false
@@ -239,7 +233,7 @@ public extension SimpleKeychain {
         let query = self.getAllQuery
         var keys: [String] = []
         var result: AnyObject?
-        let status = retrieve(query as CFDictionary, &result)
+        let status = SimpleKeychainOperations.shared.retrieve(query as CFDictionary, &result)
         guard SimpleKeychainError.Code(rawValue: status) != SimpleKeychainError.Code.itemNotFound else { return keys }
         try assertSuccess(forStatus: status)
 
@@ -262,7 +256,7 @@ public extension SimpleKeychain {
 
 extension SimpleKeychain {
     func baseQuery(withKey key: String? = nil, data: Data? = nil) -> [String: Any] {
-        var query = self.attributes
+        var query = self.attributes.asDictionary
         query[kSecClass as String] = kSecClassGenericPassword
         query[kSecAttrService as String] = self.service
 
