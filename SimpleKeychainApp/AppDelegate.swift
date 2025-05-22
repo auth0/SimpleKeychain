@@ -1,7 +1,7 @@
 import UIKit
 import SimpleKeychain
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
