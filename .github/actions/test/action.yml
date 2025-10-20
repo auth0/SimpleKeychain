@@ -23,7 +23,7 @@ runs:
       shell: bash
 
     - name: Run tests
-      uses: mxcl/xcodebuild@e366f14791346edb74397fe9a762ccee86eddc06 # pin@v3.5.1
+      uses: mxcl/xcodebuild@d3ee9b419c1be9a988086c58fe0988f32d99cfc5 # pin@v3.6.0
       with:
         xcode: ${{ inputs.xcode }}
         scheme: ${{ inputs.scheme }}
