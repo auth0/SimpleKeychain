@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/SimpleKeychain/main.yml?style=flat)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)](https://codecov.io/github/auth0/SimpleKeychain)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/auth0/SimpleKeychain)
 ![License](https://img.shields.io/github/license/auth0/SimpleKeychain.svg?style=flat)
 
 📚 [**Documentation**](#documentation) • 🚀 [**Getting Started**](#getting-started) • 📃 [**Support Policy**](#support-policy) • 💬 [**Feedback**](#feedback)
