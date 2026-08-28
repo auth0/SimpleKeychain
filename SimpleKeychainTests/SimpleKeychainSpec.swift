@@ -187,7 +187,7 @@ class SimpleKeychainTests: XCTestCase {
         for (i, key) in keys.enumerated() {
             try? sut.set("foo\(i)", forKey: key)
         }
-        XCTAssertEqual(try sut.keys(), keys)
+        XCTAssertEqual(try sut.keys().sorted(), keys.sorted())
     }
     
     func testRetrievingEmptyKeys() {
