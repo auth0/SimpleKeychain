@@ -23,8 +23,8 @@ Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 
 ### Requirements
 
-- iOS 14.0+ / macOS 11.0+ / tvOS 14.0+ / watchOS 7.0+
-- Xcode 16.x
+- iOS 16.0+ / macOS 13.0+ / tvOS 16.0+ / watchOS 9.0+
+- Xcode 26.x
 - Swift 6.0+
 
 > [!IMPORTANT]
@@ -150,7 +150,7 @@ The minimum supported Swift minor version is the one released with the oldest-su
 
 We support only the last four major versions of any platform, including the current major version.
 
-Once a platform version becomes unsupported, dropping it from SimpleKeychain **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 14 will cease to be supported when iOS 18 gets released, and SimpleKeychain will be able to drop it in a minor release.
+Once a platform version becomes unsupported, dropping it from SimpleKeychain **will not be considered a breaking change**, and will be done in a **minor** release. For example, iOS 16 will cease to be supported once it is no longer among the four most recent major iOS releases, and SimpleKeychain will be able to drop it in a minor release.
 
 In the case of macOS, the yearly named releases are considered a major platform version for the purposes of this Policy, regardless of the actual version numbers.
 
