@@ -35,7 +35,7 @@ public struct SimpleKeychain: @unchecked Sendable {
     /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
     /// - Parameter attributes: Additional attributes to include in every query. Defaults to an empty dictionary.
     /// - Returns: A ``SimpleKeychain`` instance.
-    public init(service: String = Bundle.main.bundleIdentifier!,
+    public init(service: String = Bundle.main.bundleIdentifier ?? "SimpleKeychain",
                 accessGroup: String? = nil,
                 accessibility: Accessibility = .afterFirstUnlock,
                 accessControlFlags: SecAccessControlCreateFlags? = nil,
@@ -61,7 +61,7 @@ public struct SimpleKeychain: @unchecked Sendable {
     /// - Parameter synchronizable: Whether the items should be synchronized through iCloud. Defaults to `false`.
     /// - Parameter attributes: Additional attributes to include in every query. Defaults to an empty dictionary.
     /// - Returns: A ``SimpleKeychain`` instance.
-    public init(service: String = Bundle.main.bundleIdentifier!,
+    public init(service: String = Bundle.main.bundleIdentifier ?? "SimpleKeychain",
                 accessGroup: String? = nil,
                 accessibility: Accessibility = .afterFirstUnlock,
                 accessControlFlags: SecAccessControlCreateFlags? = nil,

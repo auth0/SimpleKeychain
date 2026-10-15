@@ -23,7 +23,7 @@ class SimpleKeychainTests: XCTestCase {
     
     func testInitializationWithDefaultValues() {
         XCTAssertEqual(sut.accessGroup, nil)
-        XCTAssertEqual(sut.service, Bundle.main.bundleIdentifier)
+        XCTAssertEqual(sut.service, Bundle.main.bundleIdentifier ?? "SimpleKeychain")
         XCTAssertEqual(sut.accessibility, Accessibility.afterFirstUnlock)
         XCTAssertEqual(sut.accessControlFlags, nil)
         XCTAssertEqual(sut.isSynchronizable, false)
@@ -374,4 +374,3 @@ public extension Dictionary where Key == String, Value == Any {
 public func ==(lhs: [String: Any], rhs: [String: Any]) -> Bool {
     return NSDictionary(dictionary: lhs).isEqual(to: rhs)
 }
-
