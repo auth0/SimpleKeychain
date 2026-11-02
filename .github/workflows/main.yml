@@ -27,7 +27,7 @@ jobs:
         needs: authorize # Require approval before running on forked pull requests
         name: Test on ${{ matrix.platform.os }} using Xcode ${{ matrix.xcode }}
         environment: ${{ github.event.pull_request.head.repo.fork && 'external' || 'internal' }}
-        runs-on: macos-14
+        runs-on: macos-26
 
         env:
             xcodeproj: SimpleKeychain.xcodeproj
@@ -39,11 +39,11 @@ jobs:
               - { os: macOS, scheme: SimpleKeychain-macOS }
               - { os: tvOS, scheme: SimpleKeychain-tvOS }
             xcode: 
-              - '16.1'
+              - '26.6'
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v6
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -64,22 +64,22 @@ jobs:
 
             - name: Upload coverage report
               if: ${{ matrix.platform.os == 'iOS' }}
-              uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # pin@5.5.2
+              uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # pin@7.1.1
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
 
     test-package:
         name: Test Swift package using Xcode ${{ matrix.xcode }}
-        runs-on: macos-14
+        runs-on: macos-26
 
         strategy:
           matrix:
             xcode: 
-              - '16.1'
+              - '26.6'
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v6
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -92,16 +92,16 @@ jobs:
 
     pod-lint:
         name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-14-xlarge
+        runs-on: macos-26-xlarge
 
         strategy:
           matrix:
             xcode: 
-              - '16.1'
+              - '26.6'
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v6
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -114,11 +114,11 @@ jobs:
 
     swiftlint:
         name: Lint code with SwiftLint
-        runs-on: macos-14
+        runs-on: macos-26
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v6
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
               
             - name: Install SwiftLint
               run: brew install swiftlint
