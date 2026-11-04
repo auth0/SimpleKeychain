@@ -1,7 +1,6 @@
 {
   "files": {
-    "SimpleKeychain/Info.plist": [],
-    "SimpleKeychain.podspec": []
+    "SimpleKeychain/Info.plist": []
   },
   "postbump": "bundle update && bundle exec fastlane ios build_docs",
   "prefixVersion": false
