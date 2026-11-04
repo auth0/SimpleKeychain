@@ -1,7 +1,7 @@
 default_platform :ios
 
 platform :ios do
-  desc 'Tags the release and pushes the Podspec to CocoaPods'
+  desc 'Tags the release'
   lane :release do
     perform_release target: 'SimpleKeychain-iOS'
     publish_release repository: 'SimpleKeychain'

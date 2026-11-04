@@ -23,9 +23,6 @@ DerivedData
 # Bundler
 .bundle
 
-# CocoaPods
-Pods/
-
 # Carthage
 Carthage/
 SimpleKeychain.framework

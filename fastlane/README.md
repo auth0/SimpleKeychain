@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios release
 ```
 
-Tags the release and pushes the Podspec to CocoaPods
+Tags the release
 
 ### ios build_docs
 

@@ -90,28 +90,6 @@ jobs:
             - name: Run tests
               run: swift test
 
-    pod-lint:
-        name: Lint podspec using Xcode ${{ matrix.xcode }}
-        runs-on: macos-26-xlarge
-
-        strategy:
-          matrix:
-            xcode: 
-              - '26.6'
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # pin@v7.0.1
-
-            - name: Set up environment
-              uses: ./.github/actions/setup
-              with:
-                ruby: ${{ env.ruby }}
-                xcode: ${{ matrix.xcode }}
-
-            - name: Run pod lib lint
-              run: bundle exec pod lib lint --allow-warnings --fail-fast
-
     swiftlint:
         name: Lint code with SwiftLint
         runs-on: macos-26

@@ -1,6 +1,6 @@
 ![SimpleKeychain](https://cdn.auth0.com/website/sdks/banners/simplekeychain-banner.png)
 
-![Version](https://img.shields.io/cocoapods/v/SimpleKeychain.svg?style=flat)
+![Version](https://img.shields.io/github/v/release/auth0/SimpleKeychain?style=flat)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/auth0/SimpleKeychain/main.yml?style=flat)
 [![Coverage Status](https://img.shields.io/codecov/c/github/auth0/SimpleKeychain/master.svg?style=flat)](https://codecov.io/github/auth0/SimpleKeychain)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/auth0/SimpleKeychain)
@@ -28,6 +28,9 @@ Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 - Swift 6.0+
 
 > [!IMPORTANT]
+> CocoaPods support has been discontinued. All new releases are available only through Swift Package Manager and Carthage.
+
+> [!IMPORTANT]
 > Check the [Support Policy](#support-policy) to learn when dropping Xcode, Swift, and platform versions will not be considered a **breaking change**.
 
 ### Installation
@@ -45,16 +48,6 @@ https://github.com/auth0/SimpleKeychain
 ```
 
 Then, select the dependency rule and press **Add Package**.
-
-#### Cocoapods
-
-Add the following line to your `Podfile`:
-
-```ruby
-pod 'SimpleKeychain', '~> 1.0'
-```
-
-Then, run `pod install`.
 
 #### Carthage
 
