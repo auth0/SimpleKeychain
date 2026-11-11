@@ -7,7 +7,7 @@ import Security
 typealias RetrieveFunction = (_ query: CFDictionary, _ result: UnsafeMutablePointer<CFTypeRef?>?) -> OSStatus
 typealias RemoveFunction = (_ query: CFDictionary) -> OSStatus
 
-/// A simple Keychain wrapper for iOS, macOS, tvOS, and watchOS.
+/// A simple Keychain wrapper for iOS, macOS, tvOS, watchOS, and visionOS.
 /// Supports sharing credentials with an **access group** or through **iCloud**, and integrating
 /// **Touch ID / Face ID**.
 public struct SimpleKeychain: @unchecked Sendable {
