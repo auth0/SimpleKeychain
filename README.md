@@ -23,7 +23,7 @@ Migrating from 0.x? Check the [Migration Guide](V1_MIGRATION_GUIDE.md).
 
 ### Requirements
 
-- iOS 16.0+ / macOS 13.0+ / tvOS 16.0+ / watchOS 9.0+
+- iOS 16.0+ / macOS 13.0+ / tvOS 16.0+ / watchOS 9.0+ / visionOS 1.0+
 - Xcode 26.x
 - Swift 6.0+
 
@@ -136,7 +136,7 @@ catch let error as SimpleKeychainError {
 
 ## Support Policy
 
-This Policy defines the extent of the support for Xcode, Swift, and platform (iOS, macOS, tvOS, and watchOS) versions in SimpleKeychain.
+This Policy defines the extent of the support for Xcode, Swift, and platform (iOS, macOS, tvOS, watchOS, and visionOS) versions in SimpleKeychain.
 
 ### Xcode
 
